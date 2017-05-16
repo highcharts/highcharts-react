@@ -11,7 +11,7 @@ var HighchartsReact = createReactClass({
     this.chart = highcharts[constructor](container, options)
   },
 
-  shouldComponentUpdate: function (nextProps, nextState) {},
+  // shouldComponentUpdate: function (nextProps, nextState) {},
 
   componentWillReceiveProps: function () {
     this.chart.update(this.props.options)

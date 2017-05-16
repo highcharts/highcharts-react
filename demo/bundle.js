@@ -4,11 +4,9 @@ var HighchartsReact = require('../')
 var Highcharts = require('highcharts/highstock')
 
 var chartOptions = {
-  series: [
-    {
-      data: [1, 2, 3]
-    }
-  ]
+  series: [{
+    data: [1, 2, 3]
+  }]
 }
 
 var Stock = function () {
@@ -26,15 +24,13 @@ var Stock = function () {
 module.exports = Stock
 
 },{"../":3,"highcharts/highstock":29,"react":186}],2:[function(require,module,exports){
-// DEMO
-
 var React = require('react')
 var render = require('react-dom').render
 
 // Import our demo components
-var Stock = require('./Stock.jsx')
+var Stock = require('./Stock.js')
 
-// Render app with demo charts
+// Render app with demo chart
 var App = function () {
   return React.createElement(
     'div',
@@ -45,7 +41,7 @@ var App = function () {
 
 render(React.createElement(App, null), document.getElementById('root'))
 
-},{"./Stock.jsx":1,"react":186,"react-dom":35}],3:[function(require,module,exports){
+},{"./Stock.js":1,"react":186,"react-dom":35}],3:[function(require,module,exports){
 module.exports = require('./src/HighchartsReact.js')
 
 },{"./src/HighchartsReact.js":187}],4:[function(require,module,exports){

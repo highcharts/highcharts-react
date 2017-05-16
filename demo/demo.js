@@ -2,7 +2,7 @@ var React = require('react')
 var render = require('react-dom').render
 
 // Import our demo components
-var Stock = require('./Stock.jsx')
+var Stock = require('./Stock.js')
 
 // Render app with demo chart
 var App = function () {
