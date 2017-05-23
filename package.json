@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "faucet ./tests/*.js",
-    "bundle-demo": "browserify ./demo/demo.js -o ./demo/bundle.js"
+    "bundle-demo": "browserify ./demo/demo.js -o ./demo/bundle.js",
+    "lint": "standard"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
+    "standard": "^10.0.2",
     "tape": "^4.6.3",
     "tape-jsx-equals": "^1.0.0"
   }
