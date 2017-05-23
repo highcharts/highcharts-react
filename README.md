@@ -11,7 +11,7 @@ Get package from github with npm or yarn
 npm install highcharts blacklabel/highcharts-react
 ```
 
-Then import it with React and Highcharts in your project
+Import it with React and Highcharts in your project
 
 ```
 var React = require('react')
@@ -39,7 +39,13 @@ module.exports = StockChart
 
 ## Examples
 
-You can look at examples in demo folder.
+You can look at examples in demo folder. Bundle these with:
+
+```
+npm run bundle-demo
+```
+
+And open deomo/index.html
 
 ## Running the tests
 

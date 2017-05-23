@@ -13,7 +13,7 @@ var Stock = function () {
     'div',
     null,
     React.createElement(HighchartsReact, {
-      constructor: 'stockChart',
+      constructorType: 'stockChart',
       highcharts: Highcharts,
       options: chartOptions
     })

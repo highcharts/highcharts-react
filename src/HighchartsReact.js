@@ -3,15 +3,23 @@ var createReactClass = require('create-react-class')
 
 var HighchartsReact = createReactClass({
   componentDidMount: function () {
-    var highcharts = this.props.highcharts
-    var constructor = this.props.constructor
-    var container = this.container
+    var highcharts = this.props.highcharts || window.Highcharts
+    var constructorType = this.props.constructorType || 'chart'
     var options = this.props.options
+    var container = this.container
     // Create chart
-    this.chart = highcharts[constructor](container, options)
+    this.chart = highcharts[constructorType](container, options)
   },
 
-  // shouldComponentUpdate: function (nextProps, nextState) {},
+  shouldComponentUpdate: function (nextProps, nextState) {
+    var update = this.props.update
+    // Update if not specified or set to true
+    return (typeof update === 'undefined') || update
+  },
+
+  componentDidUpdate: function () {
+    this.chart.update(this.props.options)
+  },
 
   componentWillReceiveProps: function () {
     this.chart.update(this.props.options)
