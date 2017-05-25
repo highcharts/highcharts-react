@@ -9,7 +9,7 @@ var test = addAssertions(tape, { jsxEquals })
 test('renders container', function (t) {
   t.plan(1)
   renderer.render(React.createElement(HighchartsReact, {
-    constructor: 'chart',
+    constructorType: 'chart',
     options: { series: [{ data: [1, 2, 3] }] }
   }))
   var actual = renderer.getRenderOutput()

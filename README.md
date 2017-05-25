@@ -11,30 +11,38 @@ Get package from github with npm or yarn
 npm install highcharts blacklabel/highcharts-react
 ```
 
-Import it with React and Highcharts in your project
+Import it with React in your project
 
 ```
-var React = require('react')
-var Highcharts = require('highcharts')
-var HighchartsReact = require('highcharts-react')
+import React from 'react'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react'
 ```
 
 Then you can create your custom chart components
 
 ```
-var StockChart = function ({ chartOptions }) {
-  return React.createElement(
-    'div',
-    null,
-    React.createElement(HighchartsReact, {
-      constructor: 'stockChart',
-      highcharts: Highcharts,
-      options: chartOptions
-    })
-  )
-}
+const StockChart = ({ options }) => <HighchartsReact
+  highcharts={Highcharts}
+  constructorType={'chart'}
+  options={options}
+/>
 
-module.exports = StockChart
+export default StockChart
+```
+
+You can render your custom chart component like below:
+
+```
+import React from 'react'
+import { render } from 'react-dom'
+import StockChart from './components/Stock.jsx'
+
+const App = () => <div>
+  <StockChart options={stockOptions} highcharts={Highcharts} />
+</div>
+
+render(<App />, document.getElementById('root'))
 ```
 
 ## Examples

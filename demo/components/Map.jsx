@@ -7,4 +7,4 @@ const MapChart = ({ options, highcharts }) => <HighchartsReact
   options={options}
 />
 
-module.exports = MapChart
+export default MapChart

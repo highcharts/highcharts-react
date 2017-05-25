@@ -7,4 +7,4 @@ const StockChart = ({ options, highcharts }) => <HighchartsReact
   options={options}
 />
 
-module.exports = StockChart
+export default StockChart
