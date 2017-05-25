@@ -24,7 +24,7 @@ Then you can create your custom chart components
 ```
 const StockChart = ({ options }) => <HighchartsReact
   highcharts={Highcharts}
-  constructorType={'chart'}
+  constructorType={'stockChart'}
   options={options}
 />
 

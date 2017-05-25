@@ -33,11 +33,15 @@ var HighchartsReact = createReactClass({
   render: function () {
     var self = this
     // Create container for our chart
-    return React.createElement('div', {
-      ref: function (container) {
-        self.container = container
-      }
-    })
+    return React.createElement('div', Object.assign(
+      {},
+      self.props.containerProps,
+      {
+        ref: function (container) {
+          self.container = container
+        }
+      })
+    )
   }
 })
 
