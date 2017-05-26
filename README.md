@@ -8,7 +8,7 @@ Official minimal Highcharts wrapper for React
 Get package from github with npm or yarn
 
 ```
-npm install highcharts blacklabel/highcharts-react
+npm install blacklabel/highcharts-react highcharts react react-dom
 ```
 
 Import it with React in your project
@@ -50,7 +50,7 @@ render(<App />, document.getElementById('root'))
 You can look at examples in demo folder. Bundle these with:
 
 ```
-npm run bundle-demo
+npm run build-demo
 ```
 
 And open deomo/index.html
