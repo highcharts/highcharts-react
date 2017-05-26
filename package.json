@@ -1,17 +1,15 @@
 {
   "name": "highcharts-react",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "babel-tape-runner ./tests/*.js | faucet",
-    "bundle-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ es2015 react ] ]",
+    "test": "babel-tape-runner ./tests/*.node.js | faucet & browserify ./tests/*.browser.js -t [ babelify --presets [ es2015 react ] ] | tape-run | faucet",
+    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "lint": "standard"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "highcharts": "^5.x"
+  "dependencies": {},
+  "peerDependencies": {
+    "highcharts": "^5.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
@@ -28,6 +26,7 @@
     "react-unit": "^3.0.0",
     "standard": "^10.0.2",
     "tape": "^4.6.3",
-    "tape-jsx-equals": "^1.0.0"
+    "tape-jsx-equals": "^1.0.0",
+    "tape-run": "^3.0.0"
   }
 }
