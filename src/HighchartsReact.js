@@ -3,9 +3,10 @@ var createReactClass = require('create-react-class')
 
 var HighchartsReact = createReactClass({
   componentDidMount: function () {
-    var highcharts = this.props.highcharts || window.Highcharts
-    var constructorType = this.props.constructorType || 'chart'
-    var options = this.props.options
+    var p = this.props
+    var highcharts = p.highcharts || window.Highcharts
+    var constructorType = p.constructorType || 'chart'
+    var options = p.options
     var container = this.container
     // Create chart
     this.chart = highcharts[constructorType](container, options)
