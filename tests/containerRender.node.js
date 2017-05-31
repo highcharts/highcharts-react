@@ -8,7 +8,7 @@ import HighchartsReact from '../'
 const renderer = createRenderer()
 const test = addAssertions(tape, { jsxEquals })
 
-test('renders container', (t) => {
+test('renders charts container', (t) => {
   t.plan(1)
   renderer.render(
     <HighchartsReact

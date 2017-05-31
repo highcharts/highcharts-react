@@ -19,7 +19,7 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react'
 ```
 
-Then you can create your custom chart components
+You can create your custom chart components
 
 ```
 const StockChart = ({ options }) => <HighchartsReact
@@ -31,7 +31,7 @@ const StockChart = ({ options }) => <HighchartsReact
 export default StockChart
 ```
 
-You can render your custom chart component like below:
+Render your custom chart component like below:
 
 ```
 import React from 'react'
@@ -39,21 +39,39 @@ import { render } from 'react-dom'
 import StockChart from './components/Stock.jsx'
 
 const App = () => <div>
-  <StockChart options={stockOptions} highcharts={Highcharts} />
+  <StockChart options={stockOptions} />
 </div>
 
 render(<App />, document.getElementById('root'))
 ```
 
+## Get repository
+
+Clone github repository and install dependencies
+
+```
+git clone https://github.com/blacklabel/highcharts-react
+cd highcharts-react
+npm install
+```
+
+Examples and tests require Highcharts library, don't forget to:
+
+```
+npm install highcharts
+```
+
 ## Examples
 
-You can look at examples in demo folder. Bundle these with:
+Look at examples in demo folder.
+
+Bundle these with:
 
 ```
 npm run build-demo
 ```
 
-And open deomo/index.html
+Demo is located under deomo/index.html
 
 ## Running the tests
 

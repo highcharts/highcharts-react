@@ -5,7 +5,7 @@ import createComponent from 'react-unit'
 
 const test = tape
 
-test('passess container props', (t) => {
+test('passess down container props', (t) => {
   t.plan(1)
   var component = createComponent.shallow(
     <HighchartsReact containerProps={{ className: 'my-custom-class-name' }} />
