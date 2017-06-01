@@ -7,6 +7,7 @@ import Highcharts from 'highcharts/highstock'
 import Chart from './components/Chart.jsx'
 import StockChart from './components/Stock.jsx'
 import MapChart from './components/Map.jsx'
+import Container from './components/Container.jsx'
 import mapData from './data/mapData.js'
 
 // Load Highcharts modules
@@ -33,9 +34,19 @@ const mapOptions = {
 
 // Render app with demo chart
 const App = () => <div>
+  <h1>Demos</h1>
+
+  <h2>Simple line chart</h2>
   <Chart options={chartOptions} highcharts={Highcharts} />
+
+  <h2>Simple stock chart</h2>
   <StockChart options={stockOptions} highcharts={Highcharts} />
+
+  <h2>Simple map chart</h2>
   <MapChart options={mapOptions} highcharts={Highcharts} />
+
+  <h2>Live updating chart</h2>
+  <Container />
 </div>
 
 render(<App />, document.getElementById('root'))
