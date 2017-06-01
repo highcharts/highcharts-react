@@ -21,6 +21,8 @@ import HighchartsReact from 'highcharts-react'
 
 You can create your custom chart components
 
+For example `demo/components/Stock.jsx`:
+
 ```
 const StockChart = ({ options }) => <HighchartsReact
   highcharts={Highcharts}
@@ -71,7 +73,7 @@ Bundle these with:
 npm run build-demo
 ```
 
-Demo is located under deomo/index.html
+Demo is located under demo/index.html
 
 ## Running the tests
 
@@ -88,9 +90,3 @@ npm run lint
 ## Built using
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
-## Authors
-
-* **Sławomir Stypuła** - *Initial work* - [stpoa](https://github.com/stpoa)
-
-See also the list of [contributors](https://github.com/blacklabel/highcharts-react/contributors) who participated in this project.

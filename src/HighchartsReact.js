@@ -6,10 +6,8 @@ var HighchartsReact = createReactClass({
     var p = this.props
     var highcharts = p.highcharts || window.Highcharts
     var constructorType = p.constructorType || 'chart'
-    var options = p.options
-    var container = this.container
     // Create chart
-    this.chart = highcharts[constructorType](container, options)
+    this.chart = highcharts[constructorType](this.container, p.options)
   },
 
   shouldComponentUpdate: function (nextProps, nextState) {
