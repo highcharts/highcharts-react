@@ -8,9 +8,7 @@
     "lint": "standard"
   },
   "dependencies": {
-    "create-react-class": "^15.5.3"
-  },
-  "peerDependencies": {
+    "create-react-class": "^15.5.3",
     "highcharts": "^5.0.0"
   },
   "devDependencies": {
