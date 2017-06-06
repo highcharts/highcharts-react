@@ -7,7 +7,9 @@
     "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "lint": "standard"
   },
-  "dependencies": {},
+  "dependencies": {
+    "create-react-class": "^15.5.3"
+  },
   "peerDependencies": {
     "highcharts": "^5.0.0"
   },
