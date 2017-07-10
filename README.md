@@ -11,26 +11,62 @@ Get package from github with npm or yarn
 npm install blacklabel/highcharts-react highcharts react react-dom
 ```
 
-Import it with React in your project
+### Using
+
+#### Basic usage example
+
+Import it with React in your project and render a basic chart
 
 ```
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react'
+
+const options = {
+  title: {
+    text: 'My stock chart'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
+
+const App = () => <div>
+  <HighchartsReact
+    highcharts={Highcharts}
+    constructorType={'stockChart'}
+    options={options}
+  />
+</div>
+
+render(<App />, document.getElementById('root'))
 ```
 
-You can create your custom chart components
+#### Usage example with custom chart component
 
-For example `demo/components/Stock.jsx`:
+Create custom component `./components/MyStockChart.jsx`:
 
 ```
-const StockChart = ({ options }) => <HighchartsReact
+import React from 'react'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react'
+
+const options = {
+  title: {
+    text: 'My stock chart'
+  },
+  series: [{
+    data: [1, 2, 3]
+  }]
+}
+
+const MyStockChart = () => <HighchartsReact
   highcharts={Highcharts}
   constructorType={'stockChart'}
   options={options}
 />
 
-export default StockChart
+export default MyStockChart
 ```
 
 Render your custom chart component like below:
@@ -38,10 +74,10 @@ Render your custom chart component like below:
 ```
 import React from 'react'
 import { render } from 'react-dom'
-import StockChart from './components/Stock.jsx'
+import MyStockChart from './components/MyStockChart.jsx'
 
 const App = () => <div>
-  <StockChart options={stockOptions} />
+  <MyStockChart />
 </div>
 
 render(<App />, document.getElementById('root'))
@@ -75,13 +111,15 @@ npm run build-demo
 
 Demo is located under demo/index.html
 
-## Running the tests
+## Tests
+
+### Wrapper tests
 
 ```
 npm run test
 ```
 
-### And coding style tests
+### Coding style tests
 
 ```
 npm run lint

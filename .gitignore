@@ -1,3 +1,4 @@
 node_modules
 demo/bundle.js
 .source.*
+.DS_Store
