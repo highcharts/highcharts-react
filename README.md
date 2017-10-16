@@ -8,7 +8,7 @@ Official minimal Highcharts wrapper for React
 Get package from github with npm or yarn
 
 ```
-npm install blacklabel/highcharts-react highcharts react react-dom
+npm install highcharts/highcharts-react highcharts react react-dom
 ```
 
 ### Using
@@ -19,7 +19,7 @@ Import it with React in your project and render a basic chart
 
 ```
 import React from 'react'
-import Highcharts from 'highcharts'
+import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react'
 
 const options = {
@@ -48,7 +48,7 @@ Create custom component `./components/MyStockChart.jsx`:
 
 ```
 import React from 'react'
-import Highcharts from 'highcharts'
+import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react'
 
 const options = {
@@ -88,7 +88,7 @@ render(<App />, document.getElementById('root'))
 Clone github repository and install dependencies
 
 ```
-git clone https://github.com/blacklabel/highcharts-react
+git clone https://github.com/highcharts/highcharts-react
 cd highcharts-react
 npm install
 ```
@@ -97,6 +97,12 @@ Examples and tests require Highcharts library, don't forget to:
 
 ```
 npm install highcharts
+```
+
+For Highstock's indicators it's required to install [highstock-release](https://www.npmjs.com/package/highstock-release)
+
+```
+npm install highstock-release
 ```
 
 ## Examples
