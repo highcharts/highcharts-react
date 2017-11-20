@@ -19,6 +19,7 @@ Import it with React in your project and render a basic chart
 
 ```
 import React from 'react'
+import { render } from 'react-dom'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react'
 
