@@ -119,13 +119,3 @@ Demo is located under demo/index.html
 ```
 npm run test
 ```
-
-### Coding style tests
-
-```
-npm run lint
-```
-
-## Built using
-
-[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
