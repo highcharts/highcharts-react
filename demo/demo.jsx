@@ -11,9 +11,9 @@ import Container from './components/Container.jsx'
 import mapData from './data/mapData.js'
 
 // Load Highcharts modules
-require('highstock-release/indicators/indicators')(Highcharts)
-require('highstock-release/indicators/pivot-points')(Highcharts)
-require('highstock-release/indicators/macd')(Highcharts)
+require('highcharts/indicators/indicators')(Highcharts)
+require('highcharts/indicators/pivot-points')(Highcharts)
+require('highcharts/indicators/macd')(Highcharts)
 require('highcharts/modules/exporting')(Highcharts)
 require('highcharts/modules/map')(Highcharts)
 

@@ -100,12 +100,6 @@ Examples and tests require Highcharts library, don't forget to:
 npm install highcharts
 ```
 
-For Highstock's indicators it's required to install [highstock-release](https://www.npmjs.com/package/highstock-release)
-
-```
-npm install highstock-release
-```
-
 ## Examples
 
 Look at examples in demo folder.
