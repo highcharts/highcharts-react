@@ -7,7 +7,7 @@ Official minimal Highcharts wrapper for React
 
 Get package from github with npm or yarn
 
-```
+```bash
 npm install highcharts/highcharts-react highcharts react react-dom
 ```
 
@@ -17,7 +17,7 @@ npm install highcharts/highcharts-react highcharts react react-dom
 
 Import it with React in your project and render a basic chart
 
-```
+```jsx
 import React from 'react'
 import { render } from 'react-dom'
 import Highcharts from 'highcharts/highstock'
@@ -47,7 +47,7 @@ render(<App />, document.getElementById('root'))
 
 Create custom component `./components/MyStockChart.jsx`:
 
-```
+```jsx
 import React from 'react'
 import Highcharts from 'highcharts/highstock'
 import HighchartsReact from 'highcharts-react'
@@ -72,7 +72,7 @@ export default MyStockChart
 
 Render your custom chart component like below:
 
-```
+```jsx
 import React from 'react'
 import { render } from 'react-dom'
 import MyStockChart from './components/MyStockChart.jsx'
@@ -88,7 +88,7 @@ render(<App />, document.getElementById('root'))
 
 Clone github repository and install dependencies
 
-```
+```bash
 git clone https://github.com/highcharts/highcharts-react
 cd highcharts-react
 npm install
@@ -96,7 +96,7 @@ npm install
 
 Examples and tests require Highcharts library, don't forget to:
 
-```
+```bash
 npm install highcharts
 ```
 
@@ -106,7 +106,7 @@ Look at examples in demo folder.
 
 Bundle these with:
 
-```
+```bash
 npm run build-demo
 ```
 
@@ -116,6 +116,6 @@ Demo is located under demo/index.html
 
 ### Wrapper tests
 
-```
+```bash
 npm run test
 ```
