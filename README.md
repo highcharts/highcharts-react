@@ -8,7 +8,7 @@ Official minimal Highcharts wrapper for React
 Get package from github with npm or yarn
 
 ```bash
-npm install highcharts/highcharts-react highcharts react react-dom
+npm install highcharts-react-official highcharts react react-dom
 ```
 
 ### Using
