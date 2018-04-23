@@ -1,10 +1,10 @@
 import React from 'react'
 import HighchartsReact from '../../'
 
-const StockChart = ({ options, highcharts }) => <HighchartsReact
+const Chart = ({ options, highcharts }) => <HighchartsReact
   highcharts={highcharts}
   constructorType={'chart'}
   options={options}
 />
 
-export default StockChart
+export default Chart
