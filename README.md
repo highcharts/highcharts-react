@@ -86,7 +86,7 @@ HC_map(Highcharts)
 
 // instead of import + init you could use require as:
 // require('highcharts/modules/map')(Highcharts)
-// the same allpies to any other Highcharts module
+// the same applies to any other Highcharts module
 
 const options = {
   title: {
