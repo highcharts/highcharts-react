@@ -15,7 +15,7 @@ npm install highcharts-react-official highcharts react react-dom
 
 #### Basic usage example
 
-Import into your React project and render a:
+Import into your React project and render a chart:
 
 ##### Highcharts chart
 
