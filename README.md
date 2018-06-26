@@ -142,6 +142,10 @@ Options that will be used for a chart. Please refer to the Highcharts [API docum
 #### update
 
 Update will run when checking in `shouldComponentUpdate` if this property is not specified or set to `true`.
+There is possibility to set manually the `oneToOne` parameter of `update()` function, by defining it as a component property like below:
+`oneToOne={true}`
+
+The option is **optional**, defaults to `false`. The `oneToOne` parameter for [updates](https://api.highcharts.com/class-reference/Highcharts.Chart#update). When true, the `series`, `xAxis` and `yAxis` collections will be updated one to one, and items will be either added or removed to match the new updated options. For example, if the chart has **two** series and we call `chart.update` (and this is called on each chart's data change or if `updateFlag` is set to true) with a configuration containing **three** series, **one** will be added. If we call `chart.update` with **one** series, **one** will be removed. Setting an empty series array will remove all series, but leaving out the series property will leave all series untouched. If the series have id's, the new series options will be matched by id, and the remaining ones removed.
 
 
 ### Usage example with custom chart component
