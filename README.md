@@ -227,7 +227,7 @@ npm run test
 
 [Technical support at Highcharts](https://www.highcharts.com/support) will help you with Highcharts and the wrapper.
 
-If you have a bug to report or an enhancement suggestion please you [issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
+If you have a bug to report or an enhancement suggestion please submit [issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
 
 #### Why highcharts-react-official, and not highcharts-react, is used?
 
