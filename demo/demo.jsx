@@ -22,13 +22,8 @@ const chartOptions = {
     text: ''
   },
   series: [{
-    data: [
-      [1, 'Highcharts'],
-      [1, 'React'],
-      [3, 'Highsoft']
-    ],
-    keys: ['y','name'],
-    type: 'pie'
+    data: [1,2,3],
+
   }]
 }
 const stockOptions = {
@@ -337,20 +332,52 @@ const mapOptions = {
 }
 
 // Render app with demo chart
-const App = () => <div>
-  <h1>Demos</h1>
+class App extends React.Component {
+  constructor(props) {
+    super(props)
 
-  <h2>Highcharts</h2>
-  <Chart options={chartOptions} highcharts={Highcharts} />
+    this.state = {
+      options: {
+        series: chartOptions.series
+      }
+    }
+    this.onClick = this.onClick.bind(this)
+  }
 
-  <h2>Highstock</h2>
-  <StockChart options={stockOptions} highcharts={Highcharts} />
+  onClick() {
+    this.setState({
+      options: {
+        series: [{
+          data: [1, 2, 3]
+        },
+        {
+          data: [2, 3, 1]
+        },
+        {
+          data: [3, 2, 1]
+        }]
+      }
+    })
+  }
 
-  <h2>Highmaps</h2>
-  <MapChart options={mapOptions} highcharts={Highcharts} />
+  render() {
+    return <div>
+      <h1>Demos</h1>
 
-  <h2>Live updating chart</h2>
-  <Container />
-</div>
+      <h2>Highcharts</h2>
+      <Chart options={this.state.options} highcharts={Highcharts} />
+      <button onClick={this.onClick}>Update Series</button>
+
+      <h2>Highstock</h2>
+      <StockChart options={stockOptions} highcharts={Highcharts} />
+
+      <h2>Highmaps</h2>
+      <MapChart options={mapOptions} highcharts={Highcharts} />
+
+      <h2>Live updating chart</h2>
+      <Container />
+    </div>
+  }
+}
 
 render(<App />, document.getElementById('root'))

@@ -1,4 +1,5 @@
 node_modules
 demo/bundle.js
+package-lock.json
 .source.*
 .DS_Store
