@@ -17,11 +17,11 @@ var HighchartsReact = createReactClass({
   },
 
   componentDidUpdate: function () {
-    this.chart.update(this.props.options, true, this.props.oneToOne || false)
+    this.chart.update(this.props.options, true, this.props.oneToOne || true)
   },
 
   componentWillReceiveProps: function () {
-    this.chart.update(this.props.options, true, this.props.oneToOne || false)
+    this.chart.update(this.props.options, true, this.props.oneToOne || true)
   },
 
   componentWillUnmount: function () {
