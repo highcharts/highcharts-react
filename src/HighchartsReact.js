@@ -7,7 +7,7 @@ var HighchartsReact = createReactClass({
     var highcharts = p.highcharts || window.Highcharts
     var constructorType = p.constructorType || 'chart'
     // Create chart
-    this.chart = highcharts[constructorType](this.container, p.options)
+    this.chart = highcharts[constructorType](this.container, Object.assign({}, p.options))
   },
 
   shouldComponentUpdate: function (nextProps, nextState) {
@@ -17,11 +17,11 @@ var HighchartsReact = createReactClass({
   },
 
   componentDidUpdate: function () {
-    this.chart.update(this.props.options, true, this.props.oneToOne || true)
+    this.chart.update(Object.assign({}, this.props.options), true, this.props.oneToOne || true)
   },
 
   componentWillReceiveProps: function () {
-    this.chart.update(this.props.options, true, this.props.oneToOne || true)
+    this.chart.update(Object.assign({}, this.props.options), true, this.props.oneToOne || true)
   },
 
   componentWillUnmount: function () {
