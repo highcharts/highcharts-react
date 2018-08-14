@@ -18,8 +18,9 @@
     "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]"
   },
   "dependencies": {
+    "@types/highcharts": "^5.0.25",
     "create-react-class": "^15.5.3",
-    "highcharts": "^6.0.1",
+    "highcharts": "^6.1.1",
     "highstock-release": "^6.0.1"
   },
   "devDependencies": {
@@ -29,7 +30,7 @@
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
     "extend-tape": "^1.2.0",
-    "react": "^15.5.4",
+    "react": "^15.6.2",
     "react-addons-test-utils": "^15.5.1",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
