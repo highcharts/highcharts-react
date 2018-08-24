@@ -15,7 +15,8 @@
   ],
   "scripts": {
     "test": "babel-tape-runner ./tests/*.node.js & browserify ./tests/chartRender.browser.js ./tests/testingEnvironment.browser.js -t [ babelify --presets [ env react ] ] | tape-run",
-    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]"
+    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]",
+    "release": "standard-version"
   },
   "dependencies": {
     "create-react-class": "^15.5.3",
@@ -35,6 +36,7 @@
     "react-test-renderer": "^15.5.4",
     "react-unit": "^3.0.0",
     "standard": "^10.0.2",
+    "standard-version": "^4.4.0",
     "tape": "^4.6.3",
     "tape-run": "^3.0.0"
   }
