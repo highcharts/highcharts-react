@@ -18,7 +18,7 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
     5. [updateArgs](#updateArgs)
     6. [callback](#callback)
 3. [Example with custom chart component](#example-with-custom-chart-component)
-4. [Get repository](#get repository)
+4. [Get repository](#get-repository)
 5. [Examples](#examples)
 6. [Tests](#tests)
 7. [FAQ](#faq)
