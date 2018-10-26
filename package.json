@@ -19,7 +19,6 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "create-react-class": "^15.5.3",
     "highcharts": "^6.0.1",
     "highstock-release": "^6.0.1"
   },
@@ -30,14 +29,14 @@
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
     "extend-tape": "^1.2.0",
-    "react": "^15.5.4",
-    "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4",
+    "react": "^16.4.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.4.0",
+    "react-test-renderer": "^16.4.0",
     "react-unit": "^3.0.0",
     "standard": "^10.0.2",
     "standard-version": "^4.4.0",
-    "tape": "^4.6.3",
+    "tape": "^4.9.1",
     "tape-run": "^3.0.0"
   }
 }

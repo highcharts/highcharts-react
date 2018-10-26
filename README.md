@@ -1,14 +1,45 @@
 # Highcharts React
 Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React
 
+## Table of Contents
+1. [Getting started](#getting-started)
+    1. [General prerequisites](#general-prerequisites)
+    2. [Installing](#installing)
+    3. [Using](#using)
+        1. [Basic usage example](#basic-usage-example)
+        2. [Highcharts chart](#highcharts-chart)
+        3. [Highstock chart](#highstock-chart)
+        4. [Highmaps chart](#highmaps-chart)
+2. [Options details](#options-details)
+    1. [options](#options)
+    2. [highcharts](#highcharts)
+    3. [constructorType](#constructorType)
+    4. [allowChartUpdate](#allowChartUpdate)
+    5. [updateArgs](#updateArgs)
+    6. [callback](#callback)
+3. [Example with custom chart component](#example-with-custom-chart-component)
+4. [Get repository](#get repository)
+5. [Examples](#examples)
+6. [Tests](#tests)
+7. [FAQ](#faq)
+
 ## Getting Started
+
+### General prerequisites
+
+Make sure you have **node**, **NPM** and **React** up to date.
+Tested and required versions:
+
+* node 8.11.3+
+* npm 6.4.1+
+* React 16.4+
 
 ### Installing
 
-Get package from github with npm or yarn
+Get package from NPM in your React app:
 
 ```bash
-npm install highcharts-react-official highcharts react react-dom
+npm install highcharts-react-official
 ```
 
 ### Using
@@ -17,7 +48,7 @@ npm install highcharts-react-official highcharts react react-dom
 
 Import into your React project and render a chart:
 
-##### Highcharts chart
+#### Highcharts chart
 
 ```jsx
 import React from 'react'
@@ -44,7 +75,7 @@ const App = () => <div>
 render(<App />, document.getElementById('root'))
 ```
 
-##### Highstock chart
+#### Highstock chart
 
 ```jsx
 import React from 'react'
@@ -72,7 +103,7 @@ const App = () => <div>
 render(<App />, document.getElementById('root'))
 ```
 
-##### Highmaps chart
+#### Highmaps chart
 
 ```jsx
 import React from 'react'
@@ -110,44 +141,53 @@ const App = () => <div>
 render(<App />, document.getElementById('root'))
 ```
 
-### Options explained
+## Options details
+
+Available options:
 
 ```jsx
   <HighchartsReact
+    options={options}
     highcharts={Highcharts}
     constructorType={'mapChart'}
-    options={options}
-    update={update}
+    allowChartUpdate={update}
+    updateArgs={[true, true, true]}
+    callback={this.chartCallback}
   />
 ```
 
-#### highcharts
+### options
+
+Highcharts chart configuration object. Please refer to the Highcharts [API documentation](https://api.highcharts.com/highcharts/). This option is required.
+
+### highcharts
 
 Used to pass the Highcharts instance after modules are initialized.
 If not set the component will try to get the Highcharts from window.
 
-#### constructorType
+### constructorType
 
-Defaults to `'chart'`. Other official constructors are:
+String for [constructor method](https://www.highcharts.com/docs/getting-started/your-first-chart), defaults to `'chart'`. Other official constructors are:
 
 - `'stockChart'` for Highstock charts
 - `'mapChart'` for Highmaps charts
 
-If you have added a module or a plugin that adds new contructor then you can use it and set using this property.
+If you have added a module or a plugin that adds new constructor then you can use it and set using this property.
 
-#### options
+### allowChartUpdate
 
-Options that will be used for a chart. Please refer to the Highcharts [API documentation](https://api.highcharts.com/highcharts/).
+This wrapper uses `chart.update()` method to apply new options to the chart when changing the parent component.
+Option `allowChartUpdate` allow to turn off the updating. This options is optional, defaults to `true`.
 
-#### update
+### updateArgs
 
-Update will run when checking in `shouldComponentUpdate` if this property is not specified or set to `true`.
-There is possibility to set manually the `oneToOne` parameter of `update()` function, by defining it as a component property like below:
-`oneToOne={false}`
+Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`, in this wrapper defaults to `[true, true, true]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters. This option is optional.
 
-The option is **optional**, defaults to `true`. The `oneToOne` parameter for [updates](https://api.highcharts.com/class-reference/Highcharts.Chart#update). When true, the `series`, `xAxis` and `yAxis` collections will be updated one to one, and items will be either added or removed to match the new updated options. For example, if the chart has **two** series and we call `chart.update` (and this is called on each chart's data change or if `updateFlag` is set to true) with a configuration containing **three** series, **one** will be added. If we call `chart.update` with **one** series, **one** will be removed. Setting an empty series array will remove all series, but leaving out the series property will leave all series untouched. If the series have id's, the new series options will be matched by id, and the remaining ones removed.
+### callback
 
-### Usage example with custom chart component
+A callback function for the created chart. First argument for the function will hold the created `chart`. Default `this` in the function points to the `chart`. This option is optional.
+
+## Example with custom chart component
 
 Create custom component `./components/MyStockChart.jsx`:
 
@@ -190,7 +230,7 @@ render(<App />, document.getElementById('root'))
 
 ## Get repository
 
-Clone github repository and install dependencies
+Clone github repository and install dependencies:
 
 ```bash
 git clone https://github.com/highcharts/highcharts-react
@@ -206,7 +246,7 @@ npm install highcharts
 
 ## Examples
 
-Look at examples in demo folder.
+There are several interesting examples in the demo folder that use all available constructors and a few modules.
 
 Bundle these with:
 
@@ -218,7 +258,8 @@ Demo is located under demo/index.html
 
 ## Tests
 
-### Wrapper tests
+This wrapper contains tests for: testing environment, chart rendering and passing down container props.
+To run tests, type:
 
 ```bash
 npm run test
@@ -226,13 +267,12 @@ npm run test
 
 ## FAQ
 
-#### Where to look for help?
+### Where to look for help?
 
-[Technical support at Highcharts](https://www.highcharts.com/support) will help you with Highcharts and the wrapper.
+[Technical support](https://www.highcharts.com/support) will help you with Highcharts and the wrapper.
 
-If you have a bug to report or an enhancement suggestion please submit [issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
+If you have a bug to report or an enhancement suggestion please submit [Issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
 
-#### Why highcharts-react-official, and not highcharts-react, is used?
+### Why highcharts-react-official, and not highcharts-react, is used?
 
 The NPM package is registered as `highcharts-react-official` because `highcharts-react` was already taken.
-

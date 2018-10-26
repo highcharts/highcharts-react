@@ -1,44 +1,43 @@
-var React = require('react')
-var createReactClass = require('create-react-class')
+import React from "react";
 
-var HighchartsReact = createReactClass({
-  componentDidMount: function () {
-    var p = this.props
-    var highcharts = p.highcharts || window.Highcharts
-    var constructorType = p.constructorType || 'chart'
-    // Create chart
-    this.chart = highcharts[constructorType](this.container, Object.assign({}, p.options))
-  },
-
-  shouldComponentUpdate: function (nextProps, nextState) {
-    var update = this.props.update
-    // Update if not specified or set to true
-    return (typeof update === 'undefined') || update
-  },
-
-  componentDidUpdate: function () {
-    this.chart.update(Object.assign({}, this.props.options), true, !(this.props.oneToOne === false))
-  },
-
-  componentWillReceiveProps: function () {
-    this.chart.update(Object.assign({}, this.props.options), true, !(this.props.oneToOne === false))
-  },
-
-  componentWillUnmount: function () {
-    // Destroy chart
-    this.chart.destroy()
-  },
-
-  render: function () {
-    var self = this
-    var containerProps = this.props.containerProps || {}
-
-    // Add ref to div props
-    containerProps.ref = function (container) { self.container = container }
-
-    // Create container for our chart
-    return React.createElement('div', containerProps)
+class HighchartsReact extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.container = React.createRef();
   }
-})
 
-module.exports = HighchartsReact
+  componentDidMount() {
+    const props = this.props;
+    const highcharts = props.highcharts || window.Highcharts;
+    // Create chart
+    this.chart = highcharts[props.constructorType || "chart"](
+      this.container.current,
+      props.options,
+      props.callback ? props.callback : undefined
+    );
+  }
+
+  componentDidUpdate() {
+    if (this.props.allowChartUpdate !== false) {
+      this.chart.update(
+        this.props.options,
+        ...(this.props.updateArgs || [true, true])
+      );
+    }
+  }
+
+  componentWillUnmount() {
+    // Destroy chart
+    if (this.chart) {
+      this.chart.destroy();
+      this.chart = null;
+    }
+  }
+
+  render() {
+    // Create container for the chart
+    return React.createElement("div", { ref: this.container });
+  }
+}
+
+module.exports = HighchartsReact;

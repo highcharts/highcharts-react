@@ -7,8 +7,8 @@ const test = tape
 
 test('passess down container props', (t) => {
   t.plan(1)
-  var component = createComponent.shallow(
-    <HighchartsReact containerProps={{ className: 'my-custom-class-name' }} />
+  var component = createComponent.interleaved(
+    <HighchartsReact className = 'my-custom-class-name' />
   )
 
   t.equal(component.props.className, 'my-custom-class-name')
