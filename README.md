@@ -1,5 +1,5 @@
 # Highcharts React
-Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React
+Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
 
 ## Table of Contents
 1. [Getting started](#getting-started)
