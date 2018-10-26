@@ -1,6 +1,6 @@
 import React from "react";
 
-class HighchartsReact extends React.PureComponent {
+export default class HighchartsReact extends React.PureComponent {
   constructor(props) {
     super(props);
     this.container = React.createRef();
@@ -39,5 +39,3 @@ class HighchartsReact extends React.PureComponent {
     return React.createElement("div", { ref: this.container });
   }
 }
-
-module.exports = HighchartsReact;
