@@ -40,4 +40,4 @@ class HighchartsReact extends React.PureComponent {
   }
 }
 
-module.exports = HighchartsReact;
+export default HighchartsReact;
