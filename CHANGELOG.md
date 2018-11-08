@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/highcharts/highcharts-react/compare/v1.5.1...v2.0.0) (2018-11-08)
+
+
+### Features
+
+* **webpack-and-sourcemap-added:** Code compiled to ES5, added sourcemaps. ([cb5083a](https://github.com/highcharts/highcharts-react/commit/cb5083a))
+
+
+
 <a name="1.5.2"></a>
 ## [1.5.2](https://github.com/highcharts/highcharts-react/compare/v1.5.1...v1.5.2) (2018-10-26)
 
