@@ -19,7 +19,7 @@
     "build": "webpack --config webpack.config.js",
     "release": "standard-version"
   },
-  "peerDepedencies": {
+  "peerDependencies": {
     "highcharts": ">=5.0.0",
     "react": ">=16.0"
   },
