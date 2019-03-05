@@ -5,13 +5,18 @@ const DtsBundlePlugin = function () {};
 DtsBundlePlugin.prototype.apply = function (compiler) {
     compiler.plugin('done', function(){
         var dts = require('dts-bundle');
-        dts.bundle({
+        var dtsOptions = {
             name: 'HighchartsReact',
             main: 'src/HighchartsReact.d.ts',
-            out: path.resolve(__dirname, './dist/highcharts-react.d.ts'),
+            out: path.resolve(__dirname, './dist/highcharts-react.min.d.ts'),
             removeSource: false,
             outputAsModuleFolder: true // to use npm in-package typings
-        });
+        };
+        dts.bundle(dtsOptions);
+        dtsOptions.out = path.resolve(
+            __dirname, './dist/highcharts-react.min.d.ts'
+        );
+        dts.bundle(dtsOptions);
     });
 };
 
