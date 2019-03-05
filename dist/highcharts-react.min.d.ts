@@ -27,12 +27,12 @@ export interface HighchartsReactProps {
         /**
             * Reference to the chart factory (Default: chart)
             */
-        constructorType?: keyof Highcharts;
+        constructorType?: keyof typeof Highcharts;
 
         /**
             * Highcharts namespace
             */
-        highcharts?: Highcharts;
+        highcharts?: typeof Highcharts;
 
         /**
             * Highcharts options
@@ -43,7 +43,7 @@ export interface HighchartsReactProps {
             * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
             * [true, true, true]
             */
-        updateArgs?: Array<boolean>;
+        updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
 
 
         /**
@@ -77,7 +77,7 @@ extends React.PureComponent<HighchartsReactProps> {
         /**
             * React reference
             */
-        readonly container: React.RefObject;
+        readonly container: React.RefObject<HTMLDivElement>;
 
 
         /**
