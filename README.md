@@ -10,6 +10,7 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
         2. [Highcharts chart](#highcharts-chart)
         3. [Highstock chart](#highstock-chart)
         4. [Highmaps chart](#highmaps-chart)
+        5. [Highcharts with TypeScript](#highcharts-with-typescript)
 2. [Options details](#options-details)
     1. [options](#options)
     2. [highcharts](#highcharts)
@@ -139,6 +140,34 @@ const App = () => <div>
 </div>
 
 render(<App />, document.getElementById('root'))
+```
+
+### Highcharts with TypeScript
+
+```tsx
+import React from 'react';
+import { render } from 'react-dom';
+import * as Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+
+const options: Highcharts.Options = {
+  title: {
+    text: 'My chart'
+  },
+  series: [{
+    type: 'line',
+    data: [1, 2, 3]
+  }]
+}
+
+const App = () => <div>
+  <HighchartsReact
+    highcharts={Highcharts}
+    options={options}
+  />
+</div>
+
+render(<App />, document.getElementById('root'));
 ```
 
 ## Options details
