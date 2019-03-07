@@ -32,6 +32,11 @@ export interface HighchartsReactProps {
     constructorType?: keyof typeof Highcharts;
 
     /**
+     * Properties of the chart container
+     */
+    containerProps?: { [key: string]: any}
+
+    /**
      * Highcharts namespace
      */
     highcharts?: typeof Highcharts;
@@ -43,14 +48,9 @@ export interface HighchartsReactProps {
 
     /**
      * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
-     * [true, true, true]
+     * [true, true, true])
      */
     updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
-
-    /**
-     * Properties of the chart container
-     */
-    containerProps?: { [key: (number | string)]: any}
 
     /* *
      *
