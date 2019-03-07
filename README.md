@@ -17,7 +17,8 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
     3. [constructorType](#constructorType)
     4. [allowChartUpdate](#allowChartUpdate)
     5. [updateArgs](#updateArgs)
-    6. [callback](#callback)
+    6. [containerProps](#containerProps)
+    7. [callback](#callback)
 3. [Example with custom chart component](#example-with-custom-chart-component)
 4. [Get repository](#get-repository)
 5. [Examples](#examples)
@@ -32,7 +33,7 @@ Make sure you have **node**, **NPM** and **React** up to date.
 Tested and required versions:
 
 * node 8.11.3+
-* npm 6.4.1+
+* npm 6.4.1+ or similar package manager
 * React 16.4+
 
 ### Installing
@@ -181,6 +182,7 @@ Available options:
     constructorType={'mapChart'}
     allowChartUpdate={update}
     updateArgs={[true, true, true]}
+    containerProps={{className: 'chartContainer'}}
     callback={this.chartCallback}
   />
 ```
@@ -211,6 +213,10 @@ Option `allowChartUpdate` allow to turn off the updating. This options is option
 ### updateArgs
 
 Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`, in this wrapper defaults to `[true, true, true]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters. This option is optional.
+
+### containerProps
+
+The props object passed to the chart container in `React.createElement` method. Useful for adding styles or class.
 
 ### callback
 
@@ -275,7 +281,7 @@ npm install highcharts
 
 ## Examples
 
-There are several interesting examples in the demo folder that use all available constructors and a few modules.
+There are several interesting examples in the demo folder that use all available constructors and several modules.
 
 Bundle these with:
 
@@ -284,6 +290,8 @@ npm run build-demo
 ```
 
 Demo is located under demo/index.html
+
+Live example on codesandbox: https://codesandbox.io/s/rmjw8347po
 
 ## Tests
 
@@ -298,10 +306,83 @@ npm run test
 
 ### Where to look for help?
 
-[Technical support](https://www.highcharts.com/support) will help you with Highcharts and the wrapper.
+[Technical support](https://www.highcharts.com/support) will help you with Highcharts and with the wrapper.
 
 If you have a bug to report or an enhancement suggestion please submit [Issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
 
 ### Why highcharts-react-official, and not highcharts-react, is used?
 
 The NPM package is registered as `highcharts-react-official` because `highcharts-react` was already taken.
+
+### How to get a chart instance?
+
+Use the `React.createRef` method:
+
+```jsx
+componentDidMount() {
+  this.chartRef = React.createRef();
+}
+
+render() {
+  return (
+    <HighchartsReact
+      highcharts={ Highcharts }
+      options={ options }
+      ref={ this.chartRef }
+    />
+  );
+}
+```
+
+or store it by the callback function:
+
+```jsx
+constructor(props) {
+  super(props);
+  this.afterChartCreated = this.afterChartCreated.bind(this);
+}
+
+afterChartCreated(chart) {
+  this.internalChart = chart;
+}
+
+componentDidMount() {
+  // example of use
+  this.internalChart.addSeries({ data: [1, 2, 3] })
+}
+
+render() {
+  return (
+    <div>
+      <h2>Highcharts</h2>
+      <HighchartsReact
+        highcharts={ Highcharts }
+        options={ options }
+        callback={ this.afterChartCreated }
+      />
+    </div>
+  );
+}
+```
+
+### How to add a module?
+
+To add a module, import and initialize it:
+
+```jsx
+import Highcharts from 'highcharts'
+import highchartsGantt from "highcharts/modules/gantt";
+import HighchartsReact from 'highcharts-react-official'
+
+// init the module
+highchartsGantt(Highcharts);
+```
+
+or use `require`:
+
+```jsx
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
+
+require("highcharts/modules/variwide")(Highcharts);
+```

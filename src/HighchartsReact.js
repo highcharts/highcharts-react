@@ -36,6 +36,9 @@ export default class HighchartsReact extends React.PureComponent {
 
   render() {
     // Create container for the chart
-    return React.createElement("div", { ref: this.container });
+    return React.createElement(
+      "div",
+      { ...this.props.containerProps, ref: this.container }
+    );
   }
 }

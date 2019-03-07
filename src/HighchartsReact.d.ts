@@ -47,6 +47,11 @@ export interface HighchartsReactProps {
      */
     updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
 
+    /**
+     * Properties of the chart container
+     */
+    containerProps?: { [key: (number | string)]: any}
+
     /* *
      *
      *  Functions
