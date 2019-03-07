@@ -46,7 +46,7 @@ export interface HighchartsReactProps {
 
         /**
             * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
-            * [true, true, true]
+            * [true, true, true])
             */
         updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
 
