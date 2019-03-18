@@ -3,106 +3,105 @@
 //   ../react
 //   ../highcharts
 
-import React from "react";
-import Highcharts from "highcharts";
+import * as React from "react";
+import * as Highcharts from "highcharts";
 
 
 
 /**
-    * Properties for a Highcharts component
-    */
+  * Properties for a Highcharts component
+  */
 export interface HighchartsReactProps {
 
 
-        /**
-            * Indexer for custom properties
-            */
-        [key: string]: any;
+    /**
+      * Indexer for custom properties
+      */
+    [key: string]: any;
 
-        /**
-            * Flag for `Chart.update` call (Default: true)
-            */
-        allowChartUpdate?: boolean;
+    /**
+      * Flag for `Chart.update` call (Default: true)
+      */
+    allowChartUpdate?: boolean;
 
-        /**
-            * Reference to the chart factory (Default: chart)
-            */
-        constructorType?: keyof typeof Highcharts;
+    /**
+      * Reference to the chart factory (Default: chart)
+      */
+    constructorType?: keyof typeof Highcharts;
 
-        /**
-            * Properties of the chart container
-            */
-        containerProps?: { [key: string]: any}
+    /**
+      * Properties of the chart container
+      */
+    containerProps?: { [key: string]: any}
 
-        /**
-            * Highcharts namespace
-            */
-        highcharts?: typeof Highcharts;
+    /**
+      * Highcharts namespace
+      */
+    highcharts?: typeof Highcharts;
 
-        /**
-            * Highcharts options
-            */
-        options?: Highcharts.Options;
+    /**
+      * Highcharts options
+      */
+    options?: Highcharts.Options;
 
-        /**
-            * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
-            * [true, true, true])
-            */
-        updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
+    /**
+      * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
+      * [true, true, true])
+      */
+    updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
 
 
-        /**
-            * Callback for the chart factory
-            */
-        callback?: Highcharts.ChartCallbackFunction;
+    /**
+      * Callback for the chart factory
+      */
+    callback?: Highcharts.ChartCallbackFunction;
 }
 
 /**
-    * Highcharts component for React
-    */
-export default
-class HighchartsReact
-extends React.PureComponent<HighchartsReactProps> {
+  * Highcharts component for React
+  */
+export default class HighchartsReact
+    extends React.PureComponent<HighchartsReactProps> {
 
 
-        /**
-            * Creates a new Highcharts component.
-            *
-            * @param props
-            *        Optional React props
-            */
-        constructor(props: HighchartsReactProps);
+    /**
+      * Creates a new Highcharts component.
+      *
+      * @param props
+      *        Optional React props
+      */
+    constructor(props: HighchartsReactProps);
 
 
-        /**
-            * Chart reference
-            */
-        readonly chart: Highcharts.Chart;
+    /**
+      * Chart reference
+      */
+    readonly chart: Highcharts.Chart;
 
-        /**
-            * React reference
-            */
-        readonly container: React.RefObject<HTMLDivElement>;
+    /**
+      * React reference
+      */
+    readonly container: React.RefObject<HTMLDivElement>;
 
 
-        /**
-            * Creates the chart.
-            */
-        componentDidMount(): void;
+    /**
+      * Creates the chart.
+      */
+    componentDidMount(): void;
 
-        /**
-            * Updates the chart. Can be turned off in the optional React props.
-            */
-        componentDidUpdate(): void;
+    /**
+      * Updates the chart. Can be turned off in the optional React props.
+      */
+    componentDidUpdate(): void;
 
-        /**
-            * Destroys the chart right before the component gets destroyed.
-            */
-        componentWillUnmount(): void;
+    /**
+      * Destroys the chart right before the component gets destroyed.
+      */
+    componentWillUnmount(): void;
 
-        /**
-            * Places the chart into the React container.
-            */
-        render(): React.ReactNode;
+    /**
+      * Places the chart into the React container.
+      */
+    render(): React.ReactNode;
 }
 

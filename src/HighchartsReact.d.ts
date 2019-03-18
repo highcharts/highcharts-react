@@ -2,8 +2,8 @@
  * Copyright (C) Highsoft AS
  */
 
-import React from "react";
-import Highcharts from "highcharts";
+import * as React from "react";
+import * as Highcharts from "highcharts";
 
 /**
  * Properties for a Highcharts component
@@ -67,9 +67,8 @@ export interface HighchartsReactProps {
 /**
  * Highcharts component for React
  */
-export default
-class HighchartsReact
-extends React.PureComponent<HighchartsReactProps> {
+export default class HighchartsReact
+    extends React.PureComponent<HighchartsReactProps> {
 
     /* *
      *
