@@ -10,7 +10,8 @@ DtsBundlePlugin.prototype.apply = function (compiler) {
             main: 'src/HighchartsReact.d.ts',
             out: path.resolve(__dirname, './dist/highcharts-react.d.ts'),
             removeSource: false,
-            outputAsModuleFolder: true // to use npm in-package typings
+            outputAsModuleFolder: true, // to use npm in-package typings,
+            indent: '  '
         };
         dts.bundle(dtsOptions);
         dtsOptions.out = path.resolve(

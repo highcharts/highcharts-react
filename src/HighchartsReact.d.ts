@@ -2,74 +2,14 @@
  * Copyright (C) Highsoft AS
  */
 
-import React from "react";
-import Highcharts from "highcharts";
-
-/**
- * Properties for a Highcharts component
- */
-export interface HighchartsReactProps {
-
-    /* *
-     *
-     *  Properties
-     *
-     * */
-
-    /**
-     * Indexer for custom properties
-     */
-    [key: string]: any;
-
-    /**
-     * Flag for `Chart.update` call (Default: true)
-     */
-    allowChartUpdate?: boolean;
-
-    /**
-     * Reference to the chart factory (Default: chart)
-     */
-    constructorType?: keyof typeof Highcharts;
-
-    /**
-     * Properties of the chart container
-     */
-    containerProps?: { [key: string]: any}
-
-    /**
-     * Highcharts namespace
-     */
-    highcharts?: typeof Highcharts;
-
-    /**
-     * Highcharts options
-     */
-    options?: Highcharts.Options;
-
-    /**
-     * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
-     * [true, true, true])
-     */
-    updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
-
-    /* *
-     *
-     *  Functions
-     *
-     * */
-
-    /**
-     * Callback for the chart factory
-     */
-    callback?: Highcharts.ChartCallbackFunction;
-}
+import * as React from "react";
+import * as Highcharts from "highcharts";
 
 /**
  * Highcharts component for React
  */
-export default
-class HighchartsReact
-extends React.PureComponent<HighchartsReactProps> {
+declare class HighchartsReact
+    extends React.PureComponent<HighchartsReact.Props> {
 
     /* *
      *
@@ -83,7 +23,7 @@ extends React.PureComponent<HighchartsReactProps> {
      * @param props
      *        Optional React props
      */
-    constructor(props: HighchartsReactProps);
+    constructor(props: HighchartsReact.Props);
 
     /* *
      *
@@ -127,3 +67,67 @@ extends React.PureComponent<HighchartsReactProps> {
      */
     render(): React.ReactNode;
 }
+
+declare namespace HighchartsReact {
+
+    /**
+     * Properties for a Highcharts component
+     */
+    interface Props {
+
+        /* *
+        *
+        *  Properties
+        *
+        * */
+
+        /**
+         * Indexer for custom properties
+         */
+        [key: string]: any;
+
+        /**
+         * Flag for `Chart.update` call (Default: true)
+         */
+        allowChartUpdate?: boolean;
+
+        /**
+         * Reference to the chart factory (Default: chart)
+         */
+        constructorType?: keyof typeof Highcharts;
+
+        /**
+         * Properties of the chart container
+         */
+        containerProps?: { [key: string]: any}
+
+        /**
+         * Highcharts namespace
+         */
+        highcharts?: typeof Highcharts;
+
+        /**
+         * Highcharts options
+         */
+        options?: Highcharts.Options;
+
+        /**
+         * Flags for `Chart.update` call: redraw, oneToOne, and animation. (Default:
+         * [true, true, true])
+         */
+        updateArgs?: ([boolean] | [boolean, boolean] | [boolean, boolean, boolean]);
+
+        /* *
+        *
+        *  Functions
+        *
+        * */
+
+        /**
+         * Callback for the chart factory
+         */
+        callback?: Highcharts.ChartCallbackFunction;
+    }
+}
+
+export default HighchartsReact;
