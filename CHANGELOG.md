@@ -8,7 +8,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Features
 
-* Fixed [#102](https://github.com/highcharts/highcharts-react/issues/102) - invalid indexer type  ([4e27d0d](https://github.com/highcharts/highcharts-react/commit/4e27d0d))
+* Fixed [#102](https://github.com/highcharts/highcharts-react/issues/102) -  tsconfig incompatibility  ([4e27d0d](https://github.com/highcharts/highcharts-react/commit/4e27d0d))
+* Corrections in the documentation.
 
 
 
@@ -18,7 +19,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Features
 
-* Fixed [#20 - invalid indexer type](https://github.com/highcharts/highcharts-react/issues/20)  ([1345d32](https://github.com/highcharts/highcharts-react/commit/1345d32))
+* Fixed [#20](https://github.com/highcharts/highcharts-react/issues/20) - invalid indexer type  ([1345d32](https://github.com/highcharts/highcharts-react/commit/1345d32))
 
 
 
