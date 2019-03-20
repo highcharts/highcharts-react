@@ -10,20 +10,26 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
         2. [Highcharts chart](#highcharts-chart)
         3. [Highstock chart](#highstock-chart)
         4. [Highmaps chart](#highmaps-chart)
-        5. [Highcharts with TypeScript](#highcharts-with-typescript)
+        5. [Gantt chart](#gantt-chart)
+        6. [Highcharts with TypeScript](#highcharts-with-typescript)
+        7. [Optimal way to update](#optimal-way-to-update)
 2. [Options details](#options-details)
     1. [options](#options)
     2. [highcharts](#highcharts)
-    3. [constructorType](#constructorType)
-    4. [allowChartUpdate](#allowChartUpdate)
-    5. [updateArgs](#updateArgs)
-    6. [containerProps](#containerProps)
+    3. [constructorType](#constructortype)
+    4. [allowChartUpdate](#allowchartupdate)
+    5. [updateArgs](#updateargs)
+    6. [containerProps](#containerprops)
     7. [callback](#callback)
 3. [Example with custom chart component](#example-with-custom-chart-component)
 4. [Get repository](#get-repository)
 5. [Examples](#examples)
 6. [Tests](#tests)
 7. [FAQ](#faq)
+    1. [Where to look for help?](#where-to-look-for-help)
+    2. [Why highcharts-react-official and not highcharts-react is used?](#why-highcharts-react-official-and-not-highcharts-react-is-used)
+    3. [How to get a chart instance?](#how-to-get-a-chart-instance)
+    4. [How to add a module?](#how-to-add-a-module)
 
 ## Getting Started
 
@@ -143,6 +149,37 @@ const App = () => <div>
 render(<App />, document.getElementById('root'))
 ```
 
+#### Gantt chart
+
+```jsx
+import React from "react";
+import { render } from "react-dom";
+import Highcharts from "highcharts/highcharts-gantt";
+import HighchartsReact from "highcharts-react-official";
+
+const options = {
+  series: [{
+    data: [{
+      start: Date.UTC(2014, 10, 18),
+      end: Date.UTC(2014, 10, 25)
+    }, {
+      start: Date.UTC(2014, 10, 27),
+      end: Date.UTC(2014, 10, 29)
+    }]
+  }]
+}
+
+const App = () => <div>
+  <HighchartsReact
+    highcharts={Highcharts}
+    constructorType={'ganttChart'}
+    options={options}
+  />
+</div>
+
+render(<App />, document.getElementById('root'))
+```
+
 ### Highcharts with TypeScript
 
 ```tsx
@@ -182,16 +219,90 @@ const App = (props: HighchartsReact.Props) => <div>
 ReactDom.render(<App />, document.getElementById('root'));
 ```
 
+### Optimal way to update
+
+A good practice is to keep all chart options in the state. When `setState` is called, the options are overwritten and only the new ones are passed to the `chart.update` method.
+
+Live example: https://stackblitz.com/edit/react-hketvd?file=index.js
+
+```jsx
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import HighchartsReact from 'highcharts-react-official';
+import Highcharts from 'highcharts';
+
+class LineChart extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // To avoid unnecessary update keep all options in the state.
+      chartOptions: {
+        xAxis: {
+          categories: ['A', 'B', 'C'],
+        },
+        series: [
+          { data: [1, 2, 3] }
+        ],
+        plotOptions: {
+          series: {
+            point: {
+              events: {
+                mouseOver: this.setHoverData.bind(this)
+              }
+            }
+          }
+        }
+      },
+      hoverData: null
+    };
+  }
+
+  setHoverData = (e) => { 
+    // The chart is not updated because `chartOptions` has not changed.
+    this.setState({ hoverData: e.target.category })
+  }
+
+  updateSeries = () => {
+    // The chart is updated only with new options.
+    this.setState({ 
+      chartOptions: {
+        series: [
+          { data: [Math.random() * 5, 2, 1]}
+        ]
+      }
+    });
+  }
+
+  render() {
+    const { chartOptions, hoverData } = this.state;
+    
+    return (
+      <div>
+        <HighchartsReact
+          highcharts={Highcharts}
+          options={chartOptions}
+        />
+      <h3>Hovering over {hoverData}</h3>
+      <button onClick={this.updateSeries.bind(this)}>Update Series</button>
+      </div>
+    )
+  }
+}
+
+render(<LineChart />, document.getElementById('root'));
+```
+
 ## Options details
 
 Available options:
 
 ```jsx
   <HighchartsReact
-    options={options}
+    options={this.state.chartOptions}
     highcharts={Highcharts}
     constructorType={'mapChart'}
-    allowChartUpdate={update}
+    allowChartUpdate={true}
     updateArgs={[true, true, true]}
     containerProps={{className: 'chartContainer'}}
     callback={this.chartCallback}
@@ -213,6 +324,7 @@ String for [constructor method](https://www.highcharts.com/docs/getting-started/
 
 - `'stockChart'` for Highstock charts
 - `'mapChart'` for Highmaps charts
+- `'ganttChart'` for Gantt charts
 
 If you have added a module or a plugin that adds new constructor then you can use it and set using this property.
 
@@ -321,7 +433,7 @@ npm run test
 
 If you have a bug to report or an enhancement suggestion please submit [Issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
 
-### Why highcharts-react-official, and not highcharts-react, is used?
+### Why highcharts-react-official and not highcharts-react is used?
 
 The NPM package is registered as `highcharts-react-official` because `highcharts-react` was already taken.
 
