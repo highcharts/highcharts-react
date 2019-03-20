@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file. See [standa
 ## [2.1.2](https://github.com/highcharts/highcharts-react/compare/v2.1.1...v2.1.2) (2019-03-20)
 
 
+## Features
+
+* Fixed [#102](https://github.com/highcharts/highcharts-react/issues/102) - invalid indexer type  ([4e27d0d](https://github.com/highcharts/highcharts-react/commit/4e27d0d))
+
+
 
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/highcharts/highcharts-react/compare/v2.1.0...v2.1.1) (2019-03-07)
@@ -13,7 +18,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Features
 
-* Fixed #20 - invalid indexer type  ([1345d32](https://github.com/highcharts/highcharts-react/commit/1345d32))
+* Fixed [#20 - invalid indexer type](https://github.com/highcharts/highcharts-react/issues/20)  ([1345d32](https://github.com/highcharts/highcharts-react/commit/1345d32))
 
 
 
