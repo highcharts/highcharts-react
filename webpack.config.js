@@ -1,25 +1,14 @@
-const webpack = require('webpack')
-const path = require('path')
+const webpack = require('webpack');
+const path = require('path');
+const fs = require('fs');
 
-const DtsBundlePlugin = function () {};
-DtsBundlePlugin.prototype.apply = function (compiler) {
-    compiler.plugin('done', function(){
-        var dts = require('dts-bundle');
-        var dtsOptions = {
-            name: 'HighchartsReact',
-            main: 'src/HighchartsReact.d.ts',
-            out: path.resolve(__dirname, './dist/highcharts-react.d.ts'),
-            removeSource: false,
-            outputAsModuleFolder: true, // to use npm in-package typings,
-            indent: '  '
-        };
-        dts.bundle(dtsOptions);
-        dtsOptions.out = path.resolve(
-            __dirname, './dist/highcharts-react.min.d.ts'
-        );
-        dts.bundle(dtsOptions);
-    });
-};
+(function() {
+
+    const file = fs.readFileSync('src/HighchartsReact.d.ts');
+
+    fs.writeFileSync('dist/highcharts-react.d.ts', file);
+    fs.writeFileSync('dist/highcharts-react.min.d.ts', file);    
+}());
 
 module.exports = {
   entry: {
@@ -50,7 +39,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new DtsBundlePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       include: /\.min\.js$/,
       minimize: true,

@@ -33,7 +33,6 @@
     "babel-tape-runner": "^2.0.1",
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
-    "dts-bundle": "^0.7.3",
     "extend-tape": "^1.2.0",
     "highcharts": "^6.0.0",
     "react": "^16.4.0",
