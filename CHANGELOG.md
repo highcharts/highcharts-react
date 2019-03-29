@@ -6,6 +6,11 @@ All notable changes to this project will be documented in this file. See [standa
 ## [2.1.3](https://github.com/highcharts/highcharts-react/compare/v2.1.2...v2.1.3) (2019-03-27)
 
 
+## Features
+
+* Fixed [#106](https://github.com/highcharts/highcharts-react/issues/106) -  incorrect typescript typing  ([4ffad38](https://github.com/highcharts/highcharts-react/commit/4ffad38))
+
+
 
 <a name="2.1.2"></a>
 ## [2.1.2](https://github.com/highcharts/highcharts-react/compare/v2.1.1...v2.1.2) (2019-03-20)
