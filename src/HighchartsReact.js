@@ -6,8 +6,7 @@ export default class HighchartsReact extends React.PureComponent {
     this.container = React.createRef();
   }
 
-  componentDidMount() {
-    const props = this.props;
+  _createChart(props) {
     const highcharts = props.highcharts || window.Highcharts;
     // Create chart
     this.chart = highcharts[props.constructorType || "chart"](
@@ -17,7 +16,18 @@ export default class HighchartsReact extends React.PureComponent {
     );
   }
 
+  componentDidMount() {
+    this._createChart(this.props);
+  }
+
   componentDidUpdate() {
+    if (this.props.immutable && this.chart) {
+      this.chart.destroy();
+      this._createChart(this.props);
+
+      return;
+    }
+
     if (this.props.allowChartUpdate !== false) {
       this.chart.update(
         this.props.options,

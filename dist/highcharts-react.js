@@ -115,16 +115,27 @@ var HighchartsReact = function (_React$PureComponent) {
   }
 
   _createClass(HighchartsReact, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var props = this.props;
+    key: "_createChart",
+    value: function _createChart(props) {
       var highcharts = props.highcharts || window.Highcharts;
       // Create chart
       this.chart = highcharts[props.constructorType || "chart"](this.container.current, props.options, props.callback ? props.callback : undefined);
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this._createChart(this.props);
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
+      if (this.props.immutable && this.chart) {
+        this.chart.destroy();
+        this._createChart(this.props);
+
+        return;
+      }
+
       if (this.props.allowChartUpdate !== false) {
         var _chart;
 
