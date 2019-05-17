@@ -414,7 +414,7 @@ npm run build-demo
 
 Demo is located under demo/index.html
 
-Live example on codesandbox: https://codesandbox.io/s/rmjw8347po
+Live example: https://stackblitz.com/edit/react-4ded5d?file=index.js
 
 ## Tests
 
