@@ -50,10 +50,15 @@ declare class HighchartsReact
     /**
      * Creates the chart.
      */
+    _createChart(props: HighchartsReact.Props): void;
+
+    /**
+     * Creates the chart.
+     */
     componentDidMount(): void;
 
     /**
-     * Updates the chart. Can be turned off in the optional React props.
+     * Updates (or recreates with immutable on) the chart. Can be turned off in the optional React props.
      */
     componentDidUpdate(): void;
 
@@ -105,6 +110,11 @@ declare namespace HighchartsReact {
          * Highcharts namespace
          */
         highcharts?: typeof Highcharts;
+
+        /**
+         * Immutably recreates the chart on receiving new props
+         */
+        immutable?: boolean;
 
         /**
          * Highcharts options

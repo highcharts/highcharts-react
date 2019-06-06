@@ -258,14 +258,14 @@ class LineChart extends Component {
     };
   }
 
-  setHoverData = (e) => { 
+  setHoverData = (e) => {
     // The chart is not updated because `chartOptions` has not changed.
     this.setState({ hoverData: e.target.category })
   }
 
   updateSeries = () => {
     // The chart is updated only with new options.
-    this.setState({ 
+    this.setState({
       chartOptions: {
         series: [
           { data: [Math.random() * 5, 2, 1]}
@@ -276,7 +276,7 @@ class LineChart extends Component {
 
   render() {
     const { chartOptions, hoverData } = this.state;
-    
+
     return (
       <div>
         <HighchartsReact
@@ -303,6 +303,7 @@ Available options:
     highcharts={Highcharts}
     constructorType={'mapChart'}
     allowChartUpdate={true}
+    immutable={false}
     updateArgs={[true, true, true]}
     containerProps={{className: 'chartContainer'}}
     callback={this.chartCallback}
@@ -332,6 +333,10 @@ If you have added a module or a plugin that adds new constructor then you can us
 
 This wrapper uses `chart.update()` method to apply new options to the chart when changing the parent component.
 Option `allowChartUpdate` allow to turn off the updating. This options is optional, defaults to `true`.
+
+### immutable
+
+Reinitialises the chart on prop update (as oppose to `chart.update()`) - useful in some cases but slower than a regular update.
 
 ### updateArgs
 
