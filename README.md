@@ -14,13 +14,6 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
         6. [Highcharts with TypeScript](#highcharts-with-typescript)
         7. [Optimal way to update](#optimal-way-to-update)
 2. [Options details](#options-details)
-    1. [options](#options)
-    2. [highcharts](#highcharts)
-    3. [constructorType](#constructortype)
-    4. [allowChartUpdate](#allowchartupdate)
-    5. [updateArgs](#updateargs)
-    6. [containerProps](#containerprops)
-    7. [callback](#callback)
 3. [Example with custom chart component](#example-with-custom-chart-component)
 4. [Get repository](#get-repository)
 5. [Examples](#examples)
@@ -299,56 +292,28 @@ Available options:
 
 ```jsx
   <HighchartsReact
-    options={this.state.chartOptions}
-    highcharts={Highcharts}
-    constructorType={'mapChart'}
-    allowChartUpdate={true}
-    immutable={false}
-    updateArgs={[true, true, true]}
-    containerProps={{className: 'chartContainer'}}
-    callback={this.chartCallback}
+    options = { this.state.chartOptions }
+    highcharts = { Highcharts }
+    constructorType = { 'mapChart' }
+    allowChartUpdate = { true }
+    immutable = { false }
+    updateArgs = { [true, true, true] }
+    containerProps = {{ className: 'chartContainer' }}
+    callback = { this.chartCallback }
   />
 ```
 
-### options
+| Parameter | Type | Required | Defaults | Description |
+| --------- | :----: | :--------: | :--------: | ----------- |
+| `options` | Object | yes | - | Highcharts chart configuration object. Please refer to the Highcharts [API documentation](https://api.highcharts.com/highcharts/). |
+| `highcharts` | Object | yes | - | Used to pass the Highcharts instance after modules are initialized. If not set the component will try to get the Highcharts from window. |
+| `constructorType` | String | no | `'chart'` | String for [constructor method](https://www.highcharts.com/docs/getting-started/your-first-chart). Official constructors: <br>- `'chart'` for Highcharts charts <br>- `'stockChart'` for Highstock charts <br>- `'mapChart'` for Highmaps charts <br>- `'ganttChart'` for Gantt charts|
+| `allowChartUpdate` | 	Boolean | no | `true` | This wrapper uses `chart.update()` method to apply new options to the chart when changing the parent component. This option allow to turn off the updating. |
+| `immutable` | Boolean | no | `false` | Reinitialises the chart on prop update (as oppose to `chart.update()`) - useful in some cases but slower than a regular update.|
+| `updateArgs` | Array | no | `[true, true, true]` | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters.|
+| `containerProps` | Object | no | - | The props object passed to the chart container in `React.createElement` method. Useful for adding styles or class.|
+| `callback` | Function | no | - | A callback function for the created chart. First argument for the function will hold the created `chart`. Default `this` in the function points to the `chart`. This option is optional. |
 
-Highcharts chart configuration object. Please refer to the Highcharts [API documentation](https://api.highcharts.com/highcharts/). This option is required.
-
-### highcharts
-
-Used to pass the Highcharts instance after modules are initialized.
-If not set the component will try to get the Highcharts from window.
-
-### constructorType
-
-String for [constructor method](https://www.highcharts.com/docs/getting-started/your-first-chart), defaults to `'chart'`. Other official constructors are:
-
-- `'stockChart'` for Highstock charts
-- `'mapChart'` for Highmaps charts
-- `'ganttChart'` for Gantt charts
-
-If you have added a module or a plugin that adds new constructor then you can use it and set using this property.
-
-### allowChartUpdate
-
-This wrapper uses `chart.update()` method to apply new options to the chart when changing the parent component.
-Option `allowChartUpdate` allow to turn off the updating. This options is optional, defaults to `true`.
-
-### immutable
-
-Reinitialises the chart on prop update (as oppose to `chart.update()`) - useful in some cases but slower than a regular update.
-
-### updateArgs
-
-Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`, in this wrapper defaults to `[true, true, true]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters. This option is optional.
-
-### containerProps
-
-The props object passed to the chart container in `React.createElement` method. Useful for adding styles or class.
-
-### callback
-
-A callback function for the created chart. First argument for the function will hold the created `chart`. Default `this` in the function points to the `chart`. This option is optional.
 
 ## Example with custom chart component
 
