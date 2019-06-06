@@ -6,33 +6,37 @@ export default class HighchartsReact extends React.PureComponent {
     this.container = React.createRef();
   }
 
-  _createChart(props) {
-    const highcharts = props.highcharts || window.Highcharts;
-    // Create chart
-    this.chart = highcharts[props.constructorType || "chart"](
-      this.container.current,
-      props.options,
-      props.callback ? props.callback : undefined
-    );
+  createChart() {
+    const props = this.props;
+    const H = props.highcharts || window.Highcharts;
+    const constructorType = props.constructorType || "chart";
+
+    // Create a chart
+    if (H && H[constructorType] && props.options) {
+      this.chart = H[constructorType](
+        this.container.current,
+        props.options,
+        props.callback ? props.callback : undefined
+      );
+    }
   }
 
   componentDidMount() {
-    this._createChart(this.props);
+    this.createChart();
   }
 
   componentDidUpdate() {
-    if (this.props.immutable && this.chart) {
-      this.chart.destroy();
-      this._createChart(this.props);
+    const props = this.props;
 
-      return;
-    }
-
-    if (this.props.allowChartUpdate !== false) {
-      this.chart.update(
-        this.props.options,
-        ...(this.props.updateArgs || [true, true])
-      );
+    if (props.allowChartUpdate !== false) {
+      if (!props.immutable && this.chart) {
+        this.chart.update(
+          props.options,
+          ...(props.updateArgs || [true, true])
+        );
+      } else {
+        this.createChart();
+      }
     }
   }
 

@@ -115,31 +115,35 @@ var HighchartsReact = function (_React$PureComponent) {
   }
 
   _createClass(HighchartsReact, [{
-    key: "_createChart",
-    value: function _createChart(props) {
-      var highcharts = props.highcharts || window.Highcharts;
-      // Create chart
-      this.chart = highcharts[props.constructorType || "chart"](this.container.current, props.options, props.callback ? props.callback : undefined);
+    key: "createChart",
+    value: function createChart() {
+      var props = this.props;
+      var H = props.highcharts || window.Highcharts;
+      var constructorType = props.constructorType || "chart";
+
+      // Create a chart
+      if (H && H[constructorType] && props.options) {
+        this.chart = H[constructorType](this.container.current, props.options, props.callback ? props.callback : undefined);
+      }
     }
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this._createChart(this.props);
+      this.createChart();
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      if (this.props.immutable && this.chart) {
-        this.chart.destroy();
-        this._createChart(this.props);
+      var props = this.props;
 
-        return;
-      }
+      if (props.allowChartUpdate !== false) {
+        if (!props.immutable && this.chart) {
+          var _chart;
 
-      if (this.props.allowChartUpdate !== false) {
-        var _chart;
-
-        (_chart = this.chart).update.apply(_chart, [this.props.options].concat(_toConsumableArray(this.props.updateArgs || [true, true])));
+          (_chart = this.chart).update.apply(_chart, [props.options].concat(_toConsumableArray(props.updateArgs || [true, true])));
+        } else {
+          this.createChart();
+        }
       }
     }
   }, {
