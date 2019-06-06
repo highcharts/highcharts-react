@@ -121,8 +121,14 @@ var HighchartsReact = function (_React$PureComponent) {
       var H = props.highcharts || window.Highcharts;
       var constructorType = props.constructorType || "chart";
 
-      // Create a chart
-      if (H && H[constructorType] && props.options) {
+      if (!H) {
+        console.warn('The "highcharts" property was not passed.');
+      } else if (!H[constructorType]) {
+        console.warn('The "constructorType" property is incorrect or some ' + 'required module is not imported.');
+      } else if (!props.options) {
+        console.warn('The "options" property was not passed.');
+      } else {
+        // Create a chart
         this.chart = H[constructorType](this.container.current, props.options, props.callback ? props.callback : undefined);
       }
     }
