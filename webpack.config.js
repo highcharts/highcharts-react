@@ -23,7 +23,18 @@ module.exports = {
     path: path.resolve(__dirname, './dist')
   },
   externals: {
-    react: 'React'
+    react: {
+      root: 'React',
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react'
+    },
+    highcharts: {
+      root: 'Highcharts',
+      commonjs: 'highcharts',
+      commonjs2: 'highcharts',
+      amd: 'highcharts'
+    }
   },
   devtool: 'source-map',
   module: {
