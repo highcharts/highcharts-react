@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"));
+		module.exports = factory(require("react"), require("highcharts"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react"], factory);
+		define(["react", "highcharts"], factory);
 	else if(typeof exports === 'object')
-		exports["HighchartsReact"] = factory(require("react"));
+		exports["HighchartsReact"] = factory(require("react"), require("highcharts"));
 	else
-		root["HighchartsReact"] = factory(root["React"]);
-})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
+		root["HighchartsReact"] = factory(root["React"], root["Highcharts"]);
+})(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__, __WEBPACK_EXTERNAL_MODULE_2__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -92,6 +92,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _highcharts = __webpack_require__(2);
+
+var _highcharts2 = _interopRequireDefault(_highcharts);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -118,7 +122,7 @@ var HighchartsReact = function (_React$PureComponent) {
     key: "createChart",
     value: function createChart() {
       var props = this.props;
-      var H = props.highcharts || window.Highcharts;
+      var H = props.highcharts || _highcharts2.default;
       var constructorType = props.constructorType || "chart";
 
       if (!H) {
@@ -179,6 +183,12 @@ exports.default = HighchartsReact;
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_1__;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
 
 /***/ })
 /******/ ]);

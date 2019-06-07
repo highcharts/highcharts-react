@@ -1,4 +1,5 @@
 import React from "react";
+import Highcharts from "highcharts";
 
 export default class HighchartsReact extends React.PureComponent {
   constructor(props) {
@@ -8,7 +9,7 @@ export default class HighchartsReact extends React.PureComponent {
 
   createChart() {
     const props = this.props;
-    const H = props.highcharts || window.Highcharts;
+    const H = props.highcharts || Highcharts;
     const constructorType = props.constructorType || "chart";
 
     if (!H) {
