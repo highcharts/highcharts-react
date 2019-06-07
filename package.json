@@ -24,6 +24,11 @@
     "highcharts": ">=5.0.0",
     "react": ">=16.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && npm run build && git add ."
+    }
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -35,6 +40,7 @@
     "browserify": "^14.3.0",
     "extend-tape": "^1.2.0",
     "highcharts": "^6.0.0",
+    "husky": "^2.4.0",
     "react": "^16.4.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.4.0",
