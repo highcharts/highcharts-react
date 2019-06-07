@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.2"></a>
+## [2.2.2](https://github.com/highcharts/highcharts-react/compare/v2.2.1...v2.2.2) (2019-06-07)
+
+
+### Bug Fixes
+
+* Changed the way of importing Highcharts package. ([e7c314b](https://github.com/highcharts/highcharts-react/commit/e7c314b))
+
+
+### Features
+
+* **husky:** Husky added. ([1d8234a](https://github.com/highcharts/highcharts-react/commit/1d8234a))
+
+
+
 <a name="2.2.1"></a>
 ## [2.2.1](https://github.com/highcharts/highcharts-react/compare/v2.2.0...v2.2.1) (2019-06-07)
 

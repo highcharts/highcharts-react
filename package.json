@@ -1,6 +1,6 @@
 {
   "name": "highcharts-react-official",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "main": "./dist/highcharts-react.min.js",
   "types": "./dist/highcharts-react.min.d.ts",
   "license": "SEE LICENSE IN <LICENSE>",
