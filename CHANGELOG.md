@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/highcharts/highcharts-react/compare/v2.1.3...v2.2.0) (2019-06-07)
+
+
+### Bug Fixes
+
+* Fixed externals [#114](https://github.com/highcharts/highcharts-react/issues/114). ([ee27ed0](https://github.com/highcharts/highcharts-react/commit/ee27ed0))
+
+
+### Features
+
+* **debugger:** Added warning messages. ([3b3ff83](https://github.com/highcharts/highcharts-react/commit/3b3ff83))
+* **immutable:** Support for immutable prop - rerendering entire chart on componentDidUpdate. ([6464894](https://github.com/highcharts/highcharts-react/commit/6464894))
+
+
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/highcharts/highcharts-react/compare/v2.1.2...v2.1.3) (2019-03-27)
 
