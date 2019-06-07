@@ -7,12 +7,9 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
     2. [Installing](#installing)
     3. [Using](#using)
         1. [Basic usage example](#basic-usage-example)
-        2. [Highcharts chart](#highcharts-chart)
-        3. [Highstock chart](#highstock-chart)
-        4. [Highmaps chart](#highmaps-chart)
-        5. [Gantt chart](#gantt-chart)
-        6. [Highcharts with TypeScript](#highcharts-with-typescript)
-        7. [Optimal way to update](#optimal-way-to-update)
+        2. [Highcharts with NextJS](#highcharts-with-nextjs)
+        3. [Highcharts with TypeScript](#highcharts-with-typescript)
+        4. [Optimal way to update](#optimal-way-to-update)
 2. [Options details](#options-details)
 3. [Example with custom chart component](#example-with-custom-chart-component)
 4. [Get repository](#get-repository)
@@ -23,6 +20,7 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
     2. [Why highcharts-react-official and not highcharts-react is used?](#why-highcharts-react-official-and-not-highcharts-react-is-used)
     3. [How to get a chart instance?](#how-to-get-a-chart-instance)
     4. [How to add a module?](#how-to-add-a-module)
+    5. [How to add React component to a chart's element?](#how-to-add-react-component-to-a-charts-element)
 
 ## Getting Started
 
@@ -49,8 +47,6 @@ npm install highcharts-react-official
 
 Import into your React project and render a chart:
 
-#### Highcharts chart
-
 ```jsx
 import React from 'react'
 import { render } from 'react-dom'
@@ -69,103 +65,6 @@ const options = {
 const App = () => <div>
   <HighchartsReact
     highcharts={Highcharts}
-    options={options}
-  />
-</div>
-
-render(<App />, document.getElementById('root'))
-```
-
-#### Highstock chart
-
-```jsx
-import React from 'react'
-import { render } from 'react-dom'
-import Highcharts from 'highcharts/highstock'
-import HighchartsReact from 'highcharts-react-official'
-
-const options = {
-  title: {
-    text: 'My stock chart'
-  },
-  series: [{
-    data: [1, 2, 3]
-  }]
-}
-
-const App = () => <div>
-  <HighchartsReact
-    highcharts={Highcharts}
-    constructorType={'stockChart'}
-    options={options}
-  />
-</div>
-
-render(<App />, document.getElementById('root'))
-```
-
-#### Highmaps chart
-
-```jsx
-import React from 'react'
-import { render } from 'react-dom'
-import Highcharts from 'highcharts'
-import HC_map from 'highcharts/modules/map'
-import HighchartsReact from 'highcharts-react-official'
-
-// init the module
-HC_map(Highcharts)
-
-// instead of import + init you could use require as:
-// require('highcharts/modules/map')(Highcharts)
-// the same applies to any other Highcharts module
-
-const options = {
-  title: {
-    text: 'My map chart'
-  },
-  series: [{
-    // any meaningful map data is much larger,
-    // but it should go in here
-    data: [1, 2, 3]
-  }]
-}
-
-const App = () => <div>
-  <HighchartsReact
-    highcharts={Highcharts}
-    constructorType={'mapChart'}
-    options={options}
-  />
-</div>
-
-render(<App />, document.getElementById('root'))
-```
-
-#### Gantt chart
-
-```jsx
-import React from "react";
-import { render } from "react-dom";
-import Highcharts from "highcharts/highcharts-gantt";
-import HighchartsReact from "highcharts-react-official";
-
-const options = {
-  series: [{
-    data: [{
-      start: Date.UTC(2014, 10, 18),
-      end: Date.UTC(2014, 10, 25)
-    }, {
-      start: Date.UTC(2014, 10, 27),
-      end: Date.UTC(2014, 10, 29)
-    }]
-  }]
-}
-
-const App = () => <div>
-  <HighchartsReact
-    highcharts={Highcharts}
-    constructorType={'ganttChart'}
     options={options}
   />
 </div>
@@ -211,6 +110,25 @@ const App = (props: HighchartsReact.Props) => <div>
 
 ReactDom.render(<App />, document.getElementById('root'));
 ```
+
+### Highcharts with NextJS
+
+Next.js executes code twice - on server-side and then client-side. First run is done in an environment that lacks `window` and causes Highcharts to be loaded, but not initialized. Easy fix is to place all modules inits in a `if` checking if Highcharts is an object or a function. It should be an object for modules initialization to work without any errors, so code like below is an easy fix:
+
+```jsx
+import React from 'react'
+import Highcharts from 'highcharts'
+import HighchartsExporting from 'highcharts/modules/exporting'
+import HighchartsReact from 'highcharts-react-official'
+
+if (typeof Highcharts === 'object') {
+    HighchartsExporting(Highcharts)
+}
+
+...
+```
+
+This is a know issue with NextJS and is covered here: https://github.com/zeit/next.js/wiki/FAQ#i-use-a-library-which-throws-window-is-undefined
 
 ### Optimal way to update
 
@@ -288,7 +206,7 @@ render(<LineChart />, document.getElementById('root'));
 
 ## Options details
 
-Available options:
+Available options with example values:
 
 ```jsx
   <HighchartsReact
@@ -479,3 +397,9 @@ import HighchartsReact from 'highcharts-react-official'
 
 require("highcharts/modules/variwide")(Highcharts);
 ```
+
+### How to add React component to a chart's element?
+
+By using [Portals](https://en.reactjs.org/docs/portals.html) it is possible to add a component to every HTML chart element.
+
+Live example: https://codesandbox.io/s/1o5y7r31k3
