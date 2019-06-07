@@ -7,7 +7,7 @@ const fs = require('fs');
     const file = fs.readFileSync('src/HighchartsReact.d.ts');
 
     fs.writeFileSync('dist/highcharts-react.d.ts', file);
-    fs.writeFileSync('dist/highcharts-react.min.d.ts', file);    
+    fs.writeFileSync('dist/highcharts-react.min.d.ts', file);
 }());
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     path: path.resolve(__dirname, './dist')
   },
   externals: {
-    react: 'react'
+    react: 'React'
   },
   devtool: 'source-map',
   module: {

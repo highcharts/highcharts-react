@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"));
+		module.exports = factory(require("React"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react"], factory);
+		define(["React"], factory);
 	else if(typeof exports === 'object')
-		exports["HighchartsReact"] = factory(require("react"));
+		exports["HighchartsReact"] = factory(require("React"));
 	else
-		root["HighchartsReact"] = factory(root["react"]);
+		root["HighchartsReact"] = factory(root["React"]);
 })(typeof self !== 'undefined' ? self : this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
