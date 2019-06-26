@@ -29,16 +29,26 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
 Make sure you have **node**, **NPM** and **React** up to date.
 Tested and required versions:
 
-* node 8.11.3+
-* npm 6.4.1+ or similar package manager
-* React 16.4+
+* `node` 8.11.3+
+* `npm` 6.4.1+ or similar package manager
+
+This wrapper also requires highcharts and react packages with following versions installed in your project:
+
+* `react` 16.4+
+* `highcharts` 5.0.0+
 
 ### Installing
 
-Get package from NPM in your React app:
+Get the package from NPM in your React app:
 
 ```bash
 npm install highcharts-react-official
+```
+
+If Highcharts is not already installed, get the package with Highcharts:
+
+```bash
+npm install highcharts highcharts-react-official
 ```
 
 ### Using
