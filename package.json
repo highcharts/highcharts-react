@@ -3,7 +3,7 @@
   "version": "2.2.2",
   "main": "./dist/highcharts-react.min.js",
   "types": "./dist/highcharts-react.min.d.ts",
-  "license": "SEE LICENSE IN <LICENSE>",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/highcharts/highcharts-react"
