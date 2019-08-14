@@ -22,7 +22,7 @@
   },
   "peerDependencies": {
     "highcharts": ">=5.0.0",
-    "react": ">=16.0"
+    "react": ">=16.8.0"
   },
   "husky": {
     "hooks": {
@@ -41,10 +41,9 @@
     "extend-tape": "^1.2.0",
     "highcharts": "^6.0.0",
     "husky": "^2.4.0",
-    "react": "^16.4.0",
-    "react-addons-test-utils": "^15.6.2",
-    "react-dom": "^16.4.0",
-    "react-test-renderer": "^16.4.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-test-renderer": "^16.9.0",
     "react-unit": "^3.0.0",
     "standard": "^10.0.2",
     "standard-version": "^4.4.0",
