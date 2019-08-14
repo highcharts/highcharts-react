@@ -86,8 +86,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -100,30 +98,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// React currently throws a warning when using `useLayoutEffect` on the server.
+// To get around it, we can conditionally `useEffect` on the server (no-op) and
+// `useLayoutEffect` in the browser. We need `useLayoutEffect` to ensure the
+// `Highcharts` ref is available in the layout phase. This makes it available
+// in a parent component's `componentDidMount`.
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var HighchartsReact = (0, _react.forwardRef)(function HighchartsReact(props, ref) {
+  var containerRef = (0, _react.useRef)();
+  var chartRef = (0, _react.useRef)();
+  var unmountingRef = (0, _react.useRef)(false);
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+  useIsomorphicLayoutEffect(function () {
+    return function () {
+      unmountingRef.current = true;
+    };
+  }, []);
 
-var HighchartsReact = function (_React$PureComponent) {
-  _inherits(HighchartsReact, _React$PureComponent);
-
-  function HighchartsReact(props) {
-    _classCallCheck(this, HighchartsReact);
-
-    var _this = _possibleConstructorReturn(this, (HighchartsReact.__proto__ || Object.getPrototypeOf(HighchartsReact)).call(this, props));
-
-    _this.container = _react2.default.createRef();
-    return _this;
-  }
-
-  _createClass(HighchartsReact, [{
-    key: "createChart",
-    value: function createChart() {
-      var props = this.props;
+  useIsomorphicLayoutEffect(function () {
+    function createChart() {
       var H = props.highcharts || _highcharts2.default;
-      var constructorType = props.constructorType || "chart";
+      var constructorType = props.constructorType || 'chart';
 
       if (!H) {
         console.warn('The "highcharts" property was not passed.');
@@ -133,50 +129,47 @@ var HighchartsReact = function (_React$PureComponent) {
         console.warn('The "options" property was not passed.');
       } else {
         // Create a chart
-        this.chart = H[constructorType](this.container.current, props.options, props.callback ? props.callback : undefined);
+        chartRef.current = H[constructorType](containerRef.current, props.options, props.callback ? props.callback : undefined);
       }
     }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.createChart();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      var props = this.props;
 
+    if (!chartRef.current) {
+      createChart();
+    } else {
       if (props.allowChartUpdate !== false) {
-        if (!props.immutable && this.chart) {
-          var _chart;
+        if (!props.immutable && chartRef.current) {
+          var _chartRef$current;
 
-          (_chart = this.chart).update.apply(_chart, [props.options].concat(_toConsumableArray(props.updateArgs || [true, true])));
+          (_chartRef$current = chartRef.current).update.apply(_chartRef$current, [props.options].concat(_toConsumableArray(props.updateArgs || [true, true])));
         } else {
-          this.createChart();
+          createChart();
         }
       }
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      // Destroy chart
-      if (this.chart) {
-        this.chart.destroy();
-        this.chart = null;
+
+    return function () {
+      // Destroy chart only if unmounting.
+      if (chartRef.current && unmountingRef.current) {
+        chartRef.current.destroy();
+        chartRef.current = null;
       }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      // Create container for the chart
-      return _react2.default.createElement("div", _extends({}, this.props.containerProps, { ref: this.container }));
-    }
-  }]);
+    };
+  });
 
-  return HighchartsReact;
-}(_react2.default.PureComponent);
+  (0, _react.useImperativeHandle)(ref, function () {
+    return {
+      get chart() {
+        return chartRef.current;
+      },
+      container: containerRef
+    };
+  }, []);
 
-exports.default = HighchartsReact;
+  // Create container for the chart
+  return _react2.default.createElement('div', _extends({}, props.containerProps, { ref: containerRef }));
+});
+
+exports.default = (0, _react.memo)(HighchartsReact);
 
 /***/ }),
 /* 1 */
