@@ -144,7 +144,9 @@ This is a know issue with NextJS and is covered here: https://github.com/zeit/ne
 
 A good practice is to keep all chart options in the state. When `setState` is called, the options are overwritten and only the new ones are passed to the `chart.update` method.
 
-Live example: https://stackblitz.com/edit/react-hketvd?file=index.js
+**Live example:** https://stackblitz.com/edit/react-hketvd?file=index.js
+
+**Optimal way to update with React Hooks:** https://stackblitz.com/edit/react-nwseym?file=index.js
 
 ```jsx
 import React, { Component } from 'react';
