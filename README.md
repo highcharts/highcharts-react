@@ -34,7 +34,7 @@ Tested and required versions:
 
 This wrapper also requires highcharts and react packages with following versions installed in your project:
 
-* `react` 16.4+
+* `react` 16.6+
 * `highcharts` 5.0.0+
 
 ### Installing
