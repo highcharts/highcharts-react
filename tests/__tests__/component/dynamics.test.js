@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Highcharts from 'highcharts';
-import ParentComponent from '../ParentComponent';
+import ParentComponent from '../../ParentComponent';
 
 const test = jest.fn();
 

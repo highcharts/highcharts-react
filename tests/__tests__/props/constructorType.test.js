@@ -7,30 +7,30 @@ import map from 'highcharts/modules/map';
 map(Highcharts);
 
 let chart;
+const parentState = {
+  options: {
+    chart: {
+      events: {
+        load() {
+          chart = this;
+        }
+      }
+    },
+    series: [{
+      data: [1, 2, 3]
+    }]
+  },
+
+  parentProps: {
+    highcharts: Highcharts,
+    constructorType: 'stockChart',
+    immutable: true
+  }
+};
+
+const parentProps = parentState.parentProps;
 
 describe('Props tests - constructorType', () => {
-  const parentState = {
-    options: {
-      chart: {
-        events: {
-          load() {
-            chart = this;
-          }
-        }
-      },
-      series: [{
-        data: [1, 2, 3]
-      }]
-    },
-
-    parentProps: {
-      highcharts: Highcharts,
-      constructorType: 'stockChart',
-      immutable: true
-    }
-  };
-
-  const parentProps = parentState.parentProps;
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );
