@@ -2,12 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
 
-(function() {
+(function () {
+  const file = fs.readFileSync('src/HighchartsReact.d.ts');
 
-    const file = fs.readFileSync('src/HighchartsReact.d.ts');
-
-    fs.writeFileSync('dist/highcharts-react.d.ts', file);
-    fs.writeFileSync('dist/highcharts-react.min.d.ts', file);
+  fs.writeFileSync('dist/highcharts-react.d.ts', file);
+  fs.writeFileSync('dist/highcharts-react.min.d.ts', file);
 }());
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    sourceMapFilename: "[name].js.map",
+    sourceMapFilename: '[name].js.map',
     library: 'HighchartsReact',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, './dist')
@@ -42,10 +41,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          plugins: ['babel-plugin-transform-object-rest-spread']
-        }
+        loader: 'babel-loader'
       }
     ]
   },
@@ -57,4 +53,4 @@ module.exports = {
       debug: true
     })
   ]
-}
+};
