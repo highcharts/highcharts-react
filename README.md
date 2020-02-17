@@ -32,10 +32,17 @@ Tested and required versions:
 * `node` 8.11.3+
 * `npm` 6.4.1+ or similar package manager
 
-This wrapper also requires highcharts and react packages with following versions installed in your project:
+This wrapper also requires highcharts and react packages with the following versions installed in your project:
+
+For version **2.x.x** :
 
 * `react` 16.4+
 * `highcharts` 5.0.0+
+
+For version **3.x.x** :
+
+* `react` 16.9+
+* `highcharts` 6.0.0+
 
 ### Installing
 
