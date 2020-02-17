@@ -22,11 +22,10 @@ const parentState = {
   }
 };
 
-describe('Component renders without crashing', () => {
+describe('Test - chart update and chart destroy', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );
-
   it('Test function should not be triggered', () => {
     wrapper.setState({
       firstRender: false
@@ -54,4 +53,11 @@ describe('Component renders without crashing', () => {
 
     expect(test).toHaveBeenCalledTimes(2);
   });
+
+  it('Test the chart destroying after the component unmount', () => {
+    wrapper.unmount();
+
+    expect(Highcharts.charts).toStrictEqual([undefined]);
+  });
+
 });

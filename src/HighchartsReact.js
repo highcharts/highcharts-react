@@ -87,7 +87,7 @@ const HighchartsReact = forwardRef(function HighchartsReact(props, ref) {
   );
 
   // Create container for the chart
-  return <div {...props.containerProps} ref={containerRef} />;
+  return <div { ...props.containerProps } ref={ containerRef } />;
 });
 
 export default memo(HighchartsReact);

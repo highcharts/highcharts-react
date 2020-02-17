@@ -15,6 +15,7 @@ export default class ParentComponent extends React.Component {
       <HighchartsReact
         { ...parentProps }
         options={ options }
+        ref = { this.chartComponent }
       />
     );
   }
