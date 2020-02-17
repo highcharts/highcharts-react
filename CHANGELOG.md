@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/highcharts/highcharts-react/compare/v2.2.2...v3.0.0) (2020-02-17)
+
+
+### Features
+
+* increase React peer dependency to v16.8.0 ([030ac4e](https://github.com/highcharts/highcharts-react/commit/030ac4e))
+
+
+### BREAKING CHANGES
+
+* To upgrade, run `yarn add react@^16.8.0 react-dom@^16.8.0` or `npm install --save react@^16.8.0 react-dom@^16.8.0`.
+If you're using `react-test-renderer`, you'll need to bump it to `^16.8.0` as well.
+
+
+
 <a name="2.2.2"></a>
 ## [2.2.2](https://github.com/highcharts/highcharts-react/compare/v2.2.1...v2.2.2) (2019-06-07)
 
