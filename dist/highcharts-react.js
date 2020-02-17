@@ -75,50 +75,38 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_highcharts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_highcharts__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _highcharts = __webpack_require__(2);
-
-var _highcharts2 = _interopRequireDefault(_highcharts);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-// React currently throws a warning when using `useLayoutEffect` on the server.
+ // React currently throws a warning when using `useLayoutEffect` on the server.
 // To get around it, we can conditionally `useEffect` on the server (no-op) and
 // `useLayoutEffect` in the browser. We need `useLayoutEffect` to ensure the
 // `Highcharts` ref is available in the layout phase. This makes it available
 // in a parent component's `componentDidMount`.
-var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
 
-var HighchartsReact = (0, _react.forwardRef)(function HighchartsReact(props, ref) {
-  var containerRef = (0, _react.useRef)();
-  var chartRef = (0, _react.useRef)();
-  var unmountingRef = (0, _react.useRef)(false);
-
-  useIsomorphicLayoutEffect(function () {
-    return function () {
-      unmountingRef.current = true;
-    };
-  }, []);
-
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? __WEBPACK_IMPORTED_MODULE_0_react__["useLayoutEffect"] : __WEBPACK_IMPORTED_MODULE_0_react__["useEffect"];
+var HighchartsReact = Object(__WEBPACK_IMPORTED_MODULE_0_react__["forwardRef"])(function HighchartsReact(props, ref) {
+  var containerRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
+  var chartRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
   useIsomorphicLayoutEffect(function () {
     function createChart() {
-      var H = props.highcharts || _highcharts2.default;
+      var H = props.highcharts || __WEBPACK_IMPORTED_MODULE_1_highcharts___default.a;
       var constructorType = props.constructorType || 'chart';
 
       if (!H) {
@@ -146,30 +134,31 @@ var HighchartsReact = (0, _react.forwardRef)(function HighchartsReact(props, ref
         }
       }
     }
-
+  });
+  useIsomorphicLayoutEffect(function () {
     return function () {
       // Destroy chart only if unmounting.
-      if (chartRef.current && unmountingRef.current) {
+      if (chartRef.current) {
         chartRef.current.destroy();
         chartRef.current = null;
       }
     };
-  });
-
-  (0, _react.useImperativeHandle)(ref, function () {
+  }, []);
+  Object(__WEBPACK_IMPORTED_MODULE_0_react__["useImperativeHandle"])(ref, function () {
     return {
       get chart() {
         return chartRef.current;
       },
+
       container: containerRef
     };
-  }, []);
+  }, []); // Create container for the chart
 
-  // Create container for the chart
-  return _react2.default.createElement('div', _extends({}, props.containerProps, { ref: containerRef }));
+  return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", _extends({}, props.containerProps, {
+    ref: containerRef
+  }));
 });
-
-exports.default = (0, _react.memo)(HighchartsReact);
+/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react__["memo"])(HighchartsReact));
 
 /***/ }),
 /* 1 */

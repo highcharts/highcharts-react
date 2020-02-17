@@ -6,6 +6,7 @@ import React, {
   useLayoutEffect,
   useRef
 } from 'react';
+
 import Highcharts from 'highcharts';
 
 // React currently throws a warning when using `useLayoutEffect` on the server.
@@ -16,78 +17,77 @@ import Highcharts from 'highcharts';
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-const HighchartsReact = forwardRef(function HighchartsReact(props, ref) {
-  const containerRef = useRef();
-  const chartRef = useRef();
-  const unmountingRef = useRef(false);
+const HighchartsReact = forwardRef(
+  function HighchartsReact(props, ref) {
+    const containerRef = useRef();
+    const chartRef = useRef();
 
-  useIsomorphicLayoutEffect(() => {
-    return () => {
-      unmountingRef.current = true;
-    };
-  }, []);
+    useIsomorphicLayoutEffect(() => {
+      function createChart() {
+        const H = props.highcharts || Highcharts;
+        const constructorType = props.constructorType || 'chart';
 
-  useIsomorphicLayoutEffect(() => {
-    function createChart() {
-      const H = props.highcharts || Highcharts;
-      const constructorType = props.constructorType || 'chart';
+        if (!H) {
+          console.warn('The "highcharts" property was not passed.');
 
-      if (!H) {
-        console.warn('The "highcharts" property was not passed.');
-      } else if (!H[constructorType]) {
-        console.warn(
-          'The "constructorType" property is incorrect or some ' +
-            'required module is not imported.'
-        );
-      } else if (!props.options) {
-        console.warn('The "options" property was not passed.');
-      } else {
-        // Create a chart
-        chartRef.current = H[constructorType](
-          containerRef.current,
-          props.options,
-          props.callback ? props.callback : undefined
-        );
-      }
-    }
-
-    if (!chartRef.current) {
-      createChart();
-    } else {
-      if (props.allowChartUpdate !== false) {
-        if (!props.immutable && chartRef.current) {
-          chartRef.current.update(
-            props.options,
-            ...(props.updateArgs || [true, true])
+        } else if (!H[constructorType]) {
+          console.warn(
+            'The "constructorType" property is incorrect or some ' +
+              'required module is not imported.'
           );
+        } else if (!props.options) {
+          console.warn('The "options" property was not passed.');
+
         } else {
-          createChart();
+          // Create a chart
+          chartRef.current = H[constructorType](
+            containerRef.current,
+            props.options,
+            props.callback ? props.callback : undefined
+          );
         }
       }
-    }
 
-    return () => {
-      // Destroy chart only if unmounting.
-      if (chartRef.current && unmountingRef.current) {
-        chartRef.current.destroy();
-        chartRef.current = null;
+      if (!chartRef.current) {
+        createChart();
+      } else {
+        if (props.allowChartUpdate !== false) {
+          if (!props.immutable && chartRef.current) {
+            chartRef.current.update(
+              props.options,
+              ...(props.updateArgs || [true, true])
+            );
+          } else {
+            createChart();
+          }
+        }
       }
-    };
-  });
+    });
 
-  useImperativeHandle(
-    ref,
-    () => ({
-      get chart() {
-        return chartRef.current;
-      },
-      container: containerRef
-    }),
-    []
-  );
+    useIsomorphicLayoutEffect(() => {
+      return () => {
+        // Destroy chart only if unmounting.
+        if (chartRef.current) {
+          chartRef.current.destroy();
+          chartRef.current = null;
+        }
+      };
+    }, []);
 
-  // Create container for the chart
-  return <div { ...props.containerProps } ref={ containerRef } />;
-});
+    useImperativeHandle(
+      ref,
+      () => ({
+        get chart() {
+          return chartRef.current;
+        },
+        container: containerRef
+      }),
+      []
+    );
+
+    // Create container for the chart
+    return <div { ...props.containerProps } ref={ containerRef } />;
+  }
+);
 
 export default memo(HighchartsReact);
