@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * increase React peer dependency to v16.8.0 ([030ac4e](https://github.com/highcharts/highcharts-react/commit/030ac4e))
+* refactor component with React Hooks ([c8b1e55](https://github.com/highcharts/highcharts-react/commit/c8b1e55))
+* refactor tests ([634a7e7](https://github.com/highcharts/highcharts-react/commit/25f5ecb))
 
 
 ### BREAKING CHANGES

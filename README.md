@@ -41,7 +41,7 @@ For version **2.x.x** :
 
 For version **3.x.x** :
 
-* `react` 16.9+
+* `react` 16.8+
 * `highcharts` 6.0.0+
 
 ### Installing
