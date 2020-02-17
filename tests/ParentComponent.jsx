@@ -4,7 +4,7 @@ import HighchartsReact from '../src/HighchartsReact';
 export default class ParentComponent extends React.Component {
   constructor(props) {
     super(props);
-
+    this.chartComponent = React.createRef();
     this.state = props.parentState;
   }
 

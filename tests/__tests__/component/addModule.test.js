@@ -2,31 +2,40 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Highcharts from 'highcharts';
 import HCmore from 'highcharts/highcharts-more';
-import ParentComponent from '../../ParentComponent';
+import HighchartsReact from '../../../src/HighchartsReact';
 
-HCmore(Highcharts);
-
-const parentState = {
-  options: {
-    series: [{
-      type: 'bubble',
-      data: [1, 2, 3]
-    }]
-  },
-
-  parentProps: {
-    highcharts: Highcharts
-  }
+const options = {
+  series: [{
+    type: 'bubble',
+    data: [1, 2, 3]
+  }]
 };
 
-describe('Test - add module', () => {
-  global.console = { error: jest.fn() };
-  mount(
-    <ParentComponent parentState={ parentState } />
-  );
-
-  it('Should be no errors in the console while module is attached properly', () => {
-    expect(console.error).not.toBeCalled();
+describe('Test - add module.', () => {
+  beforeEach(() => {
+    jest.spyOn(console, 'error');
+    console.error.mockImplementation(() => {});
   });
 
+  it('There should be an error before module initialization.', () => {
+    expect(() => {
+      mount(
+        <HighchartsReact options={ options } highcharts={ Highcharts } />
+      );
+    }).toThrow(Error);
+  });
+
+  it('Should be no errors in the console while module is attached properly.', () => {
+    HCmore(Highcharts);
+
+    expect(() => {
+      mount(
+        <HighchartsReact options={ options } highcharts={ Highcharts } />
+      );
+    }).not.toThrow(Error);
+  });
+
+  afterEach(() => {
+    console.error.mockRestore();
+  });
 });

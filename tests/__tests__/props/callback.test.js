@@ -20,7 +20,7 @@ const parentState = {
 
 const parentProps = parentState.parentProps;
 
-describe('Props tests - callback', () => {
+describe('Props tests - callback.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );

@@ -1,39 +1,19 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Highcharts from 'highcharts';
-import ParentComponent from '../../ParentComponent';
+import HighchartsReact from '../../../src/HighchartsReact';
 
-const test = jest.fn();
-
-const parentState = {
-  options: {
-    chart: {
-      events: {
-        load: test
-      }
-    },
-    series: [{
-      data: [1, 2, 3]
-    }]
-  },
-
-  parentProps: {
-    highcharts: Highcharts
-  }
-};
-
-describe('Test - multiple charts', () => {
+describe('Test - multiple charts.', () => {
   mount(
-    <ParentComponent parentState={ parentState } />
-  );
-  mount(
-    <ParentComponent parentState={ parentState } />
-  );
-  mount(
-    <ParentComponent parentState={ parentState } />
+    <div>
+      <HighchartsReact options={ {} } highcharts={ Highcharts } />
+      <HighchartsReact options={ {} } highcharts={ Highcharts } />
+      <HighchartsReact options={ {} } highcharts={ Highcharts } />
+    </div>
   );
 
-  it('Test function should not be triggered', () => {
-    expect(test).toHaveBeenCalledTimes(3);
+  it('There should be rendered three charts.', () => {
+    expect(Highcharts.charts.length).toBe(3);
+    expect(Highcharts.charts[1]).toHaveProperty('series');
   });
 });

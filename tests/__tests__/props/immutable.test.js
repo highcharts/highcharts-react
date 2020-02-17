@@ -28,7 +28,7 @@ const parentState = {
   }
 };
 
-describe('Props tests - immutable', () => {
+describe('Props tests - immutable.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );

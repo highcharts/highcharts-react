@@ -29,7 +29,7 @@ const parentState = {
   }
 };
 
-describe('Props tests - updateArgs', () => {
+describe('Props tests - updateArgs.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );

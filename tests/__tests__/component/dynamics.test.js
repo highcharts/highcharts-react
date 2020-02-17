@@ -22,18 +22,18 @@ const parentState = {
   }
 };
 
-describe('Test - chart update and chart destroy', () => {
+describe('Test - chart update and chart destroy.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );
-  it('Test function should not be triggered', () => {
+  it('Test function should not be triggered.', () => {
     wrapper.setState({
       firstRender: false
     });
     expect(test).not.toHaveBeenCalled();
   });
 
-  it('Test function should be triggered - chart has been updated', () => {
+  it('Test function should be triggered - chart has been updated.', () => {
     wrapper.setState({
       options: {
         series: [{
@@ -54,7 +54,7 @@ describe('Test - chart update and chart destroy', () => {
     expect(test).toHaveBeenCalledTimes(2);
   });
 
-  it('Test the chart destroying after the component unmount', () => {
+  it('Test the chart destroying after the component unmount.', () => {
     wrapper.unmount();
 
     expect(Highcharts.charts).toStrictEqual([undefined]);

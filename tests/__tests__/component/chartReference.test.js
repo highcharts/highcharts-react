@@ -1,19 +1,27 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Highcharts from 'highcharts';
-import HighchartsReact from '../../../src/HighchartsReact';
+import ParentComponent from '../../ParentComponent';
 
- 
-test('Check if console warn occurs when props are not set', () => {
+const parentState = {
+  options: {},
+  parentProps: {
+    highcharts: Highcharts
+  }
+};
 
-  const wrapper = mount(<HighchartsReact 
-    highcharts={ Highcharts }
-    options={ {
-      series: [{
-        data: [1, 2, 3]
-      }]
-    } }
-  />);
+describe('Test - component refs.', () => {
+  it('The component should have chart and container refs.', () => {
+    const wrapper = mount(
+      <ParentComponent parentState={ parentState } />
+    );
 
-  console.log(wrapper.props());
+    expect(
+      wrapper.instance().chartComponent.current.chart
+    ).toBe(Highcharts.charts[0]);
+
+    expect(
+      wrapper.instance().chartComponent.current.container
+    ).toBeDefined();
+  });
 });

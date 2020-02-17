@@ -23,7 +23,7 @@ const parentState = {
   }
 };
 
-describe('Props tests - allowChartUpdate', () => {
+describe('Props tests - allowChartUpdate.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );

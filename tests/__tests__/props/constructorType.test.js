@@ -30,7 +30,7 @@ const parentState = {
 
 const parentProps = parentState.parentProps;
 
-describe('Props tests - constructorType', () => {
+describe('Props tests - constructorType.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );

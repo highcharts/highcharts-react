@@ -12,7 +12,7 @@ const parentState = {
   }
 };
 
-describe('Props tests - containerProps', () => {
+describe('Props tests - containerProps.', () => {
   const wrapper = mount(
     <ParentComponent parentState={ parentState } />
   );
