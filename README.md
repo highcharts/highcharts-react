@@ -367,12 +367,7 @@ render() {
 or store it by the callback function:
 
 ```jsx
-constructor(props) {
-  super(props);
-  this.afterChartCreated = this.afterChartCreated.bind(this);
-}
-
-afterChartCreated(chart) {
+afterChartCreated = (chart) => {
   this.internalChart = chart;
 }
 
