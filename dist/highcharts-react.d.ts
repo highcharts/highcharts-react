@@ -14,7 +14,7 @@ declare const HighchartsReact: React.ForwardRefExoticComponent<
       /**
        * Chart reference
        */
-      chart: Highcharts.Chart;
+      chart: Highcharts.ChartObject;
 
       /**
        * React reference
