@@ -55,7 +55,7 @@
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
     "standard": "^10.0.2",
-    "standard-version": "^4.4.0",
+    "standard-version": "^8.0.1",
     "webpack": "^3.12.0"
   }
 }
