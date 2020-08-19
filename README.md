@@ -346,7 +346,7 @@ The NPM package is registered as `highcharts-react-official` because `highcharts
 
 ### How to get a chart instance?
 
-Use the `React.createRef` method (for version > 3.0.0):
+Use the `React.createRef` method (for version < 3.0.0):
 
 ```jsx
 componentDidMount() {
