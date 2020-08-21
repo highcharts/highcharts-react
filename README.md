@@ -349,7 +349,8 @@ The NPM package is registered as `highcharts-react-official` because `highcharts
 Use the `React.createRef` method (for version < 3.0.0):
 
 ```jsx
-componentDidMount() {
+constructor(props) {
+  super(props)
   this.chartRef = React.createRef();
 }
 
