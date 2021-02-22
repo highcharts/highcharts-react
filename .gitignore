@@ -1,5 +1,7 @@
 node_modules
+dist
 demo/bundle.js
 package-lock.json
+.cache
 .source.*
 .DS_Store

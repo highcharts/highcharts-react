@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]",
+    "build-demo": "parcel ./demo/index.html",
     "build": "webpack --config webpack.config.js",
     "release": "standard-version"
   },
@@ -42,8 +42,6 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
-    "babelify": "^10.0.0",
-    "browserify": "^14.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
@@ -51,6 +49,7 @@
     "highcharts": "^8.2.0",
     "husky": "^2.4.0",
     "jest": "^25.1.0",
+    "parcel-bundler": "^1.12.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-test-renderer": "^16.9.0",
