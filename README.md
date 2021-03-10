@@ -346,7 +346,7 @@ The NPM package is registered as `highcharts-react-official` because `highcharts
 
 ### How to get a chart instance?
 
-Use the `React.createRef` method (for version < 3.0.0):
+For class components and version prior to 3.0.0 use `React.createRef`:
 
 ```jsx
 constructor(props) {
@@ -365,7 +365,21 @@ render() {
 }
 ```
 
-or store it by the callback function:
+For functional components and version 3.0.0 and later use `useRef` hook:
+
+```jsx
+  const chartComponent = useRef(null);
+  const [options] = useState({...});
+
+  useEffect(() => {
+    const chart = chartComponent.current.chart;
+    ...
+  }, []);
+
+  return <HighchartsReact ref={chartComponent} highcharts={Highcharts} options={options} />;
+```
+
+Alternatively store a chart reference in the callback function:
 
 ```jsx
 afterChartCreated = (chart) => {
