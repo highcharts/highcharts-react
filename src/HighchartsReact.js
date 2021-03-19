@@ -7,8 +7,6 @@ import React, {
   useRef
 } from 'react';
 
-import Highcharts from 'highcharts';
-
 // React currently throws a warning when using `useLayoutEffect` on the server.
 // To get around it, we can conditionally `useEffect` on the server (no-op) and
 // `useLayoutEffect` in the browser. We need `useLayoutEffect` to ensure the
@@ -24,7 +22,9 @@ const HighchartsReact = forwardRef(
 
     useIsomorphicLayoutEffect(() => {
       function createChart() {
-        const H = props.highcharts || Highcharts;
+        const H = props.highcharts || (
+          typeof window !== 'undefined' && window.Highcharts
+        );
         const constructorType = props.constructorType || 'chart';
 
         if (!H) {
