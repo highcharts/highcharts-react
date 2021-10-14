@@ -23,7 +23,7 @@ const HighchartsReact = forwardRef(
     useIsomorphicLayoutEffect(() => {
       function createChart() {
         const H = props.highcharts || (
-          typeof window !== 'undefined' && window.Highcharts
+          typeof window === 'object' && window.Highcharts
         );
         const constructorType = props.constructorType || 'chart';
 
