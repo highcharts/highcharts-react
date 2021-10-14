@@ -1,6 +1,6 @@
 {
   "name": "highcharts-react-official",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "main": "./dist/highcharts-react.min.js",
   "types": "./dist/highcharts-react.min.d.ts",
   "license": "MIT",

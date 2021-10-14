@@ -1,6 +1,15 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+# [3.1.0](https://github.com/highcharts/highcharts-react/compare/v3.0.0...v3.1.0) (2021-10-14)
+
+### Features
+
+* increase Highcharts dev dependency to >=9.0.0 ([f7f9efc](https://github.com/highcharts/highcharts-react/commit/f7f9efc))
+* updated docs ([589c096](https://github.com/highcharts/highcharts-react/commit/589c096))
+* removed Highcharts import in HighchartsReact component ([8344597](https://github.com/highcharts/highcharts-react/commit/8344597))
+* improved component types([746ccb8](https://github.com/highcharts/highcharts-react/commit/746ccb8))
 
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/highcharts/highcharts-react/compare/v2.2.2...v3.0.0) (2020-02-17)
