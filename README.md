@@ -15,12 +15,14 @@ Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
 4. [Get repository](#get-repository)
 5. [Examples](#examples)
 6. [Tests](#tests)
-7. [FAQ](#faq)
+7. [Changelog](#changelog)
+8. [FAQ](#faq)
     1. [Where to look for help?](#where-to-look-for-help)
     2. [Why highcharts-react-official and not highcharts-react is used?](#why-highcharts-react-official-and-not-highcharts-react-is-used)
     3. [How to get a chart instance?](#how-to-get-a-chart-instance)
     4. [How to add a module?](#how-to-add-a-module)
     5. [How to add React component to a chart's element?](#how-to-add-react-component-to-a-charts-element)
+    6. [Why Highcharts mutates my data?](#why-highcharts-mutates-my-data)
 
 ## Getting Started
 
@@ -97,9 +99,10 @@ import * as ReactDom from 'react-dom';
 import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-// The wrapper exports only a default component class that at the same time is a
-// namespace for the related Props interface (HighchartsReact.Props). All other
-// interfaces like Options come from the Highcharts module itself.
+// The wrapper exports only a default component that at the same time is a
+// namespace for the related Props interface (HighchartsReact.Props) and
+// RefObject interface (HighchartsReact.RefObject). All other interfaces
+// like Options come from the Highcharts module itself.
 
 const options: Highcharts.Options = {
     title: {
@@ -115,16 +118,18 @@ const options: Highcharts.Options = {
 // only contain a render method without any state (the App component in this
 // example).
 
-const App = (props: HighchartsReact.Props) => <div>
+const App = (props: HighchartsReact.Props) => {
+  const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
+
+  return (
     <HighchartsReact
-        highcharts={Highcharts}
-        options={options}
-        {...props}
-    />
-</div>
-
+      highcharts={Highcharts}
+      options={options}
+      ref={chartComponentRef}
+      {...props}
+  );
+}
 // Render your App component into the #root element of the document.
-
 ReactDom.render(<App />, document.getElementById('root'));
 ```
 
@@ -145,7 +150,7 @@ if (typeof Highcharts === 'object') {
 ...
 ```
 
-This is a know issue with NextJS and is covered here: https://github.com/zeit/next.js/wiki/FAQ#i-use-a-library-which-throws-window-is-undefined
+This is a know issue with NextJS and is covered here: https://github.com/vercel/next.js/issues/5354
 
 ### Optimal way to update
 
@@ -332,6 +337,9 @@ To run tests, type:
 npm run test
 ```
 
+## Changelog
+The changelog is available [here](https://github.com/highcharts/highcharts-react/blob/master/CHANGELOG.md). 
+
 ## FAQ
 
 ### Where to look for help?
@@ -379,11 +387,14 @@ For functional components and version 3.0.0 and later use `useRef` hook:
   return <HighchartsReact ref={chartComponent} highcharts={Highcharts} options={options} />;
 ```
 
-Alternatively store a chart reference in the callback function:
+Alternatively store a chart reference in a callback function:
 
 ```jsx
 afterChartCreated = (chart) => {
-  this.internalChart = chart;
+  // Highcharts creates a separate chart instance during export
+  if (!chart.options.chart.forExport) {
+    this.internalChart = chart;
+  }
 }
 
 componentDidMount() {
@@ -418,7 +429,7 @@ import HighchartsReact from 'highcharts-react-official'
 highchartsGantt(Highcharts);
 ```
 
-or use `require`:
+alternative with `require`:
 
 ```jsx
 import Highcharts from 'highcharts'
@@ -432,3 +443,10 @@ require("highcharts/modules/variwide")(Highcharts);
 By using [Portals](https://en.reactjs.org/docs/portals.html) it is possible to add a component to every HTML chart element.
 
 Live example: https://codesandbox.io/s/1o5y7r31k3
+
+### Why Highcharts mutates my data?
+
+It can be confusing, since React props are read-only, but Highcharts for performance reasons mutates the original data array. This behaviour is NOT changed by our wrapper. You need to pass a copy of your data to the wrapper if you want to prevent mutations.
+
+Issue: https://github.com/highcharts/highcharts-react/issues/326 <br>
+More discussion here: https://github.com/highcharts/highcharts/issues/4259
