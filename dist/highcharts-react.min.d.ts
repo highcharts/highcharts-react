@@ -10,23 +10,21 @@ import * as Highcharts from 'highcharts';
  */
 declare const HighchartsReact: React.ForwardRefExoticComponent<
   React.PropsWithoutRef<HighchartsReact.Props> &
-    React.RefAttributes<{
-      /**
-       * Chart reference
-       */
-      chart: Highcharts.Chart;
-
-      /**
-       * React reference
-       */
-      container: React.RefObject<HTMLDivElement>;
-    }>
+    React.RefAttributes<HighchartsReact.RefObject>
 >;
 
 declare namespace HighchartsReact {
   /**
-   * Properties for a Highcharts component
+   * Properties for a HighchartsReact component
    */
+   interface RefObject {
+    chart: Highcharts.Chart;
+
+    /**
+     * React reference
+     */
+    container: React.RefObject<HTMLDivElement>;
+  }
   interface Props {
     /* *
      *
