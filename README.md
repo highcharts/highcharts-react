@@ -94,9 +94,9 @@ render(<App />, document.getElementById('root'))
 ### Highcharts with TypeScript
 
 ```tsx
-import * as React from 'react';
-import * as ReactDom from 'react-dom';
-import * as Highcharts from 'highcharts';
+import React, { useRef } from 'react';
+import ReactDOM from 'react-dom';
+import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 // The wrapper exports only a default component that at the same time is a
@@ -112,7 +112,7 @@ const options: Highcharts.Options = {
         type: 'line',
         data: [1, 2, 3]
     }]
-}
+};
 
 // React supports function components as a simple way to write components that
 // only contain a render method without any state (the App component in this
@@ -127,10 +127,11 @@ const App = (props: HighchartsReact.Props) => {
       options={options}
       ref={chartComponentRef}
       {...props}
+    />
   );
-}
+};
 // Render your App component into the #root element of the document.
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ### Highcharts with NextJS
