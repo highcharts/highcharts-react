@@ -43,7 +43,7 @@ const HighchartsReact = forwardRef(
           chartRef.current = H[constructorType](
             containerRef.current,
             props.options,
-            props.callback ? props.callback : undefined
+            props.callback
           );
         }
       }
@@ -52,7 +52,7 @@ const HighchartsReact = forwardRef(
         createChart();
       } else {
         if (props.allowChartUpdate !== false) {
-          if (!props.immutable && chartRef.current) {
+          if (!props.immutable) {
             chartRef.current.update(
               props.options,
               ...(props.updateArgs || [true, true])
