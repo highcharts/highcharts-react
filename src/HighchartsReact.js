@@ -90,4 +90,7 @@ const HighchartsReact = forwardRef(
   }
 );
 
-export default memo(HighchartsReact);
+const memoizedHighchartsReact = memo(HighchartsReact);
+
+export { memoizedHighchartsReact as HighchartsReact };
+export default memoizedHighchartsReact;
