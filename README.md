@@ -93,10 +93,11 @@ render(<App />, document.getElementById('root'))
 
 ### Highcharts with TypeScript
 
+Live example: https://stackblitz.com/edit/react-starter-typescript-cfcznt
+
 ```tsx
 import React, { useRef } from 'react';
-import ReactDOM from 'react-dom';
-import Highcharts from 'highcharts';
+import * as Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 // The wrapper exports only a default component that at the same time is a
