@@ -19,6 +19,8 @@ const HighchartsReact = forwardRef(
   function HighchartsReact(props, ref) {
     const containerRef = useRef();
     const chartRef = useRef();
+    const constructorType = useRef(props.constructorType);
+    const highcharts = useRef(props.highcharts);
 
     useIsomorphicLayoutEffect(() => {
       function createChart() {
@@ -26,10 +28,10 @@ const HighchartsReact = forwardRef(
           typeof window === 'object' && window.Highcharts
         );
         const constructorType = props.constructorType || 'chart';
-
+  
         if (!H) {
           console.warn('The "highcharts" property was not passed.');
-
+  
         } else if (!H[constructorType]) {
           console.warn(
             'The "constructorType" property is incorrect or some ' +
@@ -37,13 +39,13 @@ const HighchartsReact = forwardRef(
           );
         } else if (!props.options) {
           console.warn('The "options" property was not passed.');
-
+  
         } else {
           // Create a chart
           chartRef.current = H[constructorType](
             containerRef.current,
             props.options,
-            props.callback ? props.callback : undefined
+            props.callback
           );
         }
       }
@@ -52,7 +54,16 @@ const HighchartsReact = forwardRef(
         createChart();
       } else {
         if (props.allowChartUpdate !== false) {
-          if (!props.immutable && chartRef.current) {
+          // Reacreate chart on Highcharts or constructor type change
+          if (
+            props.constructorType !== constructorType.current ||
+            props.highcharts !== highcharts.current
+          ) {
+            constructorType.current = props.constructorType;
+            highcharts.current = props.highcharts;
+            createChart();
+          // Use `chart.update` to apply changes
+          } else if (!props.immutable && chartRef.current) {
             chartRef.current.update(
               props.options,
               ...(props.updateArgs || [true, true])
@@ -62,11 +73,18 @@ const HighchartsReact = forwardRef(
           }
         }
       }
-    });
+    }, [
+      props.options,
+      props.allowChartUpdate,
+      props.updateArgs,
+      props.containerProps,
+      props.highcharts,
+      props.constructorType
+    ]);
 
+    // Destroy the chart on unmount
     useIsomorphicLayoutEffect(() => {
       return () => {
-        // Destroy chart only if unmounting.
         if (chartRef.current) {
           chartRef.current.destroy();
           chartRef.current = null;

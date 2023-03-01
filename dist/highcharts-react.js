@@ -81,37 +81,31 @@ return /******/ (function(modules) { // webpackBootstrap
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
- // React currently throws a warning when using `useLayoutEffect` on the server.
+// React currently throws a warning when using `useLayoutEffect` on the server.
 // To get around it, we can conditionally `useEffect` on the server (no-op) and
 // `useLayoutEffect` in the browser. We need `useLayoutEffect` to ensure the
 // `Highcharts` ref is available in the layout phase. This makes it available
 // in a parent component's `componentDidMount`.
-
 var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? __WEBPACK_IMPORTED_MODULE_0_react__["useLayoutEffect"] : __WEBPACK_IMPORTED_MODULE_0_react__["useEffect"];
 var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["forwardRef"])(function HighchartsReact(props, ref) {
   var containerRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
   var chartRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
+  var constructorType = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(props.constructorType);
+  var highcharts = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(props.highcharts);
   useIsomorphicLayoutEffect(function () {
     function createChart() {
       var H = props.highcharts || (typeof window === "undefined" ? "undefined" : _typeof(window)) === 'object' && window.Highcharts;
       var constructorType = props.constructorType || 'chart';
-
       if (!H) {
         console.warn('The "highcharts" property was not passed.');
       } else if (!H[constructorType]) {
@@ -120,27 +114,32 @@ var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["f
         console.warn('The "options" property was not passed.');
       } else {
         // Create a chart
-        chartRef.current = H[constructorType](containerRef.current, props.options, props.callback ? props.callback : undefined);
+        chartRef.current = H[constructorType](containerRef.current, props.options, props.callback);
       }
     }
-
     if (!chartRef.current) {
       createChart();
     } else {
       if (props.allowChartUpdate !== false) {
-        if (!props.immutable && chartRef.current) {
+        // Reacreate chart on Highcharts or constructor type change
+        if (props.constructorType !== constructorType.current || props.highcharts !== highcharts.current) {
+          constructorType.current = props.constructorType;
+          highcharts.current = props.highcharts;
+          createChart();
+          // Use `chart.update` to apply changes
+        } else if (!props.immutable && chartRef.current) {
           var _chartRef$current;
-
           (_chartRef$current = chartRef.current).update.apply(_chartRef$current, [props.options].concat(_toConsumableArray(props.updateArgs || [true, true])));
         } else {
           createChart();
         }
       }
     }
-  });
+  }, [props.options, props.allowChartUpdate, props.updateArgs, props.containerProps, props.highcharts, props.constructorType]);
+
+  // Destroy the chart on unmount
   useIsomorphicLayoutEffect(function () {
     return function () {
-      // Destroy chart only if unmounting.
       if (chartRef.current) {
         chartRef.current.destroy();
         chartRef.current = null;
@@ -152,11 +151,11 @@ var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["f
       get chart() {
         return chartRef.current;
       },
-
       container: containerRef
     };
-  }, []); // Create container for the chart
+  }, []);
 
+  // Create container for the chart
   return /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", _extends({}, props.containerProps, {
     ref: containerRef
   }));
