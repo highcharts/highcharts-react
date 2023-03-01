@@ -15,7 +15,7 @@ import React, {
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-const HighchartsReact = forwardRef(
+export const HighchartsReact = memo(forwardRef(
   function HighchartsReact(props, ref) {
     const containerRef = useRef();
     const chartRef = useRef();
@@ -106,6 +106,6 @@ const HighchartsReact = forwardRef(
     // Create container for the chart
     return <div { ...props.containerProps } ref={ containerRef } />;
   }
-);
+));
 
-export default memo(HighchartsReact);
+export default HighchartsReact;

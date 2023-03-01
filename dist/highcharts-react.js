@@ -79,6 +79,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HighchartsReact", function() { return HighchartsReact; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -97,7 +98,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 // `Highcharts` ref is available in the layout phase. This makes it available
 // in a parent component's `componentDidMount`.
 var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? __WEBPACK_IMPORTED_MODULE_0_react__["useLayoutEffect"] : __WEBPACK_IMPORTED_MODULE_0_react__["useEffect"];
-var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["forwardRef"])(function HighchartsReact(props, ref) {
+var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["memo"])( /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["forwardRef"])(function HighchartsReact(props, ref) {
   var containerRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
   var chartRef = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])();
   var constructorType = Object(__WEBPACK_IMPORTED_MODULE_0_react__["useRef"])(props.constructorType);
@@ -159,8 +160,8 @@ var HighchartsReact = /*#__PURE__*/Object(__WEBPACK_IMPORTED_MODULE_0_react__["f
   return /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", _extends({}, props.containerProps, {
     ref: containerRef
   }));
-});
-/* harmony default export */ __webpack_exports__["default"] = (Object(__WEBPACK_IMPORTED_MODULE_0_react__["memo"])(HighchartsReact));
+}));
+/* harmony default export */ __webpack_exports__["default"] = (HighchartsReact);
 
 /***/ }),
 /* 1 */
