@@ -11,6 +11,9 @@ const redrawCallback = jest.fn();
 
 const parentState = {
   options: {
+    accessibility: {
+      enabled: false
+    },
     chart: {
       events: {
         load: loadCallback,
@@ -36,6 +39,9 @@ describe('Props tests - immutable.', () => {
   it('Chart should be recreated after component update.', () => {
     wrapper.setState({
       options: {
+        accessibility: {
+          enabled: false
+        },
         chart: {
           events: {
             load: loadCallback,
@@ -54,6 +60,7 @@ describe('Props tests - immutable.', () => {
 
   it('Chart should be updated after component update.', () => {
     wrapper.setState({
+      options: {},
       parentProps: {
         highcharts: Highcharts,
         immutable: false

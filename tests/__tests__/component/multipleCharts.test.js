@@ -3,12 +3,18 @@ import { mount } from 'enzyme';
 import Highcharts from 'highcharts';
 import HighchartsReact from '../../../src/HighchartsReact';
 
+const options = {
+  accessibility: {
+    enabled: false
+  }
+};
+
 describe('Test - multiple charts.', () => {
   mount(
     <div>
-      <HighchartsReact options={ {} } highcharts={ Highcharts } />
-      <HighchartsReact options={ {} } highcharts={ Highcharts } />
-      <HighchartsReact options={ {} } highcharts={ Highcharts } />
+      <HighchartsReact options={ options } highcharts={ Highcharts } />
+      <HighchartsReact options={ options } highcharts={ Highcharts } />
+      <HighchartsReact options={ options } highcharts={ Highcharts } />
     </div>
   );
 

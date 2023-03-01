@@ -9,6 +9,9 @@ map(Highcharts);
 let chart;
 const parentState = {
   options: {
+    accessibility: {
+      enabled: false
+    },
     chart: {
       events: {
         load() {
@@ -57,5 +60,15 @@ describe('Props tests - constructorType.', () => {
     });
 
     expect(chart).toBeDefined();
+  });
+
+  it('Chart should be recreated on constructorType change.', () => {
+    wrapper.setState({
+      parentProps: {
+        ...parentProps, immutable: false, constructorType: 'stockChart'
+      }
+    });
+
+    expect(chart.navigator).toBeDefined();
   });
 });

@@ -8,6 +8,9 @@ const redrawCallback = jest.fn();
 
 const parentState = {
   options: {
+    accessibility: {
+      enabled: false
+    },
     chart: {
       events: {
         redraw: redrawCallback,

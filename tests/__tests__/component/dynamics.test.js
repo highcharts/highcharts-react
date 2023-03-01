@@ -7,6 +7,9 @@ const test = jest.fn();
 
 const parentState = {
   options: {
+    accessibility: {
+      enabled: false
+    },
     chart: {
       events: {
         redraw: test

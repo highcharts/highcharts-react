@@ -7,6 +7,9 @@ const callbackFn = jest.fn();
 
 const parentState = {
   options: {
+    accessibility: {
+      enabled: false
+    },
     series: [{
       data: [1, 2, 3]
     }]
@@ -43,6 +46,11 @@ describe('Props tests - callback.', () => {
     expect(callbackFn).toHaveBeenCalledTimes(1);
 
     wrapper.setState({
+      options: {
+        accessibility: {
+          enabled: false
+        }
+      },
       parentProps: {
         ...parentProps,
         immutable: true
@@ -53,6 +61,9 @@ describe('Props tests - callback.', () => {
 
     wrapper.setState({
       options: {
+        accessibility: {
+          enabled: false
+        },
         series: [{
           data: [3, 3, 3]
         }]

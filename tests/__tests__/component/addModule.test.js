@@ -5,6 +5,9 @@ import HCmore from 'highcharts/highcharts-more';
 import HighchartsReact from '../../../src/HighchartsReact';
 
 const options = {
+  accessibility: {
+    enabled: false
+  },
   series: [{
     type: 'bubble',
     data: [1, 2, 3]

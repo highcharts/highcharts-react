@@ -4,7 +4,11 @@ import Highcharts from 'highcharts';
 import ParentComponent from '../../ParentComponent';
 
 const parentState = {
-  options: {},
+  options: {
+    accessibility: {
+      enabled: false
+    }
+  },
   parentProps: {
     highcharts: Highcharts
   }
