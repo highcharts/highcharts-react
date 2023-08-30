@@ -8,7 +8,7 @@ import * as Highcharts from 'highcharts';
 /**
  * Highcharts component for React
  */
-export declare const HighchartsReact: React.ForwardRefExoticComponent<
+declare const HighchartsReact: React.ForwardRefExoticComponent<
   React.PropsWithoutRef<HighchartsReact.Props> &
     React.RefAttributes<HighchartsReact.RefObject>
 >;
@@ -86,4 +86,5 @@ declare namespace HighchartsReact {
   }
 }
 
+export { HighchartsReact };
 export default HighchartsReact;
