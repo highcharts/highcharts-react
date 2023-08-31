@@ -115,10 +115,6 @@ const options: Highcharts.Options = {
     }]
 };
 
-// React supports function components as a simple way to write components that
-// only contain a render method without any state (the App component in this
-// example).
-
 const App = (props: HighchartsReact.Props) => {
   const chartComponentRef = useRef<HighchartsReact.RefObject>(null);
 
@@ -133,6 +129,12 @@ const App = (props: HighchartsReact.Props) => {
 };
 // Render your App component into the #root element of the document.
 ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+Since version 3.2.1 it is also possible to import types for `props` and `ref` independently:
+
+```tsx
+import HighchartsReact, { HighchartsReactRefObject, HighchartsReactProps } from 'highcharts-react-official';
 ```
 
 ### Highcharts with NextJS
