@@ -13,7 +13,9 @@ import React, {
 // `Highcharts` ref is available in the layout phase. This makes it available
 // in a parent component's `componentDidMount`.
 const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+  typeof window !== 'undefined' && typeof window.document !== 'undefined'
+    ? useLayoutEffect
+    : useEffect;
 
 export const HighchartsReact = memo(forwardRef(
   function HighchartsReact(props, ref) {
