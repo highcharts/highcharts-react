@@ -98,7 +98,7 @@ Live example: https://stackblitz.com/edit/react-starter-typescript-cfcznt
 ```tsx
 import React, { useRef } from 'react';
 import * as Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import { HighchartsReact } from 'highcharts-react-official';
 
 // The wrapper exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
