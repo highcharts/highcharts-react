@@ -8,10 +8,17 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Chart from './../src/Highcharts';
-import Area from './../src/Area';
-import Line from './../src/Line';
-import Bubble from './../src/Bubble';
+import {
+  Highcharts as Chart,
+  Area,
+  Line,
+  Title,
+  Subtitle,
+  Credits,
+  Tooltip
+} from '../src';
+
+import Bubble from '../src/series/Bubble';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -116,10 +123,34 @@ const Bubbles = () => (
   />
 );
 
+const PropTions = () => (
+  <Chart>
+    <Title>Hello world</Title>
+
+    <Subtitle>More info to come...</Subtitle>
+
+    <Credits style={{fontSize: 'large'}}>
+      HIGHCHARTS DOT COM
+    </Credits>
+
+    <Tooltip>{'Coool point eh? X: {point.x}, Y: {point.y}'}</Tooltip>
+
+    <Line.Series
+      options={{
+        data: [2, 4, 6],
+        shadow: true,
+        colorIndex: 2
+      }}
+    />
+  </Chart>
+);
+
+
 ////////////////////////////////////////////////////////////////////////////////
 
 const Application = () => (
   <div>
+    <PropTions />
     <MultiChart />
     <SeriesOptions />
     <BasicChart />

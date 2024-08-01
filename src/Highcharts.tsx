@@ -6,29 +6,28 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-04-30
+ * Build stamp: 2024-08-01
  *
  */
 
-import {
+import React, {
   useState,
   useEffect,
   useRef,
-  React,
   // @ts-ignore
 } from "react";
 
-import * as Highcharts from "highcharts";
+import HC from "highcharts/es-modules/masters/highcharts.src.js";
 // import * as Data from 'highcharts/es-modules/data';
 
-export const HighchartsNS = Highcharts;
+export const HighchartsNS = HC;
 
 // Data(Highcharts);
 
 export interface ICommonSeriesAttributes {
   type?: string;
   data?: number[] | Object;
-  options?: Highcharts.SeriesOptions;
+  options?: HC.SeriesOptions;
   defaultProps?: {
     type: "string";
   };
@@ -36,7 +35,7 @@ export interface ICommonSeriesAttributes {
 
 export interface ICommonAttributes {
   /** Options override - applied first, other props are merged in. */
-  options?: Highcharts.Options;
+  options?: HC.Options;
   /** Constructor to use */
   chartConstructor?: "chart" | "stockChart" | "ganttChart" | "mapChart";
   /** Children */
@@ -51,9 +50,60 @@ export interface ICommonAttributes {
 
 const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
 
+function getChildProps(children) {
+  const optionsFromChildren = {};
+
+  // TODO: Bundle this from utils
+  function objInsert(obj, key, value = null) {
+    const keys = key.split(".");
+
+    let current = obj;
+    for (let i = 0; i < keys.length - 1; i++) {
+      const key = keys[i];
+      if (!current[key]) {
+        current[key] = {};
+      }
+      current = current[key];
+    }
+
+    current[keys[keys.length - 1]] = value;
+
+    return obj;
+  }
+
+  function handleChild(child) {
+    if (typeof child === "object") {
+      const { _HCReact: meta } = child.type;
+      if (meta && meta.type === "HC_Option" && meta.HCOption) {
+        const optionParent = (optionsFromChildren[meta.HCOption] ??= {});
+
+        const { children, ...otherProps } = child.props;
+
+        // TODO: there will probably be mappings that have to be applied
+        Object.entries(otherProps).forEach(
+          ([key, value]) => (optionsFromChildren[meta.HCOption][key] = value)
+        );
+
+        // TODO: if the child has children we have to unpack it
+        if (typeof children === "string" && meta.childOption) {
+          objInsert(optionParent, meta.childOption, children);
+        }
+      }
+    }
+  }
+
+  if (Array.isArray(children)) {
+    children.forEach(handleChild);
+  } else {
+    handleChild(children);
+  }
+
+  return optionsFromChildren;
+}
+
 // TODO: The config merge needs to use a deep merge instead of Object.assign
-export default function HighchartsComponent(props: ICommonAttributes) {
-  const [chartConfig, setChartConfig] = useState<Highcharts.Options>(
+export function Highcharts(props: ICommonAttributes) {
+  const [chartConfig, setChartConfig] = useState<HC.Options>(
     Object.assign(
       Object.assign(
         {
@@ -67,48 +117,57 @@ export default function HighchartsComponent(props: ICommonAttributes) {
       ),
       {
         series: props.children
-          ? toArr(props.children).map((c) =>
-              Object.assign(
-                {
-                  type: c.props.type || "line",
-                  data: c.props.data || [],
-                },
-                c.props.options || {}
+          ? toArr(props.children)
+              .filter((c) => c.type.type === "Series")
+              .map((c) =>
+                Object.assign(
+                  {
+                    type: c.props.type || "line",
+                    data: c.props.data || [],
+                  },
+                  c.props.options || {}
+                )
               )
-            )
           : [],
+        ...getChildProps(props.children),
       },
       props.options || {}
     )
   );
 
   const containerRef = useRef();
-  const chartRef = useRef<Highcharts.Chart>();
+  const chartRef = useRef<HC.Chart>();
 
   /** Append prop to chart config */
-  const appendProps = (config: Highcharts.Options) => {
-    config.title.text = props.title;
-    config.data.csv = props.csv;
-    config.data.csvURL = props.csvURL;
+  const appendProps = (config: HC.Options) => {
+    config.title.text ??= props.title;
+    config.data.csv ??= props.csv;
+    config.data.csvURL ??= props.csvURL;
   };
 
   /** Append series to chart config */
   const appendSeries = () => {
-    // config: Highcharts.Options
+    // config: HC.Options
     if (props.children) {
-      const children = toArr(props.children);
+      const children = toArr(props.children).filter(
+        (c) => c.type.type === "Series"
+      );
+
       children.forEach((c, i) => {
         console.log("Adding series to chart");
 
-        if (c.props && c.props.data) {
-          chartConfig.series[i].data = c.props.data;
-        }
+        if (c.props) {
+          if (c.props.options) {
+            Object.assign(chartConfig.series[i], c.props.options);
+          }
 
-        if (c.props && c.props.options) {
-          Object.assign(chartConfig.series[i], c.props.options);
+          chartConfig.series[i] = {
+            ...chartConfig.series[i],
+            ...c.props,
+          };
         }
       });
-      setChartConfig(chartConfig);
+      setChartConfig({ ...chartConfig });
     }
   };
 
@@ -121,7 +180,7 @@ export default function HighchartsComponent(props: ICommonAttributes) {
         props.chartConstructor || "chart",
         "constructor"
       );
-      chartRef.current = Highcharts[props.chartConstructor || "chart"](
+      chartRef.current = HC[props.chartConstructor || "chart"](
         containerRef.current,
         chartConfig
       );
@@ -131,9 +190,77 @@ export default function HighchartsComponent(props: ICommonAttributes) {
       appendSeries(); // chartConfig
 
       setChartConfig(chartConfig);
-      chartRef.current.update(chartConfig);
+      chartRef.current.update({
+        ...chartConfig,
+        ...getChildProps(props.children),
+      });
     }
   });
 
   return <div ref={containerRef}></div>;
 }
+
+export interface HighchartsSeriesProps extends ICommonSeriesAttributes {
+  type:
+    | "arcdiagram"
+    | "area"
+    | "arearange"
+    | "areaspline"
+    | "areasplinerange"
+    | "bar"
+    | "bellcurve"
+    | "boxplot"
+    | "bubble"
+    | "bullet"
+    | "column"
+    | "columnpyramid"
+    | "columnrange"
+    | "cylinder"
+    | "dependencywheel"
+    | "dumbbell"
+    | "errorbar"
+    | "funnel"
+    | "funnel3d"
+    | "gauge"
+    | "heatmap"
+    | "histogram"
+    | "item"
+    | "line"
+    | "lollipop"
+    | "networkgraph"
+    | "organization"
+    | "packedbubble"
+    | "pareto"
+    | "pictorial"
+    | "pie"
+    | "polygon"
+    | "pyramid"
+    | "pyramid3d"
+    | "sankey"
+    | "scatter"
+    | "scatter3d"
+    | "solidgauge"
+    | "spline"
+    | "streamgraph"
+    | "sunburst"
+    | "tilemap"
+    | "timeline"
+    | "treegraph"
+    | "treemap"
+    | "variablepie"
+    | "variwide"
+    | "vector"
+    | "venn"
+    | "waterfall"
+    | "windbarb"
+    | "wordcloud"
+    | "xrange";
+}
+export function HighchartsSeries(props: HighchartsSeriesProps) {
+  return null;
+}
+HighchartsSeries.type = "Series";
+
+Highcharts.Series = HighchartsSeries;
+
+export default Highcharts;
