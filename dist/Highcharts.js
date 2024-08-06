@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 var __assign = (this && this.__assign) || function () {
@@ -34,11 +34,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { useState, useEffect, useRef,
 // @ts-ignore
  } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 import HC from "highcharts/es-modules/masters/highcharts.src.js";
 // import * as Data from 'highcharts/es-modules/data';
 export var HighchartsNS = HC;
 var toArr = function (thing) { return (Array.isArray(thing) ? thing : [thing]); };
-function getChildProps(children) {
+function getChildProps(children, renderHTML) {
+    if (renderHTML === void 0) { renderHTML = undefined; }
     var optionsFromChildren = {};
     // TODO: Bundle this from utils
     function objInsert(obj, key, value) {
@@ -55,6 +57,11 @@ function getChildProps(children) {
         current[keys[keys.length - 1]] = value;
         return obj;
     }
+    /**
+     *
+     * @param {import('react').ReactNode & {type?: any}} child
+     *
+     */
     function handleChild(child) {
         var _a;
         var _b;
@@ -71,6 +78,17 @@ function getChildProps(children) {
                 // TODO: if the child has children we have to unpack it
                 if (typeof children_1 === "string" && meta_1.childOption) {
                     objInsert(optionParent, meta_1.childOption, children_1);
+                }
+                else if ((children_1 === null || children_1 === void 0 ? void 0 : children_1.$$typeof) && renderHTML) {
+                    if (children_1.$$typeof === Symbol.for("react.element")) {
+                        objInsert(optionParent, meta_1.childOption, renderHTML(children_1));
+                    }
+                }
+                else if (Array.isArray(children_1)) {
+                    objInsert(optionParent, meta_1.childOption, renderHTML
+                        ? renderHTML(children_1)
+                        : children_1.filter(function (c) { return c.substring || c.toFixed; }).join("") // fallback
+                    );
                 }
             }
         }
@@ -100,7 +118,7 @@ export function Highcharts(props) {
                     data: c.props.data || [],
                 }, c.props.options || {});
             })
-            : [] }, getChildProps(props.children)), props.options || {})), chartConfig = _a[0], setChartConfig = _a[1];
+            : [] }, getChildProps(props.children, renderToStaticMarkup)), props.options || {})), chartConfig = _a[0], setChartConfig = _a[1];
     var containerRef = useRef();
     var chartRef = useRef();
     /** Append prop to chart config */
@@ -140,7 +158,7 @@ export function Highcharts(props) {
             appendProps(chartConfig);
             appendSeries(); // chartConfig
             setChartConfig(chartConfig);
-            chartRef.current.update(__assign(__assign({}, chartConfig), getChildProps(props.children)));
+            chartRef.current.update(__assign(__assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)));
         }
     });
     return React.createElement("div", { ref: containerRef });

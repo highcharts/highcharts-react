@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 
@@ -21,7 +21,7 @@ export type TitleProps = {
   widthAdjust?: number;
   x?: number;
   y?: number;
-  children?: string;
+  children?: string | (string | number)[] | Element;
 };
 
 export function Title(props: TitleProps) {

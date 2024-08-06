@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 
@@ -179,7 +179,7 @@ export type YAxisProps = {
     rotation?: number;
     skew3d?: boolean | null;
     style?: { color?: string; fontSize?: number };
-    text?: string | null;
+    text?: string | null | (string | number)[] | Element;
     textAlign?: Highcharts.AlignValue;
     useHTML?: boolean;
     x?: number;
@@ -294,7 +294,13 @@ export type YAxisProps = {
   width?: number | string;
   zIndex?: number;
   zoomEnabled?: boolean;
-  children?: string | null;
+  children?:
+    | string
+    | null
+    | (string | number)[]
+    | Element
+    | (string | number)[]
+    | Element;
 };
 
 export function YAxis(props: YAxisProps) {

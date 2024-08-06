@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 import React, { useState,

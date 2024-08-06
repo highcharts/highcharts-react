@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 
@@ -18,7 +18,7 @@ export type CreditsProps = {
   position?: { align?: string; verticalAlign?: string; x?: number; y?: number };
   style?: Highcharts.CSSObject;
   text?: string;
-  children?: string;
+  children?: string | (string | number)[] | Element;
 };
 
 export function Credits(props: CreditsProps) {

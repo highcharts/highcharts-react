@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-06
  *
  */
 
@@ -16,6 +16,8 @@ import React, {
   useRef,
   // @ts-ignore
 } from "react";
+
+import { renderToStaticMarkup } from "react-dom/server";
 
 import HC from "highcharts/es-modules/masters/highcharts.src.js";
 // import * as Data from 'highcharts/es-modules/data';
@@ -50,7 +52,7 @@ export interface ICommonAttributes {
 
 const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
 
-function getChildProps(children) {
+function getChildProps(children, renderHTML = undefined) {
   const optionsFromChildren = {};
 
   // TODO: Bundle this from utils
@@ -71,6 +73,11 @@ function getChildProps(children) {
     return obj;
   }
 
+  /**
+   *
+   * @param {import('react').ReactNode & {type?: any}} child
+   *
+   */
   function handleChild(child) {
     if (typeof child === "object") {
       const { _HCReact: meta } = child.type;
@@ -87,6 +94,18 @@ function getChildProps(children) {
         // TODO: if the child has children we have to unpack it
         if (typeof children === "string" && meta.childOption) {
           objInsert(optionParent, meta.childOption, children);
+        } else if (children?.$$typeof && renderHTML) {
+          if (children.$$typeof === Symbol.for("react.element")) {
+            objInsert(optionParent, meta.childOption, renderHTML(children));
+          }
+        } else if (Array.isArray(children)) {
+          objInsert(
+            optionParent,
+            meta.childOption,
+            renderHTML
+              ? renderHTML(children)
+              : children.filter((c) => c.substring || c.toFixed).join("") // fallback
+          );
         }
       }
     }
@@ -129,7 +148,7 @@ export function Highcharts(props: ICommonAttributes) {
                 )
               )
           : [],
-        ...getChildProps(props.children),
+        ...getChildProps(props.children, renderToStaticMarkup),
       },
       props.options || {}
     )
@@ -192,7 +211,7 @@ export function Highcharts(props: ICommonAttributes) {
       setChartConfig(chartConfig);
       chartRef.current.update({
         ...chartConfig,
-        ...getChildProps(props.children),
+        ...getChildProps(props.children, renderToStaticMarkup),
       });
     }
   });
