@@ -34,7 +34,7 @@
   "exports": {
     "./*": {
       "import": "dist/*.js",
-      "types": "types/*.d.ts"
+      "types": "dist/*.d.ts"
     }
   },
   "keywords": [

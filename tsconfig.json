@@ -3,8 +3,6 @@
     "target": "es5",
     "module": "esnext",
     "declaration": true,
-    "declarationMap": true,
-    "declarationDir": "./types",
     "lib": ["ESNext", "DOM"],
     "jsx": "react",
     "sourceMap": true,
@@ -16,7 +14,7 @@
     "paths": {
       "~/*": ["./*"]
     },
-    // "typeRoots": ["node_modules/@types"],
+    "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },

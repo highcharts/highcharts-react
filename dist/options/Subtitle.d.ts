@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-07
  *
  */
 export type SubtitleProps = {
@@ -19,7 +19,7 @@ export type SubtitleProps = {
     widthAdjust?: number;
     x?: number;
     y?: number;
-    children?: string;
+    children?: string | (string | number)[] | React.ReactElement | React.ReactElement[];
 };
 export declare function Subtitle(props: SubtitleProps): any;
 export declare namespace Subtitle {

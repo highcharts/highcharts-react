@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-07
  *
  */
 export type TooltipProps = {
@@ -63,7 +63,7 @@ export type TooltipProps = {
     valuePrefix?: string;
     valueSuffix?: string;
     xDateFormat?: string;
-    children?: string;
+    children?: string | (string | number)[] | React.ReactElement | React.ReactElement[];
 };
 export declare function Tooltip(props: TooltipProps): any;
 export declare namespace Tooltip {

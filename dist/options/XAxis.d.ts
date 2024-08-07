@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-01
+ * Build stamp: 2024-08-07
  *
  */
 export type XAxisProps = {
@@ -274,7 +274,7 @@ export type XAxisProps = {
     width?: number | string;
     zIndex?: number;
     zoomEnabled?: boolean;
-    children?: string | null;
+    children?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[];
 };
 export declare function XAxis(props: XAxisProps): any;
 export declare namespace XAxis {

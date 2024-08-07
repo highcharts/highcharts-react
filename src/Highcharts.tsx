@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-06
+ * Build stamp: 2024-08-07
  *
  */
 
@@ -73,6 +73,12 @@ function getChildProps(children, renderHTML = undefined) {
     return obj;
   }
 
+  function renderChildren(children) {
+    return renderHTML
+      ? renderHTML(children)
+      : children.filter((c) => c.substring || c.toFixed).join(""); // fallback
+  }
+
   /**
    *
    * @param {import('react').ReactNode & {type?: any}} child
@@ -99,13 +105,33 @@ function getChildProps(children, renderHTML = undefined) {
             objInsert(optionParent, meta.childOption, renderHTML(children));
           }
         } else if (Array.isArray(children)) {
-          objInsert(
-            optionParent,
-            meta.childOption,
-            renderHTML
-              ? renderHTML(children)
-              : children.filter((c) => c.substring || c.toFixed).join("") // fallback
-          );
+          if (children.some((c) => c.props && c.props["data-hc-option"])) {
+            const lostChildren = [];
+
+            for (const child of children) {
+              if (child.props["data-hc-option"]) {
+                objInsert(
+                  optionParent,
+                  `${child.props["data-hc-option"]}`,
+                  renderChildren([child])
+                );
+              } else {
+                lostChildren.push(child);
+              }
+            }
+
+            if (lostChildren.length) {
+              objInsert(
+                optionParent,
+                meta.childOption,
+                renderChildren(lostChildren)
+              );
+            }
+
+            return;
+          }
+
+          objInsert(optionParent, meta.childOption, renderChildren(children));
         }
       }
     }

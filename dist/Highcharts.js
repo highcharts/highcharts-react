@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-06
+ * Build stamp: 2024-08-07
  *
  */
 var __assign = (this && this.__assign) || function () {
@@ -57,6 +57,11 @@ function getChildProps(children, renderHTML) {
         current[keys[keys.length - 1]] = value;
         return obj;
     }
+    function renderChildren(children) {
+        return renderHTML
+            ? renderHTML(children)
+            : children.filter(function (c) { return c.substring || c.toFixed; }).join(""); // fallback
+    }
     /**
      *
      * @param {import('react').ReactNode & {type?: any}} child
@@ -69,26 +74,39 @@ function getChildProps(children, renderHTML) {
             var meta_1 = child.type._HCReact;
             if (meta_1 && meta_1.type === "HC_Option" && meta_1.HCOption) {
                 var optionParent = ((_a = optionsFromChildren[_b = meta_1.HCOption]) !== null && _a !== void 0 ? _a : (optionsFromChildren[_b] = {}));
-                var _c = child.props, children_1 = _c.children, otherProps = __rest(_c, ["children"]);
+                var _c = child.props, children_2 = _c.children, otherProps = __rest(_c, ["children"]);
                 // TODO: there will probably be mappings that have to be applied
                 Object.entries(otherProps).forEach(function (_a) {
                     var key = _a[0], value = _a[1];
                     return (optionsFromChildren[meta_1.HCOption][key] = value);
                 });
                 // TODO: if the child has children we have to unpack it
-                if (typeof children_1 === "string" && meta_1.childOption) {
-                    objInsert(optionParent, meta_1.childOption, children_1);
+                if (typeof children_2 === "string" && meta_1.childOption) {
+                    objInsert(optionParent, meta_1.childOption, children_2);
                 }
-                else if ((children_1 === null || children_1 === void 0 ? void 0 : children_1.$$typeof) && renderHTML) {
-                    if (children_1.$$typeof === Symbol.for("react.element")) {
-                        objInsert(optionParent, meta_1.childOption, renderHTML(children_1));
+                else if ((children_2 === null || children_2 === void 0 ? void 0 : children_2.$$typeof) && renderHTML) {
+                    if (children_2.$$typeof === Symbol.for("react.element")) {
+                        objInsert(optionParent, meta_1.childOption, renderHTML(children_2));
                     }
                 }
-                else if (Array.isArray(children_1)) {
-                    objInsert(optionParent, meta_1.childOption, renderHTML
-                        ? renderHTML(children_1)
-                        : children_1.filter(function (c) { return c.substring || c.toFixed; }).join("") // fallback
-                    );
+                else if (Array.isArray(children_2)) {
+                    if (children_2.some(function (c) { return c.props && c.props["data-hc-option"]; })) {
+                        var lostChildren = [];
+                        for (var _i = 0, children_1 = children_2; _i < children_1.length; _i++) {
+                            var child_1 = children_1[_i];
+                            if (child_1.props["data-hc-option"]) {
+                                objInsert(optionParent, "".concat(child_1.props["data-hc-option"]), renderChildren([child_1]));
+                            }
+                            else {
+                                lostChildren.push(child_1);
+                            }
+                        }
+                        if (lostChildren.length) {
+                            objInsert(optionParent, meta_1.childOption, renderChildren(lostChildren));
+                        }
+                        return;
+                    }
+                    objInsert(optionParent, meta_1.childOption, renderChildren(children_2));
                 }
             }
         }
