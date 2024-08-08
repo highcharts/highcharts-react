@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-07
+ * Build stamp: 2024-08-08
  *
  */
 
@@ -55,6 +55,8 @@ const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
 function getChildProps(children, renderHTML = undefined) {
   const optionsFromChildren = {};
 
+  function isWrapperComponent(component) {}
+
   // TODO: Bundle this from utils
   function objInsert(obj, key, value = null) {
     const keys = key.split(".");
@@ -77,6 +79,32 @@ function getChildProps(children, renderHTML = undefined) {
     return renderHTML
       ? renderHTML(children)
       : children.filter((c) => c.substring || c.toFixed).join(""); // fallback
+  }
+
+  function handleChildren(children, obj, meta) {
+    if (children.some((c) => c.props && c.props["data-hc-option"])) {
+      const lostChildren = [];
+
+      for (const child of children) {
+        if (child.props["data-hc-option"]) {
+          objInsert(
+            obj,
+            `${child.props["data-hc-option"]}`,
+            renderChildren([child])
+          );
+        } else {
+          lostChildren.push(child);
+        }
+      }
+
+      if (lostChildren.length) {
+        objInsert(obj, meta.childOption, renderChildren(lostChildren));
+      }
+
+      return;
+    }
+
+    objInsert(obj, meta.childOption, renderChildren(children));
   }
 
   /**
@@ -102,36 +130,19 @@ function getChildProps(children, renderHTML = undefined) {
           objInsert(optionParent, meta.childOption, children);
         } else if (children?.$$typeof && renderHTML) {
           if (children.$$typeof === Symbol.for("react.element")) {
+            // If there's only a children prop
+            if (
+              children.props?.children &&
+              Object.keys(children.props).length === 1
+            ) {
+              handleChildren(children.props.children, optionParent, meta);
+              return;
+            }
+
             objInsert(optionParent, meta.childOption, renderHTML(children));
           }
         } else if (Array.isArray(children)) {
-          if (children.some((c) => c.props && c.props["data-hc-option"])) {
-            const lostChildren = [];
-
-            for (const child of children) {
-              if (child.props["data-hc-option"]) {
-                objInsert(
-                  optionParent,
-                  `${child.props["data-hc-option"]}`,
-                  renderChildren([child])
-                );
-              } else {
-                lostChildren.push(child);
-              }
-            }
-
-            if (lostChildren.length) {
-              objInsert(
-                optionParent,
-                meta.childOption,
-                renderChildren(lostChildren)
-              );
-            }
-
-            return;
-          }
-
-          objInsert(optionParent, meta.childOption, renderChildren(children));
+          handleChildren(children, optionParent, meta);
         }
       }
     }

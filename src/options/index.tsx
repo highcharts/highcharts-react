@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-07
+ * Build stamp: 2024-08-08
  *
  */
 export { default as Title } from "./Title";

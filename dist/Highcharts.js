@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-07
+ * Build stamp: 2024-08-08
  *
  */
 var __assign = (this && this.__assign) || function () {
@@ -42,6 +42,7 @@ var toArr = function (thing) { return (Array.isArray(thing) ? thing : [thing]); 
 function getChildProps(children, renderHTML) {
     if (renderHTML === void 0) { renderHTML = undefined; }
     var optionsFromChildren = {};
+    function isWrapperComponent(component) { }
     // TODO: Bundle this from utils
     function objInsert(obj, key, value) {
         if (value === void 0) { value = null; }
@@ -62,19 +63,38 @@ function getChildProps(children, renderHTML) {
             ? renderHTML(children)
             : children.filter(function (c) { return c.substring || c.toFixed; }).join(""); // fallback
     }
+    function handleChildren(children, obj, meta) {
+        if (children.some(function (c) { return c.props && c.props["data-hc-option"]; })) {
+            var lostChildren = [];
+            for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                var child = children_1[_i];
+                if (child.props["data-hc-option"]) {
+                    objInsert(obj, "".concat(child.props["data-hc-option"]), renderChildren([child]));
+                }
+                else {
+                    lostChildren.push(child);
+                }
+            }
+            if (lostChildren.length) {
+                objInsert(obj, meta.childOption, renderChildren(lostChildren));
+            }
+            return;
+        }
+        objInsert(obj, meta.childOption, renderChildren(children));
+    }
     /**
      *
      * @param {import('react').ReactNode & {type?: any}} child
      *
      */
     function handleChild(child) {
-        var _a;
-        var _b;
+        var _a, _b;
+        var _c;
         if (typeof child === "object") {
             var meta_1 = child.type._HCReact;
             if (meta_1 && meta_1.type === "HC_Option" && meta_1.HCOption) {
-                var optionParent = ((_a = optionsFromChildren[_b = meta_1.HCOption]) !== null && _a !== void 0 ? _a : (optionsFromChildren[_b] = {}));
-                var _c = child.props, children_2 = _c.children, otherProps = __rest(_c, ["children"]);
+                var optionParent = ((_a = optionsFromChildren[_c = meta_1.HCOption]) !== null && _a !== void 0 ? _a : (optionsFromChildren[_c] = {}));
+                var _d = child.props, children_2 = _d.children, otherProps = __rest(_d, ["children"]);
                 // TODO: there will probably be mappings that have to be applied
                 Object.entries(otherProps).forEach(function (_a) {
                     var key = _a[0], value = _a[1];
@@ -86,27 +106,17 @@ function getChildProps(children, renderHTML) {
                 }
                 else if ((children_2 === null || children_2 === void 0 ? void 0 : children_2.$$typeof) && renderHTML) {
                     if (children_2.$$typeof === Symbol.for("react.element")) {
+                        // If there's only a children prop
+                        if (((_b = children_2.props) === null || _b === void 0 ? void 0 : _b.children) &&
+                            Object.keys(children_2.props).length === 1) {
+                            handleChildren(children_2.props.children, optionParent, meta_1);
+                            return;
+                        }
                         objInsert(optionParent, meta_1.childOption, renderHTML(children_2));
                     }
                 }
                 else if (Array.isArray(children_2)) {
-                    if (children_2.some(function (c) { return c.props && c.props["data-hc-option"]; })) {
-                        var lostChildren = [];
-                        for (var _i = 0, children_1 = children_2; _i < children_1.length; _i++) {
-                            var child_1 = children_1[_i];
-                            if (child_1.props["data-hc-option"]) {
-                                objInsert(optionParent, "".concat(child_1.props["data-hc-option"]), renderChildren([child_1]));
-                            }
-                            else {
-                                lostChildren.push(child_1);
-                            }
-                        }
-                        if (lostChildren.length) {
-                            objInsert(optionParent, meta_1.childOption, renderChildren(lostChildren));
-                        }
-                        return;
-                    }
-                    objInsert(optionParent, meta_1.childOption, renderChildren(children_2));
+                    handleChildren(children_2, optionParent, meta_1);
                 }
             }
         }
