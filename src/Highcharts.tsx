@@ -82,7 +82,11 @@ function getChildProps(children, renderHTML = undefined) {
   }
 
   function handleChildren(children, obj, meta) {
-    if (children.some((c) => c.props && c.props["data-hc-option"])) {
+    console.log(children);
+    if (
+      Array.isArray(children) &&
+      children.some((c) => c.props && c.props["data-hc-option"])
+    ) {
       const lostChildren = [];
 
       for (const child of children) {
@@ -120,6 +124,8 @@ function getChildProps(children, renderHTML = undefined) {
 
         const { children, ...otherProps } = child.props;
 
+        console.log(children);
+
         // TODO: there will probably be mappings that have to be applied
         Object.entries(otherProps).forEach(
           ([key, value]) => (optionsFromChildren[meta.HCOption][key] = value)
@@ -151,6 +157,7 @@ function getChildProps(children, renderHTML = undefined) {
   if (Array.isArray(children)) {
     children.forEach(handleChild);
   } else {
+    console.log(children);
     handleChild(children);
   }
 

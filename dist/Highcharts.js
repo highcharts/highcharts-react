@@ -64,7 +64,9 @@ function getChildProps(children, renderHTML) {
             : children.filter(function (c) { return c.substring || c.toFixed; }).join(""); // fallback
     }
     function handleChildren(children, obj, meta) {
-        if (children.some(function (c) { return c.props && c.props["data-hc-option"]; })) {
+        console.log(children);
+        if (Array.isArray(children) &&
+            children.some(function (c) { return c.props && c.props["data-hc-option"]; })) {
             var lostChildren = [];
             for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
                 var child = children_1[_i];
@@ -95,6 +97,7 @@ function getChildProps(children, renderHTML) {
             if (meta_1 && meta_1.type === "HC_Option" && meta_1.HCOption) {
                 var optionParent = ((_a = optionsFromChildren[_c = meta_1.HCOption]) !== null && _a !== void 0 ? _a : (optionsFromChildren[_c] = {}));
                 var _d = child.props, children_2 = _d.children, otherProps = __rest(_d, ["children"]);
+                console.log(children_2);
                 // TODO: there will probably be mappings that have to be applied
                 Object.entries(otherProps).forEach(function (_a) {
                     var key = _a[0], value = _a[1];
@@ -125,6 +128,7 @@ function getChildProps(children, renderHTML) {
         children.forEach(handleChild);
     }
     else {
+        console.log(children);
         handleChild(children);
     }
     return optionsFromChildren;
