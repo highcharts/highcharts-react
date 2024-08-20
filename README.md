@@ -1,5 +1,5 @@
 # Highcharts React
-Official minimal [Highcharts](https://www.highcharts.com/) wrapper for React.
+Official minimal [Highcharts](https://www.highcharts.com/) integration for React.
 
 ## Table of Contents
 1. [Getting started](#getting-started)
@@ -34,7 +34,7 @@ Tested and required versions:
 * `node` 8.11.3+
 * `npm` 6.4.1+ or similar package manager
 
-This wrapper also requires highcharts and react packages with the following versions installed in your project:
+This integration also requires highcharts and react packages with the following versions installed in your project:
 
 For version **2.x.x** :
 
@@ -100,7 +100,7 @@ import React, { useRef } from 'react';
 import * as Highcharts from 'highcharts';
 import { HighchartsReact } from 'highcharts-react-official';
 
-// The wrapper exports only a default component that at the same time is a
+// The integration exports only a default component that at the same time is a
 // namespace for the related Props interface (HighchartsReact.Props) and
 // RefObject interface (HighchartsReact.RefObject). All other interfaces
 // like Options come from the Highcharts module itself.
@@ -254,7 +254,7 @@ Available options with example values:
 | `options` | Object | yes | - | Highcharts chart configuration object. Please refer to the Highcharts [API documentation](https://api.highcharts.com/highcharts/). |
 | `highcharts` | Object | yes | - | Used to pass the Highcharts instance after modules are initialized. If not set the component will try to get the Highcharts from window. |
 | `constructorType` | String | no | `'chart'` | String for [constructor method](https://www.highcharts.com/docs/getting-started/your-first-chart). Official constructors: <br>- `'chart'` for Highcharts charts <br>- `'stockChart'` for Highstock charts <br>- `'mapChart'` for Highmaps charts <br>- `'ganttChart'` for Gantt charts|
-| `allowChartUpdate` | 	Boolean | no | `true` | This wrapper uses `chart.update()` method to apply new options to the chart when changing the parent component. This option allow to turn off the updating. |
+| `allowChartUpdate` | 	Boolean | no | `true` | This integration uses `chart.update()` method to apply new options to the chart when changing the parent component. This option allow to turn off the updating. |
 | `immutable` | Boolean | no | `false` | Reinitialises the chart on prop update (as oppose to `chart.update()`) - useful in some cases but slower than a regular update.|
 | `updateArgs` | Array | no | `[true, true, true]` | Array of `update()`'s function optional arguments. Parameters should be defined in the same order like in native Highcharts function: `[redraw, oneToOne, animation]`. [Here](https://api.highcharts.com/class-reference/Highcharts.Chart#update) is a more specific description of the parameters.|
 | `containerProps` | Object | no | - | The props object passed to the chart container in `React.createElement` method. Useful for adding styles or class.|
@@ -334,7 +334,7 @@ Live example: https://stackblitz.com/edit/react-4ded5d?file=index.js
 
 ## Tests
 
-This wrapper contains tests for: testing environment, chart rendering and passing down container props.
+This integration contains tests for: testing environment, chart rendering and passing down container props.
 To run tests, type:
 
 ```bash
@@ -348,7 +348,7 @@ The changelog is available [here](https://github.com/highcharts/highcharts-react
 
 ### Where to look for help?
 
-[Technical support](https://www.highcharts.com/support) will help you with Highcharts and with the wrapper.
+[Technical support](https://www.highcharts.com/support) will help you with Highcharts and with the integration.
 
 If you have a bug to report or an enhancement suggestion please submit [Issues](https://github.com/highcharts/highcharts-react/issues) in this repository.
 
@@ -450,7 +450,7 @@ Live example: https://codesandbox.io/s/1o5y7r31k3
 
 ### Why Highcharts mutates my data?
 
-It can be confusing, since React props are read-only, but Highcharts for performance reasons mutates the original data array. This behaviour is NOT changed by our wrapper. You need to pass a copy of your data to the wrapper if you want to prevent mutations.
+It can be confusing, since React props are read-only, but Highcharts for performance reasons mutates the original data array. This behaviour is NOT changed by our integration. You need to pass a copy of your data to the integration if you want to prevent mutations.
 
 Issue: https://github.com/highcharts/highcharts-react/issues/326 <br>
 More discussion here: https://github.com/highcharts/highcharts/issues/4259
