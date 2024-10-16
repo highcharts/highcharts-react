@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesPpoOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/PPO/PPOIndicator.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Ppo series
  */
 const Ppo = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Ppo = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Ppo = (props: ICommonAttributes) => {
   );
 };
 
-Ppo.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface PpoSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesPpoOptions>;
+}
+
+Ppo.Series = (_props: PpoSeriesProps) => <></>;
 
 Ppo.Series.type = "Series";
 

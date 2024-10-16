@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,13 +15,18 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesStreamgraphOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Streamgraph/StreamgraphSeriesDefaults.js";
+import { Highcharts, HighchartsNS } from "../Highcharts";
+
+import SeriesMod from "highcharts/es-modules/Series/Streamgraph/StreamgraphSeries.js";
 
 if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
   SeriesMod(HighchartsNS);
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Streamgraph series
  */
 const Streamgraph = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Streamgraph = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="chart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Streamgraph = (props: ICommonAttributes) => {
   );
 };
 
-Streamgraph.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface StreamgraphSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesStreamgraphOptions>;
+}
+
+Streamgraph.Series = (_props: StreamgraphSeriesProps) => <></>;
 
 Streamgraph.Series.type = "Series";
 

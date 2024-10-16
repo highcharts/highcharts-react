@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,13 +15,18 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesNetworkgraphOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Networkgraph/NetworkgraphSeriesDefaults.js";
+import { Highcharts, HighchartsNS } from "../Highcharts";
+
+import SeriesMod from "highcharts/es-modules/Series/Networkgraph/NetworkgraphSeries.js";
 
 if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
   SeriesMod(HighchartsNS);
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Networkgraph series
  */
 const Networkgraph = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Networkgraph = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="chart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Networkgraph = (props: ICommonAttributes) => {
   );
 };
 
-Networkgraph.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface NetworkgraphSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesNetworkgraphOptions>;
+}
+
+Networkgraph.Series = (_props: NetworkgraphSeriesProps) => <></>;
 
 Networkgraph.Series.type = "Series";
 

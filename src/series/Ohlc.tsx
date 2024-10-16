@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,23 +15,22 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesOhlcOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/OHLC/OHLCSeriesDefaults.js";
-
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(HighchartsNS);
-}
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 /**
  * Ohlc series
  */
 const Ohlc = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +44,6 @@ const Ohlc = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +52,11 @@ const Ohlc = (props: ICommonAttributes) => {
   );
 };
 
-Ohlc.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface OhlcSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesOhlcOptions>;
+}
+
+Ohlc.Series = (_props: OhlcSeriesProps) => <></>;
 
 Ohlc.Series.type = "Series";
 

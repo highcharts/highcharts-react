@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesVbpOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/VBP/VBPIndicator.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Vbp series
  */
 const Vbp = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Vbp = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Vbp = (props: ICommonAttributes) => {
   );
 };
 
-Vbp.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface VbpSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesVbpOptions>;
+}
+
+Vbp.Series = (_props: VbpSeriesProps) => <></>;
 
 Vbp.Series.type = "Series";
 

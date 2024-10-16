@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesTemaOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/TEMA/TEMAIndicator.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Tema series
  */
 const Tema = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Tema = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Tema = (props: ICommonAttributes) => {
   );
 };
 
-Tema.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface TemaSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesTemaOptions>;
+}
+
+Tema.Series = (_props: TemaSeriesProps) => <></>;
 
 Tema.Series.type = "Series";
 

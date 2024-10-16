@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,23 +15,22 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesMapOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Map/MapSeriesDefaults.js";
-
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(HighchartsNS);
-}
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 /**
  * Map series
  */
 const Map = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +44,6 @@ const Map = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="mapChart"
       options={chartConfig}
     >
@@ -55,7 +52,11 @@ const Map = (props: ICommonAttributes) => {
   );
 };
 
-Map.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface MapSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesMapOptions>;
+}
+
+Map.Series = (_props: MapSeriesProps) => <></>;
 
 Map.Series.type = "Series";
 

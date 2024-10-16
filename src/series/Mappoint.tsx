@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,23 +15,22 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesMappointOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/MapPoint/MapPointSeriesDefaults.js";
-
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(HighchartsNS);
-}
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 /**
  * Mappoint series
  */
 const Mappoint = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +44,6 @@ const Mappoint = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="mapChart"
       options={chartConfig}
     >
@@ -55,7 +52,11 @@ const Mappoint = (props: ICommonAttributes) => {
   );
 };
 
-Mappoint.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface MappointSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesMappointOptions>;
+}
+
+Mappoint.Series = (_props: MappointSeriesProps) => <></>;
 
 Mappoint.Series.type = "Series";
 

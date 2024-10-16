@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesLinearregressioninterceptOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/LinearRegressionIntercept/LinearRegressionInterceptIndicator.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Linearregressionintercept series
  */
 const Linearregressionintercept = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Linearregressionintercept = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +58,13 @@ const Linearregressionintercept = (props: ICommonAttributes) => {
   );
 };
 
-Linearregressionintercept.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface LinearregressioninterceptSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesLinearregressioninterceptOptions>;
+}
+
+Linearregressionintercept.Series = (
+  _props: LinearregressioninterceptSeriesProps
+) => <></>;
 
 Linearregressionintercept.Series.type = "Series";
 

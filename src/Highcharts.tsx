@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -26,10 +26,12 @@ export const HighchartsNS = HC;
 
 // Data(Highcharts);
 
+export type WithoutType<T> = Omit<T, "type">;
+
 export interface ICommonSeriesAttributes {
-  type?: string;
+  type?: HC.SeriesOptionsType["type"];
   data?: number[] | Object;
-  options?: HC.SeriesOptions;
+  options?: WithoutType<HC.SeriesOptionsType>;
   defaultProps?: {
     type: "string";
   };
@@ -44,23 +46,15 @@ export interface ICommonAttributes {
   children?: React.ReactNode;
   /** Links to Highcharts.Options.title.text */
   title?: string;
-  /** Links to Highcharts.Options.data.csv */
-  csv?: string;
-  /** Links to Highcharts.Options.data.csvURL */
-  csvURL?: string;
 }
 
 const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
 
 function getChildProps(children, renderHTML = undefined) {
   const optionsFromChildren = {};
-
-  function isWrapperComponent(component) {}
-
   // TODO: Bundle this from utils
   function objInsert(obj, key, value = null) {
     const keys = key.split(".");
-
     let current = obj;
     for (let i = 0; i < keys.length - 1; i++) {
       const key = keys[i];
@@ -69,26 +63,28 @@ function getChildProps(children, renderHTML = undefined) {
       }
       current = current[key];
     }
-
     current[keys[keys.length - 1]] = value;
-
     return obj;
   }
-
+  /**
+   * @param {ReactNode[]} children
+   */
   function renderChildren(children) {
     return renderHTML
       ? renderHTML(children)
-      : children.filter((c) => c.substring || c.toFixed).join(""); // fallback
+      : children.filter((c) => typeof c === "string").join(""); // fallback
   }
-
+  /**
+   * @param {ReactElement[]} children
+   * @param {Object} obj
+   * @param {Object} meta
+   */
   function handleChildren(children, obj, meta) {
-    console.log(children);
     if (
       Array.isArray(children) &&
       children.some((c) => c.props && c.props["data-hc-option"])
     ) {
       const lostChildren = [];
-
       for (const child of children) {
         if (child.props["data-hc-option"]) {
           objInsert(
@@ -100,42 +96,39 @@ function getChildProps(children, renderHTML = undefined) {
           lostChildren.push(child);
         }
       }
-
       if (lostChildren.length) {
         objInsert(obj, meta.childOption, renderChildren(lostChildren));
       }
-
       return;
     }
-
     objInsert(obj, meta.childOption, renderChildren(children));
   }
-
   /**
-   *
-   * @param {import('react').ReactNode & {type?: any}} child
-   *
+   * @param {ReactElementWithMeta} child
    */
   function handleChild(child) {
     if (typeof child === "object") {
-      const { _HCReact: meta } = child.type;
+      const { _HCReact: meta } = child.type ?? {};
       if (meta && meta.type === "HC_Option" && meta.HCOption) {
         const optionParent = (optionsFromChildren[meta.HCOption] ??= {});
-
         const { children, ...otherProps } = child.props;
-
-        console.log(children);
-
         // TODO: there will probably be mappings that have to be applied
         Object.entries(otherProps).forEach(
           ([key, value]) => (optionsFromChildren[meta.HCOption][key] = value)
         );
-
         // TODO: if the child has children we have to unpack it
         if (typeof children === "string" && meta.childOption) {
           objInsert(optionParent, meta.childOption, children);
-        } else if (children?.$$typeof && renderHTML) {
-          if (children.$$typeof === Symbol.for("react.element")) {
+        } else if (
+          children &&
+          typeof children === "object" &&
+          "$$typeof" in children &&
+          renderHTML
+        ) {
+          if (
+            children.$$typeof === Symbol.for("react.element") &&
+            "props" in children
+          ) {
             // If there's only a children prop
             if (
               children.props?.children &&
@@ -144,7 +137,6 @@ function getChildProps(children, renderHTML = undefined) {
               handleChildren(children.props.children, optionParent, meta);
               return;
             }
-
             objInsert(optionParent, meta.childOption, renderHTML(children));
           }
         } else if (Array.isArray(children)) {
@@ -153,14 +145,11 @@ function getChildProps(children, renderHTML = undefined) {
       }
     }
   }
-
   if (Array.isArray(children)) {
     children.forEach(handleChild);
   } else {
-    console.log(children);
     handleChild(children);
   }
-
   return optionsFromChildren;
 }
 
@@ -171,10 +160,6 @@ export function Highcharts(props: ICommonAttributes) {
       Object.assign(
         {
           title: { text: props.title || "My Chart" },
-          data: {
-            csv: props.csv || undefined,
-            csvURL: props.csvURL || undefined,
-          },
         },
         props.options || {}
       ),
@@ -204,8 +189,6 @@ export function Highcharts(props: ICommonAttributes) {
   /** Append prop to chart config */
   const appendProps = (config: HC.Options) => {
     config.title.text ??= props.title;
-    config.data.csv ??= props.csv;
-    config.data.csvURL ??= props.csvURL;
   };
 
   /** Append series to chart config */
@@ -264,60 +247,7 @@ export function Highcharts(props: ICommonAttributes) {
 }
 
 export interface HighchartsSeriesProps extends ICommonSeriesAttributes {
-  type:
-    | "arcdiagram"
-    | "area"
-    | "arearange"
-    | "areaspline"
-    | "areasplinerange"
-    | "bar"
-    | "bellcurve"
-    | "boxplot"
-    | "bubble"
-    | "bullet"
-    | "column"
-    | "columnpyramid"
-    | "columnrange"
-    | "cylinder"
-    | "dependencywheel"
-    | "dumbbell"
-    | "errorbar"
-    | "funnel"
-    | "funnel3d"
-    | "gauge"
-    | "heatmap"
-    | "histogram"
-    | "item"
-    | "line"
-    | "lollipop"
-    | "networkgraph"
-    | "organization"
-    | "packedbubble"
-    | "pareto"
-    | "pictorial"
-    | "pie"
-    | "polygon"
-    | "pyramid"
-    | "pyramid3d"
-    | "sankey"
-    | "scatter"
-    | "scatter3d"
-    | "solidgauge"
-    | "spline"
-    | "streamgraph"
-    | "sunburst"
-    | "tilemap"
-    | "timeline"
-    | "treegraph"
-    | "treemap"
-    | "variablepie"
-    | "variwide"
-    | "vector"
-    | "venn"
-    | "waterfall"
-    | "windbarb"
-    | "wordcloud"
-    | "xrange";
+  type: HC.SeriesOptionsType["type"]; // required in generic series component
 }
 export function HighchartsSeries(props: HighchartsSeriesProps) {
   return null;

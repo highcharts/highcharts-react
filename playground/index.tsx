@@ -10,8 +10,6 @@ import { createRoot } from 'react-dom/client';
 
 import {
   Highcharts as Chart,
-  Area,
-  Line,
   Title,
   Subtitle,
   Credits,
@@ -19,6 +17,8 @@ import {
 } from '../src';
 
 import Bubble from '../src/series/Bubble';
+
+import { Area, Line } from '../src/series';
 
 ////////////////////////////////////////////////////////////////////////////////
 

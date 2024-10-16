@@ -31,12 +31,8 @@
   "devDependencies": {
     "typescript": "*"
   },
-  "exports": {
-    "./*": {
-      "import": "dist/*.js",
-      "types": "dist/*.d.ts"
-    }
-  },
+  "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "highcharts",
     "highcharts stock",

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "esnext",
     "declaration": true,
     "lib": ["ESNext", "DOM"],
@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "skipLibCheck": true,
-    "outDir": "./dist/",
+    "outDir": "./",
     "paths": {
       "~/*": ["./*"]
     },

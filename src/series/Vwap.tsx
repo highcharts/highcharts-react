@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesVwapOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/VWAP/VWAPIndicator.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Vwap series
  */
 const Vwap = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Vwap = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Vwap = (props: ICommonAttributes) => {
   );
 };
 
-Vwap.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface VwapSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesVwapOptions>;
+}
+
+Vwap.Series = (_props: VwapSeriesProps) => <></>;
 
 Vwap.Series.type = "Series";
 

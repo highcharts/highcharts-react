@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -152,6 +152,8 @@ export type XAxisProps = {
     id?: string;
     label?: {
       align?: Highcharts.AlignValue;
+      allowOverlap?: boolean;
+      inside?: boolean;
       rotation?: number;
       style?: Highcharts.CSSObject;
       text?: string;
@@ -230,7 +232,6 @@ export type XAxisProps = {
   };
   top?: number | string;
   type?: Highcharts.AxisTypeValue;
-  uniqueNames?: boolean;
   units?: Array<Array<string, Array<number> | null>>;
   visible?: boolean;
   width?: number | string;

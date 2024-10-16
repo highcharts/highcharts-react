@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,13 +15,18 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesFunnel3dOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Funnel3D/Funnel3DSeriesDefaults.js";
+import { Highcharts, HighchartsNS } from "../Highcharts";
+
+import SeriesMod from "highcharts/es-modules/Series/Funnel3D/Funnel3DSeries.js";
 
 if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
   SeriesMod(HighchartsNS);
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Funnel3d series
  */
 const Funnel3d = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Funnel3d = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="chart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Funnel3d = (props: ICommonAttributes) => {
   );
 };
 
-Funnel3d.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface Funnel3dSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesFunnel3dOptions>;
+}
+
+Funnel3d.Series = (_props: Funnel3dSeriesProps) => <></>;
 
 Funnel3d.Series.type = "Series";
 

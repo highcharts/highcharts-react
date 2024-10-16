@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,17 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesCandlestickOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Candlestick/CandlestickSeriesDefaults.js";
-
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(HighchartsNS);
-}
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 // Specified in overrides
 import stock_mod from "highcharts/modules/stock";
@@ -36,7 +35,7 @@ stock_mod(HighchartsNS);
  * Candlestick series
  */
 const Candlestick = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       Object.assign(
         {
@@ -52,8 +51,6 @@ const Candlestick = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="stockChart"
       options={chartConfig}
     >
@@ -62,7 +59,11 @@ const Candlestick = (props: ICommonAttributes) => {
   );
 };
 
-Candlestick.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface CandlestickSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesCandlestickOptions>;
+}
+
+Candlestick.Series = (_props: CandlestickSeriesProps) => <></>;
 
 Candlestick.Series.type = "Series";
 

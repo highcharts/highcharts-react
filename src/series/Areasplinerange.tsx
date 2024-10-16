@@ -1,12 +1,12 @@
 /**
- * react integration.
+ * React integration.
  * Copyright (c) 2024, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-08-08
+ * Build stamp: 2024-10-15
  *
  */
 
@@ -15,11 +15,16 @@ import React, {
   // @ts-ignore
 } from "react";
 
-import Highcharts, {
+import type { SeriesAreasplinerangeOptions } from "highcharts/highcharts";
+
+import type {
+  Options,
   ICommonAttributes,
   ICommonSeriesAttributes,
-  HighchartsNS,
+  WithoutType,
 } from "../Highcharts";
+
+import { Highcharts, HighchartsNS } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Series/AreaSplineRange/AreaSplineRangeSeries.js";
 
@@ -31,7 +36,7 @@ if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
  * Areasplinerange series
  */
 const Areasplinerange = (props: ICommonAttributes) => {
-  const [chartConfig] = useState<Highcharts.Options>(
+  const [chartConfig] = useState<Options>(
     Object.assign(
       {
         chart: {
@@ -45,8 +50,6 @@ const Areasplinerange = (props: ICommonAttributes) => {
   return (
     <Highcharts
       title={props.title}
-      csv={props.csv}
-      csvURL={props.csvURL}
       chartConstructor="chart"
       options={chartConfig}
     >
@@ -55,7 +58,11 @@ const Areasplinerange = (props: ICommonAttributes) => {
   );
 };
 
-Areasplinerange.Series = (_props: ICommonSeriesAttributes) => <></>;
+interface AreasplinerangeSeriesProps extends ICommonSeriesAttributes {
+  options?: WithoutType<SeriesAreasplinerangeOptions>;
+}
+
+Areasplinerange.Series = (_props: AreasplinerangeSeriesProps) => <></>;
 
 Areasplinerange.Series.type = "Series";
 
