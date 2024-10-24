@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Cylinder: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: CylinderSeriesProps): React.JSX.Element;
+    Series: typeof CylinderSeries;
     type: string;
 };
 interface CylinderSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesCylinderOptions>;
+}
+export declare function CylinderSeries(_props: CylinderSeriesProps): any;
+export declare namespace CylinderSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Cylinder;

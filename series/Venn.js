@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Venn = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Venn.Series = (_props) => React.createElement(React.Fragment, null);
-Venn.Series.type = "Series";
+export function VennSeries(_props) {
+    return null;
+}
+VennSeries.type = "Series";
+Venn.Series = VennSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Venn.Series.defaultProps = {
+VennSeries.defaultProps = {
     type: "venn",
 };
 Venn.type = "SeriesChart";

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AreasplinerangeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAreasplinerangeOptions>;
 }
 
-Areasplinerange.Series = (_props: AreasplinerangeSeriesProps) => <></>;
+export function AreasplinerangeSeries(_props: AreasplinerangeSeriesProps) {
+  return null;
+}
 
-Areasplinerange.Series.type = "Series";
+AreasplinerangeSeries.type = "Series";
+Areasplinerange.Series = AreasplinerangeSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Areasplinerange.Series.defaultProps = {
+AreasplinerangeSeries.defaultProps = {
   type: "areasplinerange",
 };
 

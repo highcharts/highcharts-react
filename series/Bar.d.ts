@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Bar: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: BarSeriesProps): React.JSX.Element;
+    Series: typeof BarSeries;
     type: string;
 };
 interface BarSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesBarOptions>;
+}
+export declare function BarSeries(_props: BarSeriesProps): any;
+export declare namespace BarSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Bar;

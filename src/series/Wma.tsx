@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface WmaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWmaOptions>;
 }
 
-Wma.Series = (_props: WmaSeriesProps) => <></>;
+export function WmaSeries(_props: WmaSeriesProps) {
+  return null;
+}
 
-Wma.Series.type = "Series";
+WmaSeries.type = "Series";
+Wma.Series = WmaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Wma.Series.defaultProps = {
+WmaSeries.defaultProps = {
   type: "wma",
 };
 

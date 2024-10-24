@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Xrange: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: XrangeSeriesProps): React.JSX.Element;
+    Series: typeof XrangeSeries;
     type: string;
 };
 interface XrangeSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesXrangeOptions>;
+}
+export declare function XrangeSeries(_props: XrangeSeriesProps): any;
+export declare namespace XrangeSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Xrange;

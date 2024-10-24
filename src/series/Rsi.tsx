@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface RsiSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesRsiOptions>;
 }
 
-Rsi.Series = (_props: RsiSeriesProps) => <></>;
+export function RsiSeries(_props: RsiSeriesProps) {
+  return null;
+}
 
-Rsi.Series.type = "Series";
+RsiSeries.type = "Series";
+Rsi.Series = RsiSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Rsi.Series.defaultProps = {
+RsiSeries.defaultProps = {
   type: "rsi",
 };
 

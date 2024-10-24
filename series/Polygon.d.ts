@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Polygon: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PolygonSeriesProps): React.JSX.Element;
+    Series: typeof PolygonSeries;
     type: string;
 };
 interface PolygonSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPolygonOptions>;
+}
+export declare function PolygonSeries(_props: PolygonSeriesProps): any;
+export declare namespace PolygonSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Polygon;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Treegraph: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: TreegraphSeriesProps): React.JSX.Element;
+    Series: typeof TreegraphSeries;
     type: string;
 };
 interface TreegraphSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesTreegraphOptions>;
+}
+export declare function TreegraphSeries(_props: TreegraphSeriesProps): any;
+export declare namespace TreegraphSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Treegraph;

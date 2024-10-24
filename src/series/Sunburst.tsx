@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SunburstSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSunburstOptions>;
 }
 
-Sunburst.Series = (_props: SunburstSeriesProps) => <></>;
+export function SunburstSeries(_props: SunburstSeriesProps) {
+  return null;
+}
 
-Sunburst.Series.type = "Series";
+SunburstSeries.type = "Series";
+Sunburst.Series = SunburstSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Sunburst.Series.defaultProps = {
+SunburstSeries.defaultProps = {
   type: "sunburst",
 };
 

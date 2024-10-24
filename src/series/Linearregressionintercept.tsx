@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,15 +62,18 @@ interface LinearregressioninterceptSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLinearregressioninterceptOptions>;
 }
 
-Linearregressionintercept.Series = (
+export function LinearregressioninterceptSeries(
   _props: LinearregressioninterceptSeriesProps
-) => <></>;
+) {
+  return null;
+}
 
-Linearregressionintercept.Series.type = "Series";
+LinearregressioninterceptSeries.type = "Series";
+Linearregressionintercept.Series = LinearregressioninterceptSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Linearregressionintercept.Series.defaultProps = {
+LinearregressioninterceptSeries.defaultProps = {
   type: "linearregressionintercept",
 };
 

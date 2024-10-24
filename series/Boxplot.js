@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Boxplot = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Boxplot.Series = (_props) => React.createElement(React.Fragment, null);
-Boxplot.Series.type = "Series";
+export function BoxplotSeries(_props) {
+    return null;
+}
+BoxplotSeries.type = "Series";
+Boxplot.Series = BoxplotSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Boxplot.Series.defaultProps = {
+BoxplotSeries.defaultProps = {
     type: "boxplot",
 };
 Boxplot.type = "SeriesChart";

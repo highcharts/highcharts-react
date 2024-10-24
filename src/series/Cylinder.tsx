@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface CylinderSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesCylinderOptions>;
 }
 
-Cylinder.Series = (_props: CylinderSeriesProps) => <></>;
+export function CylinderSeries(_props: CylinderSeriesProps) {
+  return null;
+}
 
-Cylinder.Series.type = "Series";
+CylinderSeries.type = "Series";
+Cylinder.Series = CylinderSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Cylinder.Series.defaultProps = {
+CylinderSeries.defaultProps = {
   type: "cylinder",
 };
 

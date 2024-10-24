@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface StreamgraphSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesStreamgraphOptions>;
 }
 
-Streamgraph.Series = (_props: StreamgraphSeriesProps) => <></>;
+export function StreamgraphSeries(_props: StreamgraphSeriesProps) {
+  return null;
+}
 
-Streamgraph.Series.type = "Series";
+StreamgraphSeries.type = "Series";
+Streamgraph.Series = StreamgraphSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Streamgraph.Series.defaultProps = {
+StreamgraphSeries.defaultProps = {
   type: "streamgraph",
 };
 

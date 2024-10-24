@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AroonoscillatorSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAroonoscillatorOptions>;
 }
 
-Aroonoscillator.Series = (_props: AroonoscillatorSeriesProps) => <></>;
+export function AroonoscillatorSeries(_props: AroonoscillatorSeriesProps) {
+  return null;
+}
 
-Aroonoscillator.Series.type = "Series";
+AroonoscillatorSeries.type = "Series";
+Aroonoscillator.Series = AroonoscillatorSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Aroonoscillator.Series.defaultProps = {
+AroonoscillatorSeries.defaultProps = {
   type: "aroonoscillator",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Trendline = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Trendline.Series = (_props) => React.createElement(React.Fragment, null);
-Trendline.Series.type = "Series";
+export function TrendlineSeries(_props) {
+    return null;
+}
+TrendlineSeries.type = "Series";
+Trendline.Series = TrendlineSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Trendline.Series.defaultProps = {
+TrendlineSeries.defaultProps = {
     type: "trendline",
 };
 Trendline.type = "SeriesChart";

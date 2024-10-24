@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Trix: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: TrixSeriesProps): React.JSX.Element;
+    Series: typeof TrixSeries;
     type: string;
 };
 interface TrixSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesTrixOptions>;
+}
+export declare function TrixSeries(_props: TrixSeriesProps): any;
+export declare namespace TrixSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Trix;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Geoheatmap = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-Geoheatmap.Series = (_props) => React.createElement(React.Fragment, null);
-Geoheatmap.Series.type = "Series";
+export function GeoheatmapSeries(_props) {
+    return null;
+}
+GeoheatmapSeries.type = "Series";
+Geoheatmap.Series = GeoheatmapSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Geoheatmap.Series.defaultProps = {
+GeoheatmapSeries.defaultProps = {
     type: "geoheatmap",
 };
 Geoheatmap.type = "SeriesChart";

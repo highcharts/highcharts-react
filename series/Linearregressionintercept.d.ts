@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Linearregressionintercept: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: LinearregressioninterceptSeriesProps): React.JSX.Element;
+    Series: typeof LinearregressioninterceptSeries;
     type: string;
 };
 interface LinearregressioninterceptSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesLinearregressioninterceptOptions>;
+}
+export declare function LinearregressioninterceptSeries(_props: LinearregressioninterceptSeriesProps): any;
+export declare namespace LinearregressioninterceptSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Linearregressionintercept;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Disparityindex = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Disparityindex.Series = (_props) => React.createElement(React.Fragment, null);
-Disparityindex.Series.type = "Series";
+export function DisparityindexSeries(_props) {
+    return null;
+}
+DisparityindexSeries.type = "Series";
+Disparityindex.Series = DisparityindexSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Disparityindex.Series.defaultProps = {
+DisparityindexSeries.defaultProps = {
     type: "disparityindex",
 };
 Disparityindex.type = "SeriesChart";

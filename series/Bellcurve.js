@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Bellcurve = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Bellcurve.Series = (_props) => React.createElement(React.Fragment, null);
-Bellcurve.Series.type = "Series";
+export function BellcurveSeries(_props) {
+    return null;
+}
+BellcurveSeries.type = "Series";
+Bellcurve.Series = BellcurveSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Bellcurve.Series.defaultProps = {
+BellcurveSeries.defaultProps = {
     type: "bellcurve",
 };
 Bellcurve.type = "SeriesChart";

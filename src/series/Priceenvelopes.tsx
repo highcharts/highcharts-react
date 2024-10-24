@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PriceenvelopesSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPriceenvelopesOptions>;
 }
 
-Priceenvelopes.Series = (_props: PriceenvelopesSeriesProps) => <></>;
+export function PriceenvelopesSeries(_props: PriceenvelopesSeriesProps) {
+  return null;
+}
 
-Priceenvelopes.Series.type = "Series";
+PriceenvelopesSeries.type = "Series";
+Priceenvelopes.Series = PriceenvelopesSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Priceenvelopes.Series.defaultProps = {
+PriceenvelopesSeries.defaultProps = {
   type: "priceenvelopes",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface SplineSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSplineOptions>;
 }
 
-Spline.Series = (_props: SplineSeriesProps) => <></>;
+export function SplineSeries(_props: SplineSeriesProps) {
+  return null;
+}
 
-Spline.Series.type = "Series";
+SplineSeries.type = "Series";
+Spline.Series = SplineSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Spline.Series.defaultProps = {
+SplineSeries.defaultProps = {
   type: "spline",
 };
 

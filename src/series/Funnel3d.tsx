@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface Funnel3dSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesFunnel3dOptions>;
 }
 
-Funnel3d.Series = (_props: Funnel3dSeriesProps) => <></>;
+export function Funnel3dSeries(_props: Funnel3dSeriesProps) {
+  return null;
+}
 
-Funnel3d.Series.type = "Series";
+Funnel3dSeries.type = "Series";
+Funnel3d.Series = Funnel3dSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Funnel3d.Series.defaultProps = {
+Funnel3dSeries.defaultProps = {
   type: "funnel3d",
 };
 

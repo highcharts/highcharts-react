@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Areasplinerange = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Areasplinerange.Series = (_props) => React.createElement(React.Fragment, null);
-Areasplinerange.Series.type = "Series";
+export function AreasplinerangeSeries(_props) {
+    return null;
+}
+AreasplinerangeSeries.type = "Series";
+Areasplinerange.Series = AreasplinerangeSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Areasplinerange.Series.defaultProps = {
+AreasplinerangeSeries.defaultProps = {
     type: "areasplinerange",
 };
 Areasplinerange.type = "SeriesChart";

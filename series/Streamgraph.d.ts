@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Streamgraph: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: StreamgraphSeriesProps): React.JSX.Element;
+    Series: typeof StreamgraphSeries;
     type: string;
 };
 interface StreamgraphSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesStreamgraphOptions>;
+}
+export declare function StreamgraphSeries(_props: StreamgraphSeriesProps): any;
+export declare namespace StreamgraphSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Streamgraph;

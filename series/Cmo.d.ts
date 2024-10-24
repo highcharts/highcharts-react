@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Cmo: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: CmoSeriesProps): React.JSX.Element;
+    Series: typeof CmoSeries;
     type: string;
 };
 interface CmoSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesCmoOptions>;
+}
+export declare function CmoSeries(_props: CmoSeriesProps): any;
+export declare namespace CmoSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Cmo;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface WindbarbSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWindbarbOptions>;
 }
 
-Windbarb.Series = (_props: WindbarbSeriesProps) => <></>;
+export function WindbarbSeries(_props: WindbarbSeriesProps) {
+  return null;
+}
 
-Windbarb.Series.type = "Series";
+WindbarbSeries.type = "Series";
+Windbarb.Series = WindbarbSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Windbarb.Series.defaultProps = {
+WindbarbSeries.defaultProps = {
   type: "windbarb",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Sankey: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: SankeySeriesProps): React.JSX.Element;
+    Series: typeof SankeySeries;
     type: string;
 };
 interface SankeySeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesSankeyOptions>;
+}
+export declare function SankeySeries(_props: SankeySeriesProps): any;
+export declare namespace SankeySeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Sankey;

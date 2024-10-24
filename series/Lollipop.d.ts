@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Lollipop: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: LollipopSeriesProps): React.JSX.Element;
+    Series: typeof LollipopSeries;
     type: string;
 };
 interface LollipopSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesLollipopOptions>;
+}
+export declare function LollipopSeries(_props: LollipopSeriesProps): any;
+export declare namespace LollipopSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Lollipop;

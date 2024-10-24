@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface HollowcandlestickSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHollowcandlestickOptions>;
 }
 
-Hollowcandlestick.Series = (_props: HollowcandlestickSeriesProps) => <></>;
+export function HollowcandlestickSeries(_props: HollowcandlestickSeriesProps) {
+  return null;
+}
 
-Hollowcandlestick.Series.type = "Series";
+HollowcandlestickSeries.type = "Series";
+Hollowcandlestick.Series = HollowcandlestickSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Hollowcandlestick.Series.defaultProps = {
+HollowcandlestickSeries.defaultProps = {
   type: "hollowcandlestick",
 };
 

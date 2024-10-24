@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Waterfall: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: WaterfallSeriesProps): React.JSX.Element;
+    Series: typeof WaterfallSeries;
     type: string;
 };
 interface WaterfallSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesWaterfallOptions>;
+}
+export declare function WaterfallSeries(_props: WaterfallSeriesProps): any;
+export declare namespace WaterfallSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Waterfall;

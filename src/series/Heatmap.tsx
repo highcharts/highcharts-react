@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface HeatmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHeatmapOptions>;
 }
 
-Heatmap.Series = (_props: HeatmapSeriesProps) => <></>;
+export function HeatmapSeries(_props: HeatmapSeriesProps) {
+  return null;
+}
 
-Heatmap.Series.type = "Series";
+HeatmapSeries.type = "Series";
+Heatmap.Series = HeatmapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Heatmap.Series.defaultProps = {
+HeatmapSeries.defaultProps = {
   type: "heatmap",
 };
 

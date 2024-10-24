@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Variwide: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: VariwideSeriesProps): React.JSX.Element;
+    Series: typeof VariwideSeries;
     type: string;
 };
 interface VariwideSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesVariwideOptions>;
+}
+export declare function VariwideSeries(_props: VariwideSeriesProps): any;
+export declare namespace VariwideSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Variwide;

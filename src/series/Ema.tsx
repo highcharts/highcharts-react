@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface EmaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesEmaOptions>;
 }
 
-Ema.Series = (_props: EmaSeriesProps) => <></>;
+export function EmaSeries(_props: EmaSeriesProps) {
+  return null;
+}
 
-Ema.Series.type = "Series";
+EmaSeries.type = "Series";
+Ema.Series = EmaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Ema.Series.defaultProps = {
+EmaSeries.defaultProps = {
   type: "ema",
 };
 

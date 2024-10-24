@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Networkgraph: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: NetworkgraphSeriesProps): React.JSX.Element;
+    Series: typeof NetworkgraphSeries;
     type: string;
 };
 interface NetworkgraphSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesNetworkgraphOptions>;
+}
+export declare function NetworkgraphSeries(_props: NetworkgraphSeriesProps): any;
+export declare namespace NetworkgraphSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Networkgraph;

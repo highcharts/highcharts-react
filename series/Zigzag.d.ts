@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Zigzag: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: ZigzagSeriesProps): React.JSX.Element;
+    Series: typeof ZigzagSeries;
     type: string;
 };
 interface ZigzagSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesZigzagOptions>;
+}
+export declare function ZigzagSeries(_props: ZigzagSeriesProps): any;
+export declare namespace ZigzagSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Zigzag;

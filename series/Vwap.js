@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Vwap = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Vwap.Series = (_props) => React.createElement(React.Fragment, null);
-Vwap.Series.type = "Series";
+export function VwapSeries(_props) {
+    return null;
+}
+VwapSeries.type = "Series";
+Vwap.Series = VwapSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Vwap.Series.defaultProps = {
+VwapSeries.defaultProps = {
     type: "vwap",
 };
 Vwap.type = "SeriesChart";

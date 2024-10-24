@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface GanttSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesGanttOptions>;
 }
 
-Gantt.Series = (_props: GanttSeriesProps) => <></>;
+export function GanttSeries(_props: GanttSeriesProps) {
+  return null;
+}
 
-Gantt.Series.type = "Series";
+GanttSeries.type = "Series";
+Gantt.Series = GanttSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Gantt.Series.defaultProps = {
+GanttSeries.defaultProps = {
   type: "gantt",
 };
 

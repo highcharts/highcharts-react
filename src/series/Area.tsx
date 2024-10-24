@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface AreaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAreaOptions>;
 }
 
-Area.Series = (_props: AreaSeriesProps) => <></>;
+export function AreaSeries(_props: AreaSeriesProps) {
+  return null;
+}
 
-Area.Series.type = "Series";
+AreaSeries.type = "Series";
+Area.Series = AreaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Area.Series.defaultProps = {
+AreaSeries.defaultProps = {
   type: "area",
 };
 

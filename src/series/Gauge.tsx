@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface GaugeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesGaugeOptions>;
 }
 
-Gauge.Series = (_props: GaugeSeriesProps) => <></>;
+export function GaugeSeries(_props: GaugeSeriesProps) {
+  return null;
+}
 
-Gauge.Series.type = "Series";
+GaugeSeries.type = "Series";
+Gauge.Series = GaugeSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Gauge.Series.defaultProps = {
+GaugeSeries.defaultProps = {
   type: "gauge",
 };
 

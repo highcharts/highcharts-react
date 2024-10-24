@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface ChaikinSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesChaikinOptions>;
 }
 
-Chaikin.Series = (_props: ChaikinSeriesProps) => <></>;
+export function ChaikinSeries(_props: ChaikinSeriesProps) {
+  return null;
+}
 
-Chaikin.Series.type = "Series";
+ChaikinSeries.type = "Series";
+Chaikin.Series = ChaikinSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Chaikin.Series.defaultProps = {
+ChaikinSeries.defaultProps = {
   type: "chaikin",
 };
 

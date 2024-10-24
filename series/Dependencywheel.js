@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Dependencywheel = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Dependencywheel.Series = (_props) => React.createElement(React.Fragment, null);
-Dependencywheel.Series.type = "Series";
+export function DependencywheelSeries(_props) {
+    return null;
+}
+DependencywheelSeries.type = "Series";
+Dependencywheel.Series = DependencywheelSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Dependencywheel.Series.defaultProps = {
+DependencywheelSeries.defaultProps = {
     type: "dependencywheel",
 };
 Dependencywheel.type = "SeriesChart";

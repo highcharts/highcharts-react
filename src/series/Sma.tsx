@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SmaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSmaOptions>;
 }
 
-Sma.Series = (_props: SmaSeriesProps) => <></>;
+export function SmaSeries(_props: SmaSeriesProps) {
+  return null;
+}
 
-Sma.Series.type = "Series";
+SmaSeries.type = "Series";
+Sma.Series = SmaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Sma.Series.defaultProps = {
+SmaSeries.defaultProps = {
   type: "sma",
 };
 

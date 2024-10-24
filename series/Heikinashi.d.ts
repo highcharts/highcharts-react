@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Heikinashi: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: HeikinashiSeriesProps): React.JSX.Element;
+    Series: typeof HeikinashiSeries;
     type: string;
 };
 interface HeikinashiSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesHeikinashiOptions>;
+}
+export declare function HeikinashiSeries(_props: HeikinashiSeriesProps): any;
+export declare namespace HeikinashiSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Heikinashi;

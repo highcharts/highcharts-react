@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface LollipopSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLollipopOptions>;
 }
 
-Lollipop.Series = (_props: LollipopSeriesProps) => <></>;
+export function LollipopSeries(_props: LollipopSeriesProps) {
+  return null;
+}
 
-Lollipop.Series.type = "Series";
+LollipopSeries.type = "Series";
+Lollipop.Series = LollipopSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Lollipop.Series.defaultProps = {
+LollipopSeries.defaultProps = {
   type: "lollipop",
 };
 

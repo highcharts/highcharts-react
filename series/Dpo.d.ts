@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Dpo: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: DpoSeriesProps): React.JSX.Element;
+    Series: typeof DpoSeries;
     type: string;
 };
 interface DpoSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesDpoOptions>;
+}
+export declare function DpoSeries(_props: DpoSeriesProps): any;
+export declare namespace DpoSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Dpo;

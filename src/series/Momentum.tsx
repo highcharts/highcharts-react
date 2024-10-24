@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface MomentumSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMomentumOptions>;
 }
 
-Momentum.Series = (_props: MomentumSeriesProps) => <></>;
+export function MomentumSeries(_props: MomentumSeriesProps) {
+  return null;
+}
 
-Momentum.Series.type = "Series";
+MomentumSeries.type = "Series";
+Momentum.Series = MomentumSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Momentum.Series.defaultProps = {
+MomentumSeries.defaultProps = {
   type: "momentum",
 };
 

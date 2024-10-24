@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Aroonoscillator = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Aroonoscillator.Series = (_props) => React.createElement(React.Fragment, null);
-Aroonoscillator.Series.type = "Series";
+export function AroonoscillatorSeries(_props) {
+    return null;
+}
+AroonoscillatorSeries.type = "Series";
+Aroonoscillator.Series = AroonoscillatorSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Aroonoscillator.Series.defaultProps = {
+AroonoscillatorSeries.defaultProps = {
     type: "aroonoscillator",
 };
 Aroonoscillator.type = "SeriesChart";

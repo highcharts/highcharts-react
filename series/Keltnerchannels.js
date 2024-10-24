@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Keltnerchannels = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Keltnerchannels.Series = (_props) => React.createElement(React.Fragment, null);
-Keltnerchannels.Series.type = "Series";
+export function KeltnerchannelsSeries(_props) {
+    return null;
+}
+KeltnerchannelsSeries.type = "Series";
+Keltnerchannels.Series = KeltnerchannelsSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Keltnerchannels.Series.defaultProps = {
+KeltnerchannelsSeries.defaultProps = {
     type: "keltnerchannels",
 };
 Keltnerchannels.type = "SeriesChart";

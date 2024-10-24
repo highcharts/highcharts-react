@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface NatrSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesNatrOptions>;
 }
 
-Natr.Series = (_props: NatrSeriesProps) => <></>;
+export function NatrSeries(_props: NatrSeriesProps) {
+  return null;
+}
 
-Natr.Series.type = "Series";
+NatrSeries.type = "Series";
+Natr.Series = NatrSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Natr.Series.defaultProps = {
+NatrSeries.defaultProps = {
   type: "natr",
 };
 

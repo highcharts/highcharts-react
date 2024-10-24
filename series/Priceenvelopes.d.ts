@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Priceenvelopes: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PriceenvelopesSeriesProps): React.JSX.Element;
+    Series: typeof PriceenvelopesSeries;
     type: string;
 };
 interface PriceenvelopesSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPriceenvelopesOptions>;
+}
+export declare function PriceenvelopesSeries(_props: PriceenvelopesSeriesProps): any;
+export declare namespace PriceenvelopesSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Priceenvelopes;

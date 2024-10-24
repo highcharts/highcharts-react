@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Sunburst: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: SunburstSeriesProps): React.JSX.Element;
+    Series: typeof SunburstSeries;
     type: string;
 };
 interface SunburstSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesSunburstOptions>;
+}
+export declare function SunburstSeries(_props: SunburstSeriesProps): any;
+export declare namespace SunburstSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Sunburst;

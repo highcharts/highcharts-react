@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Gantt = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "ganttChart", options: chartConfig }, props.children));
 };
-Gantt.Series = (_props) => React.createElement(React.Fragment, null);
-Gantt.Series.type = "Series";
+export function GanttSeries(_props) {
+    return null;
+}
+GanttSeries.type = "Series";
+Gantt.Series = GanttSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Gantt.Series.defaultProps = {
+GanttSeries.defaultProps = {
     type: "gantt",
 };
 Gantt.type = "SeriesChart";

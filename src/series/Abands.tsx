@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AbandsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAbandsOptions>;
 }
 
-Abands.Series = (_props: AbandsSeriesProps) => <></>;
+export function AbandsSeries(_props: AbandsSeriesProps) {
+  return null;
+}
 
-Abands.Series.type = "Series";
+AbandsSeries.type = "Series";
+Abands.Series = AbandsSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Abands.Series.defaultProps = {
+AbandsSeries.defaultProps = {
   type: "abands",
 };
 

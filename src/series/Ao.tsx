@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AoSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAoOptions>;
 }
 
-Ao.Series = (_props: AoSeriesProps) => <></>;
+export function AoSeries(_props: AoSeriesProps) {
+  return null;
+}
 
-Ao.Series.type = "Series";
+AoSeries.type = "Series";
+Ao.Series = AoSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Ao.Series.defaultProps = {
+AoSeries.defaultProps = {
   type: "ao",
 };
 

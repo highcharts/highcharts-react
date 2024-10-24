@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface VennSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVennOptions>;
 }
 
-Venn.Series = (_props: VennSeriesProps) => <></>;
+export function VennSeries(_props: VennSeriesProps) {
+  return null;
+}
 
-Venn.Series.type = "Series";
+VennSeries.type = "Series";
+Venn.Series = VennSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Venn.Series.defaultProps = {
+VennSeries.defaultProps = {
   type: "venn",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface VariwideSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVariwideOptions>;
 }
 
-Variwide.Series = (_props: VariwideSeriesProps) => <></>;
+export function VariwideSeries(_props: VariwideSeriesProps) {
+  return null;
+}
 
-Variwide.Series.type = "Series";
+VariwideSeries.type = "Series";
+Variwide.Series = VariwideSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Variwide.Series.defaultProps = {
+VariwideSeries.defaultProps = {
   type: "variwide",
 };
 

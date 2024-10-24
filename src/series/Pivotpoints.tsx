@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PivotpointsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPivotpointsOptions>;
 }
 
-Pivotpoints.Series = (_props: PivotpointsSeriesProps) => <></>;
+export function PivotpointsSeries(_props: PivotpointsSeriesProps) {
+  return null;
+}
 
-Pivotpoints.Series.type = "Series";
+PivotpointsSeries.type = "Series";
+Pivotpoints.Series = PivotpointsSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Pivotpoints.Series.defaultProps = {
+PivotpointsSeries.defaultProps = {
   type: "pivotpoints",
 };
 

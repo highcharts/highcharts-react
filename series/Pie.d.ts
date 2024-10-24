@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Pie: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PieSeriesProps): React.JSX.Element;
+    Series: typeof PieSeries;
     type: string;
 };
 interface PieSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPieOptions>;
+}
+export declare function PieSeries(_props: PieSeriesProps): any;
+export declare namespace PieSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Pie;

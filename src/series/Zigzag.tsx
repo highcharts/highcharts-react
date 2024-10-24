@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface ZigzagSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesZigzagOptions>;
 }
 
-Zigzag.Series = (_props: ZigzagSeriesProps) => <></>;
+export function ZigzagSeries(_props: ZigzagSeriesProps) {
+  return null;
+}
 
-Zigzag.Series.type = "Series";
+ZigzagSeries.type = "Series";
+Zigzag.Series = ZigzagSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Zigzag.Series.defaultProps = {
+ZigzagSeries.defaultProps = {
   type: "zigzag",
 };
 

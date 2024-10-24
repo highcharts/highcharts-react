@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Mfi: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MfiSeriesProps): React.JSX.Element;
+    Series: typeof MfiSeries;
     type: string;
 };
 interface MfiSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMfiOptions>;
+}
+export declare function MfiSeries(_props: MfiSeriesProps): any;
+export declare namespace MfiSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Mfi;

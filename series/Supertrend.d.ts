@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Supertrend: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: SupertrendSeriesProps): React.JSX.Element;
+    Series: typeof SupertrendSeries;
     type: string;
 };
 interface SupertrendSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesSupertrendOptions>;
+}
+export declare function SupertrendSeries(_props: SupertrendSeriesProps): any;
+export declare namespace SupertrendSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Supertrend;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Funnel3d = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Funnel3d.Series = (_props) => React.createElement(React.Fragment, null);
-Funnel3d.Series.type = "Series";
+export function Funnel3dSeries(_props) {
+    return null;
+}
+Funnel3dSeries.type = "Series";
+Funnel3d.Series = Funnel3dSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Funnel3d.Series.defaultProps = {
+Funnel3dSeries.defaultProps = {
     type: "funnel3d",
 };
 Funnel3d.type = "SeriesChart";

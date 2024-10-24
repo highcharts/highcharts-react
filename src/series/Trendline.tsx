@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TrendlineSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTrendlineOptions>;
 }
 
-Trendline.Series = (_props: TrendlineSeriesProps) => <></>;
+export function TrendlineSeries(_props: TrendlineSeriesProps) {
+  return null;
+}
 
-Trendline.Series.type = "Series";
+TrendlineSeries.type = "Series";
+Trendline.Series = TrendlineSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Trendline.Series.defaultProps = {
+TrendlineSeries.defaultProps = {
   type: "trendline",
 };
 

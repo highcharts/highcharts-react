@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface ErrorbarSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesErrorbarOptions>;
 }
 
-Errorbar.Series = (_props: ErrorbarSeriesProps) => <></>;
+export function ErrorbarSeries(_props: ErrorbarSeriesProps) {
+  return null;
+}
 
-Errorbar.Series.type = "Series";
+ErrorbarSeries.type = "Series";
+Errorbar.Series = ErrorbarSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Errorbar.Series.defaultProps = {
+ErrorbarSeries.defaultProps = {
   type: "errorbar",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface WordcloudSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWordcloudOptions>;
 }
 
-Wordcloud.Series = (_props: WordcloudSeriesProps) => <></>;
+export function WordcloudSeries(_props: WordcloudSeriesProps) {
+  return null;
+}
 
-Wordcloud.Series.type = "Series";
+WordcloudSeries.type = "Series";
+Wordcloud.Series = WordcloudSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Wordcloud.Series.defaultProps = {
+WordcloudSeries.defaultProps = {
   type: "wordcloud",
 };
 

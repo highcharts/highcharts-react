@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Slowstochastic = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Slowstochastic.Series = (_props) => React.createElement(React.Fragment, null);
-Slowstochastic.Series.type = "Series";
+export function SlowstochasticSeries(_props) {
+    return null;
+}
+SlowstochasticSeries.type = "Series";
+Slowstochastic.Series = SlowstochasticSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Slowstochastic.Series.defaultProps = {
+SlowstochasticSeries.defaultProps = {
     type: "slowstochastic",
 };
 Slowstochastic.type = "SeriesChart";

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Ad: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: AdSeriesProps): React.JSX.Element;
+    Series: typeof AdSeries;
     type: string;
 };
 interface AdSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAdOptions>;
+}
+export declare function AdSeries(_props: AdSeriesProps): any;
+export declare namespace AdSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Ad;

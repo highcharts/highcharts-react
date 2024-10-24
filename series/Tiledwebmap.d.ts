@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Tiledwebmap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: TiledwebmapSeriesProps): React.JSX.Element;
+    Series: typeof TiledwebmapSeries;
     type: string;
 };
 interface TiledwebmapSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesTiledwebmapOptions>;
+}
+export declare function TiledwebmapSeries(_props: TiledwebmapSeriesProps): any;
+export declare namespace TiledwebmapSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Tiledwebmap;

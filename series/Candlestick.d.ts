@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Candlestick: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: CandlestickSeriesProps): React.JSX.Element;
+    Series: typeof CandlestickSeries;
     type: string;
 };
 interface CandlestickSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesCandlestickOptions>;
+}
+export declare function CandlestickSeries(_props: CandlestickSeriesProps): any;
+export declare namespace CandlestickSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Candlestick;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface IkhSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesIkhOptions>;
 }
 
-Ikh.Series = (_props: IkhSeriesProps) => <></>;
+export function IkhSeries(_props: IkhSeriesProps) {
+  return null;
+}
 
-Ikh.Series.type = "Series";
+IkhSeries.type = "Series";
+Ikh.Series = IkhSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Ikh.Series.defaultProps = {
+IkhSeries.defaultProps = {
   type: "ikh",
 };
 

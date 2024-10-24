@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Gantt: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: GanttSeriesProps): React.JSX.Element;
+    Series: typeof GanttSeries;
     type: string;
 };
 interface GanttSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesGanttOptions>;
+}
+export declare function GanttSeries(_props: GanttSeriesProps): any;
+export declare namespace GanttSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Gantt;

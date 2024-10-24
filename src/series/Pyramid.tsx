@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PyramidSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPyramidOptions>;
 }
 
-Pyramid.Series = (_props: PyramidSeriesProps) => <></>;
+export function PyramidSeries(_props: PyramidSeriesProps) {
+  return null;
+}
 
-Pyramid.Series.type = "Series";
+PyramidSeries.type = "Series";
+Pyramid.Series = PyramidSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Pyramid.Series.defaultProps = {
+PyramidSeries.defaultProps = {
   type: "pyramid",
 };
 

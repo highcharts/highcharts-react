@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Solidgauge = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Solidgauge.Series = (_props) => React.createElement(React.Fragment, null);
-Solidgauge.Series.type = "Series";
+export function SolidgaugeSeries(_props) {
+    return null;
+}
+SolidgaugeSeries.type = "Series";
+Solidgauge.Series = SolidgaugeSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Solidgauge.Series.defaultProps = {
+SolidgaugeSeries.defaultProps = {
     type: "solidgauge",
 };
 Solidgauge.type = "SeriesChart";

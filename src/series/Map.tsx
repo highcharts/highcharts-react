@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface MapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMapOptions>;
 }
 
-Map.Series = (_props: MapSeriesProps) => <></>;
+export function MapSeries(_props: MapSeriesProps) {
+  return null;
+}
 
-Map.Series.type = "Series";
+MapSeries.type = "Series";
+Map.Series = MapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Map.Series.defaultProps = {
+MapSeries.defaultProps = {
   type: "map",
 };
 

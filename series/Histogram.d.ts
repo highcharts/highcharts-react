@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Histogram: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: HistogramSeriesProps): React.JSX.Element;
+    Series: typeof HistogramSeries;
     type: string;
 };
 interface HistogramSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesHistogramOptions>;
+}
+export declare function HistogramSeries(_props: HistogramSeriesProps): any;
+export declare namespace HistogramSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Histogram;

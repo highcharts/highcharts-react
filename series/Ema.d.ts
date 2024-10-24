@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Ema: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: EmaSeriesProps): React.JSX.Element;
+    Series: typeof EmaSeries;
     type: string;
 };
 interface EmaSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesEmaOptions>;
+}
+export declare function EmaSeries(_props: EmaSeriesProps): any;
+export declare namespace EmaSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Ema;

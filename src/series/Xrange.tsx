@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface XrangeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesXrangeOptions>;
 }
 
-Xrange.Series = (_props: XrangeSeriesProps) => <></>;
+export function XrangeSeries(_props: XrangeSeriesProps) {
+  return null;
+}
 
-Xrange.Series.type = "Series";
+XrangeSeries.type = "Series";
+Xrange.Series = XrangeSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Xrange.Series.defaultProps = {
+XrangeSeries.defaultProps = {
   type: "xrange",
 };
 

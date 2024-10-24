@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AroonSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAroonOptions>;
 }
 
-Aroon.Series = (_props: AroonSeriesProps) => <></>;
+export function AroonSeries(_props: AroonSeriesProps) {
+  return null;
+}
 
-Aroon.Series.type = "Series";
+AroonSeries.type = "Series";
+Aroon.Series = AroonSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Aroon.Series.defaultProps = {
+AroonSeries.defaultProps = {
   type: "aroon",
 };
 

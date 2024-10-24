@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Flowmap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: FlowmapSeriesProps): React.JSX.Element;
+    Series: typeof FlowmapSeries;
     type: string;
 };
 interface FlowmapSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesFlowmapOptions>;
+}
+export declare function FlowmapSeries(_props: FlowmapSeriesProps): any;
+export declare namespace FlowmapSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Flowmap;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface FlowmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesFlowmapOptions>;
 }
 
-Flowmap.Series = (_props: FlowmapSeriesProps) => <></>;
+export function FlowmapSeries(_props: FlowmapSeriesProps) {
+  return null;
+}
 
-Flowmap.Series.type = "Series";
+FlowmapSeries.type = "Series";
+Flowmap.Series = FlowmapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Flowmap.Series.defaultProps = {
+FlowmapSeries.defaultProps = {
   type: "flowmap",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface StochasticSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesStochasticOptions>;
 }
 
-Stochastic.Series = (_props: StochasticSeriesProps) => <></>;
+export function StochasticSeries(_props: StochasticSeriesProps) {
+  return null;
+}
 
-Stochastic.Series.type = "Series";
+StochasticSeries.type = "Series";
+Stochastic.Series = StochasticSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Stochastic.Series.defaultProps = {
+StochasticSeries.defaultProps = {
   type: "stochastic",
 };
 

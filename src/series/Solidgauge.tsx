@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SolidgaugeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSolidgaugeOptions>;
 }
 
-Solidgauge.Series = (_props: SolidgaugeSeriesProps) => <></>;
+export function SolidgaugeSeries(_props: SolidgaugeSeriesProps) {
+  return null;
+}
 
-Solidgauge.Series.type = "Series";
+SolidgaugeSeries.type = "Series";
+Solidgauge.Series = SolidgaugeSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Solidgauge.Series.defaultProps = {
+SolidgaugeSeries.defaultProps = {
   type: "solidgauge",
 };
 

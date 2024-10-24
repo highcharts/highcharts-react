@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Packedbubble: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PackedbubbleSeriesProps): React.JSX.Element;
+    Series: typeof PackedbubbleSeries;
     type: string;
 };
 interface PackedbubbleSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPackedbubbleOptions>;
+}
+export declare function PackedbubbleSeries(_props: PackedbubbleSeriesProps): any;
+export declare namespace PackedbubbleSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Packedbubble;

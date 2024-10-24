@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface FlagsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesFlagsOptions>;
 }
 
-Flags.Series = (_props: FlagsSeriesProps) => <></>;
+export function FlagsSeries(_props: FlagsSeriesProps) {
+  return null;
+}
 
-Flags.Series.type = "Series";
+FlagsSeries.type = "Series";
+Flags.Series = FlagsSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Flags.Series.defaultProps = {
+FlagsSeries.defaultProps = {
   type: "flags",
 };
 

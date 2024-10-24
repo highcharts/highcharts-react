@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface CciSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesCciOptions>;
 }
 
-Cci.Series = (_props: CciSeriesProps) => <></>;
+export function CciSeries(_props: CciSeriesProps) {
+  return null;
+}
 
-Cci.Series.type = "Series";
+CciSeries.type = "Series";
+Cci.Series = CciSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Cci.Series.defaultProps = {
+CciSeries.defaultProps = {
   type: "cci",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Chaikin: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: ChaikinSeriesProps): React.JSX.Element;
+    Series: typeof ChaikinSeries;
     type: string;
 };
 interface ChaikinSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesChaikinOptions>;
+}
+export declare function ChaikinSeries(_props: ChaikinSeriesProps): any;
+export declare namespace ChaikinSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Chaikin;

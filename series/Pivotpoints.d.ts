@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Pivotpoints: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PivotpointsSeriesProps): React.JSX.Element;
+    Series: typeof PivotpointsSeries;
     type: string;
 };
 interface PivotpointsSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPivotpointsOptions>;
+}
+export declare function PivotpointsSeries(_props: PivotpointsSeriesProps): any;
+export declare namespace PivotpointsSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Pivotpoints;

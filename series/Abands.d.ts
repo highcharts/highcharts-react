@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Abands: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: AbandsSeriesProps): React.JSX.Element;
+    Series: typeof AbandsSeries;
     type: string;
 };
 interface AbandsSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAbandsOptions>;
+}
+export declare function AbandsSeries(_props: AbandsSeriesProps): any;
+export declare namespace AbandsSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Abands;

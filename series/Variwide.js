@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Variwide = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Variwide.Series = (_props) => React.createElement(React.Fragment, null);
-Variwide.Series.type = "Series";
+export function VariwideSeries(_props) {
+    return null;
+}
+VariwideSeries.type = "Series";
+Variwide.Series = VariwideSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Variwide.Series.defaultProps = {
+VariwideSeries.defaultProps = {
     type: "variwide",
 };
 Variwide.type = "SeriesChart";

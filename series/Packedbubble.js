@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Packedbubble = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Packedbubble.Series = (_props) => React.createElement(React.Fragment, null);
-Packedbubble.Series.type = "Series";
+export function PackedbubbleSeries(_props) {
+    return null;
+}
+PackedbubbleSeries.type = "Series";
+Packedbubble.Series = PackedbubbleSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Packedbubble.Series.defaultProps = {
+PackedbubbleSeries.defaultProps = {
     type: "packedbubble",
 };
 Packedbubble.type = "SeriesChart";

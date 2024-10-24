@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface NetworkgraphSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesNetworkgraphOptions>;
 }
 
-Networkgraph.Series = (_props: NetworkgraphSeriesProps) => <></>;
+export function NetworkgraphSeries(_props: NetworkgraphSeriesProps) {
+  return null;
+}
 
-Networkgraph.Series.type = "Series";
+NetworkgraphSeries.type = "Series";
+Networkgraph.Series = NetworkgraphSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Networkgraph.Series.defaultProps = {
+NetworkgraphSeries.defaultProps = {
   type: "networkgraph",
 };
 

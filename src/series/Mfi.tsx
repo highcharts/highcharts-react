@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface MfiSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMfiOptions>;
 }
 
-Mfi.Series = (_props: MfiSeriesProps) => <></>;
+export function MfiSeries(_props: MfiSeriesProps) {
+  return null;
+}
 
-Mfi.Series.type = "Series";
+MfiSeries.type = "Series";
+Mfi.Series = MfiSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Mfi.Series.defaultProps = {
+MfiSeries.defaultProps = {
   type: "mfi",
 };
 

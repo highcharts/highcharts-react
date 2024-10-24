@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Supertrend = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Supertrend.Series = (_props) => React.createElement(React.Fragment, null);
-Supertrend.Series.type = "Series";
+export function SupertrendSeries(_props) {
+    return null;
+}
+SupertrendSeries.type = "Series";
+Supertrend.Series = SupertrendSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Supertrend.Series.defaultProps = {
+SupertrendSeries.defaultProps = {
     type: "supertrend",
 };
 Supertrend.type = "SeriesChart";

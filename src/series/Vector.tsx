@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface VectorSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVectorOptions>;
 }
 
-Vector.Series = (_props: VectorSeriesProps) => <></>;
+export function VectorSeries(_props: VectorSeriesProps) {
+  return null;
+}
 
-Vector.Series.type = "Series";
+VectorSeries.type = "Series";
+Vector.Series = VectorSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Vector.Series.defaultProps = {
+VectorSeries.defaultProps = {
   type: "vector",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PictorialSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPictorialOptions>;
 }
 
-Pictorial.Series = (_props: PictorialSeriesProps) => <></>;
+export function PictorialSeries(_props: PictorialSeriesProps) {
+  return null;
+}
 
-Pictorial.Series.type = "Series";
+PictorialSeries.type = "Series";
+Pictorial.Series = PictorialSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Pictorial.Series.defaultProps = {
+PictorialSeries.defaultProps = {
   type: "pictorial",
 };
 

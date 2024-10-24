@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Area: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: AreaSeriesProps): React.JSX.Element;
+    Series: typeof AreaSeries;
     type: string;
 };
 interface AreaSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAreaOptions>;
+}
+export declare function AreaSeries(_props: AreaSeriesProps): any;
+export declare namespace AreaSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Area;

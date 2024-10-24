@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface ArcdiagramSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesArcdiagramOptions>;
 }
 
-Arcdiagram.Series = (_props: ArcdiagramSeriesProps) => <></>;
+export function ArcdiagramSeries(_props: ArcdiagramSeriesProps) {
+  return null;
+}
 
-Arcdiagram.Series.type = "Series";
+ArcdiagramSeries.type = "Series";
+Arcdiagram.Series = ArcdiagramSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Arcdiagram.Series.defaultProps = {
+ArcdiagramSeries.defaultProps = {
   type: "arcdiagram",
 };
 

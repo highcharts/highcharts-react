@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TreemapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTreemapOptions>;
 }
 
-Treemap.Series = (_props: TreemapSeriesProps) => <></>;
+export function TreemapSeries(_props: TreemapSeriesProps) {
+  return null;
+}
 
-Treemap.Series.type = "Series";
+TreemapSeries.type = "Series";
+Treemap.Series = TreemapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Treemap.Series.defaultProps = {
+TreemapSeries.defaultProps = {
   type: "treemap",
 };
 

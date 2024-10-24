@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface BoxplotSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBoxplotOptions>;
 }
 
-Boxplot.Series = (_props: BoxplotSeriesProps) => <></>;
+export function BoxplotSeries(_props: BoxplotSeriesProps) {
+  return null;
+}
 
-Boxplot.Series.type = "Series";
+BoxplotSeries.type = "Series";
+Boxplot.Series = BoxplotSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Boxplot.Series.defaultProps = {
+BoxplotSeries.defaultProps = {
   type: "boxplot",
 };
 

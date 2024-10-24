@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 export function Legend(props) {
@@ -15,7 +15,7 @@ export function Legend(props) {
 Legend._HCReact = {
     type: "HC_Option",
     HCOption: "legend",
-    childOption: "",
+    childOption: "labelFormat",
 };
 export default Legend;
 //# sourceMappingURL=Legend.js.map

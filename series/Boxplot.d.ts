@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Boxplot: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: BoxplotSeriesProps): React.JSX.Element;
+    Series: typeof BoxplotSeries;
     type: string;
 };
 interface BoxplotSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesBoxplotOptions>;
+}
+export declare function BoxplotSeries(_props: BoxplotSeriesProps): any;
+export declare namespace BoxplotSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Boxplot;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface OrganizationSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesOrganizationOptions>;
 }
 
-Organization.Series = (_props: OrganizationSeriesProps) => <></>;
+export function OrganizationSeries(_props: OrganizationSeriesProps) {
+  return null;
+}
 
-Organization.Series.type = "Series";
+OrganizationSeries.type = "Series";
+Organization.Series = OrganizationSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Organization.Series.defaultProps = {
+OrganizationSeries.defaultProps = {
   type: "organization",
 };
 

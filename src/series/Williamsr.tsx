@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface WilliamsrSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWilliamsrOptions>;
 }
 
-Williamsr.Series = (_props: WilliamsrSeriesProps) => <></>;
+export function WilliamsrSeries(_props: WilliamsrSeriesProps) {
+  return null;
+}
 
-Williamsr.Series.type = "Series";
+WilliamsrSeries.type = "Series";
+Williamsr.Series = WilliamsrSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Williamsr.Series.defaultProps = {
+WilliamsrSeries.defaultProps = {
   type: "williamsr",
 };
 

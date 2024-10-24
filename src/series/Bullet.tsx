@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface BulletSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBulletOptions>;
 }
 
-Bullet.Series = (_props: BulletSeriesProps) => <></>;
+export function BulletSeries(_props: BulletSeriesProps) {
+  return null;
+}
 
-Bullet.Series.type = "Series";
+BulletSeries.type = "Series";
+Bullet.Series = BulletSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Bullet.Series.defaultProps = {
+BulletSeries.defaultProps = {
   type: "bullet",
 };
 

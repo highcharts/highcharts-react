@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Solidgauge: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: SolidgaugeSeriesProps): React.JSX.Element;
+    Series: typeof SolidgaugeSeries;
     type: string;
 };
 interface SolidgaugeSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesSolidgaugeOptions>;
+}
+export declare function SolidgaugeSeries(_props: SolidgaugeSeriesProps): any;
+export declare namespace SolidgaugeSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Solidgauge;

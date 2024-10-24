@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Dema: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: DemaSeriesProps): React.JSX.Element;
+    Series: typeof DemaSeries;
     type: string;
 };
 interface DemaSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesDemaOptions>;
+}
+export declare function DemaSeries(_props: DemaSeriesProps): any;
+export declare namespace DemaSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Dema;

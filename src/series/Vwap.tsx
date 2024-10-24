@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface VwapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVwapOptions>;
 }
 
-Vwap.Series = (_props: VwapSeriesProps) => <></>;
+export function VwapSeries(_props: VwapSeriesProps) {
+  return null;
+}
 
-Vwap.Series.type = "Series";
+VwapSeries.type = "Series";
+Vwap.Series = VwapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Vwap.Series.defaultProps = {
+VwapSeries.defaultProps = {
   type: "vwap",
 };
 

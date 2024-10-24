@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Macd: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MacdSeriesProps): React.JSX.Element;
+    Series: typeof MacdSeries;
     type: string;
 };
 interface MacdSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMacdOptions>;
+}
+export declare function MacdSeries(_props: MacdSeriesProps): any;
+export declare namespace MacdSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Macd;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Ao: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: AoSeriesProps): React.JSX.Element;
+    Series: typeof AoSeries;
     type: string;
 };
 interface AoSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAoOptions>;
+}
+export declare function AoSeries(_props: AoSeriesProps): any;
+export declare namespace AoSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Ao;

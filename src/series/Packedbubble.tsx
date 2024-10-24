@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PackedbubbleSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPackedbubbleOptions>;
 }
 
-Packedbubble.Series = (_props: PackedbubbleSeriesProps) => <></>;
+export function PackedbubbleSeries(_props: PackedbubbleSeriesProps) {
+  return null;
+}
 
-Packedbubble.Series.type = "Series";
+PackedbubbleSeries.type = "Series";
+Packedbubble.Series = PackedbubbleSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Packedbubble.Series.defaultProps = {
+PackedbubbleSeries.defaultProps = {
   type: "packedbubble",
 };
 

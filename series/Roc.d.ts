@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Roc: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: RocSeriesProps): React.JSX.Element;
+    Series: typeof RocSeries;
     type: string;
 };
 interface RocSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesRocOptions>;
+}
+export declare function RocSeries(_props: RocSeriesProps): any;
+export declare namespace RocSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Roc;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Errorbar: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: ErrorbarSeriesProps): React.JSX.Element;
+    Series: typeof ErrorbarSeries;
     type: string;
 };
 interface ErrorbarSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesErrorbarOptions>;
+}
+export declare function ErrorbarSeries(_props: ErrorbarSeriesProps): any;
+export declare namespace ErrorbarSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Errorbar;

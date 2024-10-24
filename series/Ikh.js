@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Ikh = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Ikh.Series = (_props) => React.createElement(React.Fragment, null);
-Ikh.Series.type = "Series";
+export function IkhSeries(_props) {
+    return null;
+}
+IkhSeries.type = "Series";
+Ikh.Series = IkhSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Ikh.Series.defaultProps = {
+IkhSeries.defaultProps = {
     type: "ikh",
 };
 Ikh.type = "SeriesChart";

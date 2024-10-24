@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Stochastic: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: StochasticSeriesProps): React.JSX.Element;
+    Series: typeof StochasticSeries;
     type: string;
 };
 interface StochasticSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesStochasticOptions>;
+}
+export declare function StochasticSeries(_props: StochasticSeriesProps): any;
+export declare namespace StochasticSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Stochastic;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface BbSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBbOptions>;
 }
 
-Bb.Series = (_props: BbSeriesProps) => <></>;
+export function BbSeries(_props: BbSeriesProps) {
+  return null;
+}
 
-Bb.Series.type = "Series";
+BbSeries.type = "Series";
+Bb.Series = BbSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Bb.Series.defaultProps = {
+BbSeries.defaultProps = {
   type: "bb",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Pyramid = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Pyramid.Series = (_props) => React.createElement(React.Fragment, null);
-Pyramid.Series.type = "Series";
+export function PyramidSeries(_props) {
+    return null;
+}
+PyramidSeries.type = "Series";
+Pyramid.Series = PyramidSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Pyramid.Series.defaultProps = {
+PyramidSeries.defaultProps = {
     type: "pyramid",
 };
 Pyramid.type = "SeriesChart";

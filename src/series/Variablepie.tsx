@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface VariablepieSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVariablepieOptions>;
 }
 
-Variablepie.Series = (_props: VariablepieSeriesProps) => <></>;
+export function VariablepieSeries(_props: VariablepieSeriesProps) {
+  return null;
+}
 
-Variablepie.Series.type = "Series";
+VariablepieSeries.type = "Series";
+Variablepie.Series = VariablepieSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Variablepie.Series.defaultProps = {
+VariablepieSeries.defaultProps = {
   type: "variablepie",
 };
 

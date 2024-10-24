@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface HeikinashiSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHeikinashiOptions>;
 }
 
-Heikinashi.Series = (_props: HeikinashiSeriesProps) => <></>;
+export function HeikinashiSeries(_props: HeikinashiSeriesProps) {
+  return null;
+}
 
-Heikinashi.Series.type = "Series";
+HeikinashiSeries.type = "Series";
+Heikinashi.Series = HeikinashiSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Heikinashi.Series.defaultProps = {
+HeikinashiSeries.defaultProps = {
   type: "heikinashi",
 };
 

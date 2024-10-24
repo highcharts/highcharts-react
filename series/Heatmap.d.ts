@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Heatmap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: HeatmapSeriesProps): React.JSX.Element;
+    Series: typeof HeatmapSeries;
     type: string;
 };
 interface HeatmapSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesHeatmapOptions>;
+}
+export declare function HeatmapSeries(_props: HeatmapSeriesProps): any;
+export declare namespace HeatmapSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Heatmap;

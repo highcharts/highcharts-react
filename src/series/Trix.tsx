@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TrixSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTrixOptions>;
 }
 
-Trix.Series = (_props: TrixSeriesProps) => <></>;
+export function TrixSeries(_props: TrixSeriesProps) {
+  return null;
+}
 
-Trix.Series.type = "Series";
+TrixSeries.type = "Series";
+Trix.Series = TrixSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Trix.Series.defaultProps = {
+TrixSeries.defaultProps = {
   type: "trix",
 };
 

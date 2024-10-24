@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface WaterfallSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWaterfallOptions>;
 }
 
-Waterfall.Series = (_props: WaterfallSeriesProps) => <></>;
+export function WaterfallSeries(_props: WaterfallSeriesProps) {
+  return null;
+}
 
-Waterfall.Series.type = "Series";
+WaterfallSeries.type = "Series";
+Waterfall.Series = WaterfallSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Waterfall.Series.defaultProps = {
+WaterfallSeries.defaultProps = {
   type: "waterfall",
 };
 

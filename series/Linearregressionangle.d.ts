@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Linearregressionangle: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: LinearregressionangleSeriesProps): React.JSX.Element;
+    Series: typeof LinearregressionangleSeries;
     type: string;
 };
 interface LinearregressionangleSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesLinearregressionangleOptions>;
+}
+export declare function LinearregressionangleSeries(_props: LinearregressionangleSeriesProps): any;
+export declare namespace LinearregressionangleSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Linearregressionangle;

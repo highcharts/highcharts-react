@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TemaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTemaOptions>;
 }
 
-Tema.Series = (_props: TemaSeriesProps) => <></>;
+export function TemaSeries(_props: TemaSeriesProps) {
+  return null;
+}
 
-Tema.Series.type = "Series";
+TemaSeries.type = "Series";
+Tema.Series = TemaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Tema.Series.defaultProps = {
+TemaSeries.defaultProps = {
   type: "tema",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PcSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPcOptions>;
 }
 
-Pc.Series = (_props: PcSeriesProps) => <></>;
+export function PcSeries(_props: PcSeriesProps) {
+  return null;
+}
 
-Pc.Series.type = "Series";
+PcSeries.type = "Series";
+Pc.Series = PcSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Pc.Series.defaultProps = {
+PcSeries.defaultProps = {
   type: "pc",
 };
 

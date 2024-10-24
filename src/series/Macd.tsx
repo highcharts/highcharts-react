@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface MacdSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMacdOptions>;
 }
 
-Macd.Series = (_props: MacdSeriesProps) => <></>;
+export function MacdSeries(_props: MacdSeriesProps) {
+  return null;
+}
 
-Macd.Series.type = "Series";
+MacdSeries.type = "Series";
+Macd.Series = MacdSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Macd.Series.defaultProps = {
+MacdSeries.defaultProps = {
   type: "macd",
 };
 

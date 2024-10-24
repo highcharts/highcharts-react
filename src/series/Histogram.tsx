@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface HistogramSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHistogramOptions>;
 }
 
-Histogram.Series = (_props: HistogramSeriesProps) => <></>;
+export function HistogramSeries(_props: HistogramSeriesProps) {
+  return null;
+}
 
-Histogram.Series.type = "Series";
+HistogramSeries.type = "Series";
+Histogram.Series = HistogramSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Histogram.Series.defaultProps = {
+HistogramSeries.defaultProps = {
   type: "histogram",
 };
 

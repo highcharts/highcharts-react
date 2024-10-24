@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Areaspline: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: AreasplineSeriesProps): React.JSX.Element;
+    Series: typeof AreasplineSeries;
     type: string;
 };
 interface AreasplineSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAreasplineOptions>;
+}
+export declare function AreasplineSeries(_props: AreasplineSeriesProps): any;
+export declare namespace AreasplineSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Areaspline;

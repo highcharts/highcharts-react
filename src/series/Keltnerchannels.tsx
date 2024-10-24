@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface KeltnerchannelsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesKeltnerchannelsOptions>;
 }
 
-Keltnerchannels.Series = (_props: KeltnerchannelsSeriesProps) => <></>;
+export function KeltnerchannelsSeries(_props: KeltnerchannelsSeriesProps) {
+  return null;
+}
 
-Keltnerchannels.Series.type = "Series";
+KeltnerchannelsSeries.type = "Series";
+Keltnerchannels.Series = KeltnerchannelsSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Keltnerchannels.Series.defaultProps = {
+KeltnerchannelsSeries.defaultProps = {
   type: "keltnerchannels",
 };
 

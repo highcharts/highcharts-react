@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Variablepie = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Variablepie.Series = (_props) => React.createElement(React.Fragment, null);
-Variablepie.Series.type = "Series";
+export function VariablepieSeries(_props) {
+    return null;
+}
+VariablepieSeries.type = "Series";
+Variablepie.Series = VariablepieSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Variablepie.Series.defaultProps = {
+VariablepieSeries.defaultProps = {
     type: "variablepie",
 };
 Variablepie.type = "SeriesChart";

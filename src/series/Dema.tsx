@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface DemaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDemaOptions>;
 }
 
-Dema.Series = (_props: DemaSeriesProps) => <></>;
+export function DemaSeries(_props: DemaSeriesProps) {
+  return null;
+}
 
-Dema.Series.type = "Series";
+DemaSeries.type = "Series";
+Dema.Series = DemaSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Dema.Series.defaultProps = {
+DemaSeries.defaultProps = {
   type: "dema",
 };
 

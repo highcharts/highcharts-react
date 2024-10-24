@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SupertrendSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSupertrendOptions>;
 }
 
-Supertrend.Series = (_props: SupertrendSeriesProps) => <></>;
+export function SupertrendSeries(_props: SupertrendSeriesProps) {
+  return null;
+}
 
-Supertrend.Series.type = "Series";
+SupertrendSeries.type = "Series";
+Supertrend.Series = SupertrendSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Supertrend.Series.defaultProps = {
+SupertrendSeries.defaultProps = {
   type: "supertrend",
 };
 

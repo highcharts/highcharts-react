@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Errorbar = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Errorbar.Series = (_props) => React.createElement(React.Fragment, null);
-Errorbar.Series.type = "Series";
+export function ErrorbarSeries(_props) {
+    return null;
+}
+ErrorbarSeries.type = "Series";
+Errorbar.Series = ErrorbarSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Errorbar.Series.defaultProps = {
+ErrorbarSeries.defaultProps = {
     type: "errorbar",
 };
 Errorbar.type = "SeriesChart";

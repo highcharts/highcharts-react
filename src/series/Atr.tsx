@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AtrSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAtrOptions>;
 }
 
-Atr.Series = (_props: AtrSeriesProps) => <></>;
+export function AtrSeries(_props: AtrSeriesProps) {
+  return null;
+}
 
-Atr.Series.type = "Series";
+AtrSeries.type = "Series";
+Atr.Series = AtrSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Atr.Series.defaultProps = {
+AtrSeries.defaultProps = {
   type: "atr",
 };
 

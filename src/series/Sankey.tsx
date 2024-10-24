@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SankeySeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSankeyOptions>;
 }
 
-Sankey.Series = (_props: SankeySeriesProps) => <></>;
+export function SankeySeries(_props: SankeySeriesProps) {
+  return null;
+}
 
-Sankey.Series.type = "Series";
+SankeySeries.type = "Series";
+Sankey.Series = SankeySeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Sankey.Series.defaultProps = {
+SankeySeries.defaultProps = {
   type: "sankey",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface BarSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBarOptions>;
 }
 
-Bar.Series = (_props: BarSeriesProps) => <></>;
+export function BarSeries(_props: BarSeriesProps) {
+  return null;
+}
 
-Bar.Series.type = "Series";
+BarSeries.type = "Series";
+Bar.Series = BarSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Bar.Series.defaultProps = {
+BarSeries.defaultProps = {
   type: "bar",
 };
 

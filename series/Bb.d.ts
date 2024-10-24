@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Bb: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: BbSeriesProps): React.JSX.Element;
+    Series: typeof BbSeries;
     type: string;
 };
 interface BbSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesBbOptions>;
+}
+export declare function BbSeries(_props: BbSeriesProps): any;
+export declare namespace BbSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Bb;

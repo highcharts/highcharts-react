@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Mapline: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MaplineSeriesProps): React.JSX.Element;
+    Series: typeof MaplineSeries;
     type: string;
 };
 interface MaplineSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMaplineOptions>;
+}
+export declare function MaplineSeries(_props: MaplineSeriesProps): any;
+export declare namespace MaplineSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Mapline;

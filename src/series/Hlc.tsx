@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface HlcSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHlcOptions>;
 }
 
-Hlc.Series = (_props: HlcSeriesProps) => <></>;
+export function HlcSeries(_props: HlcSeriesProps) {
+  return null;
+}
 
-Hlc.Series.type = "Series";
+HlcSeries.type = "Series";
+Hlc.Series = HlcSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Hlc.Series.defaultProps = {
+HlcSeries.defaultProps = {
   type: "hlc",
 };
 

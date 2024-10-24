@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface AdSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAdOptions>;
 }
 
-Ad.Series = (_props: AdSeriesProps) => <></>;
+export function AdSeries(_props: AdSeriesProps) {
+  return null;
+}
 
-Ad.Series.type = "Series";
+AdSeries.type = "Series";
+Ad.Series = AdSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Ad.Series.defaultProps = {
+AdSeries.defaultProps = {
   type: "ad",
 };
 

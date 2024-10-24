@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Vwap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: VwapSeriesProps): React.JSX.Element;
+    Series: typeof VwapSeries;
     type: string;
 };
 interface VwapSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesVwapOptions>;
+}
+export declare function VwapSeries(_props: VwapSeriesProps): any;
+export declare namespace VwapSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Vwap;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Ohlc: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: OhlcSeriesProps): React.JSX.Element;
+    Series: typeof OhlcSeries;
     type: string;
 };
 interface OhlcSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesOhlcOptions>;
+}
+export declare function OhlcSeries(_props: OhlcSeriesProps): any;
+export declare namespace OhlcSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Ohlc;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Spline: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: SplineSeriesProps): React.JSX.Element;
+    Series: typeof SplineSeries;
     type: string;
 };
 interface SplineSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesSplineOptions>;
+}
+export declare function SplineSeries(_props: SplineSeriesProps): any;
+export declare namespace SplineSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Spline;

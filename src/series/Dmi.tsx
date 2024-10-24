@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface DmiSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDmiOptions>;
 }
 
-Dmi.Series = (_props: DmiSeriesProps) => <></>;
+export function DmiSeries(_props: DmiSeriesProps) {
+  return null;
+}
 
-Dmi.Series.type = "Series";
+DmiSeries.type = "Series";
+Dmi.Series = DmiSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Dmi.Series.defaultProps = {
+DmiSeries.defaultProps = {
   type: "dmi",
 };
 

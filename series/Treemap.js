@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Treemap = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Treemap.Series = (_props) => React.createElement(React.Fragment, null);
-Treemap.Series.type = "Series";
+export function TreemapSeries(_props) {
+    return null;
+}
+TreemapSeries.type = "Series";
+Treemap.Series = TreemapSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Treemap.Series.defaultProps = {
+TreemapSeries.defaultProps = {
     type: "treemap",
 };
 Treemap.type = "SeriesChart";

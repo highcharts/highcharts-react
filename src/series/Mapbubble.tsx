@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface MapbubbleSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMapbubbleOptions>;
 }
 
-Mapbubble.Series = (_props: MapbubbleSeriesProps) => <></>;
+export function MapbubbleSeries(_props: MapbubbleSeriesProps) {
+  return null;
+}
 
-Mapbubble.Series.type = "Series";
+MapbubbleSeries.type = "Series";
+Mapbubble.Series = MapbubbleSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Mapbubble.Series.defaultProps = {
+MapbubbleSeries.defaultProps = {
   type: "mapbubble",
 };
 

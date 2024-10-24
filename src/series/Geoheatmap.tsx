@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface GeoheatmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesGeoheatmapOptions>;
 }
 
-Geoheatmap.Series = (_props: GeoheatmapSeriesProps) => <></>;
+export function GeoheatmapSeries(_props: GeoheatmapSeriesProps) {
+  return null;
+}
 
-Geoheatmap.Series.type = "Series";
+GeoheatmapSeries.type = "Series";
+Geoheatmap.Series = GeoheatmapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Geoheatmap.Series.defaultProps = {
+GeoheatmapSeries.defaultProps = {
   type: "geoheatmap",
 };
 

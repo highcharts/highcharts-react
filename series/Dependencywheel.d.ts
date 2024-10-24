@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Dependencywheel: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: DependencywheelSeriesProps): React.JSX.Element;
+    Series: typeof DependencywheelSeries;
     type: string;
 };
 interface DependencywheelSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesDependencywheelOptions>;
+}
+export declare function DependencywheelSeries(_props: DependencywheelSeriesProps): any;
+export declare namespace DependencywheelSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Dependencywheel;

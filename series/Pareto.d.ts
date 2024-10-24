@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Pareto: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: ParetoSeriesProps): React.JSX.Element;
+    Series: typeof ParetoSeries;
     type: string;
 };
 interface ParetoSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesParetoOptions>;
+}
+export declare function ParetoSeries(_props: ParetoSeriesProps): any;
+export declare namespace ParetoSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Pareto;

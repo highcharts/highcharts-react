@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Wordcloud = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Wordcloud.Series = (_props) => React.createElement(React.Fragment, null);
-Wordcloud.Series.type = "Series";
+export function WordcloudSeries(_props) {
+    return null;
+}
+WordcloudSeries.type = "Series";
+Wordcloud.Series = WordcloudSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Wordcloud.Series.defaultProps = {
+WordcloudSeries.defaultProps = {
     type: "wordcloud",
 };
 Wordcloud.type = "SeriesChart";

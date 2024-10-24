@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -24,11 +24,14 @@ const Map = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-Map.Series = (_props) => React.createElement(React.Fragment, null);
-Map.Series.type = "Series";
+export function MapSeries(_props) {
+    return null;
+}
+MapSeries.type = "Series";
+Map.Series = MapSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Map.Series.defaultProps = {
+MapSeries.defaultProps = {
     type: "map",
 };
 Map.type = "SeriesChart";

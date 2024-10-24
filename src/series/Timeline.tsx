@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TimelineSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTimelineOptions>;
 }
 
-Timeline.Series = (_props: TimelineSeriesProps) => <></>;
+export function TimelineSeries(_props: TimelineSeriesProps) {
+  return null;
+}
 
-Timeline.Series.type = "Series";
+TimelineSeries.type = "Series";
+Timeline.Series = TimelineSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Timeline.Series.defaultProps = {
+TimelineSeries.defaultProps = {
   type: "timeline",
 };
 

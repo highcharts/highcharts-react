@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Timeline: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: TimelineSeriesProps): React.JSX.Element;
+    Series: typeof TimelineSeries;
     type: string;
 };
 interface TimelineSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesTimelineOptions>;
+}
+export declare function TimelineSeries(_props: TimelineSeriesProps): any;
+export declare namespace TimelineSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Timeline;

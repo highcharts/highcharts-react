@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Vbp: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: VbpSeriesProps): React.JSX.Element;
+    Series: typeof VbpSeries;
     type: string;
 };
 interface VbpSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesVbpOptions>;
+}
+export declare function VbpSeries(_props: VbpSeriesProps): any;
+export declare namespace VbpSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Vbp;

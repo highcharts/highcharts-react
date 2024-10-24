@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Momentum: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MomentumSeriesProps): React.JSX.Element;
+    Series: typeof MomentumSeries;
     type: string;
 };
 interface MomentumSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMomentumOptions>;
+}
+export declare function MomentumSeries(_props: MomentumSeriesProps): any;
+export declare namespace MomentumSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Momentum;

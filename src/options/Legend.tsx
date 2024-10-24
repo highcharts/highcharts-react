@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -127,6 +127,11 @@ export type LegendProps = {
   width?: number | string;
   x?: number;
   y?: number;
+  children?:
+    | string
+    | (string | number)[]
+    | React.ReactElement
+    | React.ReactElement[];
 };
 
 export function Legend(props: LegendProps) {
@@ -136,7 +141,7 @@ export function Legend(props: LegendProps) {
 Legend._HCReact = {
   type: "HC_Option",
   HCOption: "legend",
-  childOption: "",
+  childOption: "labelFormat",
 };
 
 export default Legend;

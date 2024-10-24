@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface TiledwebmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTiledwebmapOptions>;
 }
 
-Tiledwebmap.Series = (_props: TiledwebmapSeriesProps) => <></>;
+export function TiledwebmapSeries(_props: TiledwebmapSeriesProps) {
+  return null;
+}
 
-Tiledwebmap.Series.type = "Series";
+TiledwebmapSeries.type = "Series";
+Tiledwebmap.Series = TiledwebmapSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Tiledwebmap.Series.defaultProps = {
+TiledwebmapSeries.defaultProps = {
   type: "tiledwebmap",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Gauge = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Gauge.Series = (_props) => React.createElement(React.Fragment, null);
-Gauge.Series.type = "Series";
+export function GaugeSeries(_props) {
+    return null;
+}
+GaugeSeries.type = "Series";
+Gauge.Series = GaugeSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Gauge.Series.defaultProps = {
+GaugeSeries.defaultProps = {
     type: "gauge",
 };
 Gauge.type = "SeriesChart";

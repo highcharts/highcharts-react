@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface ParetoSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesParetoOptions>;
 }
 
-Pareto.Series = (_props: ParetoSeriesProps) => <></>;
+export function ParetoSeries(_props: ParetoSeriesProps) {
+  return null;
+}
 
-Pareto.Series.type = "Series";
+ParetoSeries.type = "Series";
+Pareto.Series = ParetoSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Pareto.Series.defaultProps = {
+ParetoSeries.defaultProps = {
   type: "pareto",
 };
 

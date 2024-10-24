@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface DependencywheelSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDependencywheelOptions>;
 }
 
-Dependencywheel.Series = (_props: DependencywheelSeriesProps) => <></>;
+export function DependencywheelSeries(_props: DependencywheelSeriesProps) {
+  return null;
+}
 
-Dependencywheel.Series.type = "Series";
+DependencywheelSeries.type = "Series";
+Dependencywheel.Series = DependencywheelSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Dependencywheel.Series.defaultProps = {
+DependencywheelSeries.defaultProps = {
   type: "dependencywheel",
 };
 

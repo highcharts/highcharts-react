@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PolygonSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPolygonOptions>;
 }
 
-Polygon.Series = (_props: PolygonSeriesProps) => <></>;
+export function PolygonSeries(_props: PolygonSeriesProps) {
+  return null;
+}
 
-Polygon.Series.type = "Series";
+PolygonSeries.type = "Series";
+Polygon.Series = PolygonSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Polygon.Series.defaultProps = {
+PolygonSeries.defaultProps = {
   type: "polygon",
 };
 

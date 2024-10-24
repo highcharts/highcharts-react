@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface DumbbellSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDumbbellOptions>;
 }
 
-Dumbbell.Series = (_props: DumbbellSeriesProps) => <></>;
+export function DumbbellSeries(_props: DumbbellSeriesProps) {
+  return null;
+}
 
-Dumbbell.Series.type = "Series";
+DumbbellSeries.type = "Series";
+Dumbbell.Series = DumbbellSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Dumbbell.Series.defaultProps = {
+DumbbellSeries.defaultProps = {
   type: "dumbbell",
 };
 

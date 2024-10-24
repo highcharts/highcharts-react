@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const MapData: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MapDataSeriesProps): React.JSX.Element;
+    Series: typeof MapDataSeries;
     type: string;
 };
 interface MapDataSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMapDataOptions>;
+}
+export declare function MapDataSeries(_props: MapDataSeriesProps): any;
+export declare namespace MapDataSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default MapData;

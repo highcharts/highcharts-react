@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PpoSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPpoOptions>;
 }
 
-Ppo.Series = (_props: PpoSeriesProps) => <></>;
+export function PpoSeries(_props: PpoSeriesProps) {
+  return null;
+}
 
-Ppo.Series.type = "Series";
+PpoSeries.type = "Series";
+Ppo.Series = PpoSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Ppo.Series.defaultProps = {
+PpoSeries.defaultProps = {
   type: "ppo",
 };
 

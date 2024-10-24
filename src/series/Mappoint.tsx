@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -56,13 +56,16 @@ interface MappointSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMappointOptions>;
 }
 
-Mappoint.Series = (_props: MappointSeriesProps) => <></>;
+export function MappointSeries(_props: MappointSeriesProps) {
+  return null;
+}
 
-Mappoint.Series.type = "Series";
+MappointSeries.type = "Series";
+Mappoint.Series = MappointSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Mappoint.Series.defaultProps = {
+MappointSeries.defaultProps = {
   type: "mappoint",
 };
 

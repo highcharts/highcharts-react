@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Tiledwebmap = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-Tiledwebmap.Series = (_props) => React.createElement(React.Fragment, null);
-Tiledwebmap.Series.type = "Series";
+export function TiledwebmapSeries(_props) {
+    return null;
+}
+TiledwebmapSeries.type = "Series";
+Tiledwebmap.Series = TiledwebmapSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Tiledwebmap.Series.defaultProps = {
+TiledwebmapSeries.defaultProps = {
     type: "tiledwebmap",
 };
 Tiledwebmap.type = "SeriesChart";

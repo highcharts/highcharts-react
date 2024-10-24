@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface KlingerSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesKlingerOptions>;
 }
 
-Klinger.Series = (_props: KlingerSeriesProps) => <></>;
+export function KlingerSeries(_props: KlingerSeriesProps) {
+  return null;
+}
 
-Klinger.Series.type = "Series";
+KlingerSeries.type = "Series";
+Klinger.Series = KlingerSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Klinger.Series.defaultProps = {
+KlingerSeries.defaultProps = {
   type: "klinger",
 };
 

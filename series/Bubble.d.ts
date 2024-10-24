@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Bubble: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: BubbleSeriesProps): React.JSX.Element;
+    Series: typeof BubbleSeries;
     type: string;
 };
 interface BubbleSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesBubbleOptions>;
+}
+export declare function BubbleSeries(_props: BubbleSeriesProps): any;
+export declare namespace BubbleSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Bubble;

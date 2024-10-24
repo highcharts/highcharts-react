@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Zigzag = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Zigzag.Series = (_props) => React.createElement(React.Fragment, null);
-Zigzag.Series.type = "Series";
+export function ZigzagSeries(_props) {
+    return null;
+}
+ZigzagSeries.type = "Series";
+Zigzag.Series = ZigzagSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Zigzag.Series.defaultProps = {
+ZigzagSeries.defaultProps = {
     type: "zigzag",
 };
 Zigzag.type = "SeriesChart";

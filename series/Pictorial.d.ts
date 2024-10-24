@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Pictorial: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: PictorialSeriesProps): React.JSX.Element;
+    Series: typeof PictorialSeries;
     type: string;
 };
 interface PictorialSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPictorialOptions>;
+}
+export declare function PictorialSeries(_props: PictorialSeriesProps): any;
+export declare namespace PictorialSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Pictorial;

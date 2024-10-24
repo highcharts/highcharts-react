@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Sunburst = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-Sunburst.Series = (_props) => React.createElement(React.Fragment, null);
-Sunburst.Series.type = "Series";
+export function SunburstSeries(_props) {
+    return null;
+}
+SunburstSeries.type = "Series";
+Sunburst.Series = SunburstSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Sunburst.Series.defaultProps = {
+SunburstSeries.defaultProps = {
     type: "sunburst",
 };
 Sunburst.type = "SeriesChart";

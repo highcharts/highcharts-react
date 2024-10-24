@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Linearregressionslope = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Linearregressionslope.Series = (_props) => (React.createElement(React.Fragment, null));
-Linearregressionslope.Series.type = "Series";
+export function LinearregressionslopeSeries(_props) {
+    return null;
+}
+LinearregressionslopeSeries.type = "Series";
+Linearregressionslope.Series = LinearregressionslopeSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Linearregressionslope.Series.defaultProps = {
+LinearregressionslopeSeries.defaultProps = {
     type: "linearregressionslope",
 };
 Linearregressionslope.type = "SeriesChart";

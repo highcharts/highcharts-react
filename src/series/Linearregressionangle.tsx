@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,15 +62,18 @@ interface LinearregressionangleSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLinearregressionangleOptions>;
 }
 
-Linearregressionangle.Series = (_props: LinearregressionangleSeriesProps) => (
-  <></>
-);
+export function LinearregressionangleSeries(
+  _props: LinearregressionangleSeriesProps
+) {
+  return null;
+}
 
-Linearregressionangle.Series.type = "Series";
+LinearregressionangleSeries.type = "Series";
+Linearregressionangle.Series = LinearregressionangleSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Linearregressionangle.Series.defaultProps = {
+LinearregressionangleSeries.defaultProps = {
   type: "linearregressionangle",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface CmoSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesCmoOptions>;
 }
 
-Cmo.Series = (_props: CmoSeriesProps) => <></>;
+export function CmoSeries(_props: CmoSeriesProps) {
+  return null;
+}
 
-Cmo.Series.type = "Series";
+CmoSeries.type = "Series";
+Cmo.Series = CmoSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Cmo.Series.defaultProps = {
+CmoSeries.defaultProps = {
   type: "cmo",
 };
 

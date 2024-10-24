@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Mappoint: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: MappointSeriesProps): React.JSX.Element;
+    Series: typeof MappointSeries;
     type: string;
 };
 interface MappointSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMappointOptions>;
+}
+export declare function MappointSeries(_props: MappointSeriesProps): any;
+export declare namespace MappointSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Mappoint;

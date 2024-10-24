@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface PsarSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPsarOptions>;
 }
 
-Psar.Series = (_props: PsarSeriesProps) => <></>;
+export function PsarSeries(_props: PsarSeriesProps) {
+  return null;
+}
 
-Psar.Series.type = "Series";
+PsarSeries.type = "Series";
+Psar.Series = PsarSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Psar.Series.defaultProps = {
+PsarSeries.defaultProps = {
   type: "psar",
 };
 

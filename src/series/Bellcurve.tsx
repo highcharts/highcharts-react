@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface BellcurveSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBellcurveOptions>;
 }
 
-Bellcurve.Series = (_props: BellcurveSeriesProps) => <></>;
+export function BellcurveSeries(_props: BellcurveSeriesProps) {
+  return null;
+}
 
-Bellcurve.Series.type = "Series";
+BellcurveSeries.type = "Series";
+Bellcurve.Series = BellcurveSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Bellcurve.Series.defaultProps = {
+BellcurveSeries.defaultProps = {
   type: "bellcurve",
 };
 

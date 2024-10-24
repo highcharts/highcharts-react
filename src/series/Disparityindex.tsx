@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface DisparityindexSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDisparityindexOptions>;
 }
 
-Disparityindex.Series = (_props: DisparityindexSeriesProps) => <></>;
+export function DisparityindexSeries(_props: DisparityindexSeriesProps) {
+  return null;
+}
 
-Disparityindex.Series.type = "Series";
+DisparityindexSeries.type = "Series";
+Disparityindex.Series = DisparityindexSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Disparityindex.Series.defaultProps = {
+DisparityindexSeries.defaultProps = {
   type: "disparityindex",
 };
 

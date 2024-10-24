@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface SlowstochasticSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSlowstochasticOptions>;
 }
 
-Slowstochastic.Series = (_props: SlowstochasticSeriesProps) => <></>;
+export function SlowstochasticSeries(_props: SlowstochasticSeriesProps) {
+  return null;
+}
 
-Slowstochastic.Series.type = "Series";
+SlowstochasticSeries.type = "Series";
+Slowstochastic.Series = SlowstochasticSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Slowstochastic.Series.defaultProps = {
+SlowstochasticSeries.defaultProps = {
   type: "slowstochastic",
 };
 

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface Scatter3dSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesScatter3dOptions>;
 }
 
-Scatter3d.Series = (_props: Scatter3dSeriesProps) => <></>;
+export function Scatter3dSeries(_props: Scatter3dSeriesProps) {
+  return null;
+}
 
-Scatter3d.Series.type = "Series";
+Scatter3dSeries.type = "Series";
+Scatter3d.Series = Scatter3dSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Scatter3d.Series.defaultProps = {
+Scatter3dSeries.defaultProps = {
   type: "scatter3d",
 };
 

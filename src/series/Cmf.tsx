@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 
@@ -62,13 +62,16 @@ interface CmfSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesCmfOptions>;
 }
 
-Cmf.Series = (_props: CmfSeriesProps) => <></>;
+export function CmfSeries(_props: CmfSeriesProps) {
+  return null;
+}
 
-Cmf.Series.type = "Series";
+CmfSeries.type = "Series";
+Cmf.Series = CmfSeries;
 
 // TODO: Fix typings
 // @ts-ignore:
-Cmf.Series.defaultProps = {
+CmfSeries.defaultProps = {
   type: "cmf",
 };
 

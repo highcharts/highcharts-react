@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React, { useState,
@@ -28,11 +28,14 @@ const Pivotpoints = (props) => {
     }, props.options || {}));
     return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-Pivotpoints.Series = (_props) => React.createElement(React.Fragment, null);
-Pivotpoints.Series.type = "Series";
+export function PivotpointsSeries(_props) {
+    return null;
+}
+PivotpointsSeries.type = "Series";
+Pivotpoints.Series = PivotpointsSeries;
 // TODO: Fix typings
 // @ts-ignore:
-Pivotpoints.Series.defaultProps = {
+PivotpointsSeries.defaultProps = {
     type: "pivotpoints",
 };
 Pivotpoints.type = "SeriesChart";

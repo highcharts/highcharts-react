@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 import React from "react";
@@ -17,10 +17,17 @@ import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "..
  */
 declare const Funnel: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series(_props: FunnelSeriesProps): React.JSX.Element;
+    Series: typeof FunnelSeries;
     type: string;
 };
 interface FunnelSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesFunnelOptions>;
+}
+export declare function FunnelSeries(_props: FunnelSeriesProps): any;
+export declare namespace FunnelSeries {
+    var type: string;
+    var defaultProps: {
+        type: string;
+    };
 }
 export default Funnel;

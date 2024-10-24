@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-15
+ * Build stamp: 2024-10-24
  *
  */
 export type LegendProps = {
@@ -103,6 +103,7 @@ export type LegendProps = {
     width?: number | string;
     x?: number;
     y?: number;
+    children?: string | (string | number)[] | React.ReactElement | React.ReactElement[];
 };
 export declare function Legend(props: LegendProps): any;
 export declare namespace Legend {
