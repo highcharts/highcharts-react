@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-24
+ * Build stamp: 2024-10-31
  *
  */
 export function Tooltip(props) {
@@ -16,6 +16,8 @@ Tooltip._HCReact = {
     type: "HC_Option",
     HCOption: "tooltip",
     childOption: "format",
+    defaultOptions: { useHTML: true },
+    isArrayType: false,
 };
 export default Tooltip;
 //# sourceMappingURL=Tooltip.js.map

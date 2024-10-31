@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-24
+ * Build stamp: 2024-10-31
  *
  */
 
@@ -20,6 +20,12 @@ import React, {
 import { renderToStaticMarkup } from "react-dom/server";
 
 import HC from "highcharts/es-modules/masters/highcharts.src.js";
+
+// Add data-hc-option to allowed attributes
+if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
+  HC.AST.allowedAttributes.push("data-hc-option");
+}
+
 // import * as Data from 'highcharts/es-modules/data';
 
 export const HighchartsNS = HC;
@@ -110,15 +116,18 @@ function getChildProps(children, renderHTML = undefined) {
     if (typeof child === "object") {
       const { _HCReact: meta } = child.type ?? {};
       if (meta && meta.type === "HC_Option" && meta.HCOption) {
-        const optionParent = (optionsFromChildren[meta.HCOption] ??= {});
-        const { children, ...otherProps } = child.props;
-        // TODO: there will probably be mappings that have to be applied
-        Object.entries(otherProps).forEach(
-          ([key, value]) => (optionsFromChildren[meta.HCOption][key] = value)
-        );
+        const optionParent = (optionsFromChildren[meta.HCOption] ??=
+          meta.isArrayType ? [] : {});
+        const { children, ...props } = child.props;
+        const parentIsArray = Array.isArray(optionParent);
+        const insertInto = parentIsArray ? {} : optionParent;
+        if (meta.defaultOptions) {
+          Object.assign(insertInto, meta.defaultOptions);
+        }
+        Object.assign(insertInto, props);
         // TODO: if the child has children we have to unpack it
         if (typeof children === "string" && meta.childOption) {
-          objInsert(optionParent, meta.childOption, children);
+          objInsert(insertInto, meta.childOption, children);
         } else if (
           children &&
           typeof children === "object" &&
@@ -134,13 +143,17 @@ function getChildProps(children, renderHTML = undefined) {
               children.props?.children &&
               Object.keys(children.props).length === 1
             ) {
-              handleChildren(children.props.children, optionParent, meta);
-              return;
+              handleChildren(children.props.children, insertInto, meta);
+            } else {
+              objInsert(insertInto, meta.childOption, renderHTML(children));
             }
-            objInsert(optionParent, meta.childOption, renderHTML(children));
           }
         } else if (Array.isArray(children)) {
-          handleChildren(children, optionParent, meta);
+          handleChildren(children, insertInto, meta);
+        }
+        // Push to the option if array type
+        if (parentIsArray) {
+          optionsFromChildren[meta.HCOption].push(insertInto);
         }
       }
     }

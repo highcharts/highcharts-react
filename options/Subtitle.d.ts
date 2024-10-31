@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-24
+ * Build stamp: 2024-10-31
  *
  */
 export type SubtitleProps = {
@@ -27,6 +27,8 @@ export declare namespace Subtitle {
         type: string;
         HCOption: string;
         childOption: string;
+        defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default Subtitle;

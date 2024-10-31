@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-24
+ * Build stamp: 2024-10-31
  *
  */
 export function Title(props) {
@@ -16,6 +16,8 @@ Title._HCReact = {
     type: "HC_Option",
     HCOption: "title",
     childOption: "text",
+    defaultOptions: undefined,
+    isArrayType: false,
 };
 export default Title;
 //# sourceMappingURL=Title.js.map
