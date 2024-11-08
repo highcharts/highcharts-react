@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 
@@ -320,7 +320,6 @@ YAxis._HCReact = {
   HCOption: "yAxis",
   childOption: "title.text",
   defaultOptions: undefined,
-  isArrayType: true,
 };
 
 export default YAxis;

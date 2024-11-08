@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 export type TitleProps = {
@@ -29,7 +29,6 @@ export declare namespace Title {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
-        isArrayType: boolean;
     };
 }
 export default Title;

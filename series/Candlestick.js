@@ -6,16 +6,16 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Highcharts, HighchartsNS } from "../Highcharts";
+import { Chart, Highcharts } from "../Highcharts";
 // Specified in overrides
 import stock_mod from "highcharts/modules/stock";
-stock_mod(HighchartsNS);
+stock_mod(Highcharts);
 /**
  * Candlestick series
  */
@@ -24,7 +24,7 @@ const Candlestick = (props) => {
         chart: { type: "candlestick" },
         plotOptions: { series: { type: "candlestick" } },
     }, props.options || {}), props.options || {}));
-    return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
+    return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
 export function CandlestickSeries(_props) {
     return null;

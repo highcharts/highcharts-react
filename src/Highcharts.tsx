@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 
@@ -26,11 +26,7 @@ if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
   HC.AST.allowedAttributes.push("data-hc-option");
 }
 
-// import * as Data from 'highcharts/es-modules/data';
-
-export const HighchartsNS = HC;
-
-// Data(Highcharts);
+export const Highcharts = HC;
 
 export type WithoutType<T> = Omit<T, "type">;
 
@@ -116,18 +112,20 @@ function getChildProps(children, renderHTML = undefined) {
     if (typeof child === "object") {
       const { _HCReact: meta } = child.type ?? {};
       if (meta && meta.type === "HC_Option" && meta.HCOption) {
-        const optionParent = (optionsFromChildren[meta.HCOption] ??=
-          meta.isArrayType ? [] : {});
-        const { children, ...props } = child.props;
-        const parentIsArray = Array.isArray(optionParent);
-        const insertInto = parentIsArray ? {} : optionParent;
+        const optionParent = (optionsFromChildren[meta.HCOption] ??= {});
+        const { children, ...otherProps } = child.props;
         if (meta.defaultOptions) {
-          Object.assign(insertInto, meta.defaultOptions);
+          Object.entries(meta.defaultOptions).forEach(([key, value]) => {
+            optionsFromChildren[meta.HCOption][key] = value;
+          });
         }
-        Object.assign(insertInto, props);
+        // TODO: there will probably be mappings that have to be applied
+        Object.entries(otherProps).forEach(
+          ([key, value]) => (optionsFromChildren[meta.HCOption][key] = value)
+        );
         // TODO: if the child has children we have to unpack it
         if (typeof children === "string" && meta.childOption) {
-          objInsert(insertInto, meta.childOption, children);
+          objInsert(optionParent, meta.childOption, children);
         } else if (
           children &&
           typeof children === "object" &&
@@ -143,17 +141,13 @@ function getChildProps(children, renderHTML = undefined) {
               children.props?.children &&
               Object.keys(children.props).length === 1
             ) {
-              handleChildren(children.props.children, insertInto, meta);
-            } else {
-              objInsert(insertInto, meta.childOption, renderHTML(children));
+              handleChildren(children.props.children, optionParent, meta);
+              return;
             }
+            objInsert(optionParent, meta.childOption, renderHTML(children));
           }
         } else if (Array.isArray(children)) {
-          handleChildren(children, insertInto, meta);
-        }
-        // Push to the option if array type
-        if (parentIsArray) {
-          optionsFromChildren[meta.HCOption].push(insertInto);
+          handleChildren(children, optionParent, meta);
         }
       }
     }
@@ -167,7 +161,7 @@ function getChildProps(children, renderHTML = undefined) {
 }
 
 // TODO: The config merge needs to use a deep merge instead of Object.assign
-export function Highcharts(props: ICommonAttributes) {
+export function Chart(props: ICommonAttributes) {
   const [chartConfig, setChartConfig] = useState<HC.Options>(
     Object.assign(
       Object.assign(
@@ -259,14 +253,14 @@ export function Highcharts(props: ICommonAttributes) {
   return <div ref={containerRef}></div>;
 }
 
-export interface HighchartsSeriesProps extends ICommonSeriesAttributes {
+export interface SeriesProps extends ICommonSeriesAttributes {
   type: HC.SeriesOptionsType["type"]; // required in generic series component
 }
-export function HighchartsSeries(props: HighchartsSeriesProps) {
+export function Series(props: SeriesProps) {
   return null;
 }
-HighchartsSeries.type = "Series";
+Series.type = "Series";
 
-Highcharts.Series = HighchartsSeries;
+Chart.Series = Series;
 
-export default Highcharts;
+export default Chart;

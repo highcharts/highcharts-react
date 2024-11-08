@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 export function Credits(props) {
@@ -17,7 +17,6 @@ Credits._HCReact = {
     HCOption: "credits",
     childOption: "text",
     defaultOptions: undefined,
-    isArrayType: false,
 };
 export default Credits;
 //# sourceMappingURL=Credits.js.map

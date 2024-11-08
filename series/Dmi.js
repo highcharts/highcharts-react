@@ -6,16 +6,16 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Highcharts, HighchartsNS } from "../Highcharts";
+import { Chart, Highcharts } from "../Highcharts";
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/DMI/DMIIndicator.js";
 if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-    SeriesMod(HighchartsNS);
+    SeriesMod(Highcharts);
 }
 /**
  * Dmi series
@@ -26,7 +26,7 @@ const Dmi = (props) => {
             type: "dmi",
         },
     }, props.options || {}));
-    return (React.createElement(Highcharts, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
+    return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
 export function DmiSeries(_props) {
     return null;

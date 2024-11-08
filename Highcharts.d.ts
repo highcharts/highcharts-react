@@ -6,12 +6,12 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 import React from "react";
 import HC from "highcharts/es-modules/masters/highcharts.src.js";
-export declare const HighchartsNS: typeof HC;
+export declare const Highcharts: typeof HC;
 export type WithoutType<T> = Omit<T, "type">;
 export interface ICommonSeriesAttributes {
     type?: HC.SeriesOptionsType["type"];
@@ -31,15 +31,15 @@ export interface ICommonAttributes {
     /** Links to Highcharts.Options.title.text */
     title?: string;
 }
-export declare function Highcharts(props: ICommonAttributes): React.JSX.Element;
-export declare namespace Highcharts {
-    var Series: typeof HighchartsSeries;
+export declare function Chart(props: ICommonAttributes): React.JSX.Element;
+export declare namespace Chart {
+    var Series: typeof import("./Highcharts").Series;
 }
-export interface HighchartsSeriesProps extends ICommonSeriesAttributes {
+export interface SeriesProps extends ICommonSeriesAttributes {
     type: HC.SeriesOptionsType["type"];
 }
-export declare function HighchartsSeries(props: HighchartsSeriesProps): any;
-export declare namespace HighchartsSeries {
+export declare function Series(props: SeriesProps): any;
+export declare namespace Series {
     var type: string;
 }
-export default Highcharts;
+export default Chart;

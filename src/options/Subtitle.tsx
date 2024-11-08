@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 
@@ -36,7 +36,6 @@ Subtitle._HCReact = {
   HCOption: "subtitle",
   childOption: "text",
   defaultOptions: undefined,
-  isArrayType: false,
 };
 
 export default Subtitle;

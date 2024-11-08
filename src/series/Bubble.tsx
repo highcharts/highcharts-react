@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-10-31
+ * Build stamp: 2024-11-08
  *
  */
 
@@ -24,12 +24,12 @@ import type {
   WithoutType,
 } from "../Highcharts";
 
-import { Highcharts, HighchartsNS } from "../Highcharts";
+import { Chart, Highcharts } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Series/Bubble/BubbleSeries.js";
 
 if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(HighchartsNS);
+  SeriesMod(Highcharts);
 }
 
 /**
@@ -48,13 +48,9 @@ const Bubble = (props: ICommonAttributes) => {
   );
 
   return (
-    <Highcharts
-      title={props.title}
-      chartConstructor="chart"
-      options={chartConfig}
-    >
+    <Chart title={props.title} chartConstructor="chart" options={chartConfig}>
       {props.children}
-    </Highcharts>
+    </Chart>
   );
 };
 
