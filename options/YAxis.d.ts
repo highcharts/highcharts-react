@@ -338,6 +338,7 @@ export declare namespace YAxis {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default YAxis;

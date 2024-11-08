@@ -112,6 +112,7 @@ export declare namespace Legend {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default Legend;

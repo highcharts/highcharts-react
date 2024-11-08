@@ -317,6 +317,7 @@ export declare namespace PlotOptions {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default PlotOptions;

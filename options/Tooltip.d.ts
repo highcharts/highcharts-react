@@ -74,6 +74,7 @@ export declare namespace Tooltip {
         defaultOptions: {
             useHTML: boolean;
         };
+        isArrayType: boolean;
     };
 }
 export default Tooltip;

@@ -320,6 +320,7 @@ YAxis._HCReact = {
   HCOption: "yAxis",
   childOption: "title.text",
   defaultOptions: undefined,
+  isArrayType: true,
 };
 
 export default YAxis;

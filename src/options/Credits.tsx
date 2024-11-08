@@ -34,6 +34,7 @@ Credits._HCReact = {
   HCOption: "credits",
   childOption: "text",
   defaultOptions: undefined,
+  isArrayType: false,
 };
 
 export default Credits;

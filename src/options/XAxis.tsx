@@ -254,6 +254,7 @@ XAxis._HCReact = {
   HCOption: "xAxis",
   childOption: "title.text",
   defaultOptions: undefined,
+  isArrayType: true,
 };
 
 export default XAxis;

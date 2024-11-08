@@ -17,6 +17,7 @@ PlotOptions._HCReact = {
     HCOption: "plotOptions",
     childOption: "",
     defaultOptions: undefined,
+    isArrayType: false,
 };
 export default PlotOptions;
 //# sourceMappingURL=PlotOptions.js.map

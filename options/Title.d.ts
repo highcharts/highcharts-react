@@ -29,6 +29,7 @@ export declare namespace Title {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default Title;

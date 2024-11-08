@@ -37,6 +37,7 @@ Title._HCReact = {
   HCOption: "title",
   childOption: "text",
   defaultOptions: undefined,
+  isArrayType: false,
 };
 
 export default Title;

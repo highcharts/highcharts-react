@@ -17,6 +17,7 @@ Legend._HCReact = {
     HCOption: "legend",
     childOption: "labelFormat",
     defaultOptions: undefined,
+    isArrayType: false,
 };
 export default Legend;
 //# sourceMappingURL=Legend.js.map

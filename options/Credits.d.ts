@@ -31,6 +31,7 @@ export declare namespace Credits {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default Credits;

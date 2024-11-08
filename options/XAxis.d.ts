@@ -284,6 +284,7 @@ export declare namespace XAxis {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default XAxis;

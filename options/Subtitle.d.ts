@@ -28,6 +28,7 @@ export declare namespace Subtitle {
         HCOption: string;
         childOption: string;
         defaultOptions: any;
+        isArrayType: boolean;
     };
 }
 export default Subtitle;

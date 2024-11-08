@@ -36,6 +36,7 @@ Subtitle._HCReact = {
   HCOption: "subtitle",
   childOption: "text",
   defaultOptions: undefined,
+  isArrayType: false,
 };
 
 export default Subtitle;
