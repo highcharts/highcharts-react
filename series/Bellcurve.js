@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Bellcurve = (props) => {
 export function BellcurveSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 BellcurveSeries.type = "Series";
 Bellcurve.Series = BellcurveSeries;
+BellcurveSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.bellcurve",
+    childOption: "series.bellcurve",
+};
 // TODO: Fix typings
 // @ts-ignore:
 BellcurveSeries.defaultProps = {

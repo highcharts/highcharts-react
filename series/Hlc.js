@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Hlc = (props) => {
 export function HlcSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 HlcSeries.type = "Series";
 Hlc.Series = HlcSeries;
+HlcSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.hlc",
+    childOption: "series.hlc",
+};
 // TODO: Fix typings
 // @ts-ignore:
 HlcSeries.defaultProps = {

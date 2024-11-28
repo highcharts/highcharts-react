@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Dema = (props) => {
 export function DemaSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 DemaSeries.type = "Series";
 Dema.Series = DemaSeries;
+DemaSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.dema",
+    childOption: "series.dema",
+};
 // TODO: Fix typings
 // @ts-ignore:
 DemaSeries.defaultProps = {

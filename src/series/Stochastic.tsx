@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesStochasticOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Stochastic = (props: ICommonAttributes) => {
 
 interface StochasticSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesStochasticOptions>;
+  children?: React.ReactNode;
 }
 
 export function StochasticSeries(_props: StochasticSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 StochasticSeries.type = "Series";
 Stochastic.Series = StochasticSeries;
+
+StochasticSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.stochastic",
+  childOption: "series.stochastic",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

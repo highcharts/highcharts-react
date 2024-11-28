@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesPsarOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Psar = (props: ICommonAttributes) => {
 
 interface PsarSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPsarOptions>;
+  children?: React.ReactNode;
 }
 
 export function PsarSeries(_props: PsarSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 PsarSeries.type = "Series";
 Psar.Series = PsarSeries;
+
+PsarSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.psar",
+  childOption: "series.psar",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

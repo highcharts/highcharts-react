@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesKlingerOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Klinger = (props: ICommonAttributes) => {
 
 interface KlingerSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesKlingerOptions>;
+  children?: React.ReactNode;
 }
 
 export function KlingerSeries(_props: KlingerSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 KlingerSeries.type = "Series";
 Klinger.Series = KlingerSeries;
+
+KlingerSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.klinger",
+  childOption: "series.klinger",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

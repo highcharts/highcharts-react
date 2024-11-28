@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Xrange = (props) => {
 export function XrangeSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 XrangeSeries.type = "Series";
 Xrange.Series = XrangeSeries;
+XrangeSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.xrange",
+    childOption: "series.xrange",
+};
 // TODO: Fix typings
 // @ts-ignore:
 XrangeSeries.defaultProps = {

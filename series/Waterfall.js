@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Waterfall = (props) => {
 export function WaterfallSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 WaterfallSeries.type = "Series";
 Waterfall.Series = WaterfallSeries;
+WaterfallSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.waterfall",
+    childOption: "series.waterfall",
+};
 // TODO: Fix typings
 // @ts-ignore:
 WaterfallSeries.defaultProps = {

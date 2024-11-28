@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Momentum = (props) => {
 export function MomentumSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 MomentumSeries.type = "Series";
 Momentum.Series = MomentumSeries;
+MomentumSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.momentum",
+    childOption: "series.momentum",
+};
 // TODO: Fix typings
 // @ts-ignore:
 MomentumSeries.defaultProps = {

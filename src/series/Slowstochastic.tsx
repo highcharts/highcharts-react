@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesSlowstochasticOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Slowstochastic = (props: ICommonAttributes) => {
 
 interface SlowstochasticSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSlowstochasticOptions>;
+  children?: React.ReactNode;
 }
 
 export function SlowstochasticSeries(_props: SlowstochasticSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 SlowstochasticSeries.type = "Series";
 Slowstochastic.Series = SlowstochasticSeries;
+
+SlowstochasticSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.slowstochastic",
+  childOption: "series.slowstochastic",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

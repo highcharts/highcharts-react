@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesAreaOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -50,14 +51,22 @@ const Area = (props: ICommonAttributes) => {
 
 interface AreaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAreaOptions>;
+  children?: React.ReactNode;
 }
 
 export function AreaSeries(_props: AreaSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 AreaSeries.type = "Series";
 Area.Series = AreaSeries;
+
+AreaSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.area",
+  childOption: "series.area",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

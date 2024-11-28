@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesHeikinashiOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Heikinashi = (props: ICommonAttributes) => {
 
 interface HeikinashiSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesHeikinashiOptions>;
+  children?: React.ReactNode;
 }
 
 export function HeikinashiSeries(_props: HeikinashiSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 HeikinashiSeries.type = "Series";
 Heikinashi.Series = HeikinashiSeries;
+
+HeikinashiSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.heikinashi",
+  childOption: "series.heikinashi",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

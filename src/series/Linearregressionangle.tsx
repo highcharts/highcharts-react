@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesLinearregressionangleOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,6 +61,7 @@ const Linearregressionangle = (props: ICommonAttributes) => {
 
 interface LinearregressionangleSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLinearregressionangleOptions>;
+  children?: React.ReactNode;
 }
 
 export function LinearregressionangleSeries(
@@ -68,8 +70,15 @@ export function LinearregressionangleSeries(
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 LinearregressionangleSeries.type = "Series";
 Linearregressionangle.Series = LinearregressionangleSeries;
+
+LinearregressionangleSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.linearregressionangle",
+  childOption: "series.linearregressionangle",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

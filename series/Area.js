@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Area = (props) => {
 export function AreaSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 AreaSeries.type = "Series";
 Area.Series = AreaSeries;
+AreaSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.area",
+    childOption: "series.area",
+};
 // TODO: Fix typings
 // @ts-ignore:
 AreaSeries.defaultProps = {

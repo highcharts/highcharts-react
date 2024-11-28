@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesChaikinOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Chaikin = (props: ICommonAttributes) => {
 
 interface ChaikinSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesChaikinOptions>;
+  children?: React.ReactNode;
 }
 
 export function ChaikinSeries(_props: ChaikinSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ChaikinSeries.type = "Series";
 Chaikin.Series = ChaikinSeries;
+
+ChaikinSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.chaikin",
+  childOption: "series.chaikin",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesTrendlineOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Trendline = (props: ICommonAttributes) => {
 
 interface TrendlineSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTrendlineOptions>;
+  children?: React.ReactNode;
 }
 
 export function TrendlineSeries(_props: TrendlineSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 TrendlineSeries.type = "Series";
 Trendline.Series = TrendlineSeries;
+
+TrendlineSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.trendline",
+  childOption: "series.trendline",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

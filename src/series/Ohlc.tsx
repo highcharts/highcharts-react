@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesOhlcOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -54,14 +55,22 @@ const Ohlc = (props: ICommonAttributes) => {
 
 interface OhlcSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesOhlcOptions>;
+  children?: React.ReactNode;
 }
 
 export function OhlcSeries(_props: OhlcSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 OhlcSeries.type = "Series";
 Ohlc.Series = OhlcSeries;
+
+OhlcSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.ohlc",
+  childOption: "series.ohlc",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesAroonOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Aroon = (props: ICommonAttributes) => {
 
 interface AroonSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAroonOptions>;
+  children?: React.ReactNode;
 }
 
 export function AroonSeries(_props: AroonSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 AroonSeries.type = "Series";
 Aroon.Series = AroonSeries;
+
+AroonSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.aroon",
+  childOption: "series.aroon",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

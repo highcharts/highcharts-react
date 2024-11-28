@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Variablepie = (props) => {
 export function VariablepieSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 VariablepieSeries.type = "Series";
 Variablepie.Series = VariablepieSeries;
+VariablepieSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.variablepie",
+    childOption: "series.variablepie",
+};
 // TODO: Fix typings
 // @ts-ignore:
 VariablepieSeries.defaultProps = {

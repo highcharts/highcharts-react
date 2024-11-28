@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Natr = (props) => {
 export function NatrSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 NatrSeries.type = "Series";
 Natr.Series = NatrSeries;
+NatrSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.natr",
+    childOption: "series.natr",
+};
 // TODO: Fix typings
 // @ts-ignore:
 NatrSeries.defaultProps = {

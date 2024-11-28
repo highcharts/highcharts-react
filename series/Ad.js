@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Ad = (props) => {
 export function AdSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 AdSeries.type = "Series";
 Ad.Series = AdSeries;
+AdSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.ad",
+    childOption: "series.ad",
+};
 // TODO: Fix typings
 // @ts-ignore:
 AdSeries.defaultProps = {

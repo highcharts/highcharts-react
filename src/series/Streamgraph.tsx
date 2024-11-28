@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesStreamgraphOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Streamgraph = (props: ICommonAttributes) => {
 
 interface StreamgraphSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesStreamgraphOptions>;
+  children?: React.ReactNode;
 }
 
 export function StreamgraphSeries(_props: StreamgraphSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 StreamgraphSeries.type = "Series";
 Streamgraph.Series = StreamgraphSeries;
+
+StreamgraphSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.streamgraph",
+  childOption: "series.streamgraph",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

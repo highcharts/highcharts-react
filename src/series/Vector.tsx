@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesVectorOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Vector = (props: ICommonAttributes) => {
 
 interface VectorSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVectorOptions>;
+  children?: React.ReactNode;
 }
 
 export function VectorSeries(_props: VectorSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 VectorSeries.type = "Series";
 Vector.Series = VectorSeries;
+
+VectorSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.vector",
+  childOption: "series.vector",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 export type PlotOptionsProps = {
@@ -114,9 +114,9 @@ export type PlotOptionsProps = {
                 lineWidth?: number;
                 zIndex?: number;
             };
-            dragMaxX?: number;
+            dragMaxX?: number | string;
             dragMaxY?: number;
-            dragMinX?: number;
+            dragMinX?: number | string;
             dragMinY?: number;
             dragPrecisionX?: number;
             dragPrecisionY?: number;
@@ -165,7 +165,7 @@ export type PlotOptionsProps = {
             minFontSize?: number | null;
             onArea?: boolean | null;
             style?: {
-                fontSize?: number;
+                fontSize?: number | string;
                 fontWeight?: string;
             };
             useHTML?: boolean;
@@ -178,6 +178,7 @@ export type PlotOptionsProps = {
             enabled?: boolean;
         };
         legendSymbol?: string;
+        legendSymbolColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
         lineWidth?: number;
         linecap?: Highcharts.SeriesLinecapValue;
         linkedTo?: string;
@@ -253,7 +254,7 @@ export type PlotOptionsProps = {
         pointIntervalUnit?: "day" | "month" | "year";
         pointPlacement?: string | number;
         pointRange?: number;
-        pointStart?: number;
+        pointStart?: number | string;
         relativeXValue?: boolean;
         selected?: boolean;
         shadow?: boolean | Highcharts.ShadowOptionsObject;

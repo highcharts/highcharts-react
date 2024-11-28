@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesZigzagOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Zigzag = (props: ICommonAttributes) => {
 
 interface ZigzagSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesZigzagOptions>;
+  children?: React.ReactNode;
 }
 
 export function ZigzagSeries(_props: ZigzagSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ZigzagSeries.type = "Series";
 Zigzag.Series = ZigzagSeries;
+
+ZigzagSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.zigzag",
+  childOption: "series.zigzag",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

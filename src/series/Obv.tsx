@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesObvOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Obv = (props: ICommonAttributes) => {
 
 interface ObvSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesObvOptions>;
+  children?: React.ReactNode;
 }
 
 export function ObvSeries(_props: ObvSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ObvSeries.type = "Series";
 Obv.Series = ObvSeries;
+
+ObvSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.obv",
+  childOption: "series.obv",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

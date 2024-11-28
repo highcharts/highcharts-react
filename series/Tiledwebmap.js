@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Tiledwebmap = (props) => {
 export function TiledwebmapSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 TiledwebmapSeries.type = "Series";
 Tiledwebmap.Series = TiledwebmapSeries;
+TiledwebmapSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.tiledwebmap",
+    childOption: "series.tiledwebmap",
+};
 // TODO: Fix typings
 // @ts-ignore:
 TiledwebmapSeries.defaultProps = {

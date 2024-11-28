@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesVariablepieOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Variablepie = (props: ICommonAttributes) => {
 
 interface VariablepieSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesVariablepieOptions>;
+  children?: React.ReactNode;
 }
 
 export function VariablepieSeries(_props: VariablepieSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 VariablepieSeries.type = "Series";
 Variablepie.Series = VariablepieSeries;
+
+VariablepieSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.variablepie",
+  childOption: "series.variablepie",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

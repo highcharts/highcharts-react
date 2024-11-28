@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -29,8 +29,14 @@ const Candlestick = (props) => {
 export function CandlestickSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 CandlestickSeries.type = "Series";
 Candlestick.Series = CandlestickSeries;
+CandlestickSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.candlestick",
+    childOption: "series.candlestick",
+};
 // TODO: Fix typings
 // @ts-ignore:
 CandlestickSeries.defaultProps = {

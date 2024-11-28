@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Psar = (props) => {
 export function PsarSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PsarSeries.type = "Series";
 Psar.Series = PsarSeries;
+PsarSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.psar",
+    childOption: "series.psar",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PsarSeries.defaultProps = {

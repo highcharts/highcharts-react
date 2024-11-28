@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -20,7 +20,12 @@ export type XAxisProps = {
   allowDecimals?: boolean | undefined;
   alternateGridColor?: Highcharts.ColorType;
   angle?: number;
-  breaks?: { breakSize?: number; from?: number; repeat?: number; to?: number };
+  breaks?: {
+    breakSize?: number;
+    from?: number | string;
+    repeat?: number;
+    to?: number | string;
+  };
   categories?: Array<string>;
   ceiling?: number;
   className?: string;
@@ -47,14 +52,42 @@ export type XAxisProps = {
   };
   crossing?: number;
   dateTimeLabelFormats?: {
-    day?: { list?: Array<string>; main?: string };
-    hour?: { list?: Array<string>; main?: string; range?: boolean };
-    millisecond?: { list?: Array<string>; main?: string; range?: boolean };
-    minute?: { list?: Array<string>; main?: string; range?: boolean };
-    month?: { list?: Array<string>; main?: string };
-    second?: { list?: Array<string>; main?: string; range?: boolean };
-    week?: { list?: Array<string>; main?: string };
-    year?: { list?: Array<string>; main?: string };
+    day?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+    };
+    hour?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+      range?: boolean;
+    };
+    millisecond?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+      range?: boolean;
+    };
+    minute?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+      range?: boolean;
+    };
+    month?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+    };
+    second?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+      range?: boolean;
+    };
+    week?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+    };
+    year?: {
+      list?: Array<string | Highcharts.DateTimeFormatOptions>;
+      main?: string | Highcharts.DateTimeFormatOptions;
+    };
   };
   endOnTick?: boolean;
   events?: {
@@ -98,7 +131,12 @@ export type XAxisProps = {
     skew3d?: boolean;
     staggerLines?: number;
     step?: number;
-    style?: { color?: string; cursor?: string; fontSize?: number };
+    style?: {
+      color?: string;
+      cursor?: string;
+      fontSize?: number | string;
+      textOverflow?: string;
+    };
     useHTML?: boolean;
     x?: number;
     y?: number;
@@ -109,10 +147,10 @@ export type XAxisProps = {
   lineWidth?: number;
   linkedTo?: number;
   margin?: number;
-  max?: number | null;
+  max?: number | string | null;
   maxPadding?: number;
   maxRange?: number;
-  min?: number | null;
+  min?: number | string | null;
   minPadding?: number;
   minRange?: number;
   minTickInterval?: number;
@@ -148,7 +186,7 @@ export type XAxisProps = {
       mouseout?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
       mouseover?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
     };
-    from?: number;
+    from?: number | string;
     id?: string;
     label?: {
       align?: Highcharts.AlignValue;
@@ -163,7 +201,7 @@ export type XAxisProps = {
       x?: number;
       y?: number;
     };
-    to?: number;
+    to?: number | string;
     zIndex?: number;
   };
   plotLines?: {
@@ -191,7 +229,7 @@ export type XAxisProps = {
       y?: number;
     };
     labels?: { clip?: boolean };
-    value?: number;
+    value?: number | string;
     width?: number;
     zIndex?: number;
   };
@@ -223,7 +261,7 @@ export type XAxisProps = {
     reserveSpace?: boolean;
     rotation?: number;
     skew3d?: boolean | null;
-    style?: { color?: string; fontSize?: number };
+    style?: { color?: string; fontSize?: number | string };
     text?: string | null;
     textAlign?: Highcharts.AlignValue;
     useHTML?: boolean;
@@ -232,6 +270,7 @@ export type XAxisProps = {
   };
   top?: number | string;
   type?: Highcharts.AxisTypeValue;
+  uniqueNames?: boolean;
   units?: Array<Array<string, Array<number> | null>>;
   visible?: boolean;
   width?: number | string;

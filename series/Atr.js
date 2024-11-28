@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Atr = (props) => {
 export function AtrSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 AtrSeries.type = "Series";
 Atr.Series = AtrSeries;
+AtrSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.atr",
+    childOption: "series.atr",
+};
 // TODO: Fix typings
 // @ts-ignore:
 AtrSeries.defaultProps = {

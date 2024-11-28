@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Gauge = (props) => {
 export function GaugeSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 GaugeSeries.type = "Series";
 Gauge.Series = GaugeSeries;
+GaugeSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.gauge",
+    childOption: "series.gauge",
+};
 // TODO: Fix typings
 // @ts-ignore:
 GaugeSeries.defaultProps = {

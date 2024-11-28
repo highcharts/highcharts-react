@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesErrorbarOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Errorbar = (props: ICommonAttributes) => {
 
 interface ErrorbarSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesErrorbarOptions>;
+  children?: React.ReactNode;
 }
 
 export function ErrorbarSeries(_props: ErrorbarSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ErrorbarSeries.type = "Series";
 Errorbar.Series = ErrorbarSeries;
+
+ErrorbarSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.errorbar",
+  childOption: "series.errorbar",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

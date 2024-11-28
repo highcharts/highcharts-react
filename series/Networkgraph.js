@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Networkgraph = (props) => {
 export function NetworkgraphSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 NetworkgraphSeries.type = "Series";
 Networkgraph.Series = NetworkgraphSeries;
+NetworkgraphSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.networkgraph",
+    childOption: "series.networkgraph",
+};
 // TODO: Fix typings
 // @ts-ignore:
 NetworkgraphSeries.defaultProps = {

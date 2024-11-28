@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Flowmap = (props) => {
 export function FlowmapSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 FlowmapSeries.type = "Series";
 Flowmap.Series = FlowmapSeries;
+FlowmapSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.flowmap",
+    childOption: "series.flowmap",
+};
 // TODO: Fix typings
 // @ts-ignore:
 FlowmapSeries.defaultProps = {

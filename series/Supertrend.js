@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Supertrend = (props) => {
 export function SupertrendSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 SupertrendSeries.type = "Series";
 Supertrend.Series = SupertrendSeries;
+SupertrendSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.supertrend",
+    childOption: "series.supertrend",
+};
 // TODO: Fix typings
 // @ts-ignore:
 SupertrendSeries.defaultProps = {

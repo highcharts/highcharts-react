@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Tema = (props) => {
 export function TemaSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 TemaSeries.type = "Series";
 Tema.Series = TemaSeries;
+TemaSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.tema",
+    childOption: "series.tema",
+};
 // TODO: Fix typings
 // @ts-ignore:
 TemaSeries.defaultProps = {

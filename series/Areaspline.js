@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Areaspline = (props) => {
 export function AreasplineSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 AreasplineSeries.type = "Series";
 Areaspline.Series = AreasplineSeries;
+AreasplineSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.areaspline",
+    childOption: "series.areaspline",
+};
 // TODO: Fix typings
 // @ts-ignore:
 AreasplineSeries.defaultProps = {

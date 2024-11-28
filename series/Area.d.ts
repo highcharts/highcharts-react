@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Area: {
 };
 interface AreaSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAreaOptions>;
+    children?: React.ReactNode;
 }
 export declare function AreaSeries(_props: AreaSeriesProps): any;
 export declare namespace AreaSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

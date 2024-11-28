@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Mapline = (props) => {
 export function MaplineSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 MaplineSeries.type = "Series";
 Mapline.Series = MaplineSeries;
+MaplineSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.mapline",
+    childOption: "series.mapline",
+};
 // TODO: Fix typings
 // @ts-ignore:
 MaplineSeries.defaultProps = {

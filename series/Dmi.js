@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Dmi = (props) => {
 export function DmiSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 DmiSeries.type = "Series";
 Dmi.Series = DmiSeries;
+DmiSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.dmi",
+    childOption: "series.dmi",
+};
 // TODO: Fix typings
 // @ts-ignore:
 DmiSeries.defaultProps = {

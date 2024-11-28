@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesPriceenvelopesOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Priceenvelopes = (props: ICommonAttributes) => {
 
 interface PriceenvelopesSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPriceenvelopesOptions>;
+  children?: React.ReactNode;
 }
 
 export function PriceenvelopesSeries(_props: PriceenvelopesSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 PriceenvelopesSeries.type = "Series";
 Priceenvelopes.Series = PriceenvelopesSeries;
+
+PriceenvelopesSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.priceenvelopes",
+  childOption: "series.priceenvelopes",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

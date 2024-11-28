@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesPackedbubbleOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Packedbubble = (props: ICommonAttributes) => {
 
 interface PackedbubbleSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPackedbubbleOptions>;
+  children?: React.ReactNode;
 }
 
 export function PackedbubbleSeries(_props: PackedbubbleSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 PackedbubbleSeries.type = "Series";
 Packedbubble.Series = PackedbubbleSeries;
+
+PackedbubbleSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.packedbubble",
+  childOption: "series.packedbubble",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

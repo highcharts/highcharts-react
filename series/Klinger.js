@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Klinger = (props) => {
 export function KlingerSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 KlingerSeries.type = "Series";
 Klinger.Series = KlingerSeries;
+KlingerSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.klinger",
+    childOption: "series.klinger",
+};
 // TODO: Fix typings
 // @ts-ignore:
 KlingerSeries.defaultProps = {

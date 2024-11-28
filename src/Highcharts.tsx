@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -68,19 +68,21 @@ function getChildProps(children, renderHTML = undefined) {
     current[keys[keys.length - 1]] = value;
     return obj;
   }
-  /**
-   * @param {ReactNode[]} children
-   */
   function renderChildren(children) {
     return renderHTML
       ? renderHTML(children)
       : children.filter((c) => typeof c === "string").join(""); // fallback
   }
   /**
-   * @param {ReactElement[]} children
-   * @param {Object} obj
-   * @param {Object} meta
+   * Updates the _HCReact metadata for a child.
    */
+  function updateChildMeta(childMeta, parentMeta) {
+    return {
+      ...childMeta,
+      childOption: `${parentMeta.childOption}.${childMeta.childOption}`,
+      HCOption: `${parentMeta.HCOption}.${childMeta.HCOption}`,
+    };
+  }
   function handleChildren(children, obj, meta) {
     if (
       Array.isArray(children) &&
@@ -98,20 +100,36 @@ function getChildProps(children, renderHTML = undefined) {
           lostChildren.push(child);
         }
       }
-      if (lostChildren.length) {
+      if (lostChildren.length && meta.childOption) {
         objInsert(obj, meta.childOption, renderChildren(lostChildren));
       }
       return;
     }
-    objInsert(obj, meta.childOption, renderChildren(children));
+    const nonOptionChildren = [];
+    if (Array.isArray(children)) {
+      for (const c of children) {
+        if (c.type?._HCReact) {
+          const { _HCReact: childMeta } = c.type;
+          c.type._HCReact = updateChildMeta(childMeta, meta);
+          handleChild(c);
+          continue;
+        }
+        nonOptionChildren.push(c);
+      }
+    }
+    if (meta.childOption) {
+      // If children is an array, render the children that are not options.
+      // Otherwise, render the children prop
+      const childrenToRender = nonOptionChildren.length
+        ? nonOptionChildren
+        : [children];
+      objInsert(obj, meta.childOption, renderChildren(childrenToRender));
+    }
   }
-  /**
-   * @param {ReactElementWithMeta} child
-   */
   function handleChild(child) {
-    if (typeof child === "object") {
+    if (child && typeof child === "object") {
       const { _HCReact: meta } = child.type ?? {};
-      if (meta && meta.type === "HC_Option" && meta.HCOption) {
+      if (meta && meta.HCOption) {
         const optionParent = (optionsFromChildren[meta.HCOption] ??=
           meta.isArrayType ? [] : {});
         const { children, ...props } = child.props;
@@ -140,7 +158,7 @@ function getChildProps(children, renderHTML = undefined) {
               Object.keys(children.props).length === 1
             ) {
               handleChildren(children.props.children, insertInto, meta);
-            } else {
+            } else if (meta.childOption) {
               objInsert(insertInto, meta.childOption, renderHTML(children));
             }
           }
@@ -175,16 +193,19 @@ export function Chart(props: ICommonAttributes) {
       {
         series: props.children
           ? toArr(props.children)
-              .filter((c) => c.type.type === "Series")
-              .map((c) =>
-                Object.assign(
+              .filter((c) => c?.type?.type === "Series")
+              .map((c) => {
+                return Object.assign(
                   {
                     type: c.props.type || "line",
                     data: c.props.data || [],
                   },
-                  c.props.options || {}
-                )
-              )
+                  {
+                    ...(c.props.options || {}),
+                    ...getChildProps(c.props.children, renderToStaticMarkup),
+                  }
+                );
+              })
           : [],
         ...getChildProps(props.children, renderToStaticMarkup),
       },
@@ -205,20 +226,24 @@ export function Chart(props: ICommonAttributes) {
     // config: HC.Options
     if (props.children) {
       const children = toArr(props.children).filter(
-        (c) => c.type.type === "Series"
+        (c) => c?.type?.type === "Series"
       );
 
       children.forEach((c, i) => {
         console.log("Adding series to chart");
 
         if (c.props) {
-          if (c.props.options) {
-            Object.assign(chartConfig.series[i], c.props.options);
+          const { children, type, options, ...otherProps } = c.props;
+
+          if (options) {
+            Object.assign(chartConfig.series[i], options);
           }
 
           chartConfig.series[i] = {
             ...chartConfig.series[i],
-            ...c.props,
+            type,
+            ...getChildProps(c.props.children),
+            ...otherProps,
           };
         }
       });

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesMappointOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -54,14 +55,22 @@ const Mappoint = (props: ICommonAttributes) => {
 
 interface MappointSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMappointOptions>;
+  children?: React.ReactNode;
 }
 
 export function MappointSeries(_props: MappointSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 MappointSeries.type = "Series";
 Mappoint.Series = MappointSeries;
+
+MappointSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.mappoint",
+  childOption: "series.mappoint",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

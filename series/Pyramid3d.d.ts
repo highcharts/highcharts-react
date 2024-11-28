@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Pyramid3d: {
 };
 interface Pyramid3dSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesPyramid3dOptions>;
+    children?: React.ReactNode;
 }
 export declare function Pyramid3dSeries(_props: Pyramid3dSeriesProps): any;
 export declare namespace Pyramid3dSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

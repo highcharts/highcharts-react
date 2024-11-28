@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Linearregressionintercept = (props) => {
 export function LinearregressioninterceptSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 LinearregressioninterceptSeries.type = "Series";
 Linearregressionintercept.Series = LinearregressioninterceptSeries;
+LinearregressioninterceptSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.linearregressionintercept",
+    childOption: "series.linearregressionintercept",
+};
 // TODO: Fix typings
 // @ts-ignore:
 LinearregressioninterceptSeries.defaultProps = {

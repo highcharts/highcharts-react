@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesPyramid3dOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Pyramid3d = (props: ICommonAttributes) => {
 
 interface Pyramid3dSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesPyramid3dOptions>;
+  children?: React.ReactNode;
 }
 
 export function Pyramid3dSeries(_props: Pyramid3dSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 Pyramid3dSeries.type = "Series";
 Pyramid3d.Series = Pyramid3dSeries;
+
+Pyramid3dSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.pyramid3d",
+  childOption: "series.pyramid3d",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

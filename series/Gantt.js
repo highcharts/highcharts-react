@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Gantt = (props) => {
 export function GanttSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 GanttSeries.type = "Series";
 Gantt.Series = GanttSeries;
+GanttSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.gantt",
+    childOption: "series.gantt",
+};
 // TODO: Fix typings
 // @ts-ignore:
 GanttSeries.defaultProps = {

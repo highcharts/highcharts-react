@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -58,12 +58,12 @@ export type TooltipProps = {
   snap?: number;
   split?: boolean;
   stickOnContact?: boolean;
-  style?: { color?: string; cursor?: string; fontSize?: number };
+  style?: { color?: string; cursor?: string; fontSize?: number | string };
   useHTML?: boolean;
   valueDecimals?: number | undefined;
   valuePrefix?: string;
   valueSuffix?: string;
-  xDateFormat?: string;
+  xDateFormat?: string | Highcharts.DateTimeFormatOptions;
   children?:
     | string
     | (string | number)[]

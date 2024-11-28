@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Pareto: {
 };
 interface ParetoSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesParetoOptions>;
+    children?: React.ReactNode;
 }
 export declare function ParetoSeries(_props: ParetoSeriesProps): any;
 export declare namespace ParetoSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

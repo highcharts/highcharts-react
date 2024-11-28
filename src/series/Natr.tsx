@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesNatrOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Natr = (props: ICommonAttributes) => {
 
 interface NatrSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesNatrOptions>;
+  children?: React.ReactNode;
 }
 
 export function NatrSeries(_props: NatrSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 NatrSeries.type = "Series";
 Natr.Series = NatrSeries;
+
+NatrSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.natr",
+  childOption: "series.natr",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

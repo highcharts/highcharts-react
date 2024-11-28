@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesMacdOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Macd = (props: ICommonAttributes) => {
 
 interface MacdSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMacdOptions>;
+  children?: React.ReactNode;
 }
 
 export function MacdSeries(_props: MacdSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 MacdSeries.type = "Series";
 Macd.Series = MacdSeries;
+
+MacdSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.macd",
+  childOption: "series.macd",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

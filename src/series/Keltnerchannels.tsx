@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesKeltnerchannelsOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Keltnerchannels = (props: ICommonAttributes) => {
 
 interface KeltnerchannelsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesKeltnerchannelsOptions>;
+  children?: React.ReactNode;
 }
 
 export function KeltnerchannelsSeries(_props: KeltnerchannelsSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 KeltnerchannelsSeries.type = "Series";
 Keltnerchannels.Series = KeltnerchannelsSeries;
+
+KeltnerchannelsSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.keltnerchannels",
+  childOption: "series.keltnerchannels",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

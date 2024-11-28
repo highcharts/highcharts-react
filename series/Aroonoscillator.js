@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Aroonoscillator = (props) => {
 export function AroonoscillatorSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 AroonoscillatorSeries.type = "Series";
 Aroonoscillator.Series = AroonoscillatorSeries;
+AroonoscillatorSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.aroonoscillator",
+    childOption: "series.aroonoscillator",
+};
 // TODO: Fix typings
 // @ts-ignore:
 AroonoscillatorSeries.defaultProps = {

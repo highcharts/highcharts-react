@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Map: {
 };
 interface MapSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesMapOptions>;
+    children?: React.ReactNode;
 }
 export declare function MapSeries(_props: MapSeriesProps): any;
 export declare namespace MapSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

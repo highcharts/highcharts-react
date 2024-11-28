@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesBoxplotOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Boxplot = (props: ICommonAttributes) => {
 
 interface BoxplotSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBoxplotOptions>;
+  children?: React.ReactNode;
 }
 
 export function BoxplotSeries(_props: BoxplotSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 BoxplotSeries.type = "Series";
 Boxplot.Series = BoxplotSeries;
+
+BoxplotSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.boxplot",
+  childOption: "series.boxplot",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesLinearregressioninterceptOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,6 +61,7 @@ const Linearregressionintercept = (props: ICommonAttributes) => {
 
 interface LinearregressioninterceptSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLinearregressioninterceptOptions>;
+  children?: React.ReactNode;
 }
 
 export function LinearregressioninterceptSeries(
@@ -68,8 +70,15 @@ export function LinearregressioninterceptSeries(
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 LinearregressioninterceptSeries.type = "Series";
 Linearregressionintercept.Series = LinearregressioninterceptSeries;
+
+LinearregressioninterceptSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.linearregressionintercept",
+  childOption: "series.linearregressionintercept",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

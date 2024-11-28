@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Variwide = (props) => {
 export function VariwideSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 VariwideSeries.type = "Series";
 Variwide.Series = VariwideSeries;
+VariwideSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.variwide",
+    childOption: "series.variwide",
+};
 // TODO: Fix typings
 // @ts-ignore:
 VariwideSeries.defaultProps = {

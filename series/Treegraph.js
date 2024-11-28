@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Treegraph = (props) => {
 export function TreegraphSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 TreegraphSeries.type = "Series";
 Treegraph.Series = TreegraphSeries;
+TreegraphSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.treegraph",
+    childOption: "series.treegraph",
+};
 // TODO: Fix typings
 // @ts-ignore:
 TreegraphSeries.defaultProps = {

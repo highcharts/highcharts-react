@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Chaikin = (props) => {
 export function ChaikinSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ChaikinSeries.type = "Series";
 Chaikin.Series = ChaikinSeries;
+ChaikinSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.chaikin",
+    childOption: "series.chaikin",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ChaikinSeries.defaultProps = {

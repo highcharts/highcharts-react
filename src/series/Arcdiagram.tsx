@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesArcdiagramOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Arcdiagram = (props: ICommonAttributes) => {
 
 interface ArcdiagramSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesArcdiagramOptions>;
+  children?: React.ReactNode;
 }
 
 export function ArcdiagramSeries(_props: ArcdiagramSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ArcdiagramSeries.type = "Series";
 Arcdiagram.Series = ArcdiagramSeries;
+
+ArcdiagramSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.arcdiagram",
+  childOption: "series.arcdiagram",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

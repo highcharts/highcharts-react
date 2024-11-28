@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesSplineOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -50,14 +51,22 @@ const Spline = (props: ICommonAttributes) => {
 
 interface SplineSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSplineOptions>;
+  children?: React.ReactNode;
 }
 
 export function SplineSeries(_props: SplineSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 SplineSeries.type = "Series";
 Spline.Series = SplineSeries;
+
+SplineSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.spline",
+  childOption: "series.spline",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

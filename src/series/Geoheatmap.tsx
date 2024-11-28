@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesGeoheatmapOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Geoheatmap = (props: ICommonAttributes) => {
 
 interface GeoheatmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesGeoheatmapOptions>;
+  children?: React.ReactNode;
 }
 
 export function GeoheatmapSeries(_props: GeoheatmapSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 GeoheatmapSeries.type = "Series";
 Geoheatmap.Series = GeoheatmapSeries;
+
+GeoheatmapSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.geoheatmap",
+  childOption: "series.geoheatmap",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

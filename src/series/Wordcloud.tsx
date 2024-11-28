@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesWordcloudOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Wordcloud = (props: ICommonAttributes) => {
 
 interface WordcloudSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWordcloudOptions>;
+  children?: React.ReactNode;
 }
 
 export function WordcloudSeries(_props: WordcloudSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 WordcloudSeries.type = "Series";
 Wordcloud.Series = WordcloudSeries;
+
+WordcloudSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.wordcloud",
+  childOption: "series.wordcloud",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

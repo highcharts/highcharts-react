@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Funnel3d = (props) => {
 export function Funnel3dSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 Funnel3dSeries.type = "Series";
 Funnel3d.Series = Funnel3dSeries;
+Funnel3dSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.funnel3d",
+    childOption: "series.funnel3d",
+};
 // TODO: Fix typings
 // @ts-ignore:
 Funnel3dSeries.defaultProps = {

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesWaterfallOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Waterfall = (props: ICommonAttributes) => {
 
 interface WaterfallSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWaterfallOptions>;
+  children?: React.ReactNode;
 }
 
 export function WaterfallSeries(_props: WaterfallSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 WaterfallSeries.type = "Series";
 Waterfall.Series = WaterfallSeries;
+
+WaterfallSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.waterfall",
+  childOption: "series.waterfall",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

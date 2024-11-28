@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Lollipop = (props) => {
 export function LollipopSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 LollipopSeries.type = "Series";
 Lollipop.Series = LollipopSeries;
+LollipopSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.lollipop",
+    childOption: "series.lollipop",
+};
 // TODO: Fix typings
 // @ts-ignore:
 LollipopSeries.defaultProps = {

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesDependencywheelOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Dependencywheel = (props: ICommonAttributes) => {
 
 interface DependencywheelSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDependencywheelOptions>;
+  children?: React.ReactNode;
 }
 
 export function DependencywheelSeries(_props: DependencywheelSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 DependencywheelSeries.type = "Series";
 Dependencywheel.Series = DependencywheelSeries;
+
+DependencywheelSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.dependencywheel",
+  childOption: "series.dependencywheel",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

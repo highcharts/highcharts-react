@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Sankey = (props) => {
 export function SankeySeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 SankeySeries.type = "Series";
 Sankey.Series = SankeySeries;
+SankeySeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.sankey",
+    childOption: "series.sankey",
+};
 // TODO: Fix typings
 // @ts-ignore:
 SankeySeries.defaultProps = {

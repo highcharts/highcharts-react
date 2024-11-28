@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Areasplinerange: {
 };
 interface AreasplinerangeSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAreasplinerangeOptions>;
+    children?: React.ReactNode;
 }
 export declare function AreasplinerangeSeries(_props: AreasplinerangeSeriesProps): any;
 export declare namespace AreasplinerangeSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

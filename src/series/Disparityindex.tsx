@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesDisparityindexOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Disparityindex = (props: ICommonAttributes) => {
 
 interface DisparityindexSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesDisparityindexOptions>;
+  children?: React.ReactNode;
 }
 
 export function DisparityindexSeries(_props: DisparityindexSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 DisparityindexSeries.type = "Series";
 Disparityindex.Series = DisparityindexSeries;
+
+DisparityindexSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.disparityindex",
+  childOption: "series.disparityindex",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

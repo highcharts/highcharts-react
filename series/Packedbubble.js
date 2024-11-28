@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Packedbubble = (props) => {
 export function PackedbubbleSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PackedbubbleSeries.type = "Series";
 Packedbubble.Series = PackedbubbleSeries;
+PackedbubbleSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.packedbubble",
+    childOption: "series.packedbubble",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PackedbubbleSeries.defaultProps = {

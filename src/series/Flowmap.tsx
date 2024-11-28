@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesFlowmapOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Flowmap = (props: ICommonAttributes) => {
 
 interface FlowmapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesFlowmapOptions>;
+  children?: React.ReactNode;
 }
 
 export function FlowmapSeries(_props: FlowmapSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 FlowmapSeries.type = "Series";
 Flowmap.Series = FlowmapSeries;
+
+FlowmapSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.flowmap",
+  childOption: "series.flowmap",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

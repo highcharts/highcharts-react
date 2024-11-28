@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesParetoOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Pareto = (props: ICommonAttributes) => {
 
 interface ParetoSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesParetoOptions>;
+  children?: React.ReactNode;
 }
 
 export function ParetoSeries(_props: ParetoSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ParetoSeries.type = "Series";
 Pareto.Series = ParetoSeries;
+
+ParetoSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.pareto",
+  childOption: "series.pareto",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

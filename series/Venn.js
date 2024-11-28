@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Venn = (props) => {
 export function VennSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 VennSeries.type = "Series";
 Venn.Series = VennSeries;
+VennSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.venn",
+    childOption: "series.venn",
+};
 // TODO: Fix typings
 // @ts-ignore:
 VennSeries.defaultProps = {

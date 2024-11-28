@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Streamgraph = (props) => {
 export function StreamgraphSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 StreamgraphSeries.type = "Series";
 Streamgraph.Series = StreamgraphSeries;
+StreamgraphSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.streamgraph",
+    childOption: "series.streamgraph",
+};
 // TODO: Fix typings
 // @ts-ignore:
 StreamgraphSeries.defaultProps = {

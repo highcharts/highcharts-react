@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Arcdiagram = (props) => {
 export function ArcdiagramSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ArcdiagramSeries.type = "Series";
 Arcdiagram.Series = ArcdiagramSeries;
+ArcdiagramSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.arcdiagram",
+    childOption: "series.arcdiagram",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ArcdiagramSeries.defaultProps = {

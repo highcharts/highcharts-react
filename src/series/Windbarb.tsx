@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesWindbarbOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Windbarb = (props: ICommonAttributes) => {
 
 interface WindbarbSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesWindbarbOptions>;
+  children?: React.ReactNode;
 }
 
 export function WindbarbSeries(_props: WindbarbSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 WindbarbSeries.type = "Series";
 Windbarb.Series = WindbarbSeries;
+
+WindbarbSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.windbarb",
+  childOption: "series.windbarb",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

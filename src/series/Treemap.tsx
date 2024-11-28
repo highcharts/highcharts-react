@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesTreemapOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Treemap = (props: ICommonAttributes) => {
 
 interface TreemapSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesTreemapOptions>;
+  children?: React.ReactNode;
 }
 
 export function TreemapSeries(_props: TreemapSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 TreemapSeries.type = "Series";
 Treemap.Series = TreemapSeries;
+
+TreemapSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.treemap",
+  childOption: "series.treemap",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Disparityindex = (props) => {
 export function DisparityindexSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 DisparityindexSeries.type = "Series";
 Disparityindex.Series = DisparityindexSeries;
+DisparityindexSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.disparityindex",
+    childOption: "series.disparityindex",
+};
 // TODO: Fix typings
 // @ts-ignore:
 DisparityindexSeries.defaultProps = {

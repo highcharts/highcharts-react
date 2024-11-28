@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Ema = (props) => {
 export function EmaSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 EmaSeries.type = "Series";
 Ema.Series = EmaSeries;
+EmaSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.ema",
+    childOption: "series.ema",
+};
 // TODO: Fix typings
 // @ts-ignore:
 EmaSeries.defaultProps = {

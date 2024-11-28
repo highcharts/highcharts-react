@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesAbandsOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Abands = (props: ICommonAttributes) => {
 
 interface AbandsSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesAbandsOptions>;
+  children?: React.ReactNode;
 }
 
 export function AbandsSeries(_props: AbandsSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 AbandsSeries.type = "Series";
 Abands.Series = AbandsSeries;
+
+AbandsSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.abands",
+  childOption: "series.abands",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

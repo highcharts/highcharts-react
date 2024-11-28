@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesXrangeOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Xrange = (props: ICommonAttributes) => {
 
 interface XrangeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesXrangeOptions>;
+  children?: React.ReactNode;
 }
 
 export function XrangeSeries(_props: XrangeSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 XrangeSeries.type = "Series";
 Xrange.Series = XrangeSeries;
+
+XrangeSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.xrange",
+  childOption: "series.xrange",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesSmaOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const Sma = (props: ICommonAttributes) => {
 
 interface SmaSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSmaOptions>;
+  children?: React.ReactNode;
 }
 
 export function SmaSeries(_props: SmaSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 SmaSeries.type = "Series";
 Sma.Series = SmaSeries;
+
+SmaSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.sma",
+  childOption: "series.sma",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

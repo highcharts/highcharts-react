@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesLollipopOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Lollipop = (props: ICommonAttributes) => {
 
 interface LollipopSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesLollipopOptions>;
+  children?: React.ReactNode;
 }
 
 export function LollipopSeries(_props: LollipopSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 LollipopSeries.type = "Series";
 Lollipop.Series = LollipopSeries;
+
+LollipopSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.lollipop",
+  childOption: "series.lollipop",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

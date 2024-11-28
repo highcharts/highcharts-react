@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Ad: {
 };
 interface AdSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesAdOptions>;
+    children?: React.ReactNode;
 }
 export declare function AdSeries(_props: AdSeriesProps): any;
 export declare namespace AdSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

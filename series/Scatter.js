@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Scatter = (props) => {
 export function ScatterSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ScatterSeries.type = "Series";
 Scatter.Series = ScatterSeries;
+ScatterSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.scatter",
+    childOption: "series.scatter",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ScatterSeries.defaultProps = {

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Funnel3d: {
 };
 interface Funnel3dSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesFunnel3dOptions>;
+    children?: React.ReactNode;
 }
 export declare function Funnel3dSeries(_props: Funnel3dSeriesProps): any;
 export declare namespace Funnel3dSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

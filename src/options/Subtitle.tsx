@@ -6,18 +6,16 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
 export type SubtitleProps = {
-  align?: Highcharts.AlignValue;
   floating?: boolean;
   style?: Highcharts.CSSObject;
   text?: string;
   useHTML?: boolean;
   verticalAlign?: Highcharts.VerticalAlignValue;
-  widthAdjust?: number;
   x?: number;
   y?: number;
   children?:

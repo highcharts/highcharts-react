@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesFunnel3dOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Funnel3d = (props: ICommonAttributes) => {
 
 interface Funnel3dSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesFunnel3dOptions>;
+  children?: React.ReactNode;
 }
 
 export function Funnel3dSeries(_props: Funnel3dSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 Funnel3dSeries.type = "Series";
 Funnel3d.Series = Funnel3dSeries;
+
+Funnel3dSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.funnel3d",
+  childOption: "series.funnel3d",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

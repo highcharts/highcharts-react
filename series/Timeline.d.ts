@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Timeline: {
 };
 interface TimelineSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesTimelineOptions>;
+    children?: React.ReactNode;
 }
 export declare function TimelineSeries(_props: TimelineSeriesProps): any;
 export declare namespace TimelineSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

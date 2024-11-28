@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Solidgauge = (props) => {
 export function SolidgaugeSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 SolidgaugeSeries.type = "Series";
 Solidgauge.Series = SolidgaugeSeries;
+SolidgaugeSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.solidgauge",
+    childOption: "series.solidgauge",
+};
 // TODO: Fix typings
 // @ts-ignore:
 SolidgaugeSeries.defaultProps = {

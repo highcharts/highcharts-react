@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesSankeyOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Sankey = (props: ICommonAttributes) => {
 
 interface SankeySeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesSankeyOptions>;
+  children?: React.ReactNode;
 }
 
 export function SankeySeries(_props: SankeySeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 SankeySeries.type = "Series";
 Sankey.Series = SankeySeries;
+
+SankeySeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.sankey",
+  childOption: "series.sankey",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

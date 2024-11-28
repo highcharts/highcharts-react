@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Pictorial = (props) => {
 export function PictorialSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PictorialSeries.type = "Series";
 Pictorial.Series = PictorialSeries;
+PictorialSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.pictorial",
+    childOption: "series.pictorial",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PictorialSeries.defaultProps = {

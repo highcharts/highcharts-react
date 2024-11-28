@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Spline = (props) => {
 export function SplineSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 SplineSeries.type = "Series";
 Spline.Series = SplineSeries;
+SplineSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.spline",
+    childOption: "series.spline",
+};
 // TODO: Fix typings
 // @ts-ignore:
 SplineSeries.defaultProps = {

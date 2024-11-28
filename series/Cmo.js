@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Cmo = (props) => {
 export function CmoSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 CmoSeries.type = "Series";
 Cmo.Series = CmoSeries;
+CmoSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.cmo",
+    childOption: "series.cmo",
+};
 // TODO: Fix typings
 // @ts-ignore:
 CmoSeries.defaultProps = {

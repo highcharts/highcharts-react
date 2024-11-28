@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Pyramid = (props) => {
 export function PyramidSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PyramidSeries.type = "Series";
 Pyramid.Series = PyramidSeries;
+PyramidSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.pyramid",
+    childOption: "series.pyramid",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PyramidSeries.defaultProps = {

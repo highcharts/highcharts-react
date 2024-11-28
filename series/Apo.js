@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Apo = (props) => {
 export function ApoSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ApoSeries.type = "Series";
 Apo.Series = ApoSeries;
+ApoSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.apo",
+    childOption: "series.apo",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ApoSeries.defaultProps = {

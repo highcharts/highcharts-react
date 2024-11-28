@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Errorbar = (props) => {
 export function ErrorbarSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ErrorbarSeries.type = "Series";
 Errorbar.Series = ErrorbarSeries;
+ErrorbarSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.errorbar",
+    childOption: "series.errorbar",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ErrorbarSeries.defaultProps = {

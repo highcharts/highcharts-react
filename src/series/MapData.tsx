@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesMapDataOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -60,14 +61,22 @@ const MapData = (props: ICommonAttributes) => {
 
 interface MapDataSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesMapDataOptions>;
+  children?: React.ReactNode;
 }
 
 export function MapDataSeries(_props: MapDataSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 MapDataSeries.type = "Series";
 MapData.Series = MapDataSeries;
+
+MapDataSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.mapdata",
+  childOption: "series.mapdata",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

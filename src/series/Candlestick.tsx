@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesCandlestickOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -61,14 +62,22 @@ const Candlestick = (props: ICommonAttributes) => {
 
 interface CandlestickSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesCandlestickOptions>;
+  children?: React.ReactNode;
 }
 
 export function CandlestickSeries(_props: CandlestickSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 CandlestickSeries.type = "Series";
 Candlestick.Series = CandlestickSeries;
+
+CandlestickSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.candlestick",
+  childOption: "series.candlestick",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

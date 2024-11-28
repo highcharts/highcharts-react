@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React from "react";
@@ -22,10 +22,16 @@ declare const Linearregressionslope: {
 };
 interface LinearregressionslopeSeriesProps extends ICommonSeriesAttributes {
     options?: WithoutType<SeriesLinearregressionslopeOptions>;
+    children?: React.ReactNode;
 }
 export declare function LinearregressionslopeSeries(_props: LinearregressionslopeSeriesProps): any;
 export declare namespace LinearregressionslopeSeries {
     var type: string;
+    var _HCReact: {
+        type: string;
+        HC_Option: string;
+        childOption: string;
+    };
     var defaultProps: {
         type: string;
     };

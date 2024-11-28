@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Stochastic = (props) => {
 export function StochasticSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 StochasticSeries.type = "Series";
 Stochastic.Series = StochasticSeries;
+StochasticSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.stochastic",
+    childOption: "series.stochastic",
+};
 // TODO: Fix typings
 // @ts-ignore:
 StochasticSeries.defaultProps = {

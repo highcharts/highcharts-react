@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Priceenvelopes = (props) => {
 export function PriceenvelopesSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PriceenvelopesSeries.type = "Series";
 Priceenvelopes.Series = PriceenvelopesSeries;
+PriceenvelopesSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.priceenvelopes",
+    childOption: "series.priceenvelopes",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PriceenvelopesSeries.defaultProps = {

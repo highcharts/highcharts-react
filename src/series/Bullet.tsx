@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesBulletOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Bullet = (props: ICommonAttributes) => {
 
 interface BulletSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesBulletOptions>;
+  children?: React.ReactNode;
 }
 
 export function BulletSeries(_props: BulletSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 BulletSeries.type = "Series";
 Bullet.Series = BulletSeries;
+
+BulletSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.bullet",
+  childOption: "series.bullet",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

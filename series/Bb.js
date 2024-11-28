@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Bb = (props) => {
 export function BbSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 BbSeries.type = "Series";
 Bb.Series = BbSeries;
+BbSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.bb",
+    childOption: "series.bb",
+};
 // TODO: Fix typings
 // @ts-ignore:
 BbSeries.defaultProps = {

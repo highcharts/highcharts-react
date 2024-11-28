@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Polygon = (props) => {
 export function PolygonSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 PolygonSeries.type = "Series";
 Polygon.Series = PolygonSeries;
+PolygonSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.polygon",
+    childOption: "series.polygon",
+};
 // TODO: Fix typings
 // @ts-ignore:
 PolygonSeries.defaultProps = {

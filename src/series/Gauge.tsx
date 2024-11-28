@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesGaugeOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -56,14 +57,22 @@ const Gauge = (props: ICommonAttributes) => {
 
 interface GaugeSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesGaugeOptions>;
+  children?: React.ReactNode;
 }
 
 export function GaugeSeries(_props: GaugeSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 GaugeSeries.type = "Series";
 Gauge.Series = GaugeSeries;
+
+GaugeSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.gauge",
+  childOption: "series.gauge",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

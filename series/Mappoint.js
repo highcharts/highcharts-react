@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -27,8 +27,14 @@ const Mappoint = (props) => {
 export function MappointSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 MappointSeries.type = "Series";
 Mappoint.Series = MappointSeries;
+MappointSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.mappoint",
+    childOption: "series.mappoint",
+};
 // TODO: Fix typings
 // @ts-ignore:
 MappointSeries.defaultProps = {

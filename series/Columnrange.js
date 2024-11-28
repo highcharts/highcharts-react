@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Columnrange = (props) => {
 export function ColumnrangeSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ColumnrangeSeries.type = "Series";
 Columnrange.Series = ColumnrangeSeries;
+ColumnrangeSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.columnrange",
+    childOption: "series.columnrange",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ColumnrangeSeries.defaultProps = {

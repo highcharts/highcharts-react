@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 
@@ -16,6 +16,7 @@ import React, {
 } from "react";
 
 import type { SeriesScatterOptions } from "highcharts/highcharts";
+import type TooltipComponent from "../src/options/Tooltip";
 
 import type {
   Options,
@@ -50,14 +51,22 @@ const Scatter = (props: ICommonAttributes) => {
 
 interface ScatterSeriesProps extends ICommonSeriesAttributes {
   options?: WithoutType<SeriesScatterOptions>;
+  children?: React.ReactNode;
 }
 
 export function ScatterSeries(_props: ScatterSeriesProps) {
   return null;
 }
 
+// TODO: replace uses of this with _HCReact.type
 ScatterSeries.type = "Series";
 Scatter.Series = ScatterSeries;
+
+ScatterSeries._HCReact = {
+  type: "Series",
+  HC_Option: "series.scatter",
+  childOption: "series.scatter",
+};
 
 // TODO: Fix typings
 // @ts-ignore:

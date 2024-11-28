@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Pareto = (props) => {
 export function ParetoSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 ParetoSeries.type = "Series";
 Pareto.Series = ParetoSeries;
+ParetoSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.pareto",
+    childOption: "series.pareto",
+};
 // TODO: Fix typings
 // @ts-ignore:
 ParetoSeries.defaultProps = {

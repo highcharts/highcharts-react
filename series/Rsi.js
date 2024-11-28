@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-08
+ * Build stamp: 2024-11-28
  *
  */
 import React, { useState,
@@ -31,8 +31,14 @@ const Rsi = (props) => {
 export function RsiSeries(_props) {
     return null;
 }
+// TODO: replace uses of this with _HCReact.type
 RsiSeries.type = "Series";
 Rsi.Series = RsiSeries;
+RsiSeries._HCReact = {
+    type: "Series",
+    HC_Option: "series.rsi",
+    childOption: "series.rsi",
+};
 // TODO: Fix typings
 // @ts-ignore:
 RsiSeries.defaultProps = {
