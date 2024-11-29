@@ -430,17 +430,11 @@ import highchartsGantt from "highcharts/modules/gantt";
 import HighchartsReact from 'highcharts-react-official'
 
 // init the module
-highchartsGantt(Highcharts);
+if (typeof highchartsGantt === 'function') {
+  highchartsGantt(Highcharts);
+}
 ```
 
-alternative with `require`:
-
-```jsx
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
-
-require("highcharts/modules/variwide")(Highcharts);
-```
 
 ### How to add React component to a chart's element?
 
