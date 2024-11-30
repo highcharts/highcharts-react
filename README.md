@@ -422,14 +422,14 @@ render() {
 
 ### How to add a module?
 
-To add a module, import and initialize it:
+To add a module, import it like so:
 
 ```jsx
 import Highcharts from 'highcharts'
-import highchartsGantt from "highcharts/modules/gantt";
+import highchartsGantt from "highcharts/modules/gantt"; // The Gantt module
 import HighchartsReact from 'highcharts-react-official'
 
-// init the module
+// Init the module (only for Highcharts v < 12)
 if (typeof highchartsGantt === 'function') {
   highchartsGantt(Highcharts);
 }
