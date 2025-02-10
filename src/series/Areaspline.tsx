@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 
@@ -25,7 +25,10 @@ import type {
   WithoutType,
 } from "../Highcharts";
 
-import { Chart, Highcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts";
+
+if (typeof getHighcharts().__provided === "undefined") {
+}
 
 /**
  * Areaspline series
@@ -66,12 +69,6 @@ AreasplineSeries._HCReact = {
   type: "Series",
   HC_Option: "series.areaspline",
   childOption: "series.areaspline",
-};
-
-// TODO: Fix typings
-// @ts-ignore:
-AreasplineSeries.defaultProps = {
-  type: "areaspline",
 };
 
 Areaspline.type = "SeriesChart";

@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 
@@ -25,12 +25,14 @@ import type {
   WithoutType,
 } from "../Highcharts";
 
-import { Chart, Highcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts";
 
 import SeriesMod from "highcharts/es-modules/Series/Venn/VennSeries.js";
 
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-  SeriesMod(Highcharts);
+if (typeof getHighcharts().__provided === "undefined") {
+  if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
+    SeriesMod(getHighcharts());
+  }
 }
 
 /**
@@ -72,12 +74,6 @@ VennSeries._HCReact = {
   type: "Series",
   HC_Option: "series.venn",
   childOption: "series.venn",
-};
-
-// TODO: Fix typings
-// @ts-ignore:
-VennSeries.defaultProps = {
-  type: "venn",
 };
 
 Venn.type = "SeriesChart";

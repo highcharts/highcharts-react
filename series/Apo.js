@@ -1,21 +1,23 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, Highcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts";
 import SeriesMod from "highcharts/es-modules/Stock/Indicators/APO/APOIndicator.js";
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-    SeriesMod(Highcharts);
+if (typeof getHighcharts().__provided === "undefined") {
+    if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
+        SeriesMod(getHighcharts());
+    }
 }
 /**
  * Apo series
@@ -38,11 +40,6 @@ ApoSeries._HCReact = {
     type: "Series",
     HC_Option: "series.apo",
     childOption: "series.apo",
-};
-// TODO: Fix typings
-// @ts-ignore:
-ApoSeries.defaultProps = {
-    type: "apo",
 };
 Apo.type = "SeriesChart";
 export default Apo;

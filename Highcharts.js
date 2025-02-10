@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -29,7 +29,19 @@ import HC from "highcharts/es-modules/masters/highcharts.src.js";
 if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
     HC.AST.allowedAttributes.push("data-hc-option");
 }
-export const Highcharts = HC;
+export let Highcharts = HC;
+export function setHighcharts(newHC) {
+    if (newHC === undefined) {
+        Highcharts = HC;
+        delete Highcharts.__provided;
+        return;
+    }
+    Highcharts = newHC;
+    Highcharts.__provided = true;
+}
+export function getHighcharts() {
+    return Highcharts;
+}
 const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
 function getChildProps(children, renderHTML = undefined) {
     const optionsFromChildren = {};
@@ -151,14 +163,18 @@ function getChildProps(children, renderHTML = undefined) {
 }
 // TODO: The config merge needs to use a deep merge instead of Object.assign
 export function Chart(props) {
+    if (props.highcharts) {
+        setHighcharts(props.highcharts);
+    }
     const [chartConfig, setChartConfig] = useState(Object.assign(Object.assign({
-        title: { text: props.title || "My Chart" },
+        title: { text: props.title || undefined },
     }, props.options || {}), Object.assign({ series: props.children
             ? toArr(props.children)
                 .filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; })
                 .map((c) => {
+                var _a, _b, _c, _d;
                 return Object.assign({
-                    type: c.props.type || "line",
+                    type: (_d = (_a = c.props.type) !== null && _a !== void 0 ? _a : (_c = (_b = c.type) === null || _b === void 0 ? void 0 : _b._HCReact) === null || _c === void 0 ? void 0 : _c.HC_Option.replace("series.", "")) !== null && _d !== void 0 ? _d : "line",
                     data: c.props.data || [],
                 }, Object.assign(Object.assign({}, (c.props.options || {})), getChildProps(c.props.children, renderToStaticMarkup)));
             })
@@ -177,13 +193,14 @@ export function Chart(props) {
         if (props.children) {
             const children = toArr(props.children).filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; });
             children.forEach((c, i) => {
+                var _a;
                 console.log("Adding series to chart");
                 if (c.props) {
-                    const _a = c.props, { children, type, options } = _a, otherProps = __rest(_a, ["children", "type", "options"]);
+                    const _b = c.props, { children, type, options } = _b, otherProps = __rest(_b, ["children", "type", "options"]);
                     if (options) {
                         Object.assign(chartConfig.series[i], options);
                     }
-                    chartConfig.series[i] = Object.assign(Object.assign(Object.assign(Object.assign({}, chartConfig.series[i]), { type }), getChildProps(c.props.children)), otherProps);
+                    chartConfig.series[i] = Object.assign(Object.assign(Object.assign(Object.assign({}, chartConfig.series[i]), { type: type !== null && type !== void 0 ? type : (_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a._HCReact.HC_Option.replace("series.", "") }), getChildProps(c.props.children)), otherProps);
                 }
             });
             setChartConfig(Object.assign({}, chartConfig));
@@ -193,8 +210,9 @@ export function Chart(props) {
     useEffect(() => {
         console.log(JSON.stringify(chartConfig, undefined, "  "));
         if (!chartRef.current) {
-            console.log("Creating chart using", props.chartConstructor || "chart", "constructor");
-            chartRef.current = HC[props.chartConstructor || "chart"](containerRef.current, chartConfig);
+            const HCConstructor = props.chartConstructor || "chart";
+            console.log("Creating chart using", HCConstructor, "constructor");
+            chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig);
         }
         else {
             console.log("Updating chart");

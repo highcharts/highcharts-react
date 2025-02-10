@@ -1,21 +1,23 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, Highcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts";
 import SeriesMod from "highcharts/es-modules/Series/Vector/VectorSeries.js";
-if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-    SeriesMod(Highcharts);
+if (typeof getHighcharts().__provided === "undefined") {
+    if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
+        SeriesMod(getHighcharts());
+    }
 }
 /**
  * Vector series
@@ -38,11 +40,6 @@ VectorSeries._HCReact = {
     type: "Series",
     HC_Option: "series.vector",
     childOption: "series.vector",
-};
-// TODO: Fix typings
-// @ts-ignore:
-VectorSeries.defaultProps = {
-    type: "vector",
 };
 Vector.type = "SeriesChart";
 export default Vector;

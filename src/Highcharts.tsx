@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 
@@ -26,7 +26,22 @@ if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
   HC.AST.allowedAttributes.push("data-hc-option");
 }
 
-export const Highcharts = HC;
+export let Highcharts = HC;
+
+export function setHighcharts(newHC?: typeof HC) {
+  if (newHC === undefined) {
+    Highcharts = HC;
+    delete Highcharts.__provided;
+    return;
+  }
+
+  Highcharts = newHC;
+  Highcharts.__provided = true;
+}
+
+export function getHighcharts(): typeof HC & { __provided?: boolean } {
+  return Highcharts;
+}
 
 export type WithoutType<T> = Omit<T, "type">;
 
@@ -34,12 +49,10 @@ export interface ICommonSeriesAttributes {
   type?: HC.SeriesOptionsType["type"];
   data?: number[] | Object;
   options?: WithoutType<HC.SeriesOptionsType>;
-  defaultProps?: {
-    type: "string";
-  };
 }
 
 export interface ICommonAttributes {
+  highcharts?: any;
   /** Options override - applied first, other props are merged in. */
   options?: HC.Options;
   /** Constructor to use */
@@ -182,11 +195,15 @@ function getChildProps(children, renderHTML = undefined) {
 
 // TODO: The config merge needs to use a deep merge instead of Object.assign
 export function Chart(props: ICommonAttributes) {
+  if (props.highcharts) {
+    setHighcharts(props.highcharts);
+  }
+
   const [chartConfig, setChartConfig] = useState<HC.Options>(
     Object.assign(
       Object.assign(
         {
-          title: { text: props.title || "My Chart" },
+          title: { text: props.title || undefined },
         },
         props.options || {}
       ),
@@ -197,7 +214,10 @@ export function Chart(props: ICommonAttributes) {
               .map((c) => {
                 return Object.assign(
                   {
-                    type: c.props.type || "line",
+                    type:
+                      c.props.type ??
+                      c.type?._HCReact?.HC_Option.replace("series.", "") ??
+                      "line",
                     data: c.props.data || [],
                   },
                   {
@@ -241,7 +261,7 @@ export function Chart(props: ICommonAttributes) {
 
           chartConfig.series[i] = {
             ...chartConfig.series[i],
-            type,
+            type: type ?? c?.type?._HCReact.HC_Option.replace("series.", ""),
             ...getChildProps(c.props.children),
             ...otherProps,
           };
@@ -255,12 +275,9 @@ export function Chart(props: ICommonAttributes) {
   useEffect(() => {
     console.log(JSON.stringify(chartConfig, undefined, "  "));
     if (!chartRef.current) {
-      console.log(
-        "Creating chart using",
-        props.chartConstructor || "chart",
-        "constructor"
-      );
-      chartRef.current = HC[props.chartConstructor || "chart"](
+      const HCConstructor = props.chartConstructor || "chart";
+      console.log("Creating chart using", HCConstructor, "constructor");
+      chartRef.current = getHighcharts()[HCConstructor](
         containerRef.current,
         chartConfig
       );

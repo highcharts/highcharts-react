@@ -1,18 +1,20 @@
 /**
  * React integration.
- * Copyright (c) 2024, Highsoft
+ * Copyright (c) 2025, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2024-11-28
+ * Build stamp: 2025-02-10
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts";
+if (typeof getHighcharts().__provided === "undefined") {
+}
 /**
  * Spline series
  */
@@ -34,11 +36,6 @@ SplineSeries._HCReact = {
     type: "Series",
     HC_Option: "series.spline",
     childOption: "series.spline",
-};
-// TODO: Fix typings
-// @ts-ignore:
-SplineSeries.defaultProps = {
-    type: "spline",
 };
 Spline.type = "SeriesChart";
 export default Spline;
