@@ -7,13 +7,13 @@ _Official Highcharts React Integration_
 *NPM*
 
 ```
-npm i highcharts-react-official
+npm i @highcharts/react
 ```
 
 *Yarn*
 
 ```
-yarn add highcharts-react-official
+yarn add @highcharts/react
 ```
 
 # Basic Usage
@@ -27,12 +27,12 @@ import { createRoot } from 'react-dom/client';
 import {
   Chart,
   Title
-} from 'highcharts-react-official';
+} from '@highcharts/react';
 
 import {
   Area,
   Line
-} from 'highcharts-react-official/series';
+} from '@highcharts/react/series';
 
 export function Application () {
     return (
