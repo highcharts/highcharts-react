@@ -18,22 +18,33 @@ yarn add highcharts-react-official
 
 # Basic Usage
 
-In order to run the below sample, you also need to add react and react-dom to your dependencies - `yarn add react react-dom` in addition to the Highcharts Integration.
+In order to run the below sample, you also need to add react and react-dom to your dependencies - `npm install react react-dom` in addition to the Highcharts Integration.
 
-```
-import React, { useState } from 'react';
+```jsx
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Chart from 'highcharts-react-official/Highcharts';
-import Area from 'highcharts-react-official/Area';
-import Line from 'highcharts-react-official/Line';
+import {
+  Chart,
+  Title
+} from 'highcharts-react-official';
 
-const Application = () => (
-  <Chart title="Chart with multiple series types">
-    <Area.Series data={[0, 1, 2, 3]} />
-    <Line.Series data={[4, 5, 4, 2]} />
-  </Chart>
-);
+import {
+  Area,
+  Line
+} from 'highcharts-react-official/series';
+
+export function Application () {
+    return (
+        <Chart>
+            <Title>Chart with multiple series types</Title>
+            <Area.Series data={[0, 1, 2, 3]} />
+            <Line.Series data={[2, 1, 3, 1]} />
+        </Chart>
+    );
+}
+
+const root = createRoot(document.getElementById('root'));
 
 root.render(<Application />);
 ```

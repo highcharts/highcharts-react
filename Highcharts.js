@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-02-10
+ * Build stamp: 2025-02-27
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -172,9 +172,9 @@ export function Chart(props) {
             ? toArr(props.children)
                 .filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; })
                 .map((c) => {
-                var _a, _b, _c, _d;
+                var _a, _b, _c;
                 return Object.assign({
-                    type: (_d = (_a = c.props.type) !== null && _a !== void 0 ? _a : (_c = (_b = c.type) === null || _b === void 0 ? void 0 : _b._HCReact) === null || _c === void 0 ? void 0 : _c.HC_Option.replace("series.", "")) !== null && _d !== void 0 ? _d : "line",
+                    type: (_a = c.props.type) !== null && _a !== void 0 ? _a : (_c = (_b = c.type) === null || _b === void 0 ? void 0 : _b._HCReact) === null || _c === void 0 ? void 0 : _c.HC_Option.replace("series.", ""),
                     data: c.props.data || [],
                 }, Object.assign(Object.assign({}, (c.props.options || {})), getChildProps(c.props.children, renderToStaticMarkup)));
             })

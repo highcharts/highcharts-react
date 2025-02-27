@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-02-10
+ * Build stamp: 2025-02-27
  *
  */
 export * from "./Highcharts";
