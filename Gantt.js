@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-02-27
+ * Build stamp: 2025-04-04
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -131,7 +131,8 @@ function getChildProps(children, renderHTML = undefined) {
                     typeof children === "object" &&
                     "$$typeof" in children &&
                     renderHTML) {
-                    if (children.$$typeof === Symbol.for("react.element") &&
+                    if ((children.$$typeof === Symbol.for("react.element") ||
+                        children.$$typeof === Symbol.for("react.transitional.element")) &&
                         "props" in children) {
                         // If there's only a children prop
                         if (((_c = children.props) === null || _c === void 0 ? void 0 : _c.children) &&

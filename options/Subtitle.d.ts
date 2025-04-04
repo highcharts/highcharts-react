@@ -6,10 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-02-27
+ * Build stamp: 2025-04-04
  *
  */
 export type SubtitleProps = {
+    align?: Highcharts.AlignValue;
     floating?: boolean;
     style?: Highcharts.CSSObject;
     text?: string;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-02-27
+ * Build stamp: 2025-04-04
  *
  */
 export type PlotOptionsProps = {
@@ -172,10 +172,15 @@ export type PlotOptionsProps = {
         };
         lastPrice?: {
             color?: string;
+            dashStyle?: Highcharts.DashStyleValue;
             enabled?: boolean;
+            width?: number;
         };
         lastVisiblePrice?: {
+            color?: string;
+            dashStyle?: Highcharts.DashStyleValue;
             enabled?: boolean;
+            width?: number;
         };
         legendSymbol?: string;
         legendSymbolColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;

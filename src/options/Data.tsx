@@ -1,0 +1,70 @@
+/**
+ * React integration.
+ * Copyright (c) 2025, Highsoft
+ *
+ * A valid license is required for using this software.
+ * See highcharts.com/license
+ *
+ * Built for Highcharts v.xx.
+ * Build stamp: 2025-04-04
+ *
+ */
+
+import { getHighcharts } from "../Highcharts";
+
+import data from "highcharts/es-modules/masters/modules/data.src";
+
+if (typeof getHighcharts().__provided === "undefined") {
+  typeof data === "function" && data(getHighcharts());
+}
+
+export type DataProps = {
+  beforeParse?: Highcharts.DataBeforeParseCallbackFunction;
+  columnTypes?: Array<"string" | "number" | "float" | "date">;
+  columns?: Array<Array<Highcharts.DataValueType>>;
+  columnsURL?: string;
+  complete?: Highcharts.DataCompleteCallbackFunction;
+  csv?: string;
+  csvURL?: string;
+  dataRefreshRate?: number;
+  dateFormat?:
+    | "YYYY/mm/dd"
+    | "dd/mm/YYYY"
+    | "mm/dd/YYYY"
+    | "dd/mm/YYYY"
+    | "dd/mm/YY"
+    | "mm/dd/YY";
+  decimalPoint?: string;
+  enablePolling?: boolean;
+  endColumn?: number;
+  endRow?: number;
+  firstRowAsNames?: boolean;
+  googleAPIKey?: string;
+  googleSpreadsheetKey?: string;
+  googleSpreadsheetRange?: string | undefined;
+  itemDelimiter?: string;
+  lineDelimiter?: string;
+  parseDate?: Highcharts.DataParseDateCallbackFunction;
+  parsed?: Highcharts.DataParsedCallbackFunction;
+  rows?: Array<Array<Highcharts.DataValueType>>;
+  rowsURL?: string;
+  seriesMapping?: Array<Highcharts.Dictionary<number>>;
+  startColumn?: number;
+  startRow?: number;
+  switchRowsAndColumns?: boolean;
+  table?: string | global.HTMLElement;
+};
+
+export function Data(props: DataProps) {
+  return null;
+}
+
+Data._HCReact = {
+  type: "HC_Option",
+  HCOption: "data",
+  childOption: "",
+  defaultOptions: undefined,
+  isArrayType: false,
+};
+
+export default Data;
