@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-04
+ * Build stamp: 2025-04-07
  *
  */
 export { default as Area } from "./Area";
