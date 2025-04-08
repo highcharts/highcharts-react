@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-07
+ * Build stamp: 2025-04-08
  *
  */
 export type PlotOptionsProps = {
@@ -224,6 +224,7 @@ export type PlotOptionsProps = {
         };
         navigatorOptions?: Highcharts.PlotSeriesOptions;
         negativeColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        nullInteraction?: boolean | undefined;
         onPoint?: {
             connectorOptions?: {
                 dashstyle?: string;

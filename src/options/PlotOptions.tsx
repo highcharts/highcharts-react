@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-07
+ * Build stamp: 2025-04-08
  *
  */
 
@@ -257,6 +257,7 @@ export type PlotOptionsProps = {
       | Highcharts.ColorString
       | Highcharts.GradientColorObject
       | Highcharts.PatternObject;
+    nullInteraction?: boolean | undefined;
     onPoint?: {
       connectorOptions?: {
         dashstyle?: string;

@@ -6,12 +6,12 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-07
+ * Build stamp: 2025-04-08
  *
  */
 import React from "react";
 import HC from "highcharts/esm/highcharts.src.js";
-export declare let Highcharts: any;
+export declare let Highcharts: typeof HC;
 export declare function setHighcharts(newHC?: typeof HC): void;
 export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;

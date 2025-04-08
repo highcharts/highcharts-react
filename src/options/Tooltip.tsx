@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-07
+ * Build stamp: 2025-04-08
  *
  */
 
@@ -39,6 +39,7 @@ export type TooltipProps = {
   };
   distance?: number;
   enabled?: boolean;
+  fixed?: boolean;
   followPointer?: boolean;
   followTouchMove?: boolean;
   footerFormat?: string;
@@ -53,6 +54,7 @@ export type TooltipProps = {
   padding?: number;
   pointFormat?: string;
   pointFormatter?: Highcharts.FormatterCallbackFunction<Highcharts.Point>;
+  position?: Highcharts.AlignObject;
   positioner?: Highcharts.TooltipPositionerCallbackFunction;
   shadow?: boolean | Highcharts.ShadowOptionsObject;
   shape?: Highcharts.TooltipShapeValue;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-07
+ * Build stamp: 2025-04-08
  *
  */
 
@@ -43,7 +43,7 @@ export type AccessibilityProps = {
       mode?: "normal" | "serialize";
       pointNavigationEnabledThreshold?: boolean | number;
       rememberPointFocus?: boolean;
-      skipNullPoints?: boolean;
+      skipNullPoints?: string;
     };
     wrapAround?: boolean;
   };

@@ -18,7 +18,7 @@
     "@types/react": ">=18",
     "react": ">=18",
     "react-dom": ">=18",
-    "highcharts": "^11.3.0"
+    "highcharts": ">=12.0.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
