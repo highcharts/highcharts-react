@@ -24,7 +24,7 @@ import React, { useState, useEffect, useRef,
 // @ts-ignore
  } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import HC from "highcharts/es-modules/masters/highcharts-gantt.src.js";
+import HC from "highcharts/esm/highcharts-gantt.src.js";
 // Add data-hc-option to allowed attributes
 if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
     HC.AST.allowedAttributes.push("data-hc-option");
@@ -131,8 +131,7 @@ function getChildProps(children, renderHTML = undefined) {
                     typeof children === "object" &&
                     "$$typeof" in children &&
                     renderHTML) {
-                    if ((children.$$typeof === Symbol.for("react.element") ||
-                        children.$$typeof === Symbol.for("react.transitional.element")) &&
+                    if (children.$$typeof === Symbol.for("react.element") &&
                         "props" in children) {
                         // If there's only a children prop
                         if (((_c = children.props) === null || _c === void 0 ? void 0 : _c.children) &&

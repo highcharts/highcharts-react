@@ -10,15 +10,15 @@
  *
  */
 import { getHighcharts } from "../Highcharts";
-import exporting from "highcharts/es-modules/masters/modules/exporting.src";
+import exporting from "highcharts/esm/modules/exporting.src";
 if (typeof getHighcharts().__provided === "undefined") {
     typeof exporting === "function" && exporting(getHighcharts());
 }
-import offlineexporting from "highcharts/es-modules/masters/modules/offline-exporting.src";
+import offlineexporting from "highcharts/esm/modules/offline-exporting.src";
 if (typeof getHighcharts().__provided === "undefined") {
     typeof offlineexporting === "function" && offlineexporting(getHighcharts());
 }
-import exportdata from "highcharts/es-modules/masters/modules/export-data.src";
+import exportdata from "highcharts/esm/modules/export-data.src";
 if (typeof getHighcharts().__provided === "undefined") {
     typeof exportdata === "function" && exportdata(getHighcharts());
 }

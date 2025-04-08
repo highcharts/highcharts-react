@@ -19,7 +19,7 @@ import React, {
 
 import { renderToStaticMarkup } from "react-dom/server";
 
-import HC from "highcharts/es-modules/masters/highstock.src.js";
+import HC from "highcharts/esm/highstock.src.js";
 
 // Add data-hc-option to allowed attributes
 if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
@@ -162,8 +162,7 @@ function getChildProps(children, renderHTML = undefined) {
           renderHTML
         ) {
           if (
-            (children.$$typeof === Symbol.for("react.element") ||
-              children.$$typeof === Symbol.for("react.transitional.element")) &&
+            children.$$typeof === Symbol.for("react.element") &&
             "props" in children
           ) {
             // If there's only a children prop

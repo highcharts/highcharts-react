@@ -27,7 +27,7 @@ import type {
 
 import { Chart, getHighcharts } from "../Highcharts";
 
-import SeriesMod from "highcharts/es-modules/Series/Scatter3D/Scatter3DSeries.js";
+import SeriesMod from "highcharts/esm/modules/scatter3d.src.js";
 
 if (typeof getHighcharts().__provided === "undefined") {
   if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {

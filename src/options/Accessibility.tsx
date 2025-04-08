@@ -12,7 +12,7 @@
 
 import { getHighcharts } from "../Highcharts";
 
-import accessibility from "highcharts/es-modules/masters/modules/accessibility.src";
+import accessibility from "highcharts/esm/modules/accessibility.src";
 
 if (typeof getHighcharts().__provided === "undefined") {
   typeof accessibility === "function" && accessibility(getHighcharts());

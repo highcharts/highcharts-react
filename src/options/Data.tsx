@@ -12,7 +12,7 @@
 
 import { getHighcharts } from "../Highcharts";
 
-import data from "highcharts/es-modules/masters/modules/data.src";
+import data from "highcharts/esm/modules/data.src";
 
 if (typeof getHighcharts().__provided === "undefined") {
   typeof data === "function" && data(getHighcharts());

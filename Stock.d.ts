@@ -10,8 +10,8 @@
  *
  */
 import React from "react";
-import HC from "highcharts/es-modules/masters/highstock.src.js";
-export declare let Highcharts: typeof HC;
+import HC from "highcharts/esm/highstock.src.js";
+export declare let Highcharts: any;
 export declare function setHighcharts(newHC?: typeof HC): void;
 export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;
