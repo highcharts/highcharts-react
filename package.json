@@ -1,6 +1,6 @@
 {
   "name": "@highcharts/react",
-  "version": "4.0.0-beta-rc.5",
+  "version": "4.0.0-beta-rc.6",
   "description": "Official Highcharts integration for React",
   "repository": {
     "type": "git",
