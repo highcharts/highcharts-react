@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-08
+ * Build stamp: 2025-04-22
  *
  */
-import { getHighcharts } from "../Highcharts";
-import accessibility from "highcharts/esm/modules/accessibility.src";
+import { getHighcharts } from "../Highcharts.js";
+import accessibility from "highcharts/esm/modules/accessibility.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
     typeof accessibility === "function" && accessibility(getHighcharts());
 }
