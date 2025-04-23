@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-22
+ * Build stamp: 2025-04-23
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useState, useEffect, useRef,
+import React, { useEffect, useRef,
 // @ts-ignore
  } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -167,7 +167,7 @@ export function MapsChart(props) {
     if (props.highcharts) {
         setHighcharts(props.highcharts);
     }
-    const [chartConfig, setChartConfig] = useState(Object.assign(Object.assign({
+    const chartConfig = Object.assign(Object.assign({
         title: { text: props.title || undefined },
     }, props.options || {}), Object.assign({ series: props.children
             ? toArr(props.children)
@@ -179,7 +179,7 @@ export function MapsChart(props) {
                     data: c.props.data || [],
                 }, Object.assign(Object.assign({}, (c.props.options || {})), getChildProps(c.props.children, renderToStaticMarkup)));
             })
-            : [] }, getChildProps(props.children, renderToStaticMarkup)), props.options || {}));
+            : [] }, getChildProps(props.children, renderToStaticMarkup)), props.options || {});
     const containerRef = useRef();
     const chartRef = useRef();
     /** Append prop to chart config */
@@ -204,7 +204,6 @@ export function MapsChart(props) {
                     chartConfig.series[i] = Object.assign(Object.assign(Object.assign(Object.assign({}, chartConfig.series[i]), { type: type !== null && type !== void 0 ? type : (_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a._HCReact.HC_Option.replace("series.", "") }), getChildProps(c.props.children)), otherProps);
                 }
             });
-            setChartConfig(Object.assign({}, chartConfig));
         }
     };
     // Update the chart on render
@@ -216,11 +215,10 @@ export function MapsChart(props) {
             chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig);
         }
         else {
-            console.log("Updating chart");
+            console.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
             appendProps(chartConfig);
             appendSeries(); // chartConfig
-            setChartConfig(chartConfig);
-            chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)));
+            chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true);
         }
     });
     return React.createElement("div", { ref: containerRef });
