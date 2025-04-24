@@ -6,8 +6,8 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-23
+ * Build stamp: 2025-04-24
  *
  */
-export * from "./Highcharts";
-export * from "./options";
+export * from "./Highcharts.js";
+export * from "./options/index.js";
