@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-24
+ * Build stamp: 2025-04-28
  *
  */
 export function Credits(props) {

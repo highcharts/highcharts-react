@@ -6,17 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-24
+ * Build stamp: 2025-04-28
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts.js";
 if (typeof getHighcharts().__provided === "undefined") {
 }
 // Specified in overrides
-import stock_mod from "highcharts/esm/modules/stock";
+import stock_mod from "highcharts/esm/modules/stock.js";
 typeof stock_mod === "function" && stock_mod(getHighcharts());
 /**
  * Candlestick series
