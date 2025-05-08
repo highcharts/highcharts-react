@@ -6,13 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-28
+ * Build stamp: 2025-05-07
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
+import { Chart, getHighcharts } from "../Highcharts";
 if (typeof getHighcharts().__provided === "undefined") {
 }
 /**

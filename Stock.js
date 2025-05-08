@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-28
+ * Build stamp: 2025-05-07
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useEffect, useRef,
+import React, { useEffect, useRef, useImperativeHandle,
 // @ts-ignore
  } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -182,6 +182,12 @@ export function StockChart(props) {
             : [] }, getChildProps(props.children, renderToStaticMarkup)), props.options || {});
     const containerRef = useRef();
     const chartRef = useRef();
+    useImperativeHandle(props.ref, () => ({
+        get chart() {
+            return chartRef.current;
+        },
+        container: containerRef,
+    }), []);
     /** Append prop to chart config */
     const appendProps = (config) => {
         var _a;

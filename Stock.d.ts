@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-04-28
+ * Build stamp: 2025-05-07
  *
  */
 import React from "react";
@@ -22,7 +22,13 @@ export interface ICommonSeriesAttributes {
     data?: number[] | Object;
     options?: WithoutType<HC.SeriesOptionsType>;
 }
+export interface HighchartsReactRefObject {
+    chart: Highcharts.Chart;
+    container: React.RefObject<HTMLDivElement>;
+}
 export interface ICommonAttributes {
+    /** Reference to the chart object. */
+    ref?: React.RefObject<HighchartsReactRefObject>;
     highcharts?: any;
     /** Options override - applied first, other props are merged in. */
     options?: HC.Options;
