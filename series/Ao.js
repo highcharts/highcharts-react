@@ -6,13 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-07
+ * Build stamp: 2025-05-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts";
+import { Chart, getHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/ao.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {

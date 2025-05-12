@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-07
+ * Build stamp: 2025-05-12
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {

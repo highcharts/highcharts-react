@@ -1,6 +1,6 @@
 # Changelog
 
-## v__NEXT__
+## v4.0.0-beta.2
 * Added the `ref` prop to the `Chart` components, which will be assigned to the
 chart instance and container element as in previous versions. Example:
   ```jsx

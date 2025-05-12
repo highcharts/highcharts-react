@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-07
+ * Build stamp: 2025-05-12
  *
  */
 import { getHighcharts } from "../Highcharts.js";
