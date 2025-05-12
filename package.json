@@ -18,7 +18,8 @@
     "test": "jest",
     "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
     "build": "webpack --config webpack.config.js",
-    "release": "standard-version"
+    "release": "standard-version",
+    "postinstall": "node postinstall.js"
   },
   "jest": {
     "setupFilesAfterEnv": [
