@@ -201,7 +201,6 @@ export function GanttChart(props) {
             const children = toArr(props.children).filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; });
             children.forEach((c, i) => {
                 var _a;
-                console.log("Adding series to chart");
                 if (c.props) {
                     const _b = c.props, { children, type, options } = _b, otherProps = __rest(_b, ["children", "type", "options"]);
                     if (options) {
@@ -214,14 +213,11 @@ export function GanttChart(props) {
     };
     // Update the chart on render
     useEffect(() => {
-        console.log(JSON.stringify(chartConfig, undefined, "  "));
         if (!chartRef.current) {
             const HCConstructor = props.chartConstructor || "ganttChart";
-            console.log("Creating chart using", HCConstructor, "constructor");
             chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig);
         }
         else {
-            console.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
             appendProps(chartConfig);
             appendSeries(); // chartConfig
             chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true);
