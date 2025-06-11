@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.0.0-beta.3
+* Changed the type of the `ref` prop to `React.ref`
+* Removed debug logging by default. Logging can be enabled using the `Logger`
+  object exported from i.e. `Highcharts.jsx`
+
 ## v4.0.0-beta.2
 * Added the `ref` prop to the `Chart` components, which will be assigned to the
 chart instance and container element as in previous versions. Example:

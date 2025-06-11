@@ -6,16 +6,31 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-12
+ * Build stamp: 2025-06-11
  *
  */
 import React from "react";
 import HC from "highcharts/esm/highcharts.src.js";
 export declare let Highcharts: typeof HC;
+type LoggerType = {
+    logLevel: "silent" | "debug";
+    log(...content: any[]): void;
+};
+export declare const Logger: LoggerType;
+/**
+ * Sets the global Highcharts reference.
+ *
+ * If no argument is provided, resets Highcharts to the default instance.
+ */
 export declare function setHighcharts(newHC?: typeof HC): void;
+/**
+ * Returns the current global Highcharts reference.
+ *
+ */
 export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;
 };
+export type HighchartsOptionsType = HC.Options;
 export type WithoutType<T> = Omit<T, "type">;
 export interface ICommonSeriesAttributes {
     type?: HC.SeriesOptionsType["type"];
@@ -24,14 +39,14 @@ export interface ICommonSeriesAttributes {
 }
 export interface HighchartsReactRefObject {
     chart: Highcharts.Chart;
-    container: React.RefObject<HTMLDivElement>;
+    container: React.Ref<HTMLDivElement>;
 }
 export interface ICommonAttributes {
     /** Reference to the chart object. */
-    ref?: React.RefObject<HighchartsReactRefObject>;
-    highcharts?: any;
+    ref?: React.Ref<HighchartsReactRefObject>;
+    highcharts?: typeof HC;
     /** Options override - applied first, other props are merged in. */
-    options?: HC.Options;
+    options?: HighchartsOptionsType;
     /** Constructor to use */
     chartConstructor?: "chart" | "stockChart" | "ganttChart" | "mapChart";
     /** Children */

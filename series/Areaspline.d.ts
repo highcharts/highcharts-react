@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-12
+ * Build stamp: 2025-06-11
  *
  */
 import React from "react";

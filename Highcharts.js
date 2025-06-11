@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-05-12
+ * Build stamp: 2025-06-11
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -30,6 +30,19 @@ if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
     HC.AST.allowedAttributes.push("data-hc-option");
 }
 export let Highcharts = HC;
+export const Logger = {
+    logLevel: "silent",
+    log(...content) {
+        if (this.logLevel === "debug") {
+            console.log(...content);
+        }
+    },
+};
+/**
+ * Sets the global Highcharts reference.
+ *
+ * If no argument is provided, resets Highcharts to the default instance.
+ */
 export function setHighcharts(newHC) {
     if (newHC === undefined) {
         Highcharts = HC;
@@ -39,6 +52,10 @@ export function setHighcharts(newHC) {
     Highcharts = newHC;
     Highcharts.__provided = true;
 }
+/**
+ * Returns the current global Highcharts reference.
+ *
+ */
 export function getHighcharts() {
     return Highcharts;
 }
@@ -201,7 +218,6 @@ export function Chart(props) {
             const children = toArr(props.children).filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; });
             children.forEach((c, i) => {
                 var _a;
-                console.log("Adding series to chart");
                 if (c.props) {
                     const _b = c.props, { children, type, options } = _b, otherProps = __rest(_b, ["children", "type", "options"]);
                     if (options) {
@@ -214,14 +230,14 @@ export function Chart(props) {
     };
     // Update the chart on render
     useEffect(() => {
-        console.log(JSON.stringify(chartConfig, undefined, "  "));
+        Logger.log(JSON.stringify(chartConfig, undefined, "  "));
         if (!chartRef.current) {
             const HCConstructor = props.chartConstructor || "chart";
-            console.log("Creating chart using", HCConstructor, "constructor");
+            Logger.log("Creating chart using", HCConstructor, "constructor");
             chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig);
         }
         else {
-            console.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
+            Logger.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
             appendProps(chartConfig);
             appendSeries(); // chartConfig
             chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true);
