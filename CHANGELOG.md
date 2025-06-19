@@ -1,5 +1,10 @@
 # Changelog
 
+## v4.0.0-beta.4
+
+* Changed the `container` property for the passed `ref` to be the container element and not the internal ref
+* Added back `containerProps` prop from previous versions
+
 ## v4.0.0-beta.3
 * Changed the type of the `ref` prop to `React.ref`
 * Removed debug logging by default. Logging can be enabled using the `Logger`

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-06-11
+ * Build stamp: 2025-06-19
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -203,7 +203,9 @@ export function GanttChart(props) {
         get chart() {
             return chartRef.current;
         },
-        container: containerRef,
+        get container() {
+            return containerRef.current;
+        },
     }), []);
     /** Append prop to chart config */
     const appendProps = (config) => {
@@ -243,7 +245,7 @@ export function GanttChart(props) {
             chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true);
         }
     });
-    return React.createElement("div", { ref: containerRef });
+    return React.createElement("div", Object.assign({}, props.containerProps, { ref: containerRef }));
 }
 export function GanttSeries(props) {
     return null;
