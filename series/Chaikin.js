@@ -6,17 +6,20 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-06-19
+ * Build stamp: 2025-07-17
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
+import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/chaikin.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
+    }
+    else if (SeriesMod === null || SeriesMod === void 0 ? void 0 : SeriesMod.Chart) {
+        setHighcharts(SeriesMod);
     }
 }
 /**

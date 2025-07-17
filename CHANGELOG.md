@@ -1,5 +1,9 @@
 # Changelog
 
+## v4.0.0-beta.5
+
+* Fixed issues with series components relying on bundles such as `highcharts-more`
+
 ## v4.0.0-beta.4
 
 * Changed the `container` property for the passed `ref` to be the container element and not the internal ref

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-06-19
+ * Build stamp: 2025-07-17
  *
  */
 export type ExportingProps = {
@@ -34,6 +34,7 @@ export type ExportingProps = {
     fetchOptions?: Object;
     filename?: string;
     libURL?: string;
+    local?: boolean;
     menuItemDefinitions?: Highcharts.Dictionary<Highcharts.ExportingMenuObject>;
     pdfFont?: {
         bold?: string | undefined;
