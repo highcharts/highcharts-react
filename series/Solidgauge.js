@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/solid-gauge.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Solidgauge series
+ * SolidGauge series
  */
-const Solidgauge = (props) => {
+const SolidGauge = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "solidgauge",
@@ -33,17 +34,16 @@ const Solidgauge = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function SolidgaugeSeries(_props) {
+export function SolidGaugeSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-SolidgaugeSeries.type = "Series";
-Solidgauge.Series = SolidgaugeSeries;
-SolidgaugeSeries._HCReact = {
+SolidGaugeSeries.type = "Series";
+SolidGauge.Series = SolidGaugeSeries;
+SolidGaugeSeries._HCReact = {
     type: "Series",
     HC_Option: "series.solidgauge",
     childOption: "series.solidgauge",
 };
-Solidgauge.type = "SeriesChart";
-export default Solidgauge;
-//# sourceMappingURL=Solidgauge.js.map
+SolidGauge.type = "SeriesChart";
+export default SolidGauge;
+//# sourceMappingURL=SolidGauge.js.map

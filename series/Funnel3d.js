@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/funnel3d.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Funnel3d series
+ * Funnel3D series
  */
-const Funnel3d = (props) => {
+const Funnel3D = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "funnel3d",
@@ -33,17 +34,16 @@ const Funnel3d = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function Funnel3dSeries(_props) {
+export function Funnel3DSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-Funnel3dSeries.type = "Series";
-Funnel3d.Series = Funnel3dSeries;
-Funnel3dSeries._HCReact = {
+Funnel3DSeries.type = "Series";
+Funnel3D.Series = Funnel3DSeries;
+Funnel3DSeries._HCReact = {
     type: "Series",
     HC_Option: "series.funnel3d",
     childOption: "series.funnel3d",
 };
-Funnel3d.type = "SeriesChart";
-export default Funnel3d;
-//# sourceMappingURL=Funnel3d.js.map
+Funnel3D.type = "SeriesChart";
+export default Funnel3D;
+//# sourceMappingURL=Funnel3D.js.map

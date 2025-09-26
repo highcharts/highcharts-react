@@ -6,15 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
 // Specified in overrides
 import stock_mod from "highcharts/esm/modules/stock.js";
 typeof stock_mod === "function" && stock_mod(getHighcharts());
@@ -31,7 +29,6 @@ const Candlestick = (props) => {
 export function CandlestickSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
 CandlestickSeries.type = "Series";
 Candlestick.Series = CandlestickSeries;
 CandlestickSeries._HCReact = {

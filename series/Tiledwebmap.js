@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/tiledwebmap.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Tiledwebmap series
+ * TiledWebMap series
  */
-const Tiledwebmap = (props) => {
+const TiledWebMap = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "tiledwebmap",
@@ -33,17 +34,16 @@ const Tiledwebmap = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function TiledwebmapSeries(_props) {
+export function TiledWebMapSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-TiledwebmapSeries.type = "Series";
-Tiledwebmap.Series = TiledwebmapSeries;
-TiledwebmapSeries._HCReact = {
+TiledWebMapSeries.type = "Series";
+TiledWebMap.Series = TiledWebMapSeries;
+TiledWebMapSeries._HCReact = {
     type: "Series",
     HC_Option: "series.tiledwebmap",
     childOption: "series.tiledwebmap",
 };
-Tiledwebmap.type = "SeriesChart";
-export default Tiledwebmap;
-//# sourceMappingURL=Tiledwebmap.js.map
+TiledWebMap.type = "SeriesChart";
+export default TiledWebMap;
+//# sourceMappingURL=TiledWebMap.js.map

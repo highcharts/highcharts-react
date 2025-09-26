@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesArearangeOptions } from "highcharts/highcharts";
+import type { SeriesAreaRangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Arearange series
+ * AreaRange series
  */
-declare const Arearange: {
+declare const AreaRange: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof ArearangeSeries;
+    Series: typeof AreaRangeSeries;
     type: string;
 };
-interface ArearangeSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesArearangeOptions>;
+interface AreaRangeSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesAreaRangeOptions>;
     children?: React.ReactNode;
 }
-export declare function ArearangeSeries(_props: ArearangeSeriesProps): any;
-export declare namespace ArearangeSeries {
+export declare function AreaRangeSeries(_props: AreaRangeSeriesProps): any;
+export declare namespace AreaRangeSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace ArearangeSeries {
         childOption: string;
     };
 }
-export default Arearange;
+export default AreaRange;

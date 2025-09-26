@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Arearange series
+ * AreaRange series
  */
-const Arearange = (props) => {
+const AreaRange = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "arearange",
@@ -33,17 +34,16 @@ const Arearange = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function ArearangeSeries(_props) {
+export function AreaRangeSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-ArearangeSeries.type = "Series";
-Arearange.Series = ArearangeSeries;
-ArearangeSeries._HCReact = {
+AreaRangeSeries.type = "Series";
+AreaRange.Series = AreaRangeSeries;
+AreaRangeSeries._HCReact = {
     type: "Series",
     HC_Option: "series.arearange",
     childOption: "series.arearange",
 };
-Arearange.type = "SeriesChart";
-export default Arearange;
-//# sourceMappingURL=Arearange.js.map
+AreaRange.type = "SeriesChart";
+export default AreaRange;
+//# sourceMappingURL=AreaRange.js.map

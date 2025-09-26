@@ -6,19 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
- * Areaspline series
+ * AreaSpline series
  */
-const Areaspline = (props) => {
+const AreaSpline = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "areaspline",
@@ -26,17 +24,16 @@ const Areaspline = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function AreasplineSeries(_props) {
+export function AreaSplineSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-AreasplineSeries.type = "Series";
-Areaspline.Series = AreasplineSeries;
-AreasplineSeries._HCReact = {
+AreaSplineSeries.type = "Series";
+AreaSpline.Series = AreaSplineSeries;
+AreaSplineSeries._HCReact = {
     type: "Series",
     HC_Option: "series.areaspline",
     childOption: "series.areaspline",
 };
-Areaspline.type = "SeriesChart";
-export default Areaspline;
-//# sourceMappingURL=Areaspline.js.map
+AreaSpline.type = "SeriesChart";
+export default AreaSpline;
+//# sourceMappingURL=AreaSpline.js.map

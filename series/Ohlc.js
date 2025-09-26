@@ -6,19 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
- * Ohlc series
+ * OHLC series
  */
-const Ohlc = (props) => {
+const OHLC = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "ohlc",
@@ -26,17 +24,16 @@ const Ohlc = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-export function OhlcSeries(_props) {
+export function OHLCSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-OhlcSeries.type = "Series";
-Ohlc.Series = OhlcSeries;
-OhlcSeries._HCReact = {
+OHLCSeries.type = "Series";
+OHLC.Series = OHLCSeries;
+OHLCSeries._HCReact = {
     type: "Series",
     HC_Option: "series.ohlc",
     childOption: "series.ohlc",
 };
-Ohlc.type = "SeriesChart";
-export default Ohlc;
-//# sourceMappingURL=Ohlc.js.map
+OHLC.type = "SeriesChart";
+export default OHLC;
+//# sourceMappingURL=OHLC.js.map

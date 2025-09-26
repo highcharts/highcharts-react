@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
@@ -55,10 +55,7 @@ export interface ICommonAttributes {
     /** Links to Highcharts.Options.title.text */
     title?: string;
 }
-export declare function StockChart(props: ICommonAttributes): React.JSX.Element;
-export declare namespace StockChart {
-    var Series: typeof StockSeries;
-}
+export declare const StockChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
 export interface StockSeriesProps extends ICommonSeriesAttributes {
     type: HC.SeriesOptionsType["type"];
 }

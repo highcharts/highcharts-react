@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesColumnpyramidOptions } from "highcharts/highcharts";
+import type { SeriesColumnPyramidOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Columnpyramid series
+ * ColumnPyramid series
  */
-declare const Columnpyramid: {
+declare const ColumnPyramid: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof ColumnpyramidSeries;
+    Series: typeof ColumnPyramidSeries;
     type: string;
 };
-interface ColumnpyramidSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesColumnpyramidOptions>;
+interface ColumnPyramidSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesColumnPyramidOptions>;
     children?: React.ReactNode;
 }
-export declare function ColumnpyramidSeries(_props: ColumnpyramidSeriesProps): any;
-export declare namespace ColumnpyramidSeries {
+export declare function ColumnPyramidSeries(_props: ColumnPyramidSeriesProps): any;
+export declare namespace ColumnPyramidSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace ColumnpyramidSeries {
         childOption: string;
     };
 }
-export default Columnpyramid;
+export default ColumnPyramid;

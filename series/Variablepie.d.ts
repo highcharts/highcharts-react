@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesVariablepieOptions } from "highcharts/highcharts";
+import type { SeriesVariablePieOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Variablepie series
+ * VariablePie series
  */
-declare const Variablepie: {
+declare const VariablePie: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof VariablepieSeries;
+    Series: typeof VariablePieSeries;
     type: string;
 };
-interface VariablepieSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesVariablepieOptions>;
+interface VariablePieSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesVariablePieOptions>;
     children?: React.ReactNode;
 }
-export declare function VariablepieSeries(_props: VariablepieSeriesProps): any;
-export declare namespace VariablepieSeries {
+export declare function VariablePieSeries(_props: VariablePieSeriesProps): any;
+export declare namespace VariablePieSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace VariablepieSeries {
         childOption: string;
     };
 }
-export default Variablepie;
+export default VariablePie;

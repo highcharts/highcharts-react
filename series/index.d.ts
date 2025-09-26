@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 export { default as Area } from "./Area.js";
-export { default as Areaspline } from "./Areaspline.js";
+export { default as AreaSpline } from "./AreaSpline.js";
 export { default as Bar } from "./Bar.js";
 export { default as Column } from "./Column.js";
 export { default as Heatmap } from "./Heatmap.js";

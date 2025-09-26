@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
@@ -55,10 +55,7 @@ export interface ICommonAttributes {
     /** Links to Highcharts.Options.title.text */
     title?: string;
 }
-export declare function MapsChart(props: ICommonAttributes): React.JSX.Element;
-export declare namespace MapsChart {
-    var Series: typeof MapsSeries;
-}
+export declare const MapsChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
 export interface MapsSeriesProps extends ICommonSeriesAttributes {
     type: HC.SeriesOptionsType["type"];
 }

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesFunnel3dOptions } from "highcharts/highcharts";
+import type { SeriesFunnel3DOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Funnel3d series
+ * Funnel3D series
  */
-declare const Funnel3d: {
+declare const Funnel3D: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof Funnel3dSeries;
+    Series: typeof Funnel3DSeries;
     type: string;
 };
-interface Funnel3dSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesFunnel3dOptions>;
+interface Funnel3DSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesFunnel3DOptions>;
     children?: React.ReactNode;
 }
-export declare function Funnel3dSeries(_props: Funnel3dSeriesProps): any;
-export declare namespace Funnel3dSeries {
+export declare function Funnel3DSeries(_props: Funnel3DSeriesProps): any;
+export declare namespace Funnel3DSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace Funnel3dSeries {
         childOption: string;
     };
 }
-export default Funnel3d;
+export default Funnel3D;

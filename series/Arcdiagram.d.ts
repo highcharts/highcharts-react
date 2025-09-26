@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesArcdiagramOptions } from "highcharts/highcharts";
+import type { SeriesArcDiagramOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Arcdiagram series
+ * ArcDiagram series
  */
-declare const Arcdiagram: {
+declare const ArcDiagram: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof ArcdiagramSeries;
+    Series: typeof ArcDiagramSeries;
     type: string;
 };
-interface ArcdiagramSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesArcdiagramOptions>;
+interface ArcDiagramSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesArcDiagramOptions>;
     children?: React.ReactNode;
 }
-export declare function ArcdiagramSeries(_props: ArcdiagramSeriesProps): any;
-export declare namespace ArcdiagramSeries {
+export declare function ArcDiagramSeries(_props: ArcDiagramSeriesProps): any;
+export declare namespace ArcDiagramSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace ArcdiagramSeries {
         childOption: string;
     };
 }
-export default Arcdiagram;
+export default ArcDiagram;

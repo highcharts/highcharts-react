@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesAreasplinerangeOptions } from "highcharts/highcharts";
+import type { SeriesAreaSplineRangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Areasplinerange series
+ * AreaSplineRange series
  */
-declare const Areasplinerange: {
+declare const AreaSplineRange: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof AreasplinerangeSeries;
+    Series: typeof AreaSplineRangeSeries;
     type: string;
 };
-interface AreasplinerangeSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesAreasplinerangeOptions>;
+interface AreaSplineRangeSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesAreaSplineRangeOptions>;
     children?: React.ReactNode;
 }
-export declare function AreasplinerangeSeries(_props: AreasplinerangeSeriesProps): any;
-export declare namespace AreasplinerangeSeries {
+export declare function AreaSplineRangeSeries(_props: AreaSplineRangeSeriesProps): any;
+export declare namespace AreaSplineRangeSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace AreasplinerangeSeries {
         childOption: string;
     };
 }
-export default Areasplinerange;
+export default AreaSplineRange;

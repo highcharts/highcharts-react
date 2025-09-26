@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesColumnrangeOptions } from "highcharts/highcharts";
+import type { SeriesColumnRangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Columnrange series
+ * ColumnRange series
  */
-declare const Columnrange: {
+declare const ColumnRange: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof ColumnrangeSeries;
+    Series: typeof ColumnRangeSeries;
     type: string;
 };
-interface ColumnrangeSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesColumnrangeOptions>;
+interface ColumnRangeSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesColumnRangeOptions>;
     children?: React.ReactNode;
 }
-export declare function ColumnrangeSeries(_props: ColumnrangeSeriesProps): any;
-export declare namespace ColumnrangeSeries {
+export declare function ColumnRangeSeries(_props: ColumnRangeSeriesProps): any;
+export declare namespace ColumnRangeSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace ColumnrangeSeries {
         childOption: string;
     };
 }
-export default Columnrange;
+export default ColumnRange;

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesSolidgaugeOptions } from "highcharts/highcharts";
+import type { SeriesSolidGaugeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Solidgauge series
+ * SolidGauge series
  */
-declare const Solidgauge: {
+declare const SolidGauge: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof SolidgaugeSeries;
+    Series: typeof SolidGaugeSeries;
     type: string;
 };
-interface SolidgaugeSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesSolidgaugeOptions>;
+interface SolidGaugeSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesSolidGaugeOptions>;
     children?: React.ReactNode;
 }
-export declare function SolidgaugeSeries(_props: SolidgaugeSeriesProps): any;
-export declare namespace SolidgaugeSeries {
+export declare function SolidGaugeSeries(_props: SolidGaugeSeriesProps): any;
+export declare namespace SolidGaugeSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace SolidgaugeSeries {
         childOption: string;
     };
 }
-export default Solidgauge;
+export default SolidGauge;

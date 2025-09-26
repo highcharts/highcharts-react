@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesHollowcandlestickOptions } from "highcharts/highcharts";
+import type { SeriesHollowCandlestickOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Hollowcandlestick series
+ * HollowCandlestick series
  */
-declare const Hollowcandlestick: {
+declare const HollowCandlestick: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof HollowcandlestickSeries;
+    Series: typeof HollowCandlestickSeries;
     type: string;
 };
-interface HollowcandlestickSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesHollowcandlestickOptions>;
+interface HollowCandlestickSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesHollowCandlestickOptions>;
     children?: React.ReactNode;
 }
-export declare function HollowcandlestickSeries(_props: HollowcandlestickSeriesProps): any;
-export declare namespace HollowcandlestickSeries {
+export declare function HollowCandlestickSeries(_props: HollowCandlestickSeriesProps): any;
+export declare namespace HollowCandlestickSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace HollowcandlestickSeries {
         childOption: string;
     };
 }
-export default Hollowcandlestick;
+export default HollowCandlestick;

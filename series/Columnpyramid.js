@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Columnpyramid series
+ * ColumnPyramid series
  */
-const Columnpyramid = (props) => {
+const ColumnPyramid = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "columnpyramid",
@@ -33,17 +34,16 @@ const Columnpyramid = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function ColumnpyramidSeries(_props) {
+export function ColumnPyramidSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-ColumnpyramidSeries.type = "Series";
-Columnpyramid.Series = ColumnpyramidSeries;
-ColumnpyramidSeries._HCReact = {
+ColumnPyramidSeries.type = "Series";
+ColumnPyramid.Series = ColumnPyramidSeries;
+ColumnPyramidSeries._HCReact = {
     type: "Series",
     HC_Option: "series.columnpyramid",
     childOption: "series.columnpyramid",
 };
-Columnpyramid.type = "SeriesChart";
-export default Columnpyramid;
-//# sourceMappingURL=Columnpyramid.js.map
+ColumnPyramid.type = "SeriesChart";
+export default ColumnPyramid;
+//# sourceMappingURL=ColumnPyramid.js.map

@@ -6,22 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
-import SeriesMod from "highcharts/esm/modules/zoomenabled.src.js";
-if (typeof getHighcharts().__provided === "undefined") {
-    if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-        SeriesMod(getHighcharts());
-    }
-    else if (SeriesMod === null || SeriesMod === void 0 ? void 0 : SeriesMod.Chart) {
-        setHighcharts(SeriesMod);
-    }
-}
+import { Chart } from "../Highcharts.js";
 /**
  * ZoomEnabled series
  */
@@ -36,7 +27,6 @@ const ZoomEnabled = (props) => {
 export function ZoomEnabledSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
 ZoomEnabledSeries.type = "Series";
 ZoomEnabled.Series = ZoomEnabledSeries;
 ZoomEnabledSeries._HCReact = {

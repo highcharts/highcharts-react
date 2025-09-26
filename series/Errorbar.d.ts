@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesErrorbarOptions } from "highcharts/highcharts";
+import type { SeriesErrorBarOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Errorbar series
+ * ErrorBar series
  */
-declare const Errorbar: {
+declare const ErrorBar: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof ErrorbarSeries;
+    Series: typeof ErrorBarSeries;
     type: string;
 };
-interface ErrorbarSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesErrorbarOptions>;
+interface ErrorBarSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesErrorBarOptions>;
     children?: React.ReactNode;
 }
-export declare function ErrorbarSeries(_props: ErrorbarSeriesProps): any;
-export declare namespace ErrorbarSeries {
+export declare function ErrorBarSeries(_props: ErrorBarSeriesProps): any;
+export declare namespace ErrorBarSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace ErrorbarSeries {
         childOption: string;
     };
 }
-export default Errorbar;
+export default ErrorBar;

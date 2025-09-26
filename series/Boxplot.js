@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Boxplot series
+ * BoxPlot series
  */
-const Boxplot = (props) => {
+const BoxPlot = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "boxplot",
@@ -33,17 +34,16 @@ const Boxplot = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function BoxplotSeries(_props) {
+export function BoxPlotSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-BoxplotSeries.type = "Series";
-Boxplot.Series = BoxplotSeries;
-BoxplotSeries._HCReact = {
+BoxPlotSeries.type = "Series";
+BoxPlot.Series = BoxPlotSeries;
+BoxPlotSeries._HCReact = {
     type: "Series",
     HC_Option: "series.boxplot",
     childOption: "series.boxplot",
 };
-Boxplot.type = "SeriesChart";
-export default Boxplot;
-//# sourceMappingURL=Boxplot.js.map
+BoxPlot.type = "SeriesChart";
+export default BoxPlot;
+//# sourceMappingURL=BoxPlot.js.map

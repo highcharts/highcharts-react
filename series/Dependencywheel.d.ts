@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesDependencywheelOptions } from "highcharts/highcharts";
+import type { SeriesDependencyWheelOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Dependencywheel series
+ * DependencyWheel series
  */
-declare const Dependencywheel: {
+declare const DependencyWheel: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof DependencywheelSeries;
+    Series: typeof DependencyWheelSeries;
     type: string;
 };
-interface DependencywheelSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesDependencywheelOptions>;
+interface DependencyWheelSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesDependencyWheelOptions>;
     children?: React.ReactNode;
 }
-export declare function DependencywheelSeries(_props: DependencywheelSeriesProps): any;
-export declare namespace DependencywheelSeries {
+export declare function DependencyWheelSeries(_props: DependencyWheelSeriesProps): any;
+export declare namespace DependencyWheelSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace DependencywheelSeries {
         childOption: string;
     };
 }
-export default Dependencywheel;
+export default DependencyWheel;

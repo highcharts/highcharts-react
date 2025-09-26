@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/hollowcandlestick.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Hollowcandlestick series
+ * HollowCandlestick series
  */
-const Hollowcandlestick = (props) => {
+const HollowCandlestick = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "hollowcandlestick",
@@ -33,17 +34,16 @@ const Hollowcandlestick = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-export function HollowcandlestickSeries(_props) {
+export function HollowCandlestickSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-HollowcandlestickSeries.type = "Series";
-Hollowcandlestick.Series = HollowcandlestickSeries;
-HollowcandlestickSeries._HCReact = {
+HollowCandlestickSeries.type = "Series";
+HollowCandlestick.Series = HollowCandlestickSeries;
+HollowCandlestickSeries._HCReact = {
     type: "Series",
     HC_Option: "series.hollowcandlestick",
     childOption: "series.hollowcandlestick",
 };
-Hollowcandlestick.type = "SeriesChart";
-export default Hollowcandlestick;
-//# sourceMappingURL=Hollowcandlestick.js.map
+HollowCandlestick.type = "SeriesChart";
+export default HollowCandlestick;
+//# sourceMappingURL=HollowCandlestick.js.map

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesScatter3dOptions } from "highcharts/highcharts";
+import type { SeriesScatter3DOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Scatter3d series
+ * Scatter3D series
  */
-declare const Scatter3d: {
+declare const Scatter3D: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof Scatter3dSeries;
+    Series: typeof Scatter3DSeries;
     type: string;
 };
-interface Scatter3dSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesScatter3dOptions>;
+interface Scatter3DSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesScatter3DOptions>;
     children?: React.ReactNode;
 }
-export declare function Scatter3dSeries(_props: Scatter3dSeriesProps): any;
-export declare namespace Scatter3dSeries {
+export declare function Scatter3DSeries(_props: Scatter3DSeriesProps): any;
+export declare namespace Scatter3DSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace Scatter3dSeries {
         childOption: string;
     };
 }
-export default Scatter3d;
+export default Scatter3D;

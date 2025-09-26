@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesFlowmapOptions } from "highcharts/highcharts";
+import type { SeriesFlowMapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Flowmap series
+ * FlowMap series
  */
-declare const Flowmap: {
+declare const FlowMap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof FlowmapSeries;
+    Series: typeof FlowMapSeries;
     type: string;
 };
-interface FlowmapSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesFlowmapOptions>;
+interface FlowMapSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesFlowMapOptions>;
     children?: React.ReactNode;
 }
-export declare function FlowmapSeries(_props: FlowmapSeriesProps): any;
-export declare namespace FlowmapSeries {
+export declare function FlowMapSeries(_props: FlowMapSeriesProps): any;
+export declare namespace FlowMapSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace FlowmapSeries {
         childOption: string;
     };
 }
-export default Flowmap;
+export default FlowMap;

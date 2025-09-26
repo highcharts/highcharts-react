@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesMaplineOptions } from "highcharts/highcharts";
+import type { SeriesMapLineOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Mapline series
+ * MapLine series
  */
-declare const Mapline: {
+declare const MapLine: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof MaplineSeries;
+    Series: typeof MapLineSeries;
     type: string;
 };
-interface MaplineSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesMaplineOptions>;
+interface MapLineSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesMapLineOptions>;
     children?: React.ReactNode;
 }
-export declare function MaplineSeries(_props: MaplineSeriesProps): any;
-export declare namespace MaplineSeries {
+export declare function MapLineSeries(_props: MapLineSeriesProps): any;
+export declare namespace MapLineSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace MaplineSeries {
         childOption: string;
     };
 }
-export default Mapline;
+export default MapLine;

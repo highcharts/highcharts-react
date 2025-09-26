@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Areasplinerange series
+ * AreaSplineRange series
  */
-const Areasplinerange = (props) => {
+const AreaSplineRange = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "areasplinerange",
@@ -33,17 +34,16 @@ const Areasplinerange = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function AreasplinerangeSeries(_props) {
+export function AreaSplineRangeSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-AreasplinerangeSeries.type = "Series";
-Areasplinerange.Series = AreasplinerangeSeries;
-AreasplinerangeSeries._HCReact = {
+AreaSplineRangeSeries.type = "Series";
+AreaSplineRange.Series = AreaSplineRangeSeries;
+AreaSplineRangeSeries._HCReact = {
     type: "Series",
     HC_Option: "series.areasplinerange",
     childOption: "series.areasplinerange",
 };
-Areasplinerange.type = "SeriesChart";
-export default Areasplinerange;
-//# sourceMappingURL=Areasplinerange.js.map
+AreaSplineRange.type = "SeriesChart";
+export default AreaSplineRange;
+//# sourceMappingURL=AreaSplineRange.js.map

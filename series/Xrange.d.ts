@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesXrangeOptions } from "highcharts/highcharts";
+import type { SeriesXRangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Xrange series
+ * XRange series
  */
-declare const Xrange: {
+declare const XRange: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof XrangeSeries;
+    Series: typeof XRangeSeries;
     type: string;
 };
-interface XrangeSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesXrangeOptions>;
+interface XRangeSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesXRangeOptions>;
     children?: React.ReactNode;
 }
-export declare function XrangeSeries(_props: XrangeSeriesProps): any;
-export declare namespace XrangeSeries {
+export declare function XRangeSeries(_props: XRangeSeriesProps): any;
+export declare namespace XRangeSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace XrangeSeries {
         childOption: string;
     };
 }
-export default Xrange;
+export default XRange;

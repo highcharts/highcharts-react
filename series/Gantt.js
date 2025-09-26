@@ -6,15 +6,16 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
-import SeriesMod from "highcharts/esm/highcharts-gantt.src.js";
+import SeriesMod from "highcharts/esm/modules/gantt.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -36,7 +37,6 @@ const Gantt = (props) => {
 export function GanttSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
 GanttSeries.type = "Series";
 Gantt.Series = GanttSeries;
 GanttSeries._HCReact = {

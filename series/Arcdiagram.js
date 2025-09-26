@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/arc-diagram.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Arcdiagram series
+ * ArcDiagram series
  */
-const Arcdiagram = (props) => {
+const ArcDiagram = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "arcdiagram",
@@ -33,17 +34,16 @@ const Arcdiagram = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function ArcdiagramSeries(_props) {
+export function ArcDiagramSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-ArcdiagramSeries.type = "Series";
-Arcdiagram.Series = ArcdiagramSeries;
-ArcdiagramSeries._HCReact = {
+ArcDiagramSeries.type = "Series";
+ArcDiagram.Series = ArcDiagramSeries;
+ArcDiagramSeries._HCReact = {
     type: "Series",
     HC_Option: "series.arcdiagram",
     childOption: "series.arcdiagram",
 };
-Arcdiagram.type = "SeriesChart";
-export default Arcdiagram;
-//# sourceMappingURL=Arcdiagram.js.map
+ArcDiagram.type = "SeriesChart";
+export default ArcDiagram;
+//# sourceMappingURL=ArcDiagram.js.map

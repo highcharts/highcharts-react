@@ -6,19 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
- * Mappoint series
+ * MapPoint series
  */
-const Mappoint = (props) => {
+const MapPoint = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "mappoint",
@@ -26,17 +24,16 @@ const Mappoint = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function MappointSeries(_props) {
+export function MapPointSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-MappointSeries.type = "Series";
-Mappoint.Series = MappointSeries;
-MappointSeries._HCReact = {
+MapPointSeries.type = "Series";
+MapPoint.Series = MapPointSeries;
+MapPointSeries._HCReact = {
     type: "Series",
     HC_Option: "series.mappoint",
     childOption: "series.mappoint",
 };
-Mappoint.type = "SeriesChart";
-export default Mappoint;
-//# sourceMappingURL=Mappoint.js.map
+MapPoint.type = "SeriesChart";
+export default MapPoint;
+//# sourceMappingURL=MapPoint.js.map

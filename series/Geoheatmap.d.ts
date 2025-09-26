@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesGeoheatmapOptions } from "highcharts/highcharts";
+import type { SeriesGeoHeatmapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Geoheatmap series
+ * GeoHeatmap series
  */
-declare const Geoheatmap: {
+declare const GeoHeatmap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof GeoheatmapSeries;
+    Series: typeof GeoHeatmapSeries;
     type: string;
 };
-interface GeoheatmapSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesGeoheatmapOptions>;
+interface GeoHeatmapSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesGeoHeatmapOptions>;
     children?: React.ReactNode;
 }
-export declare function GeoheatmapSeries(_props: GeoheatmapSeriesProps): any;
-export declare namespace GeoheatmapSeries {
+export declare function GeoHeatmapSeries(_props: GeoHeatmapSeriesProps): any;
+export declare namespace GeoHeatmapSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace GeoheatmapSeries {
         childOption: string;
     };
 }
-export default Geoheatmap;
+export default GeoHeatmap;

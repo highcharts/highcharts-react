@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/variable-pie.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Variablepie series
+ * VariablePie series
  */
-const Variablepie = (props) => {
+const VariablePie = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "variablepie",
@@ -33,17 +34,16 @@ const Variablepie = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function VariablepieSeries(_props) {
+export function VariablePieSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-VariablepieSeries.type = "Series";
-Variablepie.Series = VariablepieSeries;
-VariablepieSeries._HCReact = {
+VariablePieSeries.type = "Series";
+VariablePie.Series = VariablePieSeries;
+VariablePieSeries._HCReact = {
     type: "Series",
     HC_Option: "series.variablepie",
     childOption: "series.variablepie",
 };
-Variablepie.type = "SeriesChart";
-export default Variablepie;
-//# sourceMappingURL=Variablepie.js.map
+VariablePie.type = "SeriesChart";
+export default VariablePie;
+//# sourceMappingURL=VariablePie.js.map

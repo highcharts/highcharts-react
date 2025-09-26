@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/pointandfigure.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Pointandfigure series
+ * PointAndFigure series
  */
-const Pointandfigure = (props) => {
+const PointAndFigure = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "pointandfigure",
@@ -33,17 +34,16 @@ const Pointandfigure = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
-export function PointandfigureSeries(_props) {
+export function PointAndFigureSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-PointandfigureSeries.type = "Series";
-Pointandfigure.Series = PointandfigureSeries;
-PointandfigureSeries._HCReact = {
+PointAndFigureSeries.type = "Series";
+PointAndFigure.Series = PointAndFigureSeries;
+PointAndFigureSeries._HCReact = {
     type: "Series",
     HC_Option: "series.pointandfigure",
     childOption: "series.pointandfigure",
 };
-Pointandfigure.type = "SeriesChart";
-export default Pointandfigure;
-//# sourceMappingURL=Pointandfigure.js.map
+PointAndFigure.type = "SeriesChart";
+export default PointAndFigure;
+//# sourceMappingURL=PointAndFigure.js.map

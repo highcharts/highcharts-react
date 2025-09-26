@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/flowmap.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Flowmap series
+ * FlowMap series
  */
-const Flowmap = (props) => {
+const FlowMap = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "flowmap",
@@ -33,17 +34,16 @@ const Flowmap = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function FlowmapSeries(_props) {
+export function FlowMapSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-FlowmapSeries.type = "Series";
-Flowmap.Series = FlowmapSeries;
-FlowmapSeries._HCReact = {
+FlowMapSeries.type = "Series";
+FlowMap.Series = FlowMapSeries;
+FlowMapSeries._HCReact = {
     type: "Series",
     HC_Option: "series.flowmap",
     childOption: "series.flowmap",
 };
-Flowmap.type = "SeriesChart";
-export default Flowmap;
-//# sourceMappingURL=Flowmap.js.map
+FlowMap.type = "SeriesChart";
+export default FlowMap;
+//# sourceMappingURL=FlowMap.js.map

@@ -6,19 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
- * Mapline series
+ * MapLine series
  */
-const Mapline = (props) => {
+const MapLine = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "mapline",
@@ -26,17 +24,16 @@ const Mapline = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function MaplineSeries(_props) {
+export function MapLineSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-MaplineSeries.type = "Series";
-Mapline.Series = MaplineSeries;
-MaplineSeries._HCReact = {
+MapLineSeries.type = "Series";
+MapLine.Series = MapLineSeries;
+MapLineSeries._HCReact = {
     type: "Series",
     HC_Option: "series.mapline",
     childOption: "series.mapline",
 };
-Mapline.type = "SeriesChart";
-export default Mapline;
-//# sourceMappingURL=Mapline.js.map
+MapLine.type = "SeriesChart";
+export default MapLine;
+//# sourceMappingURL=MapLine.js.map

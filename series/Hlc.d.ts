@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesHlcOptions } from "highcharts/highcharts";
+import type { SeriesHLCOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Hlc series
+ * HLC series
  */
-declare const Hlc: {
+declare const HLC: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof HlcSeries;
+    Series: typeof HLCSeries;
     type: string;
 };
-interface HlcSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesHlcOptions>;
+interface HLCSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesHLCOptions>;
     children?: React.ReactNode;
 }
-export declare function HlcSeries(_props: HlcSeriesProps): any;
-export declare namespace HlcSeries {
+export declare function HLCSeries(_props: HLCSeriesProps): any;
+export declare namespace HLCSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace HlcSeries {
         childOption: string;
     };
 }
-export default Hlc;
+export default HLC;

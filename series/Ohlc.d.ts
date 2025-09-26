@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesOhlcOptions } from "highcharts/highcharts";
+import type { SeriesOHLCOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Ohlc series
+ * OHLC series
  */
-declare const Ohlc: {
+declare const OHLC: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof OhlcSeries;
+    Series: typeof OHLCSeries;
     type: string;
 };
-interface OhlcSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesOhlcOptions>;
+interface OHLCSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesOHLCOptions>;
     children?: React.ReactNode;
 }
-export declare function OhlcSeries(_props: OhlcSeriesProps): any;
-export declare namespace OhlcSeries {
+export declare function OHLCSeries(_props: OHLCSeriesProps): any;
+export declare namespace OHLCSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace OhlcSeries {
         childOption: string;
     };
 }
-export default Ohlc;
+export default OHLC;

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesTiledwebmapOptions } from "highcharts/highcharts";
+import type { SeriesTiledWebMapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Tiledwebmap series
+ * TiledWebMap series
  */
-declare const Tiledwebmap: {
+declare const TiledWebMap: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof TiledwebmapSeries;
+    Series: typeof TiledWebMapSeries;
     type: string;
 };
-interface TiledwebmapSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesTiledwebmapOptions>;
+interface TiledWebMapSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesTiledWebMapOptions>;
     children?: React.ReactNode;
 }
-export declare function TiledwebmapSeries(_props: TiledwebmapSeriesProps): any;
-export declare namespace TiledwebmapSeries {
+export declare function TiledWebMapSeries(_props: TiledWebMapSeriesProps): any;
+export declare namespace TiledWebMapSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace TiledwebmapSeries {
         childOption: string;
     };
 }
-export default Tiledwebmap;
+export default TiledWebMap;

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesHeikinashiOptions } from "highcharts/highcharts";
+import type { SeriesHeikinAshiOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Heikinashi series
+ * HeikinAshi series
  */
-declare const Heikinashi: {
+declare const HeikinAshi: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof HeikinashiSeries;
+    Series: typeof HeikinAshiSeries;
     type: string;
 };
-interface HeikinashiSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesHeikinashiOptions>;
+interface HeikinAshiSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesHeikinAshiOptions>;
     children?: React.ReactNode;
 }
-export declare function HeikinashiSeries(_props: HeikinashiSeriesProps): any;
-export declare namespace HeikinashiSeries {
+export declare function HeikinAshiSeries(_props: HeikinAshiSeriesProps): any;
+export declare namespace HeikinAshiSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace HeikinashiSeries {
         childOption: string;
     };
 }
-export default Heikinashi;
+export default HeikinAshi;

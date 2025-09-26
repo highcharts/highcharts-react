@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Columnrange series
+ * ColumnRange series
  */
-const Columnrange = (props) => {
+const ColumnRange = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "columnrange",
@@ -33,17 +34,16 @@ const Columnrange = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function ColumnrangeSeries(_props) {
+export function ColumnRangeSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-ColumnrangeSeries.type = "Series";
-Columnrange.Series = ColumnrangeSeries;
-ColumnrangeSeries._HCReact = {
+ColumnRangeSeries.type = "Series";
+ColumnRange.Series = ColumnRangeSeries;
+ColumnRangeSeries._HCReact = {
     type: "Series",
     HC_Option: "series.columnrange",
     childOption: "series.columnrange",
 };
-Columnrange.type = "SeriesChart";
-export default Columnrange;
-//# sourceMappingURL=Columnrange.js.map
+ColumnRange.type = "SeriesChart";
+export default ColumnRange;
+//# sourceMappingURL=ColumnRange.js.map

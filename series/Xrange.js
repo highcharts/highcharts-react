@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/xrange.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Xrange series
+ * XRange series
  */
-const Xrange = (props) => {
+const XRange = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "xrange",
@@ -33,17 +34,16 @@ const Xrange = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function XrangeSeries(_props) {
+export function XRangeSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-XrangeSeries.type = "Series";
-Xrange.Series = XrangeSeries;
-XrangeSeries._HCReact = {
+XRangeSeries.type = "Series";
+XRange.Series = XRangeSeries;
+XRangeSeries._HCReact = {
     type: "Series",
     HC_Option: "series.xrange",
     childOption: "series.xrange",
 };
-Xrange.type = "SeriesChart";
-export default Xrange;
-//# sourceMappingURL=Xrange.js.map
+XRange.type = "SeriesChart";
+export default XRange;
+//# sourceMappingURL=XRange.js.map

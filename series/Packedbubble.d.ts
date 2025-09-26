@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesPackedbubbleOptions } from "highcharts/highcharts";
+import type { SeriesPackedBubbleOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Packedbubble series
+ * PackedBubble series
  */
-declare const Packedbubble: {
+declare const PackedBubble: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof PackedbubbleSeries;
+    Series: typeof PackedBubbleSeries;
     type: string;
 };
-interface PackedbubbleSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesPackedbubbleOptions>;
+interface PackedBubbleSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesPackedBubbleOptions>;
     children?: React.ReactNode;
 }
-export declare function PackedbubbleSeries(_props: PackedbubbleSeriesProps): any;
-export declare namespace PackedbubbleSeries {
+export declare function PackedBubbleSeries(_props: PackedBubbleSeriesProps): any;
+export declare namespace PackedBubbleSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace PackedbubbleSeries {
         childOption: string;
     };
 }
-export default Packedbubble;
+export default PackedBubble;

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 export type XAxisProps = {
@@ -93,7 +93,6 @@ export type XAxisProps = {
         afterBreaks?: Highcharts.AxisEventCallbackFunction;
         afterSetExtremes?: Highcharts.AxisSetExtremesEventCallbackFunction;
         pointBreak?: Highcharts.AxisPointBreakEventCallbackFunction;
-        pointBreakOut?: Highcharts.AxisPointBreakEventCallbackFunction;
         pointInBreak?: Highcharts.AxisPointBreakEventCallbackFunction;
         setExtremes?: Highcharts.AxisSetExtremesEventCallbackFunction;
     };

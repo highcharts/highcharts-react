@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-more.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Errorbar series
+ * ErrorBar series
  */
-const Errorbar = (props) => {
+const ErrorBar = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "errorbar",
@@ -33,17 +34,16 @@ const Errorbar = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function ErrorbarSeries(_props) {
+export function ErrorBarSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-ErrorbarSeries.type = "Series";
-Errorbar.Series = ErrorbarSeries;
-ErrorbarSeries._HCReact = {
+ErrorBarSeries.type = "Series";
+ErrorBar.Series = ErrorBarSeries;
+ErrorBarSeries._HCReact = {
     type: "Series",
     HC_Option: "series.errorbar",
     childOption: "series.errorbar",
 };
-Errorbar.type = "SeriesChart";
-export default Errorbar;
-//# sourceMappingURL=Errorbar.js.map
+ErrorBar.type = "SeriesChart";
+export default ErrorBar;
+//# sourceMappingURL=ErrorBar.js.map

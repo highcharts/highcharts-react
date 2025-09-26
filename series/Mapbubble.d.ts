@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesMapbubbleOptions } from "highcharts/highcharts";
+import type { SeriesMapBubbleOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Mapbubble series
+ * MapBubble series
  */
-declare const Mapbubble: {
+declare const MapBubble: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof MapbubbleSeries;
+    Series: typeof MapBubbleSeries;
     type: string;
 };
-interface MapbubbleSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesMapbubbleOptions>;
+interface MapBubbleSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesMapBubbleOptions>;
     children?: React.ReactNode;
 }
-export declare function MapbubbleSeries(_props: MapbubbleSeriesProps): any;
-export declare namespace MapbubbleSeries {
+export declare function MapBubbleSeries(_props: MapBubbleSeriesProps): any;
+export declare namespace MapBubbleSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace MapbubbleSeries {
         childOption: string;
     };
 }
-export default Mapbubble;
+export default MapBubble;

@@ -6,19 +6,17 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
- * Mapbubble series
+ * MapBubble series
  */
-const Mapbubble = (props) => {
+const MapBubble = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "mapbubble",
@@ -26,17 +24,16 @@ const Mapbubble = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function MapbubbleSeries(_props) {
+export function MapBubbleSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-MapbubbleSeries.type = "Series";
-Mapbubble.Series = MapbubbleSeries;
-MapbubbleSeries._HCReact = {
+MapBubbleSeries.type = "Series";
+MapBubble.Series = MapBubbleSeries;
+MapBubbleSeries._HCReact = {
     type: "Series",
     HC_Option: "series.mapbubble",
     childOption: "series.mapbubble",
 };
-Mapbubble.type = "SeriesChart";
-export default Mapbubble;
-//# sourceMappingURL=Mapbubble.js.map
+MapBubble.type = "SeriesChart";
+export default MapBubble;
+//# sourceMappingURL=MapBubble.js.map

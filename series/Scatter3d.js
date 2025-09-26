@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/highcharts-3d.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Scatter3d series
+ * Scatter3D series
  */
-const Scatter3d = (props) => {
+const Scatter3D = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "scatter3d",
@@ -33,17 +34,16 @@ const Scatter3d = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function Scatter3dSeries(_props) {
+export function Scatter3DSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-Scatter3dSeries.type = "Series";
-Scatter3d.Series = Scatter3dSeries;
-Scatter3dSeries._HCReact = {
+Scatter3DSeries.type = "Series";
+Scatter3D.Series = Scatter3DSeries;
+Scatter3DSeries._HCReact = {
     type: "Series",
     HC_Option: "series.scatter3d",
     childOption: "series.scatter3d",
 };
-Scatter3d.type = "SeriesChart";
-export default Scatter3d;
-//# sourceMappingURL=Scatter3d.js.map
+Scatter3D.type = "SeriesChart";
+export default Scatter3D;
+//# sourceMappingURL=Scatter3D.js.map

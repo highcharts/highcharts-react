@@ -1,5 +1,14 @@
 # Changelog
 
+## 4.0.0-beta.6
+
+* Added support for providing options as arrays. Closes [highcharts/highcharts-react#532](https://github.com/highcharts/highcharts-react/issues/532).
+* Replaced internal `ref` access with `forwardRef` to avoid React v18 warnings. Closes [highcharts/highcharts-react#529](https://github.com/highcharts/highcharts-react/issues/529).
+* Used Highcharts.merge to merge in new options when updating components
+* Call [chart.update](https://api.highcharts.com/class-reference/Highcharts.Chart#update) with `oneToOne` option set to true
+* Changed naming of files and exports in `/series/` to have consistent casing with Highcharts.
+* Stock indicators have been moved from `/series/` to `/indicators/`
+
 ## v4.0.0-beta.5
 
 * Fixed issues with series components relying on bundles such as `highcharts-more`

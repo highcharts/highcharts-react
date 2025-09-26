@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
@@ -55,10 +55,7 @@ export interface ICommonAttributes {
     /** Links to Highcharts.Options.title.text */
     title?: string;
 }
-export declare function GanttChart(props: ICommonAttributes): React.JSX.Element;
-export declare namespace GanttChart {
-    var Series: typeof GanttSeries;
-}
+export declare const GanttChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
 export interface GanttSeriesProps extends ICommonSeriesAttributes {
     type: HC.SeriesOptionsType["type"];
 }

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/geoheatmap.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Geoheatmap series
+ * GeoHeatmap series
  */
-const Geoheatmap = (props) => {
+const GeoHeatmap = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "geoheatmap",
@@ -33,17 +34,16 @@ const Geoheatmap = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
-export function GeoheatmapSeries(_props) {
+export function GeoHeatmapSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-GeoheatmapSeries.type = "Series";
-Geoheatmap.Series = GeoheatmapSeries;
-GeoheatmapSeries._HCReact = {
+GeoHeatmapSeries.type = "Series";
+GeoHeatmap.Series = GeoHeatmapSeries;
+GeoHeatmapSeries._HCReact = {
     type: "Series",
     HC_Option: "series.geoheatmap",
     childOption: "series.geoheatmap",
 };
-Geoheatmap.type = "SeriesChart";
-export default Geoheatmap;
-//# sourceMappingURL=Geoheatmap.js.map
+GeoHeatmap.type = "SeriesChart";
+export default GeoHeatmap;
+//# sourceMappingURL=GeoHeatmap.js.map

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesPyramid3dOptions } from "highcharts/highcharts";
+import type { SeriesPyramid3DOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Pyramid3d series
+ * Pyramid3D series
  */
-declare const Pyramid3d: {
+declare const Pyramid3D: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof Pyramid3dSeries;
+    Series: typeof Pyramid3DSeries;
     type: string;
 };
-interface Pyramid3dSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesPyramid3dOptions>;
+interface Pyramid3DSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesPyramid3DOptions>;
     children?: React.ReactNode;
 }
-export declare function Pyramid3dSeries(_props: Pyramid3dSeriesProps): any;
-export declare namespace Pyramid3dSeries {
+export declare function Pyramid3DSeries(_props: Pyramid3DSeriesProps): any;
+export declare namespace Pyramid3DSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace Pyramid3dSeries {
         childOption: string;
     };
 }
-export default Pyramid3d;
+export default Pyramid3D;

@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesBoxplotOptions } from "highcharts/highcharts";
+import type { SeriesBoxPlotOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Boxplot series
+ * BoxPlot series
  */
-declare const Boxplot: {
+declare const BoxPlot: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof BoxplotSeries;
+    Series: typeof BoxPlotSeries;
     type: string;
 };
-interface BoxplotSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesBoxplotOptions>;
+interface BoxPlotSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesBoxPlotOptions>;
     children?: React.ReactNode;
 }
-export declare function BoxplotSeries(_props: BoxplotSeriesProps): any;
-export declare namespace BoxplotSeries {
+export declare function BoxPlotSeries(_props: BoxPlotSeriesProps): any;
+export declare namespace BoxPlotSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace BoxplotSeries {
         childOption: string;
     };
 }
-export default Boxplot;
+export default BoxPlot;

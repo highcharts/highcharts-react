@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -20,7 +20,7 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import React, { useEffect, useRef, useImperativeHandle,
+import React, { forwardRef, useEffect, useRef, useImperativeHandle,
 // @ts-ignore
  } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -59,42 +59,52 @@ export function setHighcharts(newHC) {
 export function getHighcharts() {
     return Highcharts;
 }
-const toArr = (thing) => (Array.isArray(thing) ? thing : [thing]);
+const toArr = (thing) => (Array.isArray(thing) ? thing.flat() : [thing]);
 function getChildProps(children, renderHTML = undefined) {
     const optionsFromChildren = {};
-    // TODO: Bundle this from utils
-    function objInsert(obj, key, value = null) {
-        const keys = key.split(".");
+    /** Insert value into object by dot.notation path */
+    function objInsert(obj, path, value = null) {
+        const keys = path.split(".");
         let current = obj;
         for (let i = 0; i < keys.length - 1; i++) {
-            const key = keys[i];
-            if (!current[key]) {
-                current[key] = {};
-            }
-            current = current[key];
+            const k = keys[i];
+            if (!current[k])
+                current[k] = {};
+            current = current[k];
         }
         current[keys[keys.length - 1]] = value;
         return obj;
     }
-    function renderChildren(children) {
+    function renderChildren(arr) {
         return renderHTML
-            ? renderHTML(children)
-            : children.filter((c) => typeof c === "string").join(""); // fallback
+            ? renderHTML(arr)
+            : arr.filter((c) => typeof c === "string").join("");
     }
-    /**
-     * Updates the _HCReact metadata for a child.
-     */
+    /** Type guard for React elements with meta */
+    function isReactElementWithMeta(value) {
+        return (typeof value === "object" &&
+            value !== null &&
+            "$$typeof" in value &&
+            "props" in value);
+    }
     function updateChildMeta(childMeta, parentMeta) {
-        return Object.assign(Object.assign({}, childMeta), { childOption: `${parentMeta.childOption}.${childMeta.childOption}`, HCOption: `${parentMeta.HCOption}.${childMeta.HCOption}` });
+        return Object.assign(Object.assign({}, childMeta), { childOption: parentMeta.childOption
+                ? `${parentMeta.childOption}.${childMeta.childOption}`
+                : childMeta.childOption, HCOption: parentMeta.HCOption
+                ? `${parentMeta.HCOption}.${childMeta.HCOption}`
+                : childMeta.HCOption });
     }
     function handleChildren(children, obj, meta) {
-        var _a;
+        var _a, _b, _c;
+        if (!children)
+            return;
         if (Array.isArray(children) &&
-            children.some((c) => c.props && c.props["data-hc-option"])) {
+            children.some((c) => { var _a; return (_a = c === null || c === void 0 ? void 0 : c.props) === null || _a === void 0 ? void 0 : _a["data-hc-option"]; })) {
             const lostChildren = [];
             for (const child of children) {
-                if (child.props["data-hc-option"]) {
-                    objInsert(obj, `${child.props["data-hc-option"]}`, renderChildren([child]));
+                const optKey = (_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a["data-hc-option"];
+                if (optKey) {
+                    objInsert(obj, optKey, renderChildren([child]));
                 }
                 else {
                     lostChildren.push(child);
@@ -108,8 +118,8 @@ function getChildProps(children, renderHTML = undefined) {
         const nonOptionChildren = [];
         if (Array.isArray(children)) {
             for (const c of children) {
-                if ((_a = c.type) === null || _a === void 0 ? void 0 : _a._HCReact) {
-                    const { _HCReact: childMeta } = c.type;
+                if ((_b = c === null || c === void 0 ? void 0 : c.type) === null || _b === void 0 ? void 0 : _b._HCReact) {
+                    const childMeta = c.type._HCReact;
                     c.type._HCReact = updateChildMeta(childMeta, meta);
                     handleChild(c);
                     continue;
@@ -117,81 +127,78 @@ function getChildProps(children, renderHTML = undefined) {
                 nonOptionChildren.push(c);
             }
         }
+        else {
+            const c = children;
+            if ((_c = c === null || c === void 0 ? void 0 : c.type) === null || _c === void 0 ? void 0 : _c._HCReact) {
+                const childMeta = c.type._HCReact;
+                c.type._HCReact = updateChildMeta(childMeta, meta);
+                handleChild(c);
+            }
+            else {
+                nonOptionChildren.push(c);
+            }
+        }
         if (meta.childOption) {
-            // If children is an array, render the children that are not options.
-            // Otherwise, render the children prop
-            const childrenToRender = nonOptionChildren.length
-                ? nonOptionChildren
-                : [children];
+            const childrenToRender = nonOptionChildren.length > 0 ? nonOptionChildren : [children];
             objInsert(obj, meta.childOption, renderChildren(childrenToRender));
         }
     }
     function handleChild(child) {
-        var _a, _b, _c;
-        var _d;
-        if (child && typeof child === "object") {
-            const { _HCReact: meta } = (_a = child.type) !== null && _a !== void 0 ? _a : {};
-            if (meta && meta.HCOption) {
-                const optionParent = ((_b = optionsFromChildren[_d = meta.HCOption]) !== null && _b !== void 0 ? _b : (optionsFromChildren[_d] = meta.isArrayType ? [] : {}));
-                const _e = child.props, { children } = _e, props = __rest(_e, ["children"]);
-                const parentIsArray = Array.isArray(optionParent);
-                const insertInto = parentIsArray ? {} : optionParent;
-                if (meta.defaultOptions) {
-                    Object.assign(insertInto, meta.defaultOptions);
-                }
-                Object.assign(insertInto, props);
-                // TODO: if the child has children we have to unpack it
-                if (typeof children === "string" && meta.childOption) {
-                    objInsert(insertInto, meta.childOption, children);
-                }
-                else if (children &&
-                    typeof children === "object" &&
-                    "$$typeof" in children &&
-                    renderHTML) {
-                    if ((children.$$typeof === Symbol.for("react.element") ||
-                        children.$$typeof === Symbol.for("react.transitional.element")) &&
-                        "props" in children) {
-                        // If there's only a children prop
-                        if (((_c = children.props) === null || _c === void 0 ? void 0 : _c.children) &&
-                            Object.keys(children.props).length === 1) {
-                            handleChildren(children.props.children, insertInto, meta);
-                        }
-                        else if (meta.childOption) {
-                            objInsert(insertInto, meta.childOption, renderHTML(children));
-                        }
-                    }
-                }
-                else if (Array.isArray(children)) {
-                    handleChildren(children, insertInto, meta);
-                }
-                // Push to the option if array type
-                if (parentIsArray) {
-                    optionsFromChildren[meta.HCOption].push(insertInto);
-                }
+        var _a, _b, _c, _d;
+        var _e;
+        if (!child || typeof child !== "object")
+            return;
+        const meta = (_a = child.type) === null || _a === void 0 ? void 0 : _a._HCReact;
+        if (!(meta === null || meta === void 0 ? void 0 : meta.HCOption))
+            return;
+        const optionParent = ((_b = optionsFromChildren[_e = meta.HCOption]) !== null && _b !== void 0 ? _b : (optionsFromChildren[_e] = meta.isArrayType ? [] : {}));
+        const parentIsArray = Array.isArray(optionParent);
+        const insertInto = parentIsArray ? {} : optionParent;
+        const _f = (_c = child.props) !== null && _c !== void 0 ? _c : {}, { children: childChildren } = _f, props = __rest(_f, ["children"]);
+        if (meta.defaultOptions)
+            Object.assign(insertInto, meta.defaultOptions);
+        Object.assign(insertInto, props);
+        if (typeof childChildren === "string" && meta.childOption) {
+            objInsert(insertInto, meta.childOption, childChildren);
+        }
+        else if (Array.isArray(childChildren)) {
+            handleChildren(childChildren, insertInto, meta);
+        }
+        else if (isReactElementWithMeta(childChildren) && renderHTML) {
+            if (((_d = childChildren.props) === null || _d === void 0 ? void 0 : _d.children) &&
+                Object.keys(childChildren.props).length === 1) {
+                handleChildren(childChildren.props.children, insertInto, meta);
             }
+            else if (meta.childOption) {
+                objInsert(insertInto, meta.childOption, renderHTML(childChildren));
+            }
+        }
+        if (parentIsArray) {
+            optionsFromChildren[meta.HCOption].push(insertInto);
         }
     }
     if (Array.isArray(children)) {
-        children.forEach(handleChild);
+        children.flat().forEach((c) => handleChild(c));
     }
     else {
         handleChild(children);
     }
     return optionsFromChildren;
 }
-// TODO: The config merge needs to use a deep merge instead of Object.assign
-export function GanttChart(props) {
+// React v20+ notice: forwardRef will be removed
+// https://react.dev/blog/2024/12/05/react-19#ref-as-a-prop
+export const GanttChart = forwardRef(function GanttChart(props, ref) {
     if (props.highcharts) {
         setHighcharts(props.highcharts);
     }
-    const chartConfig = Object.assign(Object.assign({
+    const chartConfig = Highcharts.merge(Object.assign({
         title: { text: props.title || undefined },
     }, props.options || {}), Object.assign({ series: props.children
             ? toArr(props.children)
                 .filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; })
                 .map((c) => {
                 var _a, _b, _c;
-                return Object.assign({
+                return Highcharts.merge({
                     type: (_a = c.props.type) !== null && _a !== void 0 ? _a : (_c = (_b = c.type) === null || _b === void 0 ? void 0 : _b._HCReact) === null || _c === void 0 ? void 0 : _c.HC_Option.replace("series.", ""),
                     data: c.props.data || [],
                 }, Object.assign(Object.assign({}, (c.props.options || {})), getChildProps(c.props.children, renderToStaticMarkup)));
@@ -199,7 +206,7 @@ export function GanttChart(props) {
             : [] }, getChildProps(props.children, renderToStaticMarkup)), props.options || {});
     const containerRef = useRef();
     const chartRef = useRef();
-    useImperativeHandle(props.ref, () => ({
+    useImperativeHandle(ref, () => ({
         get chart() {
             return chartRef.current;
         },
@@ -223,9 +230,9 @@ export function GanttChart(props) {
                 if (c.props) {
                     const _b = c.props, { children, type, options } = _b, otherProps = __rest(_b, ["children", "type", "options"]);
                     if (options) {
-                        Object.assign(chartConfig.series[i], options);
+                        chartConfig.series[i] = Highcharts.merge(chartConfig.series[i], options);
                     }
-                    chartConfig.series[i] = Object.assign(Object.assign(Object.assign(Object.assign({}, chartConfig.series[i]), { type: type !== null && type !== void 0 ? type : (_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a._HCReact.HC_Option.replace("series.", "") }), getChildProps(c.props.children)), otherProps);
+                    chartConfig.series[i] = Highcharts.merge(chartConfig.series[i], Object.assign(Object.assign({ type: type !== null && type !== void 0 ? type : (_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a._HCReact.HC_Option.replace("series.", "") }, getChildProps(c.props.children)), otherProps));
                 }
             });
         }
@@ -242,11 +249,11 @@ export function GanttChart(props) {
             Logger.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
             appendProps(chartConfig);
             appendSeries(); // chartConfig
-            chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true);
+            chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderToStaticMarkup)), true, true);
         }
     });
     return React.createElement("div", Object.assign({}, props.containerProps, { ref: containerRef }));
-}
+});
 export function GanttSeries(props) {
     return null;
 }

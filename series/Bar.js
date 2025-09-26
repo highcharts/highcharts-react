@@ -6,15 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts } from "../Highcharts.js";
-if (typeof getHighcharts().__provided === "undefined") {
-}
+import { Chart } from "../Highcharts.js";
 /**
  * Bar series
  */
@@ -29,7 +27,6 @@ const Bar = (props) => {
 export function BarSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
 BarSeries.type = "Series";
 Bar.Series = BarSeries;
 BarSeries._HCReact = {

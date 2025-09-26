@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React, { useState,
@@ -15,6 +15,7 @@ import React, { useState,
 import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
 import SeriesMod from "highcharts/esm/modules/dependency-wheel.src.js";
 if (typeof getHighcharts().__provided === "undefined") {
+    // Initialize series module
     if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
         SeriesMod(getHighcharts());
     }
@@ -23,9 +24,9 @@ if (typeof getHighcharts().__provided === "undefined") {
     }
 }
 /**
- * Dependencywheel series
+ * DependencyWheel series
  */
-const Dependencywheel = (props) => {
+const DependencyWheel = (props) => {
     const [chartConfig] = useState(Object.assign({
         chart: {
             type: "dependencywheel",
@@ -33,17 +34,16 @@ const Dependencywheel = (props) => {
     }, props.options || {}));
     return (React.createElement(Chart, { title: props.title, chartConstructor: "chart", options: chartConfig }, props.children));
 };
-export function DependencywheelSeries(_props) {
+export function DependencyWheelSeries(_props) {
     return null;
 }
-// TODO: replace uses of this with _HCReact.type
-DependencywheelSeries.type = "Series";
-Dependencywheel.Series = DependencywheelSeries;
-DependencywheelSeries._HCReact = {
+DependencyWheelSeries.type = "Series";
+DependencyWheel.Series = DependencyWheelSeries;
+DependencyWheelSeries._HCReact = {
     type: "Series",
     HC_Option: "series.dependencywheel",
     childOption: "series.dependencywheel",
 };
-Dependencywheel.type = "SeriesChart";
-export default Dependencywheel;
-//# sourceMappingURL=Dependencywheel.js.map
+DependencyWheel.type = "SeriesChart";
+export default DependencyWheel;
+//# sourceMappingURL=DependencyWheel.js.map

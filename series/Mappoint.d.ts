@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesMappointOptions } from "highcharts/highcharts";
+import type { SeriesMapPointOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Mappoint series
+ * MapPoint series
  */
-declare const Mappoint: {
+declare const MapPoint: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof MappointSeries;
+    Series: typeof MapPointSeries;
     type: string;
 };
-interface MappointSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesMappointOptions>;
+interface MapPointSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesMapPointOptions>;
     children?: React.ReactNode;
 }
-export declare function MappointSeries(_props: MappointSeriesProps): any;
-export declare namespace MappointSeries {
+export declare function MapPointSeries(_props: MapPointSeriesProps): any;
+export declare namespace MapPointSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace MappointSeries {
         childOption: string;
     };
 }
-export default Mappoint;
+export default MapPoint;

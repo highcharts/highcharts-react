@@ -6,26 +6,26 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-07-17
+ * Build stamp: 2025-09-26
  *
  */
 import React from "react";
-import type { SeriesPointandfigureOptions } from "highcharts/highcharts";
+import type { SeriesPointAndFigureOptions } from "highcharts/highcharts";
 import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
 /**
- * Pointandfigure series
+ * PointAndFigure series
  */
-declare const Pointandfigure: {
+declare const PointAndFigure: {
     (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof PointandfigureSeries;
+    Series: typeof PointAndFigureSeries;
     type: string;
 };
-interface PointandfigureSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesPointandfigureOptions>;
+interface PointAndFigureSeriesProps extends ICommonSeriesAttributes {
+    options?: WithoutType<SeriesPointAndFigureOptions>;
     children?: React.ReactNode;
 }
-export declare function PointandfigureSeries(_props: PointandfigureSeriesProps): any;
-export declare namespace PointandfigureSeries {
+export declare function PointAndFigureSeries(_props: PointAndFigureSeriesProps): any;
+export declare namespace PointAndFigureSeries {
     var type: string;
     var _HCReact: {
         type: string;
@@ -33,4 +33,4 @@ export declare namespace PointandfigureSeries {
         childOption: string;
     };
 }
-export default Pointandfigure;
+export default PointAndFigure;
