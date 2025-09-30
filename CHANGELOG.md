@@ -1,6 +1,10 @@
 # Changelog
 
-## 4.0.0-beta.6
+## v4.1.0
+* Official release
+* Removed indicators from `/series` directory
+
+## v4.0.0-beta.6
 
 * Added support for providing options as arrays. Closes [highcharts/highcharts-react#532](https://github.com/highcharts/highcharts-react/issues/532).
 * Replaced internal `ref` access with `forwardRef` to avoid React v18 warnings. Closes [highcharts/highcharts-react#529](https://github.com/highcharts/highcharts-react/issues/529).

@@ -6,6 +6,6 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-26
+ * Build stamp: 2025-09-30
  *
  */
