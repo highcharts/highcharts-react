@@ -1,61 +1,41 @@
 {
-  "name": "highcharts-react-official",
-  "version": "3.2.2",
-  "main": "./dist/highcharts-react.min.js",
-  "types": "./dist/highcharts-react.min.d.ts",
-  "license": "MIT",
+  "name": "@highcharts/react",
+  "version": "4.1.0",
+  "type": "module",
+  "description": "Official Highcharts integration for React",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/highcharts/highcharts-react"
   },
-  "keywords": [
-    "highcharts",
-    "highstock",
-    "highmaps",
-    "react"
+  "contributors": [
+    "Highsoft R&D <lab@highsoft.com>"
   ],
+  "license": "See license in LICENSE",
+  "private": true,
   "scripts": {
-    "test": "jest",
-    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ @babel/preset-env @babel/preset-react ] ]",
-    "build": "webpack --config webpack.config.js",
-    "release": "standard-version"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "./tests/setupTests.js"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "build": "npx tsc"
   },
   "peerDependencies": {
-    "highcharts": ">=6.0.0",
-    "react": ">=16.8.0"
+    "@types/react": ">=18",
+    "react": ">=18",
+    "react-dom": ">=18",
+    "highcharts": ">=12.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test && npm run build"
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-react": "^7.8.3",
-    "babel-loader": "^8.0.6",
-    "babelify": "^10.0.0",
-    "browserify": "^14.3.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.3",
-    "highcharts": ">=9.0.0",
-    "husky": "^2.4.0",
-    "jest": "^25.1.0",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-test-renderer": "^16.9.0",
-    "standard": "^10.0.2",
-    "standard-version": "^8.0.1",
-    "webpack": "^3.12.0"
-  }
+    "typescript": "*"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "highcharts",
+    "highcharts stock",
+    "higcharts maps",
+    "react",
+    "charting"
+  ]
 }

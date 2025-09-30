@@ -1,0 +1,12 @@
+/**
+ * React integration.
+ * Copyright (c) 2025, Highsoft
+ *
+ * A valid license is required for using this software.
+ * See highcharts.com/license
+ *
+ * Built for Highcharts v.xx.
+ * Build stamp: 2025-09-30
+ *
+ */
+//# sourceMappingURL=index.js.map

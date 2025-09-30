@@ -1,0 +1,1 @@
+{"version":3,"file":"Subtitle.js","sourceRoot":"","sources":["../src/options/Subtitle.tsx"],"names":[],"mappings":"AAAA;;;;;;;;;;GAUG;AAoBH,MAAM,UAAU,QAAQ,CAAC,KAAoB;IAC3C,OAAO,IAAI,CAAC;AACd,CAAC;AAED,QAAQ,CAAC,QAAQ,GAAG;IAClB,IAAI,EAAE,WAAW;IACjB,QAAQ,EAAE,UAAU;IACpB,WAAW,EAAE,MAAM;IACnB,cAAc,EAAE,SAAS;IACzB,WAAW,EAAE,KAAK;CACnB,CAAC;AAEF,eAAe,QAAQ,CAAC"}
