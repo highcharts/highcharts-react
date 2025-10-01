@@ -1,8 +1,7 @@
 # Highcharts React
 Official minimal [Highcharts](https://www.highcharts.com/) integration for React.
 
-**Note: the beta of the upcoming v4 of the Highcharts React integration is 
-now available at [`@highcharts/react@next`](https://www.npmjs.com/package/@highcharts/react/)**
+Note: v4 of the Highcharts React integration is now available at [@highcharts/react](https://www.npmjs.com/package/@highcharts/react)
 
 ## Table of Contents
 1. [Getting started](#getting-started)
