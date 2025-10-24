@@ -1,8 +1,10 @@
 # Changelog
 
 ## v4.1.0
-* Official release
+* Official release of v4!
 * Removed indicators from `/series` directory
+* We have published a [migration guide from v3](https://www.highcharts.com/docs/react/v4-migration-guide)
+* Please open issues and let us know where you would like us to take this next.
 
 ## v4.0.0-beta.6
 
