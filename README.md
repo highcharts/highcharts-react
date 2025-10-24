@@ -2,6 +2,8 @@
 
 _Official Highcharts React Integration_
 
+Note: For users migrating from v3 of Highcharts React, see the [migration guide](https://www.highcharts.com/docs/react/v4-migration-guide) for details.
+
 # Installing
 
 *NPM*
