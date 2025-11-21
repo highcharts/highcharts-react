@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { forwardRef, useEffect, useRef, useImperativeHandle,
 // @ts-ignore
  } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import renderToStaticMarkup from "./renderToStaticMarkup.js";
 import HC from "highcharts/esm/highstock.src.js";
 // Add data-hc-option to allowed attributes
 if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
