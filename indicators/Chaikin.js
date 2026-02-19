@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React, { useState,
@@ -41,7 +41,7 @@ ChaikinSeries.type = "Series";
 Chaikin.Series = ChaikinSeries;
 ChaikinSeries._HCReact = {
     type: "Series",
-    HC_Option: "series.chaikin",
+    HCOption: "series.chaikin",
     childOption: "series.chaikin",
 };
 Chaikin.type = "SeriesChart";

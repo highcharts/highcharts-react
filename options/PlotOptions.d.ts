@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 export type PlotOptionsProps = {
@@ -81,6 +81,7 @@ export type PlotOptionsProps = {
             format?: string;
             formatter?: Highcharts.DataLabelsFormatterCallbackFunction;
             inside?: boolean;
+            labelrank?: number;
             nullFormat?: boolean | string;
             nullFormatter?: Highcharts.DataLabelsFormatterCallbackFunction;
             overflow?: Highcharts.DataLabelsOverflowValue;
@@ -166,7 +167,6 @@ export type PlotOptionsProps = {
             onArea?: boolean | null;
             style?: {
                 fontSize?: number | string;
-                fontWeight?: string;
             };
             useHTML?: boolean;
         };
@@ -272,7 +272,7 @@ export type PlotOptionsProps = {
         sonification?: {
             enabled?: boolean;
         };
-        stacking?: "normal" | "overlap" | "percent" | "stream";
+        stacking?: "normal" | "overlap" | "percent" | "stream" | "null";
         states?: {
             hover?: {
                 animation?: {

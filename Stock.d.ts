@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
@@ -31,12 +31,17 @@ export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;
 };
 export type HighchartsOptionsType = HC.Options;
-export type WithoutType<T> = Omit<T, "type">;
-export interface ICommonSeriesAttributes {
-    type?: HC.SeriesOptionsType["type"];
-    data?: number[] | Object;
-    options?: WithoutType<HC.SeriesOptionsType>;
-}
+export type SeriesProps = {
+    [K in HC.SeriesOptionsType["type"]]: {
+        type?: K;
+        data?: number[] | Object;
+        id?: string;
+        className?: string;
+        options?: Omit<Extract<HC.SeriesOptionsType, {
+            type: K;
+        }>, "type">;
+    };
+}[HC.SeriesOptionsType["type"]];
 export interface HighchartsReactRefObject {
     chart: Highcharts.Chart;
     container: HTMLDivElement;
@@ -50,16 +55,15 @@ export interface ICommonAttributes {
     options?: HighchartsOptionsType;
     /** Constructor to use */
     chartConstructor?: "chart" | "stockChart" | "ganttChart" | "mapChart";
+    /** Converts React elements to static HTML strings. Uses built-in renderer if not provided. */
+    renderToHTML?: (element: unknown) => string;
     /** Children */
     children?: React.ReactNode;
     /** Links to Highcharts.Options.title.text */
     title?: string;
 }
 export declare const StockChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
-export interface StockSeriesProps extends ICommonSeriesAttributes {
-    type: HC.SeriesOptionsType["type"];
-}
-export declare function StockSeries(props: StockSeriesProps): any;
+export declare function StockSeries(props: SeriesProps): any;
 export declare namespace StockSeries {
     var type: string;
 }

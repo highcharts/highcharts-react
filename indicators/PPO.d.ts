@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesPPOOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * PPO series
  */
@@ -20,16 +20,19 @@ declare const PPO: {
     Series: typeof PPOSeries;
     type: string;
 };
-interface PPOSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesPPOOptions>;
-    children?: React.ReactNode;
+export interface PPOSeriesProps {
+    type?: "ppo";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesPPOOptions, "type">;
 }
 export declare function PPOSeries(_props: PPOSeriesProps): any;
 export declare namespace PPOSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

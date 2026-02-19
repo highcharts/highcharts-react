@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React, { useState,
@@ -41,7 +41,7 @@ PivotPointsSeries.type = "Series";
 PivotPoints.Series = PivotPointsSeries;
 PivotPointsSeries._HCReact = {
     type: "Series",
-    HC_Option: "series.pivotpoints",
+    HCOption: "series.pivotpoints",
     childOption: "series.pivotpoints",
 };
 PivotPoints.type = "SeriesChart";

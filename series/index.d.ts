@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 export { default as Area } from "./Area.js";
@@ -18,3 +18,4 @@ export { default as Line } from "./Line.js";
 export { default as Pie } from "./Pie.js";
 export { default as Scatter } from "./Scatter.js";
 export { default as Spline } from "./Spline.js";
+export { default as Stack } from "./Stack.js";

@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesLinearRegressionOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * LinearRegression series
  */
@@ -20,16 +20,19 @@ declare const LinearRegression: {
     Series: typeof LinearRegressionSeries;
     type: string;
 };
-interface LinearRegressionSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesLinearRegressionOptions>;
-    children?: React.ReactNode;
+export interface LinearRegressionSeriesProps {
+    type?: "linearregression";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesLinearRegressionOptions, "type">;
 }
 export declare function LinearRegressionSeries(_props: LinearRegressionSeriesProps): any;
 export declare namespace LinearRegressionSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

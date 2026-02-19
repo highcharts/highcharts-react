@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesHistogramOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * Histogram series
  */
@@ -20,16 +20,19 @@ declare const Histogram: {
     Series: typeof HistogramSeries;
     type: string;
 };
-interface HistogramSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesHistogramOptions>;
-    children?: React.ReactNode;
+export interface HistogramSeriesProps {
+    type?: "histogram";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesHistogramOptions, "type">;
 }
 export declare function HistogramSeries(_props: HistogramSeriesProps): any;
 export declare namespace HistogramSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

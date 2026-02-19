@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesAreaSplineOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * AreaSpline series
  */
@@ -20,16 +20,19 @@ declare const AreaSpline: {
     Series: typeof AreaSplineSeries;
     type: string;
 };
-interface AreaSplineSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesAreaSplineOptions>;
-    children?: React.ReactNode;
+export interface AreaSplineSeriesProps {
+    type?: "areaspline";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesAreaSplineOptions, "type">;
 }
 export declare function AreaSplineSeries(_props: AreaSplineSeriesProps): any;
 export declare namespace AreaSplineSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }
