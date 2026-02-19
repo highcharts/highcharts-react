@@ -1,5 +1,8 @@
 # Changelog
 
+## v4.2.1
+* Fixed README.md elements alignment.
+
 ## v4.2.0
 * Added documentation for all [React components](https://www.highcharts.com/docs/react/components/chart) available in the integration.
 * Improved chart updates by reducing unnecessary re-renders.

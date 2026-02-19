@@ -1,15 +1,16 @@
 # Highcharts React
 
 <div align='center'>
-_Official Highcharts for React_
+
+<i>Official Highcharts for React</i>
 
 <img src="https://assets.highcharts.com/images/highcharts-logo.svg" />
 
-Highcharts for React makes integrating Highcharts data visualizations into your React projects intuitive and aligned with your React workflow, built from the ground up with an API refined for React patterns.
+<p>Highcharts for React makes integrating Highcharts data visualizations into your React projects intuitive and aligned with your React workflow, built from the ground up with an API refined for React patterns.</p>
 
-![NPM Version](https://img.shields.io/npm/v/%40highcharts%2Freact?style=flat&logoColor=white&label=npm&labelColor=2a2a2a&color=e53e3e)
-![NPM Downloads](https://img.shields.io/npm/dm/%40highcharts%2Freact?style=flat&logoColor=white&label=downloads&labelColor=2a2a2a&color=10b981)
-![Discord](https://img.shields.io/discord/1318933807059042305?style=flat&logoColor=white&label=discord&labelColor=2a2a2a&color=5865F2)
+<img src="https://img.shields.io/npm/v/%40highcharts%2Freact?style=flat&logoColor=white&label=npm&labelColor=2a2a2a&color=e53e3e" alt="NPM Version" />
+<img src="https://img.shields.io/npm/dm/%40highcharts%2Freact?style=flat&logoColor=white&label=downloads&labelColor=2a2a2a&color=10b981" alt="NPM Downloads" />
+<img src="https://img.shields.io/discord/1318933807059042305?style=flat&logoColor=white&label=discord&labelColor=2a2a2a&color=5865F2" alt="Discord" />
 
 <img src="https://assets.highcharts.com/images/highcharts-charts.gif" />
 
