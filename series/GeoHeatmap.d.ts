@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesGeoHeatmapOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * GeoHeatmap series
  */
@@ -20,16 +20,19 @@ declare const GeoHeatmap: {
     Series: typeof GeoHeatmapSeries;
     type: string;
 };
-interface GeoHeatmapSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesGeoHeatmapOptions>;
-    children?: React.ReactNode;
+export interface GeoHeatmapSeriesProps {
+    type?: "geoheatmap";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesGeoHeatmapOptions, "type">;
 }
 export declare function GeoHeatmapSeries(_props: GeoHeatmapSeriesProps): any;
 export declare namespace GeoHeatmapSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

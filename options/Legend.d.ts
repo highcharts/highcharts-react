@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 export type LegendProps = {
@@ -75,6 +75,7 @@ export type LegendProps = {
     layout?: string;
     margin?: number;
     maxHeight?: number;
+    maxWidth?: number | string;
     navigation?: {
         activeColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
         animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;

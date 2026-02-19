@@ -1,5 +1,16 @@
 # Changelog
 
+## v4.2.0
+* Added documentation for all [React components](https://www.highcharts.com/docs/react/components/chart) available in the integration.
+* Improved chart updates by reducing unnecessary re-renders.
+* Removed ts declaration for series children prop.
+* Prevented rendering errors in server-side environments.
+* Improved our [migration guide from v3](https://www.highcharts.com/docs/react/v4-migration-guide).
+* Disabled data mutation by default (controlled by [allowMutatingData](https://api.highcharts.com/highcharts/chart.allowMutatingData) set to `false`).
+* Implemented a `Drilldown` component. Closes [highcharts/highcharts-react#546](https://github.com/highcharts/highcharts-react/issues/546).
+* Narrowed generic `Series` component `options` prop to its corresponding type. Closes [highcharts/highcharts-react#541](https://github.com/highcharts/highcharts-react/issues/541).
+* Replaced `renderToStaticMarkup` with a custom `renderToHTML` function. Closes [highcharts/highcharts-react#544](https://github.com/highcharts/highcharts-react/issues/544).
+
 ## v4.1.0
 * Official release of v4!
 * Removed indicators from `/series` directory

@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesTimelineOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * Timeline series
  */
@@ -20,16 +20,19 @@ declare const Timeline: {
     Series: typeof TimelineSeries;
     type: string;
 };
-interface TimelineSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesTimelineOptions>;
-    children?: React.ReactNode;
+export interface TimelineSeriesProps {
+    type?: "timeline";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesTimelineOptions, "type">;
 }
 export declare function TimelineSeries(_props: TimelineSeriesProps): any;
 export declare namespace TimelineSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

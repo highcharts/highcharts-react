@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 export type TooltipProps = {
@@ -20,16 +20,7 @@ export type TooltipProps = {
     changeDecimals?: number;
     className?: string;
     clusterFormat?: string;
-    dateTimeLabelFormats?: {
-        day?: string;
-        hour?: string;
-        millisecond?: string;
-        minute?: string;
-        month?: string;
-        second?: string;
-        week?: string;
-        year?: string;
-    };
+    dateTimeLabelFormats?: Highcharts.Dictionary<string | Highcharts.DateTimeFormatOptions>;
     distance?: number;
     enabled?: boolean;
     fixed?: boolean;
@@ -56,8 +47,6 @@ export type TooltipProps = {
     split?: boolean;
     stickOnContact?: boolean;
     style?: {
-        color?: string;
-        cursor?: string;
         fontSize?: number | string;
     };
     useHTML?: boolean;

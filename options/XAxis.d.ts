@@ -1,12 +1,12 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 export type XAxisProps = {
@@ -130,10 +130,7 @@ export type XAxisProps = {
         staggerLines?: number;
         step?: number;
         style?: {
-            color?: string;
-            cursor?: string;
             fontSize?: number | string;
-            textOverflow?: string;
         };
         useHTML?: boolean;
         x?: number;
@@ -163,7 +160,7 @@ export type XAxisProps = {
     minorTicks?: boolean;
     minorTicksPerMajor?: number;
     offset?: number;
-    opposite?: Boolean;
+    opposite?: boolean;
     ordinal?: boolean;
     overscroll?: number | string;
     pane?: number;
@@ -259,7 +256,6 @@ export type XAxisProps = {
         rotation?: number;
         skew3d?: boolean | null;
         style?: {
-            color?: string;
             fontSize?: number | string;
         };
         text?: string | null;

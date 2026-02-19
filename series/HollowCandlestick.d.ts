@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesHollowCandlestickOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * HollowCandlestick series
  */
@@ -20,16 +20,19 @@ declare const HollowCandlestick: {
     Series: typeof HollowCandlestickSeries;
     type: string;
 };
-interface HollowCandlestickSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesHollowCandlestickOptions>;
-    children?: React.ReactNode;
+export interface HollowCandlestickSeriesProps {
+    type?: "hollowcandlestick";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesHollowCandlestickOptions, "type">;
 }
 export declare function HollowCandlestickSeries(_props: HollowCandlestickSeriesProps): any;
 export declare namespace HollowCandlestickSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesFunnelOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * Funnel series
  */
@@ -20,16 +20,19 @@ declare const Funnel: {
     Series: typeof FunnelSeries;
     type: string;
 };
-interface FunnelSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesFunnelOptions>;
-    children?: React.ReactNode;
+export interface FunnelSeriesProps {
+    type?: "funnel";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesFunnelOptions, "type">;
 }
 export declare function FunnelSeries(_props: FunnelSeriesProps): any;
 export declare namespace FunnelSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

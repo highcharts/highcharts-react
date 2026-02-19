@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesVWAPOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * VWAP series
  */
@@ -20,16 +20,19 @@ declare const VWAP: {
     Series: typeof VWAPSeries;
     type: string;
 };
-interface VWAPSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesVWAPOptions>;
-    children?: React.ReactNode;
+export interface VWAPSeriesProps {
+    type?: "vwap";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesVWAPOptions, "type">;
 }
 export declare function VWAPSeries(_props: VWAPSeriesProps): any;
 export declare namespace VWAPSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }

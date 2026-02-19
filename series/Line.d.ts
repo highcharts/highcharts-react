@@ -1,17 +1,17 @@
 /**
  * React integration.
- * Copyright (c) 2025, Highsoft
+ * Copyright (c) 2026, Highsoft
  *
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2025-09-30
+ * Build stamp: 2026-02-19
  *
  */
 import React from "react";
 import type { SeriesLineOptions } from "highcharts/highcharts";
-import type { ICommonAttributes, ICommonSeriesAttributes, WithoutType } from "../Highcharts";
+import type { ICommonAttributes } from "../Highcharts";
 /**
  * Line series
  */
@@ -20,16 +20,19 @@ declare const Line: {
     Series: typeof LineSeries;
     type: string;
 };
-interface LineSeriesProps extends ICommonSeriesAttributes {
-    options?: WithoutType<SeriesLineOptions>;
-    children?: React.ReactNode;
+export interface LineSeriesProps {
+    type?: "line";
+    data?: number[] | Object;
+    id?: string;
+    className?: string;
+    options?: Omit<SeriesLineOptions, "type">;
 }
 export declare function LineSeries(_props: LineSeriesProps): any;
 export declare namespace LineSeries {
     var type: string;
     var _HCReact: {
         type: string;
-        HC_Option: string;
+        HCOption: string;
         childOption: string;
     };
 }
