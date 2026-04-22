@@ -15,6 +15,7 @@ assignees: ''
 
 #### Live demo with steps to reproduce
 
+<!-- https://stackblitz.com/edit/hc-react-issue-template -->
 
 #### Product version
 <!-- Highcharts Core, Stock, Maps, Gantt, or Dashboards, plus version number -->
