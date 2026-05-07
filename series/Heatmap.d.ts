@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Heatmap: {
     Series: typeof HeatmapSeries;
     type: string;
 };
+type SeriesHeatmapConfig = Omit<SeriesHeatmapOptions, "type">;
 export interface HeatmapSeriesProps {
-    type?: "heatmap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesHeatmapOptions, "type">;
+    id?: SeriesHeatmapConfig["id"];
+    index?: SeriesHeatmapConfig["index"];
+    name?: SeriesHeatmapConfig["name"];
+    className?: SeriesHeatmapConfig["className"];
+    color?: SeriesHeatmapConfig["color"];
+    events?: SeriesHeatmapConfig["events"];
+    data?: SeriesHeatmapConfig["data"];
+    options?: SeriesHeatmapConfig;
 }
 export declare function HeatmapSeries(_props: HeatmapSeriesProps): any;
 export declare namespace HeatmapSeries {

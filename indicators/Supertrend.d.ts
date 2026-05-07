@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesSupertrendOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Supertrend series
  */
@@ -20,12 +21,15 @@ declare const Supertrend: {
     Series: typeof SupertrendSeries;
     type: string;
 };
+type SeriesSupertrendConfig = Omit<SeriesSupertrendOptions, "type">;
 export interface SupertrendSeriesProps {
-    type?: "supertrend";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSupertrendOptions, "type">;
+    id?: SeriesSupertrendConfig["id"];
+    index?: SeriesSupertrendConfig["index"];
+    name?: SeriesSupertrendConfig["name"];
+    className?: SeriesSupertrendConfig["className"];
+    color?: SeriesSupertrendConfig["color"];
+    events?: SeriesSupertrendConfig["events"];
+    options?: SeriesSupertrendConfig;
 }
 export declare function SupertrendSeries(_props: SupertrendSeriesProps): any;
 export declare namespace SupertrendSeries {

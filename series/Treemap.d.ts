@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesTreemapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Treemap series
  */
@@ -20,12 +21,16 @@ declare const Treemap: {
     Series: typeof TreemapSeries;
     type: string;
 };
+type SeriesTreemapConfig = Omit<SeriesTreemapOptions, "type">;
 export interface TreemapSeriesProps {
-    type?: "treemap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTreemapOptions, "type">;
+    id?: SeriesTreemapConfig["id"];
+    index?: SeriesTreemapConfig["index"];
+    name?: SeriesTreemapConfig["name"];
+    className?: SeriesTreemapConfig["className"];
+    color?: SeriesTreemapConfig["color"];
+    events?: SeriesTreemapConfig["events"];
+    data?: SeriesTreemapConfig["data"];
+    options?: SeriesTreemapConfig;
 }
 export declare function TreemapSeries(_props: TreemapSeriesProps): any;
 export declare namespace TreemapSeries {

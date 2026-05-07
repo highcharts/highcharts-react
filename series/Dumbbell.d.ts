@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesDumbbellOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Dumbbell series
  */
@@ -20,12 +21,16 @@ declare const Dumbbell: {
     Series: typeof DumbbellSeries;
     type: string;
 };
+type SeriesDumbbellConfig = Omit<SeriesDumbbellOptions, "type">;
 export interface DumbbellSeriesProps {
-    type?: "dumbbell";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesDumbbellOptions, "type">;
+    id?: SeriesDumbbellConfig["id"];
+    index?: SeriesDumbbellConfig["index"];
+    name?: SeriesDumbbellConfig["name"];
+    className?: SeriesDumbbellConfig["className"];
+    color?: SeriesDumbbellConfig["color"];
+    events?: SeriesDumbbellConfig["events"];
+    data?: SeriesDumbbellConfig["data"];
+    options?: SeriesDumbbellConfig;
 }
 export declare function DumbbellSeries(_props: DumbbellSeriesProps): any;
 export declare namespace DumbbellSeries {

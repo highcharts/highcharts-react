@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesLollipopOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Lollipop series
  */
@@ -20,12 +21,16 @@ declare const Lollipop: {
     Series: typeof LollipopSeries;
     type: string;
 };
+type SeriesLollipopConfig = Omit<SeriesLollipopOptions, "type">;
 export interface LollipopSeriesProps {
-    type?: "lollipop";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesLollipopOptions, "type">;
+    id?: SeriesLollipopConfig["id"];
+    index?: SeriesLollipopConfig["index"];
+    name?: SeriesLollipopConfig["name"];
+    className?: SeriesLollipopConfig["className"];
+    color?: SeriesLollipopConfig["color"];
+    events?: SeriesLollipopConfig["events"];
+    data?: SeriesLollipopConfig["data"];
+    options?: SeriesLollipopConfig;
 }
 export declare function LollipopSeries(_props: LollipopSeriesProps): any;
 export declare namespace LollipopSeries {

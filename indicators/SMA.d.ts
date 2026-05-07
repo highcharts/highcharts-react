@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesSMAOptions } from "highcharts/highcharts";
+import type { SeriesSmaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * SMA series
  */
@@ -20,12 +21,15 @@ declare const SMA: {
     Series: typeof SMASeries;
     type: string;
 };
+type SeriesSmaConfig = Omit<SeriesSmaOptions, "type">;
 export interface SMASeriesProps {
-    type?: "sma";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSMAOptions, "type">;
+    id?: SeriesSmaConfig["id"];
+    index?: SeriesSmaConfig["index"];
+    name?: SeriesSmaConfig["name"];
+    className?: SeriesSmaConfig["className"];
+    color?: SeriesSmaConfig["color"];
+    events?: SeriesSmaConfig["events"];
+    options?: SeriesSmaConfig;
 }
 export declare function SMASeries(_props: SMASeriesProps): any;
 export declare namespace SMASeries {

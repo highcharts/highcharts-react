@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesCylinderOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Cylinder series
  */
@@ -20,12 +21,16 @@ declare const Cylinder: {
     Series: typeof CylinderSeries;
     type: string;
 };
+type SeriesCylinderConfig = Omit<SeriesCylinderOptions, "type">;
 export interface CylinderSeriesProps {
-    type?: "cylinder";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesCylinderOptions, "type">;
+    id?: SeriesCylinderConfig["id"];
+    index?: SeriesCylinderConfig["index"];
+    name?: SeriesCylinderConfig["name"];
+    className?: SeriesCylinderConfig["className"];
+    color?: SeriesCylinderConfig["color"];
+    events?: SeriesCylinderConfig["events"];
+    data?: SeriesCylinderConfig["data"];
+    options?: SeriesCylinderConfig;
 }
 export declare function CylinderSeries(_props: CylinderSeriesProps): any;
 export declare namespace CylinderSeries {

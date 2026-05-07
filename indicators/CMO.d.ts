@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesCMOOptions } from "highcharts/highcharts";
+import type { SeriesCmoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * CMO series
  */
@@ -20,12 +21,15 @@ declare const CMO: {
     Series: typeof CMOSeries;
     type: string;
 };
+type SeriesCmoConfig = Omit<SeriesCmoOptions, "type">;
 export interface CMOSeriesProps {
-    type?: "cmo";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesCMOOptions, "type">;
+    id?: SeriesCmoConfig["id"];
+    index?: SeriesCmoConfig["index"];
+    name?: SeriesCmoConfig["name"];
+    className?: SeriesCmoConfig["className"];
+    color?: SeriesCmoConfig["color"];
+    events?: SeriesCmoConfig["events"];
+    options?: SeriesCmoConfig;
 }
 export declare function CMOSeries(_props: CMOSeriesProps): any;
 export declare namespace CMOSeries {

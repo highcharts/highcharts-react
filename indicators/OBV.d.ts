@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesOBVOptions } from "highcharts/highcharts";
+import type { SeriesObvOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * OBV series
  */
@@ -20,12 +21,15 @@ declare const OBV: {
     Series: typeof OBVSeries;
     type: string;
 };
+type SeriesObvConfig = Omit<SeriesObvOptions, "type">;
 export interface OBVSeriesProps {
-    type?: "obv";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesOBVOptions, "type">;
+    id?: SeriesObvConfig["id"];
+    index?: SeriesObvConfig["index"];
+    name?: SeriesObvConfig["name"];
+    className?: SeriesObvConfig["className"];
+    color?: SeriesObvConfig["color"];
+    events?: SeriesObvConfig["events"];
+    options?: SeriesObvConfig;
 }
 export declare function OBVSeries(_props: OBVSeriesProps): any;
 export declare namespace OBVSeries {

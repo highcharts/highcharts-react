@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export { default as Title } from "./Title.js";
@@ -17,4 +17,3 @@ export { default as Legend } from "./Legend.js";
 export { default as XAxis } from "./XAxis.js";
 export { default as YAxis } from "./YAxis.js";
 export { default as PlotOptions } from "./PlotOptions.js";
-//# sourceMappingURL=index.js.map

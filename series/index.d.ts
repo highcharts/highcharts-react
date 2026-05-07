@@ -6,13 +6,14 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export { default as Area } from "./Area.js";
 export { default as AreaSpline } from "./AreaSpline.js";
 export { default as Bar } from "./Bar.js";
 export { default as Column } from "./Column.js";
+export { default as Contour } from "./Contour.js";
 export { default as Heatmap } from "./Heatmap.js";
 export { default as Line } from "./Line.js";
 export { default as Pie } from "./Pie.js";

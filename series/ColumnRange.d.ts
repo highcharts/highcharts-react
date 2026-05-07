@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesColumnRangeOptions } from "highcharts/highcharts";
+import type { SeriesColumnrangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ColumnRange series
  */
@@ -20,12 +21,16 @@ declare const ColumnRange: {
     Series: typeof ColumnRangeSeries;
     type: string;
 };
+type SeriesColumnrangeConfig = Omit<SeriesColumnrangeOptions, "type">;
 export interface ColumnRangeSeriesProps {
-    type?: "columnrange";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesColumnRangeOptions, "type">;
+    id?: SeriesColumnrangeConfig["id"];
+    index?: SeriesColumnrangeConfig["index"];
+    name?: SeriesColumnrangeConfig["name"];
+    className?: SeriesColumnrangeConfig["className"];
+    color?: SeriesColumnrangeConfig["color"];
+    events?: SeriesColumnrangeConfig["events"];
+    data?: SeriesColumnrangeConfig["data"];
+    options?: SeriesColumnrangeConfig;
 }
 export declare function ColumnRangeSeries(_props: ColumnRangeSeriesProps): any;
 export declare namespace ColumnRangeSeries {

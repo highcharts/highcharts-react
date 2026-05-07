@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesFlowMapOptions } from "highcharts/highcharts";
+import type { SeriesFlowmapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * FlowMap series
  */
@@ -20,12 +21,16 @@ declare const FlowMap: {
     Series: typeof FlowMapSeries;
     type: string;
 };
+type SeriesFlowmapConfig = Omit<SeriesFlowmapOptions, "type">;
 export interface FlowMapSeriesProps {
-    type?: "flowmap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesFlowMapOptions, "type">;
+    id?: SeriesFlowmapConfig["id"];
+    index?: SeriesFlowmapConfig["index"];
+    name?: SeriesFlowmapConfig["name"];
+    className?: SeriesFlowmapConfig["className"];
+    color?: SeriesFlowmapConfig["color"];
+    events?: SeriesFlowmapConfig["events"];
+    data?: SeriesFlowmapConfig["data"];
+    options?: SeriesFlowmapConfig;
 }
 export declare function FlowMapSeries(_props: FlowMapSeriesProps): any;
 export declare namespace FlowMapSeries {

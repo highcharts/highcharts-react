@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesTimelineOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Timeline series
  */
@@ -20,12 +21,16 @@ declare const Timeline: {
     Series: typeof TimelineSeries;
     type: string;
 };
+type SeriesTimelineConfig = Omit<SeriesTimelineOptions, "type">;
 export interface TimelineSeriesProps {
-    type?: "timeline";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTimelineOptions, "type">;
+    id?: SeriesTimelineConfig["id"];
+    index?: SeriesTimelineConfig["index"];
+    name?: SeriesTimelineConfig["name"];
+    className?: SeriesTimelineConfig["className"];
+    color?: SeriesTimelineConfig["color"];
+    events?: SeriesTimelineConfig["events"];
+    data?: SeriesTimelineConfig["data"];
+    options?: SeriesTimelineConfig;
 }
 export declare function TimelineSeries(_props: TimelineSeriesProps): any;
 export declare namespace TimelineSeries {

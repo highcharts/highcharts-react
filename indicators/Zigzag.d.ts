@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesZigzagOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Zigzag series
  */
@@ -20,12 +21,15 @@ declare const Zigzag: {
     Series: typeof ZigzagSeries;
     type: string;
 };
+type SeriesZigzagConfig = Omit<SeriesZigzagOptions, "type">;
 export interface ZigzagSeriesProps {
-    type?: "zigzag";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesZigzagOptions, "type">;
+    id?: SeriesZigzagConfig["id"];
+    index?: SeriesZigzagConfig["index"];
+    name?: SeriesZigzagConfig["name"];
+    className?: SeriesZigzagConfig["className"];
+    color?: SeriesZigzagConfig["color"];
+    events?: SeriesZigzagConfig["events"];
+    options?: SeriesZigzagConfig;
 }
 export declare function ZigzagSeries(_props: ZigzagSeriesProps): any;
 export declare namespace ZigzagSeries {

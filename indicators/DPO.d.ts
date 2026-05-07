@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesDPOOptions } from "highcharts/highcharts";
+import type { SeriesDpoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * DPO series
  */
@@ -20,12 +21,15 @@ declare const DPO: {
     Series: typeof DPOSeries;
     type: string;
 };
+type SeriesDpoConfig = Omit<SeriesDpoOptions, "type">;
 export interface DPOSeriesProps {
-    type?: "dpo";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesDPOOptions, "type">;
+    id?: SeriesDpoConfig["id"];
+    index?: SeriesDpoConfig["index"];
+    name?: SeriesDpoConfig["name"];
+    className?: SeriesDpoConfig["className"];
+    color?: SeriesDpoConfig["color"];
+    events?: SeriesDpoConfig["events"];
+    options?: SeriesDpoConfig;
 }
 export declare function DPOSeries(_props: DPOSeriesProps): any;
 export declare namespace DPOSeries {

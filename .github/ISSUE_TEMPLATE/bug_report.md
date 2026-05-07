@@ -14,6 +14,7 @@ assignees: ''
 
 
 #### Live demo with steps to reproduce
+<!-- Please provide a link to a live demo. You can use this template: https://stackblitz.com/edit/hc-react-issue-template -->
 
 
 #### Product version

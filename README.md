@@ -38,27 +38,24 @@ Getting licensed for commercial use makes you production-ready: license, updates
 Install Highcharts from npm:
 
 ```bash
-npm install highcharts @highcharts/react
+npm install @highcharts/react
 ```
 
 Or using yarn:
 
 ```bash
-yarn add highcharts @highcharts/react
+yarn add @highcharts/react
 ```
 
-`@highcharts/react` requires `react` and `react-dom` as peer dependencies. If they are not already part of your project, you can add them:
-
-```bash
-npm install react react-dom
-```
+> **Note:** `highcharts`, `react`, and `react-dom` are included as peer dependencies and are installed automatically with npm v7+.
 
 ## Quick Start
 
 ```jsx
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Chart, Title, Series } from '@highcharts/react';
+import { Chart, Title } from '@highcharts/react';
+import { LineSeries } from '@highcharts/react/series/Line';
 import { ColumnSeries } from '@highcharts/react/series/Column';
 import { AreaSeries } from '@highcharts/react/series/Area';
 
@@ -66,18 +63,13 @@ export function Application() {
   return (
     <Chart>
       <Title>Chart with multiple series types</Title>
-      <Series
-        data={[2, 4, 3, 1, 5]}
-        options={{ name: 'Line series', color: 'red' }}
-      />
+      <LineSeries data={[2, 4, 3, 1, 5]} name="Line series" color="red" />
       <ColumnSeries
         data={[3, 5, 1, 2, 4]}
-        options={{ name: 'Column series', color: 'yellow' }}
+        name="Column series"
+        color="yellow"
       />
-      <AreaSeries
-        data={[4, 2, 1, 5, 3]}
-        options={{ name: 'Area series', color: 'blue' }}
-      />
+      <AreaSeries data={[4, 2, 1, 5, 3]} name="Area series" color="blue" />
     </Chart>
   );
 }
@@ -105,9 +97,72 @@ that container using `containerProps` (for example, to set width/height, add a
 </Chart>
 ```
 
+## TypeScript
+
+Use `ChartOptions` for the `Chart` component `options` prop.
+
+```tsx
+import { useState } from 'react';
+import { Chart, type ChartOptions } from '@highcharts/react';
+
+export function App() {
+  const [options] = useState<ChartOptions>({
+    series: [{ type: 'line', data: [1, 2, 3] }]
+  });
+
+  return <Chart options={options} />;
+}
+```
+
+This is the recommended type over importing `Options` directly from Highcharts.
+
+Use `SeriesOptions<'line'>` when you want to type an `options` object for a specific series component.
+
+```tsx
+import { useState } from 'react';
+import { Chart, type SeriesOptions } from '@highcharts/react';
+import { LineSeries } from '@highcharts/react/series/Line';
+
+export function App() {
+  const [options] = useState<SeriesOptions<'line'>>({
+    color: 'red'
+  });
+
+  return (
+    <Chart>
+      <LineSeries options={options} />
+    </Chart>
+  );
+}
+```
+
+Provide the series type as the generic parameter to match the `options` prop of the corresponding series component.
+`SeriesProps` follows the same pattern and defaults to `'line'` when no generic parameter is provided.
+
+```tsx
+import type { SeriesProps } from '@highcharts/react';
+
+const props: SeriesProps = {
+  color: 'red'
+};
+```
+
+Use `SeriesProps<'pie'>` to type props for a different series component.
+For React-specific typing guidance, see the [React TypeScript documentation](https://www.highcharts.com/docs/react/typescript).
+
+## Claude Skill
+
+Highcharts React ships with a Claude skill to help you work properly with Highcharts in React projects. To automatically add it to your `.claude/skills/` directory, run:
+
+```bash
+node node_modules/@highcharts/react/scripts/highcharts-react-skill
+```
+
+Alternatively, you can find the skill at `node_modules/@highcharts/react/.claude/skills/highcharts-react/SKILL.md`.
+
 ## Documentation
 
-For comprehensive guides and API documentation, visit the [Highcharts React documentation](https://www.highcharts.com/docs/react/getting-started).
+For comprehensive guides and API documentation, visit the [Highcharts React documentation](https://www.highcharts.com/docs/react/getting-started), including the [TypeScript guide](https://www.highcharts.com/docs/react/typescript).
 
 ## Support and feedback
 

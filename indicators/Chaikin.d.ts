@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesChaikinOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Chaikin series
  */
@@ -20,12 +21,15 @@ declare const Chaikin: {
     Series: typeof ChaikinSeries;
     type: string;
 };
+type SeriesChaikinConfig = Omit<SeriesChaikinOptions, "type">;
 export interface ChaikinSeriesProps {
-    type?: "chaikin";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesChaikinOptions, "type">;
+    id?: SeriesChaikinConfig["id"];
+    index?: SeriesChaikinConfig["index"];
+    name?: SeriesChaikinConfig["name"];
+    className?: SeriesChaikinConfig["className"];
+    color?: SeriesChaikinConfig["color"];
+    events?: SeriesChaikinConfig["events"];
+    options?: SeriesChaikinConfig;
 }
 export declare function ChaikinSeries(_props: ChaikinSeriesProps): any;
 export declare namespace ChaikinSeries {

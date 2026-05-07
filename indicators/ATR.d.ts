@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesATROptions } from "highcharts/highcharts";
+import type { SeriesAtrOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ATR series
  */
@@ -20,12 +21,15 @@ declare const ATR: {
     Series: typeof ATRSeries;
     type: string;
 };
+type SeriesAtrConfig = Omit<SeriesAtrOptions, "type">;
 export interface ATRSeriesProps {
-    type?: "atr";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesATROptions, "type">;
+    id?: SeriesAtrConfig["id"];
+    index?: SeriesAtrConfig["index"];
+    name?: SeriesAtrConfig["name"];
+    className?: SeriesAtrConfig["className"];
+    color?: SeriesAtrConfig["color"];
+    events?: SeriesAtrConfig["events"];
+    options?: SeriesAtrConfig;
 }
 export declare function ATRSeries(_props: ATRSeriesProps): any;
 export declare namespace ATRSeries {

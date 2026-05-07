@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesVWAPOptions } from "highcharts/highcharts";
+import type { SeriesVwapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * VWAP series
  */
@@ -20,12 +21,15 @@ declare const VWAP: {
     Series: typeof VWAPSeries;
     type: string;
 };
+type SeriesVwapConfig = Omit<SeriesVwapOptions, "type">;
 export interface VWAPSeriesProps {
-    type?: "vwap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesVWAPOptions, "type">;
+    id?: SeriesVwapConfig["id"];
+    index?: SeriesVwapConfig["index"];
+    name?: SeriesVwapConfig["name"];
+    className?: SeriesVwapConfig["className"];
+    color?: SeriesVwapConfig["color"];
+    events?: SeriesVwapConfig["events"];
+    options?: SeriesVwapConfig;
 }
 export declare function VWAPSeries(_props: VWAPSeriesProps): any;
 export declare namespace VWAPSeries {

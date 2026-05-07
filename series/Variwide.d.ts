@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesVariwideOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Variwide series
  */
@@ -20,12 +21,16 @@ declare const Variwide: {
     Series: typeof VariwideSeries;
     type: string;
 };
+type SeriesVariwideConfig = Omit<SeriesVariwideOptions, "type">;
 export interface VariwideSeriesProps {
-    type?: "variwide";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesVariwideOptions, "type">;
+    id?: SeriesVariwideConfig["id"];
+    index?: SeriesVariwideConfig["index"];
+    name?: SeriesVariwideConfig["name"];
+    className?: SeriesVariwideConfig["className"];
+    color?: SeriesVariwideConfig["color"];
+    events?: SeriesVariwideConfig["events"];
+    data?: SeriesVariwideConfig["data"];
+    options?: SeriesVariwideConfig;
 }
 export declare function VariwideSeries(_props: VariwideSeriesProps): any;
 export declare namespace VariwideSeries {

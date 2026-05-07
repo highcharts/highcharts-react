@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesSolidGaugeOptions } from "highcharts/highcharts";
+import type { SeriesSolidgaugeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * SolidGauge series
  */
@@ -20,12 +21,16 @@ declare const SolidGauge: {
     Series: typeof SolidGaugeSeries;
     type: string;
 };
+type SeriesSolidgaugeConfig = Omit<SeriesSolidgaugeOptions, "type">;
 export interface SolidGaugeSeriesProps {
-    type?: "solidgauge";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSolidGaugeOptions, "type">;
+    id?: SeriesSolidgaugeConfig["id"];
+    index?: SeriesSolidgaugeConfig["index"];
+    name?: SeriesSolidgaugeConfig["name"];
+    className?: SeriesSolidgaugeConfig["className"];
+    color?: SeriesSolidgaugeConfig["color"];
+    events?: SeriesSolidgaugeConfig["events"];
+    data?: SeriesSolidgaugeConfig["data"];
+    options?: SeriesSolidgaugeConfig;
 }
 export declare function SolidGaugeSeries(_props: SolidGaugeSeriesProps): any;
 export declare namespace SolidGaugeSeries {

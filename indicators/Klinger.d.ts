@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesKlingerOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Klinger series
  */
@@ -20,12 +21,15 @@ declare const Klinger: {
     Series: typeof KlingerSeries;
     type: string;
 };
+type SeriesKlingerConfig = Omit<SeriesKlingerOptions, "type">;
 export interface KlingerSeriesProps {
-    type?: "klinger";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesKlingerOptions, "type">;
+    id?: SeriesKlingerConfig["id"];
+    index?: SeriesKlingerConfig["index"];
+    name?: SeriesKlingerConfig["name"];
+    className?: SeriesKlingerConfig["className"];
+    color?: SeriesKlingerConfig["color"];
+    events?: SeriesKlingerConfig["events"];
+    options?: SeriesKlingerConfig;
 }
 export declare function KlingerSeries(_props: KlingerSeriesProps): any;
 export declare namespace KlingerSeries {

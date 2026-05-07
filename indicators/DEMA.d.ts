@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesDEMAOptions } from "highcharts/highcharts";
+import type { SeriesDemaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * DEMA series
  */
@@ -20,12 +21,15 @@ declare const DEMA: {
     Series: typeof DEMASeries;
     type: string;
 };
+type SeriesDemaConfig = Omit<SeriesDemaOptions, "type">;
 export interface DEMASeriesProps {
-    type?: "dema";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesDEMAOptions, "type">;
+    id?: SeriesDemaConfig["id"];
+    index?: SeriesDemaConfig["index"];
+    name?: SeriesDemaConfig["name"];
+    className?: SeriesDemaConfig["className"];
+    color?: SeriesDemaConfig["color"];
+    events?: SeriesDemaConfig["events"];
+    options?: SeriesDemaConfig;
 }
 export declare function DEMASeries(_props: DEMASeriesProps): any;
 export declare namespace DEMASeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesMomentumOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Momentum series
  */
@@ -20,12 +21,15 @@ declare const Momentum: {
     Series: typeof MomentumSeries;
     type: string;
 };
+type SeriesMomentumConfig = Omit<SeriesMomentumOptions, "type">;
 export interface MomentumSeriesProps {
-    type?: "momentum";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMomentumOptions, "type">;
+    id?: SeriesMomentumConfig["id"];
+    index?: SeriesMomentumConfig["index"];
+    name?: SeriesMomentumConfig["name"];
+    className?: SeriesMomentumConfig["className"];
+    color?: SeriesMomentumConfig["color"];
+    events?: SeriesMomentumConfig["events"];
+    options?: SeriesMomentumConfig;
 }
 export declare function MomentumSeries(_props: MomentumSeriesProps): any;
 export declare namespace MomentumSeries {

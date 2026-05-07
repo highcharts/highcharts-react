@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Pie: {
     Series: typeof PieSeries;
     type: string;
 };
+type SeriesPieConfig = Omit<SeriesPieOptions, "type">;
 export interface PieSeriesProps {
-    type?: "pie";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPieOptions, "type">;
+    id?: SeriesPieConfig["id"];
+    index?: SeriesPieConfig["index"];
+    name?: SeriesPieConfig["name"];
+    className?: SeriesPieConfig["className"];
+    color?: SeriesPieConfig["color"];
+    events?: SeriesPieConfig["events"];
+    data?: SeriesPieConfig["data"];
+    options?: SeriesPieConfig;
 }
 export declare function PieSeries(_props: PieSeriesProps): any;
 export declare namespace PieSeries {

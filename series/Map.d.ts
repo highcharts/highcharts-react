@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Map: {
     Series: typeof MapSeries;
     type: string;
 };
+type SeriesMapConfig = Omit<SeriesMapOptions, "type">;
 export interface MapSeriesProps {
-    type?: "map";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMapOptions, "type">;
+    id?: SeriesMapConfig["id"];
+    index?: SeriesMapConfig["index"];
+    name?: SeriesMapConfig["name"];
+    className?: SeriesMapConfig["className"];
+    color?: SeriesMapConfig["color"];
+    events?: SeriesMapConfig["events"];
+    data?: SeriesMapConfig["data"];
+    options?: SeriesMapConfig;
 }
 export declare function MapSeries(_props: MapSeriesProps): any;
 export declare namespace MapSeries {

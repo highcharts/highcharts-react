@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesRenkoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Renko series
  */
@@ -20,12 +21,16 @@ declare const Renko: {
     Series: typeof RenkoSeries;
     type: string;
 };
+type SeriesRenkoConfig = Omit<SeriesRenkoOptions, "type">;
 export interface RenkoSeriesProps {
-    type?: "renko";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesRenkoOptions, "type">;
+    id?: SeriesRenkoConfig["id"];
+    index?: SeriesRenkoConfig["index"];
+    name?: SeriesRenkoConfig["name"];
+    className?: SeriesRenkoConfig["className"];
+    color?: SeriesRenkoConfig["color"];
+    events?: SeriesRenkoConfig["events"];
+    data?: SeriesRenkoConfig["data"];
+    options?: SeriesRenkoConfig;
 }
 export declare function RenkoSeries(_props: RenkoSeriesProps): any;
 export declare namespace RenkoSeries {

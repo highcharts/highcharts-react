@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesXRangeOptions } from "highcharts/highcharts";
+import type { SeriesXrangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * XRange series
  */
@@ -20,12 +21,16 @@ declare const XRange: {
     Series: typeof XRangeSeries;
     type: string;
 };
+type SeriesXrangeConfig = Omit<SeriesXrangeOptions, "type">;
 export interface XRangeSeriesProps {
-    type?: "xrange";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesXRangeOptions, "type">;
+    id?: SeriesXrangeConfig["id"];
+    index?: SeriesXrangeConfig["index"];
+    name?: SeriesXrangeConfig["name"];
+    className?: SeriesXrangeConfig["className"];
+    color?: SeriesXrangeConfig["color"];
+    events?: SeriesXrangeConfig["events"];
+    data?: SeriesXrangeConfig["data"];
+    options?: SeriesXrangeConfig;
 }
 export declare function XRangeSeries(_props: XRangeSeriesProps): any;
 export declare namespace XRangeSeries {

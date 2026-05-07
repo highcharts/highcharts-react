@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export type XAxisProps = {
@@ -19,12 +19,12 @@ export type XAxisProps = {
     allowDecimals?: boolean | undefined;
     alternateGridColor?: Highcharts.ColorType;
     angle?: number;
-    breaks?: {
+    breaks?: Array<{
         breakSize?: number;
         from?: number | string;
         repeat?: number;
         to?: number | string;
-    };
+    }>;
     categories?: Array<string>;
     ceiling?: number;
     className?: string;
@@ -45,6 +45,7 @@ export type XAxisProps = {
             shape?: string;
             style?: Highcharts.CSSObject;
         };
+        showDelay?: number;
         snap?: boolean;
         width?: number;
         zIndex?: number;
@@ -129,9 +130,7 @@ export type XAxisProps = {
         skew3d?: boolean;
         staggerLines?: number;
         step?: number;
-        style?: {
-            fontSize?: number | string;
-        };
+        style?: Highcharts.CSSObject;
         useHTML?: boolean;
         x?: number;
         y?: number;
@@ -165,13 +164,13 @@ export type XAxisProps = {
     overscroll?: number | string;
     pane?: number;
     panningEnabled?: boolean;
-    plotBands?: {
+    plotBands?: Array<{
         acrossPanes?: boolean;
         borderColor?: Highcharts.ColorString;
         borderRadius?: number | string;
         borderWidth?: number;
         className?: string;
-        color?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        color?: Highcharts.ColorType;
         events?: {
             click?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
             mousemove?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
@@ -195,8 +194,8 @@ export type XAxisProps = {
         };
         to?: number | string;
         zIndex?: number;
-    };
-    plotLines?: {
+    }>;
+    plotLines?: Array<{
         acrossPanes?: boolean;
         className?: string;
         color?: Highcharts.ColorString;
@@ -226,7 +225,7 @@ export type XAxisProps = {
         value?: number | string;
         width?: number;
         zIndex?: number;
-    };
+    }>;
     range?: number;
     reversed?: boolean;
     reversedStacks?: boolean;
@@ -237,6 +236,7 @@ export type XAxisProps = {
     softMin?: number;
     startOfWeek?: number;
     startOnTick?: boolean;
+    staticScale?: number;
     tickAmount?: number;
     tickColor?: Highcharts.ColorType;
     tickInterval?: number;
@@ -255,9 +255,7 @@ export type XAxisProps = {
         reserveSpace?: boolean;
         rotation?: number;
         skew3d?: boolean | null;
-        style?: {
-            fontSize?: number | string;
-        };
+        style?: Highcharts.CSSObject;
         text?: string | null;
         textAlign?: Highcharts.AlignValue;
         useHTML?: boolean;
@@ -267,7 +265,7 @@ export type XAxisProps = {
     top?: number | string;
     type?: Highcharts.AxisTypeValue;
     uniqueNames?: boolean;
-    units?: Array<Array<string, Array<number> | null>>;
+    units?: Array<[string, Array<number> | null]>;
     visible?: boolean;
     width?: number | string;
     zIndex?: number;

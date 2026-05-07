@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Spline: {
     Series: typeof SplineSeries;
     type: string;
 };
+type SeriesSplineConfig = Omit<SeriesSplineOptions, "type">;
 export interface SplineSeriesProps {
-    type?: "spline";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSplineOptions, "type">;
+    id?: SeriesSplineConfig["id"];
+    index?: SeriesSplineConfig["index"];
+    name?: SeriesSplineConfig["name"];
+    className?: SeriesSplineConfig["className"];
+    color?: SeriesSplineConfig["color"];
+    events?: SeriesSplineConfig["events"];
+    data?: SeriesSplineConfig["data"];
+    options?: SeriesSplineConfig;
 }
 export declare function SplineSeries(_props: SplineSeriesProps): any;
 export declare namespace SplineSeries {

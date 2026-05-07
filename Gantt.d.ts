@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import HC from "highcharts/esm/highcharts-gantt.src.js";
+import HC from "highcharts/es-modules/masters/highcharts-gantt.src.js";
 export declare let Highcharts: typeof HC;
 type LoggerType = {
     logLevel: "silent" | "debug";
@@ -30,18 +30,25 @@ export declare function setHighcharts(newHC?: typeof HC): void;
 export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;
 };
-export type HighchartsOptionsType = HC.Options;
-export type SeriesProps = {
-    [K in HC.SeriesOptionsType["type"]]: {
-        type?: K;
-        data?: number[] | Object;
-        id?: string;
-        className?: string;
-        options?: Omit<Extract<HC.SeriesOptionsType, {
-            type: K;
-        }>, "type">;
+/** Type for the <Chart /> options prop. */
+export type ChartOptions = HC.Options;
+type SeriesType = HC.SeriesOptionsType["type"];
+export type SeriesOptions<K extends SeriesType = SeriesType> = {
+    [T in K]: Omit<Extract<HC.SeriesOptionsType, {
+        type: T;
+    }>, "type">;
+}[K];
+export type SeriesProps<K extends SeriesType = "line"> = {
+    [F in Extract<"id" | "index" | "name" | "type" | "className" | "color" | "events" | "data", keyof SeriesOptions<K>> as SeriesOptions<K>[F] extends undefined ? never : F]?: SeriesOptions<K>[F];
+} & {
+    type?: K;
+    options?: SeriesOptions<K>;
+};
+type SeriesComponentProps<K extends SeriesType = SeriesType> = {
+    [T in K]: SeriesProps<T> & {
+        type?: T;
     };
-}[HC.SeriesOptionsType["type"]];
+}[K];
 export interface HighchartsReactRefObject {
     chart: Highcharts.Chart;
     container: HTMLDivElement;
@@ -52,7 +59,7 @@ export interface ICommonAttributes {
     containerProps?: React.HTMLAttributes<HTMLDivElement>;
     highcharts?: typeof HC;
     /** Options override - applied first, other props are merged in. */
-    options?: HighchartsOptionsType;
+    options?: ChartOptions;
     /** Constructor to use */
     chartConstructor?: "chart" | "stockChart" | "ganttChart" | "mapChart";
     /** Converts React elements to static HTML strings. Uses built-in renderer if not provided. */
@@ -61,9 +68,39 @@ export interface ICommonAttributes {
     children?: React.ReactNode;
     /** Links to Highcharts.Options.title.text */
     title?: string;
+    /** Links to Highcharts.Options.subtitle.text */
+    subtitle?: string;
+    /** Links to Highcharts.Options.caption.text */
+    caption?: string;
+    /** Links to Highcharts.Options.credits.text */
+    credits?: string;
+    /** Links to Highcharts.Options.chart.type */
+    type?: string;
+    /** Links to Highcharts.Options.chart.height */
+    height?: number | string;
+    /** Links to Highcharts.Options.chart.width */
+    width?: number | string;
+    /** Links to Highcharts.Options.chart.inverted */
+    inverted?: boolean;
+    /** Links to Highcharts.Options.chart.animation */
+    animation?: boolean | object;
+    /** Links to Highcharts.Options.chart.styledMode */
+    styledMode?: boolean;
+    /** Links to Highcharts.Options.chart.backgroundColor */
+    backgroundColor?: string;
+    /** Links to Highcharts.Options.chart.borderColor */
+    borderColor?: string;
+    /** Links to Highcharts.Options.chart.borderWidth */
+    borderWidth?: number;
+    /** Links to Highcharts.Options.chart.margin */
+    margin?: number | number[];
+    /** Links to Highcharts.Options.chart.spacing */
+    spacing?: number | number[];
+    /** Links to Highcharts.Options.colors */
+    colors?: string[];
 }
 export declare const GanttChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
-export declare function GanttSeries(props: SeriesProps): any;
+export declare function GanttSeries(props: SeriesComponentProps): any;
 export declare namespace GanttSeries {
     var type: string;
 }

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesStreamgraphOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Streamgraph series
  */
@@ -20,12 +21,16 @@ declare const Streamgraph: {
     Series: typeof StreamgraphSeries;
     type: string;
 };
+type SeriesStreamgraphConfig = Omit<SeriesStreamgraphOptions, "type">;
 export interface StreamgraphSeriesProps {
-    type?: "streamgraph";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesStreamgraphOptions, "type">;
+    id?: SeriesStreamgraphConfig["id"];
+    index?: SeriesStreamgraphConfig["index"];
+    name?: SeriesStreamgraphConfig["name"];
+    className?: SeriesStreamgraphConfig["className"];
+    color?: SeriesStreamgraphConfig["color"];
+    events?: SeriesStreamgraphConfig["events"];
+    data?: SeriesStreamgraphConfig["data"];
+    options?: SeriesStreamgraphConfig;
 }
 export declare function StreamgraphSeries(_props: StreamgraphSeriesProps): any;
 export declare namespace StreamgraphSeries {

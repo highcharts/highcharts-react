@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesLinearRegressionOptions } from "highcharts/highcharts";
+import type { SeriesLinearregressionOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * LinearRegression series
  */
@@ -20,12 +21,15 @@ declare const LinearRegression: {
     Series: typeof LinearRegressionSeries;
     type: string;
 };
+type SeriesLinearregressionConfig = Omit<SeriesLinearregressionOptions, "type">;
 export interface LinearRegressionSeriesProps {
-    type?: "linearregression";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesLinearRegressionOptions, "type">;
+    id?: SeriesLinearregressionConfig["id"];
+    index?: SeriesLinearregressionConfig["index"];
+    name?: SeriesLinearregressionConfig["name"];
+    className?: SeriesLinearregressionConfig["className"];
+    color?: SeriesLinearregressionConfig["color"];
+    events?: SeriesLinearregressionConfig["events"];
+    options?: SeriesLinearregressionConfig;
 }
 export declare function LinearRegressionSeries(_props: LinearRegressionSeriesProps): any;
 export declare namespace LinearRegressionSeries {

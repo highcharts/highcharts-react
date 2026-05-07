@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesHLCOptions } from "highcharts/highcharts";
+import type { SeriesHlcOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * HLC series
@@ -20,12 +20,16 @@ declare const HLC: {
     Series: typeof HLCSeries;
     type: string;
 };
+type SeriesHlcConfig = Omit<SeriesHlcOptions, "type">;
 export interface HLCSeriesProps {
-    type?: "hlc";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesHLCOptions, "type">;
+    id?: SeriesHlcConfig["id"];
+    index?: SeriesHlcConfig["index"];
+    name?: SeriesHlcConfig["name"];
+    className?: SeriesHlcConfig["className"];
+    color?: SeriesHlcConfig["color"];
+    events?: SeriesHlcConfig["events"];
+    data?: SeriesHlcConfig["data"];
+    options?: SeriesHlcConfig;
 }
 export declare function HLCSeries(_props: HLCSeriesProps): any;
 export declare namespace HLCSeries {

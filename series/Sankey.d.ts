@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesSankeyOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Sankey series
  */
@@ -20,12 +21,16 @@ declare const Sankey: {
     Series: typeof SankeySeries;
     type: string;
 };
+type SeriesSankeyConfig = Omit<SeriesSankeyOptions, "type">;
 export interface SankeySeriesProps {
-    type?: "sankey";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSankeyOptions, "type">;
+    id?: SeriesSankeyConfig["id"];
+    index?: SeriesSankeyConfig["index"];
+    name?: SeriesSankeyConfig["name"];
+    className?: SeriesSankeyConfig["className"];
+    color?: SeriesSankeyConfig["color"];
+    events?: SeriesSankeyConfig["events"];
+    data?: SeriesSankeyConfig["data"];
+    options?: SeriesSankeyConfig;
 }
 export declare function SankeySeries(_props: SankeySeriesProps): any;
 export declare namespace SankeySeries {

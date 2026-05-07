@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesStochasticOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Stochastic series
  */
@@ -20,12 +21,15 @@ declare const Stochastic: {
     Series: typeof StochasticSeries;
     type: string;
 };
+type SeriesStochasticConfig = Omit<SeriesStochasticOptions, "type">;
 export interface StochasticSeriesProps {
-    type?: "stochastic";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesStochasticOptions, "type">;
+    id?: SeriesStochasticConfig["id"];
+    index?: SeriesStochasticConfig["index"];
+    name?: SeriesStochasticConfig["name"];
+    className?: SeriesStochasticConfig["className"];
+    color?: SeriesStochasticConfig["color"];
+    events?: SeriesStochasticConfig["events"];
+    options?: SeriesStochasticConfig;
 }
 export declare function StochasticSeries(_props: StochasticSeriesProps): any;
 export declare namespace StochasticSeries {

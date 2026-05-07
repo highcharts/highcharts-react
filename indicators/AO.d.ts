@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesAOOptions } from "highcharts/highcharts";
+import type { SeriesAoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * AO series
  */
@@ -20,12 +21,15 @@ declare const AO: {
     Series: typeof AOSeries;
     type: string;
 };
+type SeriesAoConfig = Omit<SeriesAoOptions, "type">;
 export interface AOSeriesProps {
-    type?: "ao";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesAOOptions, "type">;
+    id?: SeriesAoConfig["id"];
+    index?: SeriesAoConfig["index"];
+    name?: SeriesAoConfig["name"];
+    className?: SeriesAoConfig["className"];
+    color?: SeriesAoConfig["color"];
+    events?: SeriesAoConfig["events"];
+    options?: SeriesAoConfig;
 }
 export declare function AOSeries(_props: AOSeriesProps): any;
 export declare namespace AOSeries {

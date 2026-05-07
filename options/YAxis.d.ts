@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export type YAxisProps = {
@@ -31,9 +31,7 @@ export type YAxisProps = {
         skew3d?: boolean;
         staggerLines?: number;
         step?: number;
-        style?: {
-            fontSize?: number | string;
-        };
+        style?: Highcharts.CSSObject;
         useHTML?: boolean;
         x?: number;
         y?: number;
@@ -49,13 +47,13 @@ export type YAxisProps = {
     minLength?: number | string;
     minPadding?: number;
     opposite?: boolean;
-    plotBands?: {
+    plotBands?: Array<{
         acrossPanes?: boolean;
         borderColor?: Highcharts.ColorString;
         borderRadius?: number | string;
         borderWidth?: number;
         className?: string;
-        color?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        color?: Highcharts.ColorType;
         events?: {
             click?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
             mousemove?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
@@ -79,8 +77,8 @@ export type YAxisProps = {
         };
         to?: number | string;
         zIndex?: number;
-    };
-    plotLines?: {
+    }>;
+    plotLines?: Array<{
         acrossPanes?: boolean;
         className?: string;
         color?: Highcharts.ColorString;
@@ -110,7 +108,7 @@ export type YAxisProps = {
         value?: number | string;
         width?: number;
         zIndex?: number;
-    };
+    }>;
     resize?: {
         controlledAxis?: {
             next?: Array<number | string>;
@@ -132,9 +130,7 @@ export type YAxisProps = {
     stackLabels?: {
         align?: Highcharts.AlignValue;
         allowOverlap?: boolean;
-        animation?: {
-            defer?: number;
-        };
+        animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;
         backgroundColor?: Highcharts.ColorType;
         borderColor?: Highcharts.ColorType;
         borderRadius?: number;
@@ -145,9 +141,7 @@ export type YAxisProps = {
         formatter?: Highcharts.FormatterCallbackFunction<Highcharts.StackItemObject>;
         overflow?: Highcharts.DataLabelsOverflowValue;
         rotation?: number;
-        style?: {
-            fontSize?: number | string;
-        };
+        style?: Highcharts.CSSObject;
         textAlign?: Highcharts.AlignValue;
         useHTML?: boolean;
         verticalAlign?: Highcharts.VerticalAlignValue;
@@ -155,14 +149,13 @@ export type YAxisProps = {
         y?: number;
     };
     stackShadow?: {
-        borderColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        borderColor?: Highcharts.ColorType;
         borderWidth?: number;
-        color?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        color?: Highcharts.ColorType;
         enabled?: boolean;
     };
     startOnTick?: boolean;
-    staticScale?: number;
-    stops?: Array<Array<number, Highcharts.ColorType>>;
+    stops?: Array<[number, Highcharts.ColorType]>;
     tickPixelInterval?: number;
     tickWidth?: undefined | number;
     title?: {
@@ -173,10 +166,8 @@ export type YAxisProps = {
         reserveSpace?: boolean;
         rotation?: number;
         skew3d?: boolean | null;
-        style?: {
-            fontSize?: number | string;
-        };
-        text?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[];
+        style?: Highcharts.CSSObject;
+        text?: string | null;
         textAlign?: Highcharts.AlignValue;
         useHTML?: boolean;
         x?: number;
@@ -194,12 +185,12 @@ export type YAxisProps = {
     allowDecimals?: boolean | undefined;
     alternateGridColor?: Highcharts.ColorType;
     angle?: number;
-    breaks?: {
+    breaks?: Array<{
         breakSize?: number;
         from?: number | string;
         repeat?: number;
         to?: number | string;
-    };
+    }>;
     categories?: Array<string>;
     ceiling?: number;
     className?: string;
@@ -220,6 +211,7 @@ export type YAxisProps = {
             shape?: string;
             style?: Highcharts.CSSObject;
         };
+        showDelay?: number;
         snap?: boolean;
         width?: number;
         zIndex?: number;
@@ -309,6 +301,7 @@ export type YAxisProps = {
     showEmpty?: boolean;
     showFirstLabel?: boolean;
     startOfWeek?: number;
+    staticScale?: number;
     tickAmount?: number;
     tickColor?: Highcharts.ColorType;
     tickInterval?: number;
@@ -318,12 +311,12 @@ export type YAxisProps = {
     tickPositions?: Array<number>;
     tickmarkPlacement?: string;
     uniqueNames?: boolean;
-    units?: Array<Array<string, Array<number> | null>>;
+    units?: Array<[string, Array<number> | null]>;
     visible?: boolean;
     width?: number | string;
     zIndex?: number;
     zoomEnabled?: boolean;
-    children?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[] | (string | number)[] | React.ReactElement | React.ReactElement[];
+    children?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[];
 };
 export declare function YAxis(props: YAxisProps): any;
 export declare namespace YAxis {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesHollowCandlestickOptions } from "highcharts/highcharts";
+import type { SeriesHollowcandlestickOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * HollowCandlestick series
  */
@@ -20,12 +21,16 @@ declare const HollowCandlestick: {
     Series: typeof HollowCandlestickSeries;
     type: string;
 };
+type SeriesHollowcandlestickConfig = Omit<SeriesHollowcandlestickOptions, "type">;
 export interface HollowCandlestickSeriesProps {
-    type?: "hollowcandlestick";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesHollowCandlestickOptions, "type">;
+    id?: SeriesHollowcandlestickConfig["id"];
+    index?: SeriesHollowcandlestickConfig["index"];
+    name?: SeriesHollowcandlestickConfig["name"];
+    className?: SeriesHollowcandlestickConfig["className"];
+    color?: SeriesHollowcandlestickConfig["color"];
+    events?: SeriesHollowcandlestickConfig["events"];
+    data?: SeriesHollowcandlestickConfig["data"];
+    options?: SeriesHollowcandlestickConfig;
 }
 export declare function HollowCandlestickSeries(_props: HollowCandlestickSeriesProps): any;
 export declare namespace HollowCandlestickSeries {

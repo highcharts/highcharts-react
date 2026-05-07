@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesTEMAOptions } from "highcharts/highcharts";
+import type { SeriesTemaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * TEMA series
  */
@@ -20,12 +21,15 @@ declare const TEMA: {
     Series: typeof TEMASeries;
     type: string;
 };
+type SeriesTemaConfig = Omit<SeriesTemaOptions, "type">;
 export interface TEMASeriesProps {
-    type?: "tema";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTEMAOptions, "type">;
+    id?: SeriesTemaConfig["id"];
+    index?: SeriesTemaConfig["index"];
+    name?: SeriesTemaConfig["name"];
+    className?: SeriesTemaConfig["className"];
+    color?: SeriesTemaConfig["color"];
+    events?: SeriesTemaConfig["events"];
+    options?: SeriesTemaConfig;
 }
 export declare function TEMASeries(_props: TEMASeriesProps): any;
 export declare namespace TEMASeries {

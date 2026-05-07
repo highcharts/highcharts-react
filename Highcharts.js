@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -23,7 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import React, { forwardRef, useEffect, useRef, useImperativeHandle, useMemo,
 // @ts-ignore
  } from "react";
-import HC from "highcharts/esm/highcharts.src.js";
+import HC from "highcharts/es-modules/masters/highcharts.src.js";
 // Add data-hc-option to allowed attributes
 if (HC.AST.allowedAttributes.indexOf("data-hc-option") === -1) {
     HC.AST.allowedAttributes.push("data-hc-option");
@@ -59,6 +59,24 @@ export function getHighcharts() {
     return Highcharts;
 }
 const toArr = (thing) => (Array.isArray(thing) ? thing.flat() : [thing]);
+const resolveChild = (c) => {
+    var _a, _b, _c, _d, _e;
+    // Handle supported components.
+    if (((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series" || ((_b = c === null || c === void 0 ? void 0 : c.type) === null || _b === void 0 ? void 0 : _b._HCReact)) {
+        return c;
+    }
+    // Filter out if not a function.
+    if (typeof (c === null || c === void 0 ? void 0 : c.type) !== "function") {
+        return null;
+    }
+    // Process custom functions if they are custom components (for example,
+    // wrapped supported components).
+    const rendered = c.type((_c = c.props) !== null && _c !== void 0 ? _c : {});
+    if (((_d = rendered === null || rendered === void 0 ? void 0 : rendered.type) === null || _d === void 0 ? void 0 : _d.type) === "Series" || ((_e = rendered === null || rendered === void 0 ? void 0 : rendered.type) === null || _e === void 0 ? void 0 : _e._HCReact)) {
+        return rendered;
+    }
+    return null;
+};
 function getChildProps(children, renderHTML = undefined) {
     const optionsFromChildren = {};
     /** Insert value into object by dot.notation path */
@@ -78,6 +96,28 @@ function getChildProps(children, renderHTML = undefined) {
         return renderHTML
             ? renderHTML(arr)
             : arr.filter((c) => typeof c === "string").join("");
+    }
+    function isObject(value) {
+        return typeof value === "object" && value !== null && !Array.isArray(value);
+    }
+    function deepMerge(target, ...sources) {
+        for (const source of sources) {
+            if (!isObject(source))
+                continue;
+            for (const [key, value] of Object.entries(source)) {
+                if (Array.isArray(value)) {
+                    target[key] = value.slice();
+                    continue;
+                }
+                if (isObject(value)) {
+                    const current = target[key];
+                    target[key] = deepMerge(isObject(current) ? current : {}, value);
+                    continue;
+                }
+                target[key] = value;
+            }
+        }
+        return target;
     }
     /** Type guard for React elements with meta */
     function isReactElementWithMeta(value) {
@@ -99,11 +139,11 @@ function getChildProps(children, renderHTML = undefined) {
         if (!isReactElementWithMeta(child)) {
             return;
         }
-        const _e = (_a = child.props) !== null && _a !== void 0 ? _a : {}, { children, options, type, data } = _e, seriesObj = __rest(_e, ["children", "options", "type", "data"]);
-        series.push(Object.assign({
+        const _e = (_a = child.props) !== null && _a !== void 0 ? _a : {}, { children, options, type, data } = _e, otherProps = __rest(_e, ["children", "options", "type", "data"]);
+        series.push(deepMerge({
             type: type !== null && type !== void 0 ? type : (_d = (_c = (_b = child.type) === null || _b === void 0 ? void 0 : _b._HCReact) === null || _c === void 0 ? void 0 : _c.HCOption) === null || _d === void 0 ? void 0 : _d.replace("series.", ""),
             data: data || [],
-        }, seriesObj, options, children && getChildProps(children, renderHTML)));
+        }, options, otherProps, children && getChildProps(children, renderHTML)));
     }
     function handleChildren(children, obj, meta) {
         var _a, _b, _c;
@@ -364,18 +404,33 @@ export const Chart = forwardRef(function Chart(props, ref) {
         var _a;
         return (_a = props.renderToHTML) !== null && _a !== void 0 ? _a : renderToHTML;
     }, [props.renderToHTML]);
-    const chartConfig = useMemo(() => Highcharts.merge(Object.assign({
-        title: { text: props.title || undefined },
-        chart: { allowMutatingData: false },
-    }, props.options || {}), Object.assign({ series: props.children
-            ? toArr(props.children)
-                .filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; })
-                .map((c) => {
-                var _a, _b, _c;
-                const { children, type, id, className, data, options } = c.props;
-                return Highcharts.merge(Object.assign(Object.assign({ type: type !== null && type !== void 0 ? type : (_c = (_b = (_a = c.type) === null || _a === void 0 ? void 0 : _a._HCReact) === null || _b === void 0 ? void 0 : _b.HCOption) === null || _c === void 0 ? void 0 : _c.replace("series.", ""), data: data || [] }, (id && { id })), (className && { className })), Object.assign(Object.assign({}, (options || {})), getChildProps(children, renderHTML)));
-            })
-            : [] }, getChildProps(props.children, renderHTML)), props.options || {}), [props.children, props.options, renderHTML]);
+    const chartConfig = useMemo(() => {
+        const resolvedChildren = toArr(props.children).map(resolveChild);
+        return Highcharts.merge(Object.assign(Object.assign({ title: Object.assign({}, (props.title !== undefined ? { text: props.title } : {})), subtitle: Object.assign({}, (props.subtitle !== undefined ? { text: props.subtitle } : {})), caption: Object.assign({}, (props.caption !== undefined ? { text: props.caption } : {})), credits: Object.assign({}, (props.credits !== undefined ? { text: props.credits } : {})), chart: Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({}, (props.type !== undefined ? { type: props.type } : {})), (props.height !== undefined ? { height: props.height } : {})), (props.width !== undefined ? { width: props.width } : {})), (props.inverted !== undefined
+                ? { inverted: props.inverted }
+                : {})), (props.animation !== undefined
+                ? { animation: props.animation }
+                : {})), (props.styledMode !== undefined
+                ? { styledMode: props.styledMode }
+                : {})), (props.backgroundColor !== undefined
+                ? { backgroundColor: props.backgroundColor }
+                : {})), (props.borderColor !== undefined
+                ? { borderColor: props.borderColor }
+                : {})), (props.borderWidth !== undefined
+                ? { borderWidth: props.borderWidth }
+                : {})), (props.margin !== undefined ? { margin: props.margin } : {})), (props.spacing !== undefined ? { spacing: props.spacing } : {})), { allowMutatingData: false }) }, (props.colors !== undefined ? { colors: props.colors } : {})), props.options || {}), Object.assign({ series: props.children
+                ? resolvedChildren
+                    .filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; })
+                    .map((c) => {
+                    var _a, _b, _c;
+                    const _d = c.props, { children, options, type, data } = _d, otherProps = __rest(_d, ["children", "options", "type", "data"]);
+                    return Highcharts.merge({
+                        type: type !== null && type !== void 0 ? type : (_c = (_b = (_a = c.type) === null || _a === void 0 ? void 0 : _a._HCReact) === null || _b === void 0 ? void 0 : _b.HCOption) === null || _c === void 0 ? void 0 : _c.replace("series.", ""),
+                        data: data || [],
+                    }, options || {}, otherProps, getChildProps(children, renderHTML));
+                })
+                : [] }, getChildProps(resolvedChildren, renderHTML)), props.options || {});
+    }, [props.children, props.options, renderHTML]);
     const containerRef = useRef();
     const chartRef = useRef();
     useImperativeHandle(ref, () => ({
@@ -389,29 +444,6 @@ export const Chart = forwardRef(function Chart(props, ref) {
     // Update the chart on render
     useEffect(() => {
         Logger.log(JSON.stringify(chartConfig, undefined, "  "));
-        /** Append prop to chart config */
-        const appendProps = (config) => {
-            var _a;
-            var _b;
-            (_a = (_b = config.title).text) !== null && _a !== void 0 ? _a : (_b.text = props.title);
-        };
-        /** Append series to chart config */
-        const appendSeries = () => {
-            // config: HC.Options
-            if (props.children) {
-                const children = toArr(props.children).filter((c) => { var _a; return ((_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a.type) === "Series"; });
-                children.forEach((c, i) => {
-                    var _a, _b, _c;
-                    if (c.props) {
-                        const _d = c.props, { children, type, options } = _d, otherProps = __rest(_d, ["children", "type", "options"]);
-                        if (options) {
-                            chartConfig.series[i] = Highcharts.merge(chartConfig.series[i], options);
-                        }
-                        chartConfig.series[i] = Highcharts.merge(chartConfig.series[i], Object.assign(Object.assign({ type: type !== null && type !== void 0 ? type : (_c = (_b = (_a = c === null || c === void 0 ? void 0 : c.type) === null || _a === void 0 ? void 0 : _a._HCReact) === null || _b === void 0 ? void 0 : _b.HCOption) === null || _c === void 0 ? void 0 : _c.replace("series.", "") }, getChildProps(c.props.children, renderHTML)), otherProps));
-                    }
-                });
-            }
-        };
         if (!chartRef.current) {
             const HCConstructor = props.chartConstructor || "chart";
             Logger.log("Creating chart using", HCConstructor, "constructor");
@@ -419,11 +451,9 @@ export const Chart = forwardRef(function Chart(props, ref) {
         }
         else {
             Logger.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
-            appendProps(chartConfig);
-            appendSeries(); // chartConfig
-            chartRef.current.update(Object.assign(Object.assign({}, chartConfig), getChildProps(props.children, renderHTML)), true, true);
+            chartRef.current.update(chartConfig, true, true);
         }
-    }, [chartConfig, props.chartConstructor, props.children, renderHTML]);
+    }, [chartConfig, props.chartConstructor]);
     return React.createElement("div", Object.assign({}, props.containerProps, { ref: containerRef }));
 });
 export function Series(props) {
@@ -432,4 +462,3 @@ export function Series(props) {
 Series.type = "Series";
 Chart.Series = Series;
 export default Chart;
-//# sourceMappingURL=Highcharts.js.map

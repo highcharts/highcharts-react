@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesCCIOptions } from "highcharts/highcharts";
+import type { SeriesCciOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * CCI series
  */
@@ -20,12 +21,15 @@ declare const CCI: {
     Series: typeof CCISeries;
     type: string;
 };
+type SeriesCciConfig = Omit<SeriesCciOptions, "type">;
 export interface CCISeriesProps {
-    type?: "cci";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesCCIOptions, "type">;
+    id?: SeriesCciConfig["id"];
+    index?: SeriesCciConfig["index"];
+    name?: SeriesCciConfig["name"];
+    className?: SeriesCciConfig["className"];
+    color?: SeriesCciConfig["color"];
+    events?: SeriesCciConfig["events"];
+    options?: SeriesCciConfig;
 }
 export declare function CCISeries(_props: CCISeriesProps): any;
 export declare namespace CCISeries {

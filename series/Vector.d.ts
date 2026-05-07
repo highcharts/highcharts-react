@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesVectorOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Vector series
  */
@@ -20,12 +21,16 @@ declare const Vector: {
     Series: typeof VectorSeries;
     type: string;
 };
+type SeriesVectorConfig = Omit<SeriesVectorOptions, "type">;
 export interface VectorSeriesProps {
-    type?: "vector";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesVectorOptions, "type">;
+    id?: SeriesVectorConfig["id"];
+    index?: SeriesVectorConfig["index"];
+    name?: SeriesVectorConfig["name"];
+    className?: SeriesVectorConfig["className"];
+    color?: SeriesVectorConfig["color"];
+    events?: SeriesVectorConfig["events"];
+    data?: SeriesVectorConfig["data"];
+    options?: SeriesVectorConfig;
 }
 export declare function VectorSeries(_props: VectorSeriesProps): any;
 export declare namespace VectorSeries {

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Flags: {
     Series: typeof FlagsSeries;
     type: string;
 };
+type SeriesFlagsConfig = Omit<SeriesFlagsOptions, "type">;
 export interface FlagsSeriesProps {
-    type?: "flags";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesFlagsOptions, "type">;
+    id?: SeriesFlagsConfig["id"];
+    index?: SeriesFlagsConfig["index"];
+    name?: SeriesFlagsConfig["name"];
+    className?: SeriesFlagsConfig["className"];
+    color?: SeriesFlagsConfig["color"];
+    events?: SeriesFlagsConfig["events"];
+    data?: SeriesFlagsConfig["data"];
+    options?: SeriesFlagsConfig;
 }
 export declare function FlagsSeries(_props: FlagsSeriesProps): any;
 export declare namespace FlagsSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesTilemapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Tilemap series
  */
@@ -20,12 +21,16 @@ declare const Tilemap: {
     Series: typeof TilemapSeries;
     type: string;
 };
+type SeriesTilemapConfig = Omit<SeriesTilemapOptions, "type">;
 export interface TilemapSeriesProps {
-    type?: "tilemap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTilemapOptions, "type">;
+    id?: SeriesTilemapConfig["id"];
+    index?: SeriesTilemapConfig["index"];
+    name?: SeriesTilemapConfig["name"];
+    className?: SeriesTilemapConfig["className"];
+    color?: SeriesTilemapConfig["color"];
+    events?: SeriesTilemapConfig["events"];
+    data?: SeriesTilemapConfig["data"];
+    options?: SeriesTilemapConfig;
 }
 export declare function TilemapSeries(_props: TilemapSeriesProps): any;
 export declare namespace TilemapSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesEMAOptions } from "highcharts/highcharts";
+import type { SeriesEmaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * EMA series
  */
@@ -20,12 +21,15 @@ declare const EMA: {
     Series: typeof EMASeries;
     type: string;
 };
+type SeriesEmaConfig = Omit<SeriesEmaOptions, "type">;
 export interface EMASeriesProps {
-    type?: "ema";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesEMAOptions, "type">;
+    id?: SeriesEmaConfig["id"];
+    index?: SeriesEmaConfig["index"];
+    name?: SeriesEmaConfig["name"];
+    className?: SeriesEmaConfig["className"];
+    color?: SeriesEmaConfig["color"];
+    events?: SeriesEmaConfig["events"];
+    options?: SeriesEmaConfig;
 }
 export declare function EMASeries(_props: EMASeriesProps): any;
 export declare namespace EMASeries {

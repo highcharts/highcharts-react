@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesAroonOscillatorOptions } from "highcharts/highcharts";
+import type { SeriesAroonoscillatorOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * AroonOscillator series
  */
@@ -20,12 +21,15 @@ declare const AroonOscillator: {
     Series: typeof AroonOscillatorSeries;
     type: string;
 };
+type SeriesAroonoscillatorConfig = Omit<SeriesAroonoscillatorOptions, "type">;
 export interface AroonOscillatorSeriesProps {
-    type?: "aroonoscillator";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesAroonOscillatorOptions, "type">;
+    id?: SeriesAroonoscillatorConfig["id"];
+    index?: SeriesAroonoscillatorConfig["index"];
+    name?: SeriesAroonoscillatorConfig["name"];
+    className?: SeriesAroonoscillatorConfig["className"];
+    color?: SeriesAroonoscillatorConfig["color"];
+    events?: SeriesAroonoscillatorConfig["events"];
+    options?: SeriesAroonoscillatorConfig;
 }
 export declare function AroonOscillatorSeries(_props: AroonOscillatorSeriesProps): any;
 export declare namespace AroonOscillatorSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesGeoHeatmapOptions } from "highcharts/highcharts";
+import type { SeriesGeoheatmapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * GeoHeatmap series
  */
@@ -20,12 +21,16 @@ declare const GeoHeatmap: {
     Series: typeof GeoHeatmapSeries;
     type: string;
 };
+type SeriesGeoheatmapConfig = Omit<SeriesGeoheatmapOptions, "type">;
 export interface GeoHeatmapSeriesProps {
-    type?: "geoheatmap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesGeoHeatmapOptions, "type">;
+    id?: SeriesGeoheatmapConfig["id"];
+    index?: SeriesGeoheatmapConfig["index"];
+    name?: SeriesGeoheatmapConfig["name"];
+    className?: SeriesGeoheatmapConfig["className"];
+    color?: SeriesGeoheatmapConfig["color"];
+    events?: SeriesGeoheatmapConfig["events"];
+    data?: SeriesGeoheatmapConfig["data"];
+    options?: SeriesGeoheatmapConfig;
 }
 export declare function GeoHeatmapSeries(_props: GeoHeatmapSeriesProps): any;
 export declare namespace GeoHeatmapSeries {

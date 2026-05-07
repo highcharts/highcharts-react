@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesCMFOptions } from "highcharts/highcharts";
+import type { SeriesCmfOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * CMF series
  */
@@ -20,12 +21,15 @@ declare const CMF: {
     Series: typeof CMFSeries;
     type: string;
 };
+type SeriesCmfConfig = Omit<SeriesCmfOptions, "type">;
 export interface CMFSeriesProps {
-    type?: "cmf";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesCMFOptions, "type">;
+    id?: SeriesCmfConfig["id"];
+    index?: SeriesCmfConfig["index"];
+    name?: SeriesCmfConfig["name"];
+    className?: SeriesCmfConfig["className"];
+    color?: SeriesCmfConfig["color"];
+    events?: SeriesCmfConfig["events"];
+    options?: SeriesCmfConfig;
 }
 export declare function CMFSeries(_props: CMFSeriesProps): any;
 export declare namespace CMFSeries {

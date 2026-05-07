@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesMapBubbleOptions } from "highcharts/highcharts";
+import type { SeriesMapbubbleOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * MapBubble series
@@ -20,12 +20,16 @@ declare const MapBubble: {
     Series: typeof MapBubbleSeries;
     type: string;
 };
+type SeriesMapbubbleConfig = Omit<SeriesMapbubbleOptions, "type">;
 export interface MapBubbleSeriesProps {
-    type?: "mapbubble";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMapBubbleOptions, "type">;
+    id?: SeriesMapbubbleConfig["id"];
+    index?: SeriesMapbubbleConfig["index"];
+    name?: SeriesMapbubbleConfig["name"];
+    className?: SeriesMapbubbleConfig["className"];
+    color?: SeriesMapbubbleConfig["color"];
+    events?: SeriesMapbubbleConfig["events"];
+    data?: SeriesMapbubbleConfig["data"];
+    options?: SeriesMapbubbleConfig;
 }
 export declare function MapBubbleSeries(_props: MapBubbleSeriesProps): any;
 export declare namespace MapBubbleSeries {

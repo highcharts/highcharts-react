@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesLinearRegressionInterceptOptions } from "highcharts/highcharts";
+import type { SeriesLinearregressioninterceptOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * LinearRegressionIntercept series
  */
@@ -20,12 +21,15 @@ declare const LinearRegressionIntercept: {
     Series: typeof LinearRegressionInterceptSeries;
     type: string;
 };
+type SeriesLinearregressioninterceptConfig = Omit<SeriesLinearregressioninterceptOptions, "type">;
 export interface LinearRegressionInterceptSeriesProps {
-    type?: "linearregressionintercept";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesLinearRegressionInterceptOptions, "type">;
+    id?: SeriesLinearregressioninterceptConfig["id"];
+    index?: SeriesLinearregressioninterceptConfig["index"];
+    name?: SeriesLinearregressioninterceptConfig["name"];
+    className?: SeriesLinearregressioninterceptConfig["className"];
+    color?: SeriesLinearregressioninterceptConfig["color"];
+    events?: SeriesLinearregressioninterceptConfig["events"];
+    options?: SeriesLinearregressioninterceptConfig;
 }
 export declare function LinearRegressionInterceptSeries(_props: LinearRegressionInterceptSeriesProps): any;
 export declare namespace LinearRegressionInterceptSeries {

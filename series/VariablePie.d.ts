@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesVariablePieOptions } from "highcharts/highcharts";
+import type { SeriesVariablepieOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * VariablePie series
  */
@@ -20,12 +21,16 @@ declare const VariablePie: {
     Series: typeof VariablePieSeries;
     type: string;
 };
+type SeriesVariablepieConfig = Omit<SeriesVariablepieOptions, "type">;
 export interface VariablePieSeriesProps {
-    type?: "variablepie";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesVariablePieOptions, "type">;
+    id?: SeriesVariablepieConfig["id"];
+    index?: SeriesVariablepieConfig["index"];
+    name?: SeriesVariablepieConfig["name"];
+    className?: SeriesVariablepieConfig["className"];
+    color?: SeriesVariablepieConfig["color"];
+    events?: SeriesVariablepieConfig["events"];
+    data?: SeriesVariablepieConfig["data"];
+    options?: SeriesVariablepieConfig;
 }
 export declare function VariablePieSeries(_props: VariablePieSeriesProps): any;
 export declare namespace VariablePieSeries {

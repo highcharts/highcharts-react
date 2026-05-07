@@ -6,15 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export type TooltipProps = {
-    animation?: {
-        duration?: number;
-    };
-    backgroundColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
-    borderColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+    animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;
+    backgroundColor?: Highcharts.ColorType;
+    borderColor?: Highcharts.ColorType;
     borderRadius?: number;
     borderWidth?: number;
     changeDecimals?: number;
@@ -43,12 +41,11 @@ export type TooltipProps = {
     shadow?: boolean | Highcharts.ShadowOptionsObject;
     shape?: Highcharts.TooltipShapeValue;
     shared?: boolean;
+    showDelay?: number;
     snap?: number;
     split?: boolean;
     stickOnContact?: boolean;
-    style?: {
-        fontSize?: number | string;
-    };
+    style?: Highcharts.CSSObject;
     useHTML?: boolean;
     valueDecimals?: number | undefined;
     valuePrefix?: string;

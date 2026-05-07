@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesHeikinAshiOptions } from "highcharts/highcharts";
+import type { SeriesHeikinashiOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * HeikinAshi series
  */
@@ -20,12 +21,16 @@ declare const HeikinAshi: {
     Series: typeof HeikinAshiSeries;
     type: string;
 };
+type SeriesHeikinashiConfig = Omit<SeriesHeikinashiOptions, "type">;
 export interface HeikinAshiSeriesProps {
-    type?: "heikinashi";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesHeikinAshiOptions, "type">;
+    id?: SeriesHeikinashiConfig["id"];
+    index?: SeriesHeikinashiConfig["index"];
+    name?: SeriesHeikinashiConfig["name"];
+    className?: SeriesHeikinashiConfig["className"];
+    color?: SeriesHeikinashiConfig["color"];
+    events?: SeriesHeikinashiConfig["events"];
+    data?: SeriesHeikinashiConfig["data"];
+    options?: SeriesHeikinashiConfig;
 }
 export declare function HeikinAshiSeries(_props: HeikinAshiSeriesProps): any;
 export declare namespace HeikinAshiSeries {

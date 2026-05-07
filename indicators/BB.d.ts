@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesBBOptions } from "highcharts/highcharts";
+import type { SeriesBbOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * BB series
  */
@@ -20,12 +21,15 @@ declare const BB: {
     Series: typeof BBSeries;
     type: string;
 };
+type SeriesBbConfig = Omit<SeriesBbOptions, "type">;
 export interface BBSeriesProps {
-    type?: "bb";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBBOptions, "type">;
+    id?: SeriesBbConfig["id"];
+    index?: SeriesBbConfig["index"];
+    name?: SeriesBbConfig["name"];
+    className?: SeriesBbConfig["className"];
+    color?: SeriesBbConfig["color"];
+    events?: SeriesBbConfig["events"];
+    options?: SeriesBbConfig;
 }
 export declare function BBSeries(_props: BBSeriesProps): any;
 export declare namespace BBSeries {

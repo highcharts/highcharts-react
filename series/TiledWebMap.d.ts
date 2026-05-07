@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesTiledWebMapOptions } from "highcharts/highcharts";
+import type { SeriesTiledwebmapOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * TiledWebMap series
  */
@@ -20,12 +21,15 @@ declare const TiledWebMap: {
     Series: typeof TiledWebMapSeries;
     type: string;
 };
+type SeriesTiledwebmapConfig = Omit<SeriesTiledwebmapOptions, "type">;
 export interface TiledWebMapSeriesProps {
-    type?: "tiledwebmap";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTiledWebMapOptions, "type">;
+    id?: SeriesTiledwebmapConfig["id"];
+    index?: SeriesTiledwebmapConfig["index"];
+    name?: SeriesTiledwebmapConfig["name"];
+    className?: SeriesTiledwebmapConfig["className"];
+    color?: SeriesTiledwebmapConfig["color"];
+    events?: SeriesTiledwebmapConfig["events"];
+    options?: SeriesTiledwebmapConfig;
 }
 export declare function TiledWebMapSeries(_props: TiledWebMapSeriesProps): any;
 export declare namespace TiledWebMapSeries {

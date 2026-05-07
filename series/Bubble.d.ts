@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesBubbleOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Bubble series
  */
@@ -20,12 +21,16 @@ declare const Bubble: {
     Series: typeof BubbleSeries;
     type: string;
 };
+type SeriesBubbleConfig = Omit<SeriesBubbleOptions, "type">;
 export interface BubbleSeriesProps {
-    type?: "bubble";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBubbleOptions, "type">;
+    id?: SeriesBubbleConfig["id"];
+    index?: SeriesBubbleConfig["index"];
+    name?: SeriesBubbleConfig["name"];
+    className?: SeriesBubbleConfig["className"];
+    color?: SeriesBubbleConfig["color"];
+    events?: SeriesBubbleConfig["events"];
+    data?: SeriesBubbleConfig["data"];
+    options?: SeriesBubbleConfig;
 }
 export declare function BubbleSeries(_props: BubbleSeriesProps): any;
 export declare namespace BubbleSeries {

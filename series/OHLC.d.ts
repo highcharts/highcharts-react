@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesOHLCOptions } from "highcharts/highcharts";
+import type { SeriesOhlcOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * OHLC series
@@ -20,12 +20,16 @@ declare const OHLC: {
     Series: typeof OHLCSeries;
     type: string;
 };
+type SeriesOhlcConfig = Omit<SeriesOhlcOptions, "type">;
 export interface OHLCSeriesProps {
-    type?: "ohlc";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesOHLCOptions, "type">;
+    id?: SeriesOhlcConfig["id"];
+    index?: SeriesOhlcConfig["index"];
+    name?: SeriesOhlcConfig["name"];
+    className?: SeriesOhlcConfig["className"];
+    color?: SeriesOhlcConfig["color"];
+    events?: SeriesOhlcConfig["events"];
+    data?: SeriesOhlcConfig["data"];
+    options?: SeriesOhlcConfig;
 }
 export declare function OHLCSeries(_props: OHLCSeriesProps): any;
 export declare namespace OHLCSeries {

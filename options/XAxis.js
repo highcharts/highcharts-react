@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export function XAxis(props) {
@@ -20,4 +20,3 @@ XAxis._HCReact = {
     isArrayType: true,
 };
 export default XAxis;
-//# sourceMappingURL=XAxis.js.map

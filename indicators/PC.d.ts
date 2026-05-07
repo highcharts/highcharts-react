@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPCOptions } from "highcharts/highcharts";
+import type { SeriesPcOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PC series
  */
@@ -20,12 +21,15 @@ declare const PC: {
     Series: typeof PCSeries;
     type: string;
 };
+type SeriesPcConfig = Omit<SeriesPcOptions, "type">;
 export interface PCSeriesProps {
-    type?: "pc";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPCOptions, "type">;
+    id?: SeriesPcConfig["id"];
+    index?: SeriesPcConfig["index"];
+    name?: SeriesPcConfig["name"];
+    className?: SeriesPcConfig["className"];
+    color?: SeriesPcConfig["color"];
+    events?: SeriesPcConfig["events"];
+    options?: SeriesPcConfig;
 }
 export declare function PCSeries(_props: PCSeriesProps): any;
 export declare namespace PCSeries {
