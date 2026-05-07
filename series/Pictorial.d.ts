@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesPictorialOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Pictorial series
  */
@@ -20,12 +21,16 @@ declare const Pictorial: {
     Series: typeof PictorialSeries;
     type: string;
 };
+type SeriesPictorialConfig = Omit<SeriesPictorialOptions, "type">;
 export interface PictorialSeriesProps {
-    type?: "pictorial";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPictorialOptions, "type">;
+    id?: SeriesPictorialConfig["id"];
+    index?: SeriesPictorialConfig["index"];
+    name?: SeriesPictorialConfig["name"];
+    className?: SeriesPictorialConfig["className"];
+    color?: SeriesPictorialConfig["color"];
+    events?: SeriesPictorialConfig["events"];
+    data?: SeriesPictorialConfig["data"];
+    options?: SeriesPictorialConfig;
 }
 export declare function PictorialSeries(_props: PictorialSeriesProps): any;
 export declare namespace PictorialSeries {

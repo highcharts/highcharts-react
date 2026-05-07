@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Bar: {
     Series: typeof BarSeries;
     type: string;
 };
+type SeriesBarConfig = Omit<SeriesBarOptions, "type">;
 export interface BarSeriesProps {
-    type?: "bar";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBarOptions, "type">;
+    id?: SeriesBarConfig["id"];
+    index?: SeriesBarConfig["index"];
+    name?: SeriesBarConfig["name"];
+    className?: SeriesBarConfig["className"];
+    color?: SeriesBarConfig["color"];
+    events?: SeriesBarConfig["events"];
+    data?: SeriesBarConfig["data"];
+    options?: SeriesBarConfig;
 }
 export declare function BarSeries(_props: BarSeriesProps): any;
 export declare namespace BarSeries {

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export function PlotOptions(props) {
@@ -20,4 +20,3 @@ PlotOptions._HCReact = {
     isArrayType: false,
 };
 export default PlotOptions;
-//# sourceMappingURL=PlotOptions.js.map

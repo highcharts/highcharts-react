@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPointAndFigureOptions } from "highcharts/highcharts";
+import type { SeriesPointandfigureOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PointAndFigure series
  */
@@ -20,12 +21,16 @@ declare const PointAndFigure: {
     Series: typeof PointAndFigureSeries;
     type: string;
 };
+type SeriesPointandfigureConfig = Omit<SeriesPointandfigureOptions, "type">;
 export interface PointAndFigureSeriesProps {
-    type?: "pointandfigure";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPointAndFigureOptions, "type">;
+    id?: SeriesPointandfigureConfig["id"];
+    index?: SeriesPointandfigureConfig["index"];
+    name?: SeriesPointandfigureConfig["name"];
+    className?: SeriesPointandfigureConfig["className"];
+    color?: SeriesPointandfigureConfig["color"];
+    events?: SeriesPointandfigureConfig["events"];
+    data?: SeriesPointandfigureConfig["data"];
+    options?: SeriesPointandfigureConfig;
 }
 export declare function PointAndFigureSeries(_props: PointAndFigureSeriesProps): any;
 export declare namespace PointAndFigureSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPackedBubbleOptions } from "highcharts/highcharts";
+import type { SeriesPackedbubbleOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PackedBubble series
  */
@@ -20,12 +21,16 @@ declare const PackedBubble: {
     Series: typeof PackedBubbleSeries;
     type: string;
 };
+type SeriesPackedbubbleConfig = Omit<SeriesPackedbubbleOptions, "type">;
 export interface PackedBubbleSeriesProps {
-    type?: "packedbubble";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPackedBubbleOptions, "type">;
+    id?: SeriesPackedbubbleConfig["id"];
+    index?: SeriesPackedbubbleConfig["index"];
+    name?: SeriesPackedbubbleConfig["name"];
+    className?: SeriesPackedbubbleConfig["className"];
+    color?: SeriesPackedbubbleConfig["color"];
+    events?: SeriesPackedbubbleConfig["events"];
+    data?: SeriesPackedbubbleConfig["data"];
+    options?: SeriesPackedbubbleConfig;
 }
 export declare function PackedBubbleSeries(_props: PackedBubbleSeriesProps): any;
 export declare namespace PackedBubbleSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesIKHOptions } from "highcharts/highcharts";
+import type { SeriesIkhOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * IKH series
  */
@@ -20,12 +21,15 @@ declare const IKH: {
     Series: typeof IKHSeries;
     type: string;
 };
+type SeriesIkhConfig = Omit<SeriesIkhOptions, "type">;
 export interface IKHSeriesProps {
-    type?: "ikh";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesIKHOptions, "type">;
+    id?: SeriesIkhConfig["id"];
+    index?: SeriesIkhConfig["index"];
+    name?: SeriesIkhConfig["name"];
+    className?: SeriesIkhConfig["className"];
+    color?: SeriesIkhConfig["color"];
+    events?: SeriesIkhConfig["events"];
+    options?: SeriesIkhConfig;
 }
 export declare function IKHSeries(_props: IKHSeriesProps): any;
 export declare namespace IKHSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesPolygonOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Polygon series
  */
@@ -20,12 +21,16 @@ declare const Polygon: {
     Series: typeof PolygonSeries;
     type: string;
 };
+type SeriesPolygonConfig = Omit<SeriesPolygonOptions, "type">;
 export interface PolygonSeriesProps {
-    type?: "polygon";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPolygonOptions, "type">;
+    id?: SeriesPolygonConfig["id"];
+    index?: SeriesPolygonConfig["index"];
+    name?: SeriesPolygonConfig["name"];
+    className?: SeriesPolygonConfig["className"];
+    color?: SeriesPolygonConfig["color"];
+    events?: SeriesPolygonConfig["events"];
+    data?: SeriesPolygonConfig["data"];
+    options?: SeriesPolygonConfig;
 }
 export declare function PolygonSeries(_props: PolygonSeriesProps): any;
 export declare namespace PolygonSeries {

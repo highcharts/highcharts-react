@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesNetworkgraphOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Networkgraph series
  */
@@ -20,12 +21,16 @@ declare const Networkgraph: {
     Series: typeof NetworkgraphSeries;
     type: string;
 };
+type SeriesNetworkgraphConfig = Omit<SeriesNetworkgraphOptions, "type">;
 export interface NetworkgraphSeriesProps {
-    type?: "networkgraph";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesNetworkgraphOptions, "type">;
+    id?: SeriesNetworkgraphConfig["id"];
+    index?: SeriesNetworkgraphConfig["index"];
+    name?: SeriesNetworkgraphConfig["name"];
+    className?: SeriesNetworkgraphConfig["className"];
+    color?: SeriesNetworkgraphConfig["color"];
+    events?: SeriesNetworkgraphConfig["events"];
+    data?: SeriesNetworkgraphConfig["data"];
+    options?: SeriesNetworkgraphConfig;
 }
 export declare function NetworkgraphSeries(_props: NetworkgraphSeriesProps): any;
 export declare namespace NetworkgraphSeries {

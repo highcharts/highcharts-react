@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesFunnelOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Funnel series
  */
@@ -20,12 +21,16 @@ declare const Funnel: {
     Series: typeof FunnelSeries;
     type: string;
 };
+type SeriesFunnelConfig = Omit<SeriesFunnelOptions, "type">;
 export interface FunnelSeriesProps {
-    type?: "funnel";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesFunnelOptions, "type">;
+    id?: SeriesFunnelConfig["id"];
+    index?: SeriesFunnelConfig["index"];
+    name?: SeriesFunnelConfig["name"];
+    className?: SeriesFunnelConfig["className"];
+    color?: SeriesFunnelConfig["color"];
+    events?: SeriesFunnelConfig["events"];
+    data?: SeriesFunnelConfig["data"];
+    options?: SeriesFunnelConfig;
 }
 export declare function FunnelSeries(_props: FunnelSeriesProps): any;
 export declare namespace FunnelSeries {

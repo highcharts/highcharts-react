@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesGaugeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Gauge series
  */
@@ -20,12 +21,16 @@ declare const Gauge: {
     Series: typeof GaugeSeries;
     type: string;
 };
+type SeriesGaugeConfig = Omit<SeriesGaugeOptions, "type">;
 export interface GaugeSeriesProps {
-    type?: "gauge";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesGaugeOptions, "type">;
+    id?: SeriesGaugeConfig["id"];
+    index?: SeriesGaugeConfig["index"];
+    name?: SeriesGaugeConfig["name"];
+    className?: SeriesGaugeConfig["className"];
+    color?: SeriesGaugeConfig["color"];
+    events?: SeriesGaugeConfig["events"];
+    data?: SeriesGaugeConfig["data"];
+    options?: SeriesGaugeConfig;
 }
 export declare function GaugeSeries(_props: GaugeSeriesProps): any;
 export declare namespace GaugeSeries {

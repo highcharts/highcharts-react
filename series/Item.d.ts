@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesItemOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Item series
  */
@@ -20,12 +21,16 @@ declare const Item: {
     Series: typeof ItemSeries;
     type: string;
 };
+type SeriesItemConfig = Omit<SeriesItemOptions, "type">;
 export interface ItemSeriesProps {
-    type?: "item";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesItemOptions, "type">;
+    id?: SeriesItemConfig["id"];
+    index?: SeriesItemConfig["index"];
+    name?: SeriesItemConfig["name"];
+    className?: SeriesItemConfig["className"];
+    color?: SeriesItemConfig["color"];
+    events?: SeriesItemConfig["events"];
+    data?: SeriesItemConfig["data"];
+    options?: SeriesItemConfig;
 }
 export declare function ItemSeries(_props: ItemSeriesProps): any;
 export declare namespace ItemSeries {

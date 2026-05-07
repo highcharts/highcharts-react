@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesNATROptions } from "highcharts/highcharts";
+import type { SeriesNatrOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * NATR series
  */
@@ -20,12 +21,15 @@ declare const NATR: {
     Series: typeof NATRSeries;
     type: string;
 };
+type SeriesNatrConfig = Omit<SeriesNatrOptions, "type">;
 export interface NATRSeriesProps {
-    type?: "natr";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesNATROptions, "type">;
+    id?: SeriesNatrConfig["id"];
+    index?: SeriesNatrConfig["index"];
+    name?: SeriesNatrConfig["name"];
+    className?: SeriesNatrConfig["className"];
+    color?: SeriesNatrConfig["color"];
+    events?: SeriesNatrConfig["events"];
+    options?: SeriesNatrConfig;
 }
 export declare function NATRSeries(_props: NATRSeriesProps): any;
 export declare namespace NATRSeries {

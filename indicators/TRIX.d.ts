@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesTRIXOptions } from "highcharts/highcharts";
+import type { SeriesTrixOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * TRIX series
  */
@@ -20,12 +21,15 @@ declare const TRIX: {
     Series: typeof TRIXSeries;
     type: string;
 };
+type SeriesTrixConfig = Omit<SeriesTrixOptions, "type">;
 export interface TRIXSeriesProps {
-    type?: "trix";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTRIXOptions, "type">;
+    id?: SeriesTrixConfig["id"];
+    index?: SeriesTrixConfig["index"];
+    name?: SeriesTrixConfig["name"];
+    className?: SeriesTrixConfig["className"];
+    color?: SeriesTrixConfig["color"];
+    events?: SeriesTrixConfig["events"];
+    options?: SeriesTrixConfig;
 }
 export declare function TRIXSeries(_props: TRIXSeriesProps): any;
 export declare namespace TRIXSeries {

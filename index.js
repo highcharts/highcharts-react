@@ -6,10 +6,8 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export * from "./Highcharts.js";
 export * from "./options/index.js";
-export * from "./indicators/index.js";
-//# sourceMappingURL=index.js.map

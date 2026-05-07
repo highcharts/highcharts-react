@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesScatter3DOptions } from "highcharts/highcharts";
+import type { SeriesScatter3dOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Scatter3D series
  */
@@ -20,12 +21,16 @@ declare const Scatter3D: {
     Series: typeof Scatter3DSeries;
     type: string;
 };
+type SeriesScatter3dConfig = Omit<SeriesScatter3dOptions, "type">;
 export interface Scatter3DSeriesProps {
-    type?: "scatter3d";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesScatter3DOptions, "type">;
+    id?: SeriesScatter3dConfig["id"];
+    index?: SeriesScatter3dConfig["index"];
+    name?: SeriesScatter3dConfig["name"];
+    className?: SeriesScatter3dConfig["className"];
+    color?: SeriesScatter3dConfig["color"];
+    events?: SeriesScatter3dConfig["events"];
+    data?: SeriesScatter3dConfig["data"];
+    options?: SeriesScatter3dConfig;
 }
 export declare function Scatter3DSeries(_props: Scatter3DSeriesProps): any;
 export declare namespace Scatter3DSeries {

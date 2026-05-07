@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesBellcurveOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Bellcurve series
  */
@@ -20,12 +21,15 @@ declare const Bellcurve: {
     Series: typeof BellcurveSeries;
     type: string;
 };
+type SeriesBellcurveConfig = Omit<SeriesBellcurveOptions, "type">;
 export interface BellcurveSeriesProps {
-    type?: "bellcurve";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBellcurveOptions, "type">;
+    id?: SeriesBellcurveConfig["id"];
+    index?: SeriesBellcurveConfig["index"];
+    name?: SeriesBellcurveConfig["name"];
+    className?: SeriesBellcurveConfig["className"];
+    color?: SeriesBellcurveConfig["color"];
+    events?: SeriesBellcurveConfig["events"];
+    options?: SeriesBellcurveConfig;
 }
 export declare function BellcurveSeries(_props: BellcurveSeriesProps): any;
 export declare namespace BellcurveSeries {

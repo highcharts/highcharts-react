@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Scatter: {
     Series: typeof ScatterSeries;
     type: string;
 };
+type SeriesScatterConfig = Omit<SeriesScatterOptions, "type">;
 export interface ScatterSeriesProps {
-    type?: "scatter";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesScatterOptions, "type">;
+    id?: SeriesScatterConfig["id"];
+    index?: SeriesScatterConfig["index"];
+    name?: SeriesScatterConfig["name"];
+    className?: SeriesScatterConfig["className"];
+    color?: SeriesScatterConfig["color"];
+    events?: SeriesScatterConfig["events"];
+    data?: SeriesScatterConfig["data"];
+    options?: SeriesScatterConfig;
 }
 export declare function ScatterSeries(_props: ScatterSeriesProps): any;
 export declare namespace ScatterSeries {

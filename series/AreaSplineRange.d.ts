@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesAreaSplineRangeOptions } from "highcharts/highcharts";
+import type { SeriesAreasplinerangeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * AreaSplineRange series
  */
@@ -20,12 +21,16 @@ declare const AreaSplineRange: {
     Series: typeof AreaSplineRangeSeries;
     type: string;
 };
+type SeriesAreasplinerangeConfig = Omit<SeriesAreasplinerangeOptions, "type">;
 export interface AreaSplineRangeSeriesProps {
-    type?: "areasplinerange";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesAreaSplineRangeOptions, "type">;
+    id?: SeriesAreasplinerangeConfig["id"];
+    index?: SeriesAreasplinerangeConfig["index"];
+    name?: SeriesAreasplinerangeConfig["name"];
+    className?: SeriesAreasplinerangeConfig["className"];
+    color?: SeriesAreasplinerangeConfig["color"];
+    events?: SeriesAreasplinerangeConfig["events"];
+    data?: SeriesAreasplinerangeConfig["data"];
+    options?: SeriesAreasplinerangeConfig;
 }
 export declare function AreaSplineRangeSeries(_props: AreaSplineRangeSeriesProps): any;
 export declare namespace AreaSplineRangeSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPivotPointsOptions } from "highcharts/highcharts";
+import type { SeriesPivotpointsOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PivotPoints series
  */
@@ -20,12 +21,15 @@ declare const PivotPoints: {
     Series: typeof PivotPointsSeries;
     type: string;
 };
+type SeriesPivotpointsConfig = Omit<SeriesPivotpointsOptions, "type">;
 export interface PivotPointsSeriesProps {
-    type?: "pivotpoints";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPivotPointsOptions, "type">;
+    id?: SeriesPivotpointsConfig["id"];
+    index?: SeriesPivotpointsConfig["index"];
+    name?: SeriesPivotpointsConfig["name"];
+    className?: SeriesPivotpointsConfig["className"];
+    color?: SeriesPivotpointsConfig["color"];
+    events?: SeriesPivotpointsConfig["events"];
+    options?: SeriesPivotpointsConfig;
 }
 export declare function PivotPointsSeries(_props: PivotPointsSeriesProps): any;
 export declare namespace PivotPointsSeries {

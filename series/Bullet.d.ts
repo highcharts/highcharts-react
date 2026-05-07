@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesBulletOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Bullet series
  */
@@ -20,12 +21,16 @@ declare const Bullet: {
     Series: typeof BulletSeries;
     type: string;
 };
+type SeriesBulletConfig = Omit<SeriesBulletOptions, "type">;
 export interface BulletSeriesProps {
-    type?: "bullet";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBulletOptions, "type">;
+    id?: SeriesBulletConfig["id"];
+    index?: SeriesBulletConfig["index"];
+    name?: SeriesBulletConfig["name"];
+    className?: SeriesBulletConfig["className"];
+    color?: SeriesBulletConfig["color"];
+    events?: SeriesBulletConfig["events"];
+    data?: SeriesBulletConfig["data"];
+    options?: SeriesBulletConfig;
 }
 export declare function BulletSeries(_props: BulletSeriesProps): any;
 export declare namespace BulletSeries {

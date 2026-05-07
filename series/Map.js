@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React, { useState,
@@ -22,7 +22,7 @@ const Map = (props) => {
             type: "map",
         },
     }, props.options || {}));
-    return (React.createElement(Chart, { title: props.title, chartConstructor: "mapChart", options: chartConfig }, props.children));
+    return (React.createElement(Chart, { title: props.title, subtitle: props.subtitle, caption: props.caption, credits: props.credits, type: props.type, height: props.height, width: props.width, inverted: props.inverted, animation: props.animation, styledMode: props.styledMode, backgroundColor: props.backgroundColor, borderColor: props.borderColor, borderWidth: props.borderWidth, margin: props.margin, spacing: props.spacing, colors: props.colors, chartConstructor: "mapChart", options: chartConfig }, props.children));
 };
 export function MapSeries(_props) {
     return null;
@@ -36,4 +36,3 @@ MapSeries._HCReact = {
 };
 Map.type = "SeriesChart";
 export default Map;
-//# sourceMappingURL=Map.js.map

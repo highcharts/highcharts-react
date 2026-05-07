@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export function Legend(props) {
@@ -20,4 +20,3 @@ Legend._HCReact = {
     isArrayType: false,
 };
 export default Legend;
-//# sourceMappingURL=Legend.js.map

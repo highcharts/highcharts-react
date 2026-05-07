@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesSunburstOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Sunburst series
  */
@@ -20,12 +21,16 @@ declare const Sunburst: {
     Series: typeof SunburstSeries;
     type: string;
 };
+type SeriesSunburstConfig = Omit<SeriesSunburstOptions, "type">;
 export interface SunburstSeriesProps {
-    type?: "sunburst";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesSunburstOptions, "type">;
+    id?: SeriesSunburstConfig["id"];
+    index?: SeriesSunburstConfig["index"];
+    name?: SeriesSunburstConfig["name"];
+    className?: SeriesSunburstConfig["className"];
+    color?: SeriesSunburstConfig["color"];
+    events?: SeriesSunburstConfig["events"];
+    data?: SeriesSunburstConfig["data"];
+    options?: SeriesSunburstConfig;
 }
 export declare function SunburstSeries(_props: SunburstSeriesProps): any;
 export declare namespace SunburstSeries {

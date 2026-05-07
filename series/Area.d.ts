@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Area: {
     Series: typeof AreaSeries;
     type: string;
 };
+type SeriesAreaConfig = Omit<SeriesAreaOptions, "type">;
 export interface AreaSeriesProps {
-    type?: "area";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesAreaOptions, "type">;
+    id?: SeriesAreaConfig["id"];
+    index?: SeriesAreaConfig["index"];
+    name?: SeriesAreaConfig["name"];
+    className?: SeriesAreaConfig["className"];
+    color?: SeriesAreaConfig["color"];
+    events?: SeriesAreaConfig["events"];
+    data?: SeriesAreaConfig["data"];
+    options?: SeriesAreaConfig;
 }
 export declare function AreaSeries(_props: AreaSeriesProps): any;
 export declare namespace AreaSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesTrendLineOptions } from "highcharts/highcharts";
+import type { SeriesTrendlineOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * TrendLine series
  */
@@ -20,12 +21,15 @@ declare const TrendLine: {
     Series: typeof TrendLineSeries;
     type: string;
 };
+type SeriesTrendlineConfig = Omit<SeriesTrendlineOptions, "type">;
 export interface TrendLineSeriesProps {
-    type?: "trendline";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTrendLineOptions, "type">;
+    id?: SeriesTrendlineConfig["id"];
+    index?: SeriesTrendlineConfig["index"];
+    name?: SeriesTrendlineConfig["name"];
+    className?: SeriesTrendlineConfig["className"];
+    color?: SeriesTrendlineConfig["color"];
+    events?: SeriesTrendlineConfig["events"];
+    options?: SeriesTrendlineConfig;
 }
 export declare function TrendLineSeries(_props: TrendLineSeriesProps): any;
 export declare namespace TrendLineSeries {

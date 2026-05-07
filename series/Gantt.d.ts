@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesGanttOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Gantt series
  */
@@ -20,12 +21,16 @@ declare const Gantt: {
     Series: typeof GanttSeries;
     type: string;
 };
+type SeriesGanttConfig = Omit<SeriesGanttOptions, "type">;
 export interface GanttSeriesProps {
-    type?: "gantt";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesGanttOptions, "type">;
+    id?: SeriesGanttConfig["id"];
+    index?: SeriesGanttConfig["index"];
+    name?: SeriesGanttConfig["name"];
+    className?: SeriesGanttConfig["className"];
+    color?: SeriesGanttConfig["color"];
+    events?: SeriesGanttConfig["events"];
+    data?: SeriesGanttConfig["data"];
+    options?: SeriesGanttConfig;
 }
 export declare function GanttSeries(_props: GanttSeriesProps): any;
 export declare namespace GanttSeries {

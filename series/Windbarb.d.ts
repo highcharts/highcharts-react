@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesWindbarbOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Windbarb series
  */
@@ -20,12 +21,16 @@ declare const Windbarb: {
     Series: typeof WindbarbSeries;
     type: string;
 };
+type SeriesWindbarbConfig = Omit<SeriesWindbarbOptions, "type">;
 export interface WindbarbSeriesProps {
-    type?: "windbarb";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesWindbarbOptions, "type">;
+    id?: SeriesWindbarbConfig["id"];
+    index?: SeriesWindbarbConfig["index"];
+    name?: SeriesWindbarbConfig["name"];
+    className?: SeriesWindbarbConfig["className"];
+    color?: SeriesWindbarbConfig["color"];
+    events?: SeriesWindbarbConfig["events"];
+    data?: SeriesWindbarbConfig["data"];
+    options?: SeriesWindbarbConfig;
 }
 export declare function WindbarbSeries(_props: WindbarbSeriesProps): any;
 export declare namespace WindbarbSeries {

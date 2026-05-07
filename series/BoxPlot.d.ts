@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesBoxPlotOptions } from "highcharts/highcharts";
+import type { SeriesBoxplotOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * BoxPlot series
  */
@@ -20,12 +21,16 @@ declare const BoxPlot: {
     Series: typeof BoxPlotSeries;
     type: string;
 };
+type SeriesBoxplotConfig = Omit<SeriesBoxplotOptions, "type">;
 export interface BoxPlotSeriesProps {
-    type?: "boxplot";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesBoxPlotOptions, "type">;
+    id?: SeriesBoxplotConfig["id"];
+    index?: SeriesBoxplotConfig["index"];
+    name?: SeriesBoxplotConfig["name"];
+    className?: SeriesBoxplotConfig["className"];
+    color?: SeriesBoxplotConfig["color"];
+    events?: SeriesBoxplotConfig["events"];
+    data?: SeriesBoxplotConfig["data"];
+    options?: SeriesBoxplotConfig;
 }
 export declare function BoxPlotSeries(_props: BoxPlotSeriesProps): any;
 export declare namespace BoxPlotSeries {

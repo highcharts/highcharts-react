@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesPyramidOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Pyramid series
  */
@@ -20,12 +21,16 @@ declare const Pyramid: {
     Series: typeof PyramidSeries;
     type: string;
 };
+type SeriesPyramidConfig = Omit<SeriesPyramidOptions, "type">;
 export interface PyramidSeriesProps {
-    type?: "pyramid";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPyramidOptions, "type">;
+    id?: SeriesPyramidConfig["id"];
+    index?: SeriesPyramidConfig["index"];
+    name?: SeriesPyramidConfig["name"];
+    className?: SeriesPyramidConfig["className"];
+    color?: SeriesPyramidConfig["color"];
+    events?: SeriesPyramidConfig["events"];
+    data?: SeriesPyramidConfig["data"];
+    options?: SeriesPyramidConfig;
 }
 export declare function PyramidSeries(_props: PyramidSeriesProps): any;
 export declare namespace PyramidSeries {

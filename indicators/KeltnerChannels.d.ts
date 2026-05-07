@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesKeltnerChannelsOptions } from "highcharts/highcharts";
+import type { SeriesKeltnerchannelsOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * KeltnerChannels series
  */
@@ -20,12 +21,15 @@ declare const KeltnerChannels: {
     Series: typeof KeltnerChannelsSeries;
     type: string;
 };
+type SeriesKeltnerchannelsConfig = Omit<SeriesKeltnerchannelsOptions, "type">;
 export interface KeltnerChannelsSeriesProps {
-    type?: "keltnerchannels";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesKeltnerChannelsOptions, "type">;
+    id?: SeriesKeltnerchannelsConfig["id"];
+    index?: SeriesKeltnerchannelsConfig["index"];
+    name?: SeriesKeltnerchannelsConfig["name"];
+    className?: SeriesKeltnerchannelsConfig["className"];
+    color?: SeriesKeltnerchannelsConfig["color"];
+    events?: SeriesKeltnerchannelsConfig["events"];
+    options?: SeriesKeltnerchannelsConfig;
 }
 export declare function KeltnerChannelsSeries(_props: KeltnerChannelsSeriesProps): any;
 export declare namespace KeltnerChannelsSeries {

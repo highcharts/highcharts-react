@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesParetoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Pareto series
  */
@@ -20,12 +21,16 @@ declare const Pareto: {
     Series: typeof ParetoSeries;
     type: string;
 };
+type SeriesParetoConfig = Omit<SeriesParetoOptions, "type">;
 export interface ParetoSeriesProps {
-    type?: "pareto";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesParetoOptions, "type">;
+    id?: SeriesParetoConfig["id"];
+    index?: SeriesParetoConfig["index"];
+    name?: SeriesParetoConfig["name"];
+    className?: SeriesParetoConfig["className"];
+    color?: SeriesParetoConfig["color"];
+    events?: SeriesParetoConfig["events"];
+    data?: SeriesParetoConfig["data"];
+    options?: SeriesParetoConfig;
 }
 export declare function ParetoSeries(_props: ParetoSeriesProps): any;
 export declare namespace ParetoSeries {

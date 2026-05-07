@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesROCOptions } from "highcharts/highcharts";
+import type { SeriesRocOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ROC series
  */
@@ -20,12 +21,15 @@ declare const ROC: {
     Series: typeof ROCSeries;
     type: string;
 };
+type SeriesRocConfig = Omit<SeriesRocOptions, "type">;
 export interface ROCSeriesProps {
-    type?: "roc";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesROCOptions, "type">;
+    id?: SeriesRocConfig["id"];
+    index?: SeriesRocConfig["index"];
+    name?: SeriesRocConfig["name"];
+    className?: SeriesRocConfig["className"];
+    color?: SeriesRocConfig["color"];
+    events?: SeriesRocConfig["events"];
+    options?: SeriesRocConfig;
 }
 export declare function ROCSeries(_props: ROCSeriesProps): any;
 export declare namespace ROCSeries {

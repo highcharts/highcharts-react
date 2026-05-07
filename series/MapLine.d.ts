@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesMapLineOptions } from "highcharts/highcharts";
+import type { SeriesMaplineOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * MapLine series
@@ -20,12 +20,16 @@ declare const MapLine: {
     Series: typeof MapLineSeries;
     type: string;
 };
+type SeriesMaplineConfig = Omit<SeriesMaplineOptions, "type">;
 export interface MapLineSeriesProps {
-    type?: "mapline";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMapLineOptions, "type">;
+    id?: SeriesMaplineConfig["id"];
+    index?: SeriesMaplineConfig["index"];
+    name?: SeriesMaplineConfig["name"];
+    className?: SeriesMaplineConfig["className"];
+    color?: SeriesMaplineConfig["color"];
+    events?: SeriesMaplineConfig["events"];
+    data?: SeriesMaplineConfig["data"];
+    options?: SeriesMaplineConfig;
 }
 export declare function MapLineSeries(_props: MapLineSeriesProps): any;
 export declare namespace MapLineSeries {

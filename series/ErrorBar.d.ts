@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesErrorBarOptions } from "highcharts/highcharts";
+import type { SeriesErrorbarOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ErrorBar series
  */
@@ -20,12 +21,16 @@ declare const ErrorBar: {
     Series: typeof ErrorBarSeries;
     type: string;
 };
+type SeriesErrorbarConfig = Omit<SeriesErrorbarOptions, "type">;
 export interface ErrorBarSeriesProps {
-    type?: "errorbar";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesErrorBarOptions, "type">;
+    id?: SeriesErrorbarConfig["id"];
+    index?: SeriesErrorbarConfig["index"];
+    name?: SeriesErrorbarConfig["name"];
+    className?: SeriesErrorbarConfig["className"];
+    color?: SeriesErrorbarConfig["color"];
+    events?: SeriesErrorbarConfig["events"];
+    data?: SeriesErrorbarConfig["data"];
+    options?: SeriesErrorbarConfig;
 }
 export declare function ErrorBarSeries(_props: ErrorBarSeriesProps): any;
 export declare namespace ErrorBarSeries {

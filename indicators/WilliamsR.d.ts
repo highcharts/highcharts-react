@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesWilliamsROptions } from "highcharts/highcharts";
+import type { SeriesWilliamsrOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * WilliamsR series
  */
@@ -20,12 +21,15 @@ declare const WilliamsR: {
     Series: typeof WilliamsRSeries;
     type: string;
 };
+type SeriesWilliamsrConfig = Omit<SeriesWilliamsrOptions, "type">;
 export interface WilliamsRSeriesProps {
-    type?: "williamsr";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesWilliamsROptions, "type">;
+    id?: SeriesWilliamsrConfig["id"];
+    index?: SeriesWilliamsrConfig["index"];
+    name?: SeriesWilliamsrConfig["name"];
+    className?: SeriesWilliamsrConfig["className"];
+    color?: SeriesWilliamsrConfig["color"];
+    events?: SeriesWilliamsrConfig["events"];
+    options?: SeriesWilliamsrConfig;
 }
 export declare function WilliamsRSeries(_props: WilliamsRSeriesProps): any;
 export declare namespace WilliamsRSeries {

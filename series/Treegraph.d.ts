@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesTreegraphOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Treegraph series
  */
@@ -20,12 +21,16 @@ declare const Treegraph: {
     Series: typeof TreegraphSeries;
     type: string;
 };
+type SeriesTreegraphConfig = Omit<SeriesTreegraphOptions, "type">;
 export interface TreegraphSeriesProps {
-    type?: "treegraph";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesTreegraphOptions, "type">;
+    id?: SeriesTreegraphConfig["id"];
+    index?: SeriesTreegraphConfig["index"];
+    name?: SeriesTreegraphConfig["name"];
+    className?: SeriesTreegraphConfig["className"];
+    color?: SeriesTreegraphConfig["color"];
+    events?: SeriesTreegraphConfig["events"];
+    data?: SeriesTreegraphConfig["data"];
+    options?: SeriesTreegraphConfig;
 }
 export declare function TreegraphSeries(_props: TreegraphSeriesProps): any;
 export declare namespace TreegraphSeries {

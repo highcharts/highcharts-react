@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesDisparityIndexOptions } from "highcharts/highcharts";
+import type { SeriesDisparityindexOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * DisparityIndex series
  */
@@ -20,12 +21,15 @@ declare const DisparityIndex: {
     Series: typeof DisparityIndexSeries;
     type: string;
 };
+type SeriesDisparityindexConfig = Omit<SeriesDisparityindexOptions, "type">;
 export interface DisparityIndexSeriesProps {
-    type?: "disparityindex";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesDisparityIndexOptions, "type">;
+    id?: SeriesDisparityindexConfig["id"];
+    index?: SeriesDisparityindexConfig["index"];
+    name?: SeriesDisparityindexConfig["name"];
+    className?: SeriesDisparityindexConfig["className"];
+    color?: SeriesDisparityindexConfig["color"];
+    events?: SeriesDisparityindexConfig["events"];
+    options?: SeriesDisparityindexConfig;
 }
 export declare function DisparityIndexSeries(_props: DisparityIndexSeriesProps): any;
 export declare namespace DisparityIndexSeries {

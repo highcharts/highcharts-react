@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPSAROptions } from "highcharts/highcharts";
+import type { SeriesPsarOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PSAR series
  */
@@ -20,12 +21,15 @@ declare const PSAR: {
     Series: typeof PSARSeries;
     type: string;
 };
+type SeriesPsarConfig = Omit<SeriesPsarOptions, "type">;
 export interface PSARSeriesProps {
-    type?: "psar";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPSAROptions, "type">;
+    id?: SeriesPsarConfig["id"];
+    index?: SeriesPsarConfig["index"];
+    name?: SeriesPsarConfig["name"];
+    className?: SeriesPsarConfig["className"];
+    color?: SeriesPsarConfig["color"];
+    events?: SeriesPsarConfig["events"];
+    options?: SeriesPsarConfig;
 }
 export declare function PSARSeries(_props: PSARSeriesProps): any;
 export declare namespace PSARSeries {

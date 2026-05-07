@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,16 @@ declare const Column: {
     Series: typeof ColumnSeries;
     type: string;
 };
+type SeriesColumnConfig = Omit<SeriesColumnOptions, "type">;
 export interface ColumnSeriesProps {
-    type?: "column";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesColumnOptions, "type">;
+    id?: SeriesColumnConfig["id"];
+    index?: SeriesColumnConfig["index"];
+    name?: SeriesColumnConfig["name"];
+    className?: SeriesColumnConfig["className"];
+    color?: SeriesColumnConfig["color"];
+    events?: SeriesColumnConfig["events"];
+    data?: SeriesColumnConfig["data"];
+    options?: SeriesColumnConfig;
 }
 export declare function ColumnSeries(_props: ColumnSeriesProps): any;
 export declare namespace ColumnSeries {

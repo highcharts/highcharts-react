@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesMapDataOptions } from "highcharts/highcharts";
+import type { SeriesMapdataOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * MapData series
@@ -20,12 +20,15 @@ declare const MapData: {
     Series: typeof MapDataSeries;
     type: string;
 };
+type SeriesMapdataConfig = Omit<SeriesMapdataOptions, "type">;
 export interface MapDataSeriesProps {
-    type?: "mapdata";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMapDataOptions, "type">;
+    id?: SeriesMapdataConfig["id"];
+    index?: SeriesMapdataConfig["index"];
+    name?: SeriesMapdataConfig["name"];
+    className?: SeriesMapdataConfig["className"];
+    color?: SeriesMapdataConfig["color"];
+    events?: SeriesMapdataConfig["events"];
+    options?: SeriesMapdataConfig;
 }
 export declare function MapDataSeries(_props: MapDataSeriesProps): any;
 export declare namespace MapDataSeries {

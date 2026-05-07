@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
@@ -20,12 +20,15 @@ declare const Stack: {
     Series: typeof StackSeries;
     type: string;
 };
+type SeriesStackConfig = Omit<SeriesStackOptions, "type">;
 export interface StackSeriesProps {
-    type?: "stack";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesStackOptions, "type">;
+    id?: SeriesStackConfig["id"];
+    index?: SeriesStackConfig["index"];
+    name?: SeriesStackConfig["name"];
+    className?: SeriesStackConfig["className"];
+    color?: SeriesStackConfig["color"];
+    events?: SeriesStackConfig["events"];
+    options?: SeriesStackConfig;
 }
 export declare function StackSeries(_props: StackSeriesProps): any;
 export declare namespace StackSeries {

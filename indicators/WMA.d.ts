@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesWMAOptions } from "highcharts/highcharts";
+import type { SeriesWmaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * WMA series
  */
@@ -20,12 +21,15 @@ declare const WMA: {
     Series: typeof WMASeries;
     type: string;
 };
+type SeriesWmaConfig = Omit<SeriesWmaOptions, "type">;
 export interface WMASeriesProps {
-    type?: "wma";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesWMAOptions, "type">;
+    id?: SeriesWmaConfig["id"];
+    index?: SeriesWmaConfig["index"];
+    name?: SeriesWmaConfig["name"];
+    className?: SeriesWmaConfig["className"];
+    color?: SeriesWmaConfig["color"];
+    events?: SeriesWmaConfig["events"];
+    options?: SeriesWmaConfig;
 }
 export declare function WMASeries(_props: WMASeriesProps): any;
 export declare namespace WMASeries {

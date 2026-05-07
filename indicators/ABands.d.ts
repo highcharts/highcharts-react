@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesABandsOptions } from "highcharts/highcharts";
+import type { SeriesAbandsOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ABands series
  */
@@ -20,12 +21,15 @@ declare const ABands: {
     Series: typeof ABandsSeries;
     type: string;
 };
+type SeriesAbandsConfig = Omit<SeriesAbandsOptions, "type">;
 export interface ABandsSeriesProps {
-    type?: "abands";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesABandsOptions, "type">;
+    id?: SeriesAbandsConfig["id"];
+    index?: SeriesAbandsConfig["index"];
+    name?: SeriesAbandsConfig["name"];
+    className?: SeriesAbandsConfig["className"];
+    color?: SeriesAbandsConfig["color"];
+    events?: SeriesAbandsConfig["events"];
+    options?: SeriesAbandsConfig;
 }
 export declare function ABandsSeries(_props: ABandsSeriesProps): any;
 export declare namespace ABandsSeries {

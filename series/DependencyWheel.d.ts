@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesDependencyWheelOptions } from "highcharts/highcharts";
+import type { SeriesDependencywheelOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * DependencyWheel series
  */
@@ -20,12 +21,16 @@ declare const DependencyWheel: {
     Series: typeof DependencyWheelSeries;
     type: string;
 };
+type SeriesDependencywheelConfig = Omit<SeriesDependencywheelOptions, "type">;
 export interface DependencyWheelSeriesProps {
-    type?: "dependencywheel";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesDependencyWheelOptions, "type">;
+    id?: SeriesDependencywheelConfig["id"];
+    index?: SeriesDependencywheelConfig["index"];
+    name?: SeriesDependencywheelConfig["name"];
+    className?: SeriesDependencywheelConfig["className"];
+    color?: SeriesDependencywheelConfig["color"];
+    events?: SeriesDependencywheelConfig["events"];
+    data?: SeriesDependencywheelConfig["data"];
+    options?: SeriesDependencywheelConfig;
 }
 export declare function DependencyWheelSeries(_props: DependencyWheelSeriesProps): any;
 export declare namespace DependencyWheelSeries {

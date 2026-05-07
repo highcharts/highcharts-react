@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
 import type { SeriesHistogramOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * Histogram series
  */
@@ -20,12 +21,15 @@ declare const Histogram: {
     Series: typeof HistogramSeries;
     type: string;
 };
+type SeriesHistogramConfig = Omit<SeriesHistogramOptions, "type">;
 export interface HistogramSeriesProps {
-    type?: "histogram";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesHistogramOptions, "type">;
+    id?: SeriesHistogramConfig["id"];
+    index?: SeriesHistogramConfig["index"];
+    name?: SeriesHistogramConfig["name"];
+    className?: SeriesHistogramConfig["className"];
+    color?: SeriesHistogramConfig["color"];
+    events?: SeriesHistogramConfig["events"];
+    options?: SeriesHistogramConfig;
 }
 export declare function HistogramSeries(_props: HistogramSeriesProps): any;
 export declare namespace HistogramSeries {

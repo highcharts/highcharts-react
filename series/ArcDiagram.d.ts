@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesArcDiagramOptions } from "highcharts/highcharts";
+import type { SeriesArcdiagramOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * ArcDiagram series
  */
@@ -20,12 +21,16 @@ declare const ArcDiagram: {
     Series: typeof ArcDiagramSeries;
     type: string;
 };
+type SeriesArcdiagramConfig = Omit<SeriesArcdiagramOptions, "type">;
 export interface ArcDiagramSeriesProps {
-    type?: "arcdiagram";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesArcDiagramOptions, "type">;
+    id?: SeriesArcdiagramConfig["id"];
+    index?: SeriesArcdiagramConfig["index"];
+    name?: SeriesArcdiagramConfig["name"];
+    className?: SeriesArcdiagramConfig["className"];
+    color?: SeriesArcdiagramConfig["color"];
+    events?: SeriesArcdiagramConfig["events"];
+    data?: SeriesArcdiagramConfig["data"];
+    options?: SeriesArcdiagramConfig;
 }
 export declare function ArcDiagramSeries(_props: ArcDiagramSeriesProps): any;
 export declare namespace ArcDiagramSeries {

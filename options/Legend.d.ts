@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 export type LegendProps = {
@@ -18,17 +18,17 @@ export type LegendProps = {
     };
     align?: Highcharts.AlignValue;
     alignColumns?: boolean;
-    backgroundColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
-    borderColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+    backgroundColor?: Highcharts.ColorType;
+    borderColor?: Highcharts.ColorType;
     borderRadius?: number;
     borderWidth?: number;
     bubbleLegend?: {
-        borderColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        borderColor?: Highcharts.ColorType;
         borderWidth?: number;
         className?: string;
-        color?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        color?: Highcharts.ColorType;
         connectorClassName?: string;
-        connectorColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        connectorColor?: Highcharts.ColorType;
         connectorDistance?: number;
         connectorWidth?: number;
         enabled?: boolean;
@@ -45,12 +45,12 @@ export type LegendProps = {
         legendIndex?: number;
         maxSize?: number;
         minSize?: number;
-        ranges?: {
-            borderColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
-            color?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
-            connectorColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        ranges?: Array<{
+            borderColor?: Highcharts.ColorType;
+            color?: Highcharts.ColorType;
+            connectorColor?: Highcharts.ColorType;
             value?: number;
-        };
+        }>;
         sizeBy?: Highcharts.BubbleSizeByValue;
         sizeByAbsoluteValue?: boolean;
         zIndex?: number;
@@ -71,17 +71,17 @@ export type LegendProps = {
     itemStyle?: Highcharts.CSSObject;
     itemWidth?: number;
     labelFormat?: string;
-    labelFormatter?: Highcharts.FormatterCallbackFunction<Point | Series>;
+    labelFormatter?: Highcharts.FormatterCallbackFunction<Highcharts.Point | Highcharts.Series>;
     layout?: string;
     margin?: number;
     maxHeight?: number;
     maxWidth?: number | string;
     navigation?: {
-        activeColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        activeColor?: Highcharts.ColorType;
         animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;
         arrowSize?: number;
         enabled?: boolean;
-        inactiveColor?: Highcharts.ColorString | Highcharts.GradientColorObject | Highcharts.PatternObject;
+        inactiveColor?: Highcharts.ColorType;
         style?: Highcharts.CSSObject;
     };
     padding?: number;

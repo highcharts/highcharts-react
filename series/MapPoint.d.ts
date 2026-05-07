@@ -6,11 +6,11 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesMapPointOptions } from "highcharts/highcharts";
+import type { SeriesMappointOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
  * MapPoint series
@@ -20,12 +20,16 @@ declare const MapPoint: {
     Series: typeof MapPointSeries;
     type: string;
 };
+type SeriesMappointConfig = Omit<SeriesMappointOptions, "type">;
 export interface MapPointSeriesProps {
-    type?: "mappoint";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMapPointOptions, "type">;
+    id?: SeriesMappointConfig["id"];
+    index?: SeriesMappointConfig["index"];
+    name?: SeriesMappointConfig["name"];
+    className?: SeriesMappointConfig["className"];
+    color?: SeriesMappointConfig["color"];
+    events?: SeriesMappointConfig["events"];
+    data?: SeriesMappointConfig["data"];
+    options?: SeriesMappointConfig;
 }
 export declare function MapPointSeries(_props: MapPointSeriesProps): any;
 export declare namespace MapPointSeries {

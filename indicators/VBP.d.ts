@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesVBPOptions } from "highcharts/highcharts";
+import type { SeriesVbpOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * VBP series
  */
@@ -20,12 +21,15 @@ declare const VBP: {
     Series: typeof VBPSeries;
     type: string;
 };
+type SeriesVbpConfig = Omit<SeriesVbpOptions, "type">;
 export interface VBPSeriesProps {
-    type?: "vbp";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesVBPOptions, "type">;
+    id?: SeriesVbpConfig["id"];
+    index?: SeriesVbpConfig["index"];
+    name?: SeriesVbpConfig["name"];
+    className?: SeriesVbpConfig["className"];
+    color?: SeriesVbpConfig["color"];
+    events?: SeriesVbpConfig["events"];
+    options?: SeriesVbpConfig;
 }
 export declare function VBPSeries(_props: VBPSeriesProps): any;
 export declare namespace VBPSeries {

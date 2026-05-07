@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesADOptions } from "highcharts/highcharts";
+import type { SeriesAdOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * AD series
  */
@@ -20,12 +21,15 @@ declare const AD: {
     Series: typeof ADSeries;
     type: string;
 };
+type SeriesAdConfig = Omit<SeriesAdOptions, "type">;
 export interface ADSeriesProps {
-    type?: "ad";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesADOptions, "type">;
+    id?: SeriesAdConfig["id"];
+    index?: SeriesAdConfig["index"];
+    name?: SeriesAdConfig["name"];
+    className?: SeriesAdConfig["className"];
+    color?: SeriesAdConfig["color"];
+    events?: SeriesAdConfig["events"];
+    options?: SeriesAdConfig;
 }
 export declare function ADSeries(_props: ADSeriesProps): any;
 export declare namespace ADSeries {

@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesPriceEnvelopesOptions } from "highcharts/highcharts";
+import type { SeriesPriceenvelopesOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * PriceEnvelopes series
  */
@@ -20,12 +21,15 @@ declare const PriceEnvelopes: {
     Series: typeof PriceEnvelopesSeries;
     type: string;
 };
+type SeriesPriceenvelopesConfig = Omit<SeriesPriceenvelopesOptions, "type">;
 export interface PriceEnvelopesSeriesProps {
-    type?: "priceenvelopes";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesPriceEnvelopesOptions, "type">;
+    id?: SeriesPriceenvelopesConfig["id"];
+    index?: SeriesPriceenvelopesConfig["index"];
+    name?: SeriesPriceenvelopesConfig["name"];
+    className?: SeriesPriceenvelopesConfig["className"];
+    color?: SeriesPriceenvelopesConfig["color"];
+    events?: SeriesPriceenvelopesConfig["events"];
+    options?: SeriesPriceenvelopesConfig;
 }
 export declare function PriceEnvelopesSeries(_props: PriceEnvelopesSeriesProps): any;
 export declare namespace PriceEnvelopesSeries {

@@ -6,23 +6,14 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
-import { Chart, getHighcharts, setHighcharts } from "../Highcharts.js";
-import SeriesMod from "highcharts/esm/indicators/ichimoku-kinko-hyo.src.js";
-if (typeof getHighcharts().__provided === "undefined") {
-    // Initialize series module
-    if (typeof SeriesMod === "function" && !/^class\s/.test(SeriesMod + "")) {
-        SeriesMod(getHighcharts());
-    }
-    else if (SeriesMod === null || SeriesMod === void 0 ? void 0 : SeriesMod.Chart) {
-        setHighcharts(SeriesMod);
-    }
-}
+import { Chart } from "../Highcharts.js";
+import "highcharts/es-modules/masters/indicators/ichimoku-kinko-hyo.src.js";
 /**
  * IKH series
  */
@@ -32,7 +23,7 @@ const IKH = (props) => {
             type: "ikh",
         },
     }, props.options || {}));
-    return (React.createElement(Chart, { title: props.title, chartConstructor: "stockChart", options: chartConfig }, props.children));
+    return (React.createElement(Chart, { title: props.title, subtitle: props.subtitle, caption: props.caption, credits: props.credits, type: props.type, height: props.height, width: props.width, inverted: props.inverted, animation: props.animation, styledMode: props.styledMode, backgroundColor: props.backgroundColor, borderColor: props.borderColor, borderWidth: props.borderWidth, margin: props.margin, spacing: props.spacing, colors: props.colors, chartConstructor: "stockChart", options: chartConfig }, props.children));
 };
 export function IKHSeries(_props) {
     return null;
@@ -46,4 +37,3 @@ IKHSeries._HCReact = {
 };
 IKH.type = "SeriesChart";
 export default IKH;
-//# sourceMappingURL=IKH.js.map

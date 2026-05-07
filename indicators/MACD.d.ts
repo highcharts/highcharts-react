@@ -6,12 +6,13 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v.xx.
- * Build stamp: 2026-02-19
+ * Build stamp: 2026-05-07
  *
  */
 import React from "react";
-import type { SeriesMACDOptions } from "highcharts/highcharts";
+import type { SeriesMacdOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 /**
  * MACD series
  */
@@ -20,12 +21,15 @@ declare const MACD: {
     Series: typeof MACDSeries;
     type: string;
 };
+type SeriesMacdConfig = Omit<SeriesMacdOptions, "type">;
 export interface MACDSeriesProps {
-    type?: "macd";
-    data?: number[] | Object;
-    id?: string;
-    className?: string;
-    options?: Omit<SeriesMACDOptions, "type">;
+    id?: SeriesMacdConfig["id"];
+    index?: SeriesMacdConfig["index"];
+    name?: SeriesMacdConfig["name"];
+    className?: SeriesMacdConfig["className"];
+    color?: SeriesMacdConfig["color"];
+    events?: SeriesMacdConfig["events"];
+    options?: SeriesMacdConfig;
 }
 export declare function MACDSeries(_props: MACDSeriesProps): any;
 export declare namespace MACDSeries {
