@@ -23,21 +23,23 @@ Fetch docs for every concept the query touches across all three tables in parall
 
 ### Topics
 
-| Doc                      | Covers                                                       | URL                                                                   |
-| ------------------------ | ------------------------------------------------------------ | --------------------------------------------------------------------- |
-| Getting started          | Installation and first chart setup                           | https://www.highcharts.com/docs/react/getting-started                 |
-| Chart                    | Core, Stock, Maps and Gantt chart components and their props | https://www.highcharts.com/docs/react/components/chart                |
-| Series types             | Dedicated and generic series components                      | https://www.highcharts.com/docs/react/components/series-types         |
-| Technical indicators     | Indicator components for Stock charts                        | https://www.highcharts.com/docs/react/components/technical-indicators |
-| Data handling            | Managing chart data with React state                         | https://www.highcharts.com/docs/react/data-handling                   |
-| Chart instance           | Accessing the chart object via ref                           | https://www.highcharts.com/docs/react/chart-instance                  |
-| Highcharts instance      | Global Highcharts configuration                              | https://www.highcharts.com/docs/react/highcharts-instance             |
-| Options/component format | JSX and React components as option children                  | https://www.highcharts.com/docs/react/options-component-format        |
-| Component children       | Child-to-option binding reference                            | https://www.highcharts.com/docs/react/component-children              |
-| TypeScript               | TypeScript types for the integration                         | https://www.highcharts.com/docs/react/typescript                      |
-| Next.js                  | Using Highcharts in Next.js                                  | https://www.highcharts.com/docs/react/nextjs                          |
-| Bundling & tree shaking  | Bundle optimization and ESM imports                          | https://www.highcharts.com/docs/react/bundling-and-tree-shaking       |
-| Migration guide          | Migrating from v3 (`highcharts-react-official`)              | https://www.highcharts.com/docs/react/v4-migration-guide              |
+| Doc                      | Covers                                                          | URL                                                                   |
+| ------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Getting started          | Installation and first chart setup                              | https://www.highcharts.com/docs/react/getting-started                 |
+| Chart                    | Core, Stock, Maps and Gantt chart components and their props    | https://www.highcharts.com/docs/react/components/chart                |
+| Series types             | Dedicated and generic series components                         | https://www.highcharts.com/docs/react/components/series-types         |
+| Technical indicators     | Indicator components for Stock charts                           | https://www.highcharts.com/docs/react/components/technical-indicators |
+| Data handling            | Managing chart data with React state                            | https://www.highcharts.com/docs/react/data-handling                   |
+| Chart instance           | Accessing the chart object via ref                              | https://www.highcharts.com/docs/react/chart-instance                  |
+| Highcharts instance      | Global Highcharts configuration                                 | https://www.highcharts.com/docs/react/highcharts-instance             |
+| Options/component format | JSX and React components as option children                     | https://www.highcharts.com/docs/react/options-component-format        |
+| Component children       | Child-to-option binding reference                               | https://www.highcharts.com/docs/react/component-children              |
+| Component wrapping       | Wrapping Highcharts React components in custom React components | https://www.highcharts.com/docs/react/component-wrapping              |
+| TypeScript               | TypeScript types for the integration                            | https://www.highcharts.com/docs/react/typescript                      |
+| Next.js                  | Using Highcharts in Next.js                                     | https://www.highcharts.com/docs/react/nextjs                          |
+| Bundling & tree shaking  | Bundle optimization and ESM imports                             | https://www.highcharts.com/docs/react/bundling-and-tree-shaking       |
+| v4 migration guide       | Migrating from v3 (`highcharts-react-official`)                 | https://www.highcharts.com/docs/react/v4-migration-guide              |
+| v5 migration guide       | Migrating from v4                                               | https://www.highcharts.com/docs/react/v5-migration-guide              |
 
 ### Chart element components
 
@@ -71,6 +73,7 @@ Fetch docs for every concept the query touches across all three tables in parall
 
 - **Never** call imperative Highcharts methods — always update through React state to keep React and Highcharts states in sync.
 - **Never** nest series components inside axis or option components — the library only resolves them as direct children of the chart root.
+- **Never** use React hooks inside wrapped components — Highcharts React calls wrapper functions directly, outside React's rendering cycle, to minimize overhead. Define state in the parent and pass it via props instead.
 - **Always** prefer JSX children over the `options` prop for chart configuration to keep the code declarative and maintainable.
 - **Always** prefer dedicated series components over the generic `Series` to keep the code maintainable — use `Series` only for dynamic series.
 - **Always** prefer core Highcharts over full product bundles — import only the modules you need to optimize bundle size and performance.
@@ -80,9 +83,9 @@ Fetch docs for every concept the query touches across all three tables in parall
 
 ## Imports
 
-| What                     | From                                                     |
-| ------------------------ | -------------------------------------------------------- |
-| Chart element components | `@highcharts/react`                                      |
-| Series components        | `@highcharts/react/series/<PascalCaseName>`              |
-| Module components        | `@highcharts/react/modules/<PascalCaseName>`             |
-| Additional modules       | `highcharts/es-modules/masters/modules/<module-name>.js` |
+| What                     | From                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| Chart element components | `@highcharts/react`                                          |
+| Series components        | `@highcharts/react/series/<PascalCaseName>`                  |
+| Module components        | `@highcharts/react/modules/<PascalCaseName>`                 |
+| Additional modules       | `highcharts/es-modules/masters/modules/<module-name>.src.js` |
