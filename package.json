@@ -1,6 +1,6 @@
 {
   "name": "@highcharts/react",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "type": "module",
   "description": "Official Highcharts integration for React",
   "repository": {
