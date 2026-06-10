@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v.xx.
- * Build stamp: 2026-05-07
+ * Built for Highcharts v12.6.0.
+ * Build stamp: 2026-06-10
  *
  */
 export type YAxisProps = {
@@ -194,7 +194,7 @@ export type YAxisProps = {
     categories?: Array<string>;
     ceiling?: number;
     className?: string;
-    crosshair?: {
+    crosshair?: boolean | {
         className?: string;
         color?: Highcharts.ColorType;
         dashStyle?: Highcharts.DashStyleValue;
@@ -219,10 +219,12 @@ export type YAxisProps = {
     crossing?: number;
     dateTimeLabelFormats?: {
         day?: {
+            boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
             main?: string | Highcharts.DateTimeFormatOptions;
         };
         hour?: {
+            boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
             main?: string | Highcharts.DateTimeFormatOptions;
             range?: boolean;
@@ -238,6 +240,7 @@ export type YAxisProps = {
             range?: boolean;
         };
         month?: {
+            boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
             main?: string | Highcharts.DateTimeFormatOptions;
         };
@@ -251,6 +254,7 @@ export type YAxisProps = {
             main?: string | Highcharts.DateTimeFormatOptions;
         };
         year?: {
+            boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
             main?: string | Highcharts.DateTimeFormatOptions;
         };

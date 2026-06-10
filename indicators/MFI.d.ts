@@ -5,13 +5,14 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v.xx.
- * Build stamp: 2026-05-07
+ * Built for Highcharts v12.6.0.
+ * Build stamp: 2026-06-10
  *
  */
 import React from "react";
 import type { SeriesMfiOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
+
 
 /**
  * MFI series

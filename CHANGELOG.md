@@ -1,5 +1,18 @@
 # Changelog
 
+## v5.1.0
+
+- Capped the Highcharts peer dependency at v12 (`^12.0.0`).
+- Added Highcharts version tags to JSDoc blocks.
+- Fixed `Highcharts` import in the [Bundling and tree shaking](https://www.highcharts.com/docs/react/bundling-and-tree-shaking) article.
+- Fixed missing and mismatched additional modules for series components. Closes [highcharts/highcharts-react#557](https://github.com/highcharts/highcharts-react/issues/557), [highcharts/highcharts-react#573](https://github.com/highcharts/highcharts-react/issues/573).
+- Fixed primitive types being dropped from union types in generated components.
+- Fixed missing [heatmap](https://www.highcharts.com/docs/chart-and-series-types/heatmap) module import for the `HeatmapSeries` component.
+
+## v5.0.1
+
+- Added the [v5 migration guide](https://www.highcharts.com/docs/react/v5-migration-guide) to the [highcharts-react](https://github.com/highcharts/highcharts-react/blob/master/.claude/skills/highcharts-react/SKILL.md) Claude skill.
+
 ## v5.0.0
 
 Highcharts React v5.0.0 introduces breaking changes to module import paths, ESM bundling, Vite compatibility, and type naming. See the [v5 migration guide](https://www.highcharts.com/docs/react/v5-migration-guide) for quick migration steps.

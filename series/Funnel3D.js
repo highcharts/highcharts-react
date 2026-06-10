@@ -5,14 +5,16 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v.xx.
- * Build stamp: 2026-05-07
+ * Built for Highcharts v12.6.0.
+ * Build stamp: 2026-06-10
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
+import "highcharts/es-modules/masters/highcharts-3d.src.js";
+import "highcharts/es-modules/masters/modules/cylinder.src.js";
 import "highcharts/es-modules/masters/modules/funnel3d.src.js";
 /**
  * Funnel3D series
