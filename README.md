@@ -11,6 +11,7 @@
 <img src="https://img.shields.io/npm/v/%40highcharts%2Freact?style=flat&logoColor=white&label=npm&labelColor=2a2a2a&color=e53e3e" alt="NPM Version" />
 <img src="https://img.shields.io/npm/dm/%40highcharts%2Freact?style=flat&logoColor=white&label=downloads&labelColor=2a2a2a&color=10b981" alt="NPM Downloads" />
 <img src="https://img.shields.io/discord/1318933807059042305?style=flat&logoColor=white&label=discord&labelColor=2a2a2a&color=5865F2" alt="Discord" />
+<a href="./CHANGELOG.md"><img src="https://img.shields.io/badge/changelog-view-blue?style=flat&logoColor=white&labelColor=2a2a2a&color=3b82f6" alt="Changelog" /></a>
 
 <img src="https://assets.highcharts.com/images/highcharts-charts.gif" />
 
