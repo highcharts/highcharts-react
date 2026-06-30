@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v12.6.0.
- * Build stamp: 2026-06-10
+ * Built for Highcharts v13.0.0.
+ * Build stamp: 2026-06-30
  *
  */
 import React from "react";
@@ -32,23 +32,19 @@ export declare function getHighcharts(): typeof HC & {
 };
 /** Type for the <Chart /> options prop. */
 export type ChartOptions = HC.Options;
-type SeriesType = HC.SeriesOptionsType["type"];
+export type SeriesType = HC.SeriesOptionsType["type"];
 export type SeriesOptions<K extends SeriesType = SeriesType> = {
     [T in K]: Omit<Extract<HC.SeriesOptionsType, {
         type: T;
     }>, "type">;
 }[K];
+type SeriesFieldValue<K extends SeriesType, F extends "id" | "index" | "name" | "type" | "className" | "color" | "events" | "data"> = K extends unknown ? F extends keyof SeriesOptions<K> ? SeriesOptions<K>[F] extends undefined ? never : SeriesOptions<K>[F] : never : never;
 export type SeriesProps<K extends SeriesType = "line"> = {
-    [F in Extract<"id" | "index" | "name" | "type" | "className" | "color" | "events" | "data", keyof SeriesOptions<K>> as SeriesOptions<K>[F] extends undefined ? never : F]?: SeriesOptions<K>[F];
+    [F in "id" | "index" | "name" | "type" | "className" | "color" | "events" | "data" as SeriesFieldValue<K, F> extends never ? never : F]?: SeriesFieldValue<K, F>;
 } & {
     type?: K;
     options?: SeriesOptions<K>;
 };
-type SeriesComponentProps<K extends SeriesType = SeriesType> = {
-    [T in K]: SeriesProps<T> & {
-        type?: T;
-    };
-}[K];
 export interface HighchartsReactRefObject {
     chart: Highcharts.Chart;
     container: HTMLDivElement;
@@ -98,9 +94,11 @@ export interface ICommonAttributes {
     spacing?: number | number[];
     /** Links to Highcharts.Options.colors */
     colors?: string[];
+    /** Links to Highcharts.Options.dataTable */
+    dataTable?: ChartOptions["dataTable"];
 }
 export declare const MapsChart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
-export declare function MapsSeries(props: SeriesComponentProps): any;
+export declare function MapsSeries<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;
 export declare namespace MapsSeries {
     var type: string;
 }

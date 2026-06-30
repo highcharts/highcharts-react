@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v12.6.0.
- * Build stamp: 2026-06-10
+ * Built for Highcharts v13.0.0.
+ * Build stamp: 2026-06-30
  *
  */
 export type TooltipProps = {
@@ -27,8 +27,14 @@ export type TooltipProps = {
     footerFormat?: string;
     format?: string;
     formatter?: Highcharts.TooltipFormatterCallbackFunction;
+    header?: {
+        backgroundColor?: Highcharts.ColorType;
+        borderColor?: Highcharts.ColorType;
+        borderWidth?: number;
+        distance?: number;
+        shape?: string;
+    };
     headerFormat?: string;
-    headerShape?: Highcharts.TooltipShapeValue;
     hideDelay?: number;
     nullFormat?: string;
     nullFormatter?: Highcharts.TooltipFormatterCallbackFunction;

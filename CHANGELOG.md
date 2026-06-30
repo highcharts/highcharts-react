@@ -1,5 +1,18 @@
 # Changelog
 
+## v5.2.0
+
+Highcharts React v5.2.0 introduces full support for [highcharts](https://www.npmjs.com/package/highcharts) `v13.0.0`.
+
+- Capped the Highcharts peer dependency at v13 (`^13.0.0`).
+- Introduced [DataTable](https://www.highcharts.com/docs/react/components/chart-elements/dataTable) and [Palette](https://www.highcharts.com/docs/react/components/chart-elements/palette) option components.
+- Fixed [Chart](https://www.highcharts.com/docs/react/components/chart) component's direct props and `options` merging.
+- Fixed [Chart](https://www.highcharts.com/docs/react/components/chart) component's option resolution order so child components (e.g. `<Title>`) take precedence over direct props and `options`.
+- Fixed missing `SeriesType` export and improved generic typing for the [Series](https://www.highcharts.com/docs/react/components/series-types#generic-series) component's `type`-specific fields.
+- Fixed [Tooltip](https://www.highcharts.com/docs/react/components/chart-elements/tooltip) component incorrectly serializing a single `data-hc-option` child to `tooltip.format` instead of binding it to its named sub-option (e.g. `pointFormat`).
+- Surfaced the changelog in a few more places for better visibility.
+- Adjusted the [Tooltip](https://www.highcharts.com/docs/react/components/chart-elements/tooltip) component docs to mention the `useHTML` default.
+
 ## v5.1.0
 
 - Capped the Highcharts peer dependency at v12 (`^12.0.0`).
@@ -7,11 +20,8 @@
 - Fixed `Highcharts` import in the [Bundling and tree shaking](https://www.highcharts.com/docs/react/bundling-and-tree-shaking) article.
 - Fixed missing and mismatched additional modules for series components. Closes [highcharts/highcharts-react#557](https://github.com/highcharts/highcharts-react/issues/557), [highcharts/highcharts-react#573](https://github.com/highcharts/highcharts-react/issues/573).
 - Fixed primitive types being dropped from union types in generated components.
-- Fixed missing [heatmap](https://www.highcharts.com/docs/chart-and-series-types/heatmap) module import for the `HeatmapSeries` component.
-
-## v5.0.1
-
 - Added the [v5 migration guide](https://www.highcharts.com/docs/react/v5-migration-guide) to the [highcharts-react](https://github.com/highcharts/highcharts-react/blob/master/.claude/skills/highcharts-react/SKILL.md) Claude skill.
+- Fixed missing [heatmap](https://www.highcharts.com/docs/chart-and-series-types/heatmap) module import for the `HeatmapSeries` component.
 
 ## v5.0.0
 

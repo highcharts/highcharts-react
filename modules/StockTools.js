@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v12.6.0.
- * Build stamp: 2026-06-10
+ * Built for Highcharts v13.0.0.
+ * Build stamp: 2026-06-30
  *
  */
+import "highcharts/es-modules/masters/modules/stock-tools.src.js";
 import "highcharts/es-modules/masters/indicators/indicators-all.src.js";
 import "highcharts/es-modules/masters/modules/annotations-advanced.src.js";
 import "highcharts/es-modules/masters/modules/price-indicator.src.js";
 import "highcharts/es-modules/masters/modules/full-screen.src.js";
-import "highcharts/es-modules/masters/modules/stock-tools.src.js";
 import "highcharts/es-modules/masters/modules/heikinashi.src.js";
 import "highcharts/es-modules/masters/modules/hollowcandlestick.src.js";
 import "highcharts/css/stocktools/gui.css";
