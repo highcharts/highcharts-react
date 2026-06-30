@@ -164,6 +164,10 @@ Alternatively, you can find the skill at `node_modules/@highcharts/react/.claude
 
 For comprehensive guides and API documentation, visit the [Highcharts React documentation](https://www.highcharts.com/docs/react/getting-started), including the [TypeScript guide](https://www.highcharts.com/docs/react/typescript).
 
+## Changelog
+
+See the [changelog](./CHANGELOG.md) for the latest features, improvements, and fixes.
+
 ## Support and feedback
 
 We love to learn how you are using Highcharts, and what you would like to see from us in the future.

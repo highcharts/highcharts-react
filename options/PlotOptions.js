@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v12.6.0.
- * Build stamp: 2026-06-10
+ * Built for Highcharts v13.0.0.
+ * Build stamp: 2026-06-30
  *
  */
 export function PlotOptions(props) {

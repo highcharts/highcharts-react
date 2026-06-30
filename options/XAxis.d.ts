@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v12.6.0.
- * Build stamp: 2026-06-10
+ * Built for Highcharts v13.0.0.
+ * Build stamp: 2026-06-30
  *
  */
 export type XAxisProps = {
@@ -55,42 +55,42 @@ export type XAxisProps = {
         day?: {
             boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
         };
         hour?: {
             boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
             range?: boolean;
         };
         millisecond?: {
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
             range?: boolean;
         };
         minute?: {
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
             range?: boolean;
         };
         month?: {
             boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
         };
         second?: {
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
             range?: boolean;
         };
         week?: {
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
         };
         year?: {
             boundary?: string;
             list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string | Highcharts.DateTimeFormatOptions;
+            main?: string;
         };
     };
     endOnTick?: boolean;
@@ -171,7 +171,7 @@ export type XAxisProps = {
     plotBands?: Array<{
         acrossPanes?: boolean;
         borderColor?: Highcharts.ColorString;
-        borderRadius?: number | string;
+        borderRadius?: number | string | Highcharts.BorderRadiusOptionsObject;
         borderWidth?: number;
         className?: string;
         color?: Highcharts.ColorType;
@@ -254,7 +254,7 @@ export type XAxisProps = {
     title?: {
         align?: Highcharts.AxisTitleAlignValue;
         margin?: number;
-        offset?: number;
+        offset?: number | string;
         position3d?: "offset" | "chart" | "flap" | "ortho" | null;
         reserveSpace?: boolean;
         rotation?: number;
