@@ -1,6 +1,6 @@
 {
   "name": "@highcharts/react",
-  "version": "5.1.0",
+  "version": "5.2.2",
   "type": "module",
   "description": "Official Highcharts integration for React",
   "repository": {
@@ -19,7 +19,7 @@
     "@types/react": ">=18",
     "react": ">=18",
     "react-dom": ">=18",
-    "highcharts": ">=12.0.0"
+    "highcharts": ">=13.0.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
