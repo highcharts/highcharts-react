@@ -1,5 +1,8 @@
 # Changelog
 
+## v5.2.1
+Corrected npm upload. Version 5.1.0 was wrongly uploaded as 5.2.0
+
 ## v5.2.0
 
 Highcharts React v5.2.0 introduces full support for [highcharts](https://www.npmjs.com/package/highcharts) `v13.0.0`.
