@@ -96,5 +96,5 @@ jobs:
         run: npm run build
 
       - name: Stage publish to npm
-        if: github.event_name != 'workflow_dispatch' && steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
+        if: steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
         run: npm stage publish --access public
