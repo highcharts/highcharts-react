@@ -1,0 +1,100 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - package.json
+      - package-lock.json
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: npm-publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Build and publish package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Detect package version change
+        id: version
+        env:
+          BEFORE_SHA_INPUT: ${{ github.event.before }}
+        run: |
+          BEFORE_SHA="$BEFORE_SHA_INPUT"
+          ZERO_SHA="0000000000000000000000000000000000000000"
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          CHANGED=false
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            CHANGED=true
+          else
+            if [ "$BEFORE_SHA" = "$ZERO_SHA" ] || [ -z "$BEFORE_SHA" ] || ! git cat-file -e "$BEFORE_SHA" 2>/dev/null; then
+              if git rev-parse HEAD~1 >/dev/null 2>&1; then
+                BEFORE_SHA="HEAD~1"
+              else
+                BEFORE_SHA=""
+              fi
+            fi
+
+            OLD_VERSION=""
+            if [ -n "$BEFORE_SHA" ]; then
+              OLD_VERSION=$(git show "${BEFORE_SHA}:package.json" 2>/dev/null | node -e "let input=''; process.stdin.on('data', c => input += c); process.stdin.on('end', () => { try { console.log(JSON.parse(input).version || '') } catch { console.log('') } })")
+            fi
+            if [ -n "$VERSION" ] && [ "$VERSION" != "$OLD_VERSION" ]; then
+              CHANGED=true
+            fi
+          fi
+
+          {
+            echo "name=$NAME"
+            echo "version=$VERSION"
+            echo "changed=$CHANGED"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Check whether version is already published
+        id: npm
+        if: steps.version.outputs.changed == 'true'
+        run: |
+          if npm view "${{ steps.version.outputs.name }}@${{ steps.version.outputs.version }}" version >/dev/null 2>&1; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Node.js
+        if: steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Check npm version
+        run: |
+          npm --version
+
+      - name: Install dependencies
+        if: steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
+        run: |
+          npm install
+
+      - name: Build package
+        if: steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
+        run: npm run build
+
+      - name: Stage publish to npm
+        if: steps.version.outputs.changed == 'true' && steps.npm.outputs.published == 'false'
+        run: npm stage publish --access public
