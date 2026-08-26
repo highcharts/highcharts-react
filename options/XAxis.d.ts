@@ -5,10 +5,11 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
+/** Props for the `<XAxis />` component. */
 export type XAxisProps = {
     accessibility?: {
         description?: string;
@@ -52,46 +53,14 @@ export type XAxisProps = {
     };
     crossing?: number;
     dateTimeLabelFormats?: {
-        day?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        hour?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        millisecond?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        minute?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        month?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        second?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        week?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        year?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
+        day?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        hour?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        millisecond?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        minute?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        month?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        second?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        week?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        year?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
     };
     endOnTick?: boolean;
     events?: {
@@ -162,7 +131,7 @@ export type XAxisProps = {
     minorTickWidth?: number;
     minorTicks?: boolean;
     minorTicksPerMajor?: number;
-    offset?: number;
+    offset?: number | string;
     opposite?: boolean;
     ordinal?: boolean;
     overscroll?: number | string;
@@ -274,8 +243,23 @@ export type XAxisProps = {
     width?: number | string;
     zIndex?: number;
     zoomEnabled?: boolean;
-    children?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[];
+    children?: React.ReactNode;
 };
+/**
+ * The X axis or category axis. Normally this is the horizontal axis, though if
+ * the chart is inverted this is the vertical axis. In case of multiple axes,
+ * the xAxis node is an array of configuration objects.
+ *
+ * Sets `xAxis` on the parent chart. Several may be declared. The children set
+ * `title.text`.
+ *
+ * @example
+ * <Chart>
+ *   <XAxis categories={["Jan", "Feb", "Mar"]} />
+ * </Chart>
+ *
+ * @see https://api.highcharts.com/highcharts/xAxis
+ */
 export declare function XAxis(props: XAxisProps): any;
 export declare namespace XAxis {
     var _HCReact: {

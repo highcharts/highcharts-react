@@ -5,10 +5,11 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
+/** Props for the `<Legend />` component. */
 export type LegendProps = {
     accessibility?: {
         enabled?: boolean;
@@ -104,8 +105,22 @@ export type LegendProps = {
     width?: number | string;
     x?: number;
     y?: number;
-    children?: string | (string | number)[] | React.ReactElement | React.ReactElement[];
+    children?: React.ReactNode;
 };
+/**
+ * The legend is a box containing a symbol and name for each series item or
+ * point item in the chart. Each series (or points in case of pie charts) is
+ * represented by a symbol and its name in the legend.
+ *
+ * Sets `legend` on the parent chart. The children set `labelFormat`.
+ *
+ * @example
+ * <Chart>
+ *   <Legend align="right" layout="vertical" />
+ * </Chart>
+ *
+ * @see https://api.highcharts.com/highcharts/legend
+ */
 export declare function Legend(props: LegendProps): any;
 export declare namespace Legend {
     var _HCReact: {

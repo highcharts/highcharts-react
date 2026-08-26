@@ -9,27 +9,27 @@
  * Build stamp: 2026-08-26
  *
  */
-import "highcharts/es-modules/masters/modules/broken-axis.src.js";
+import "highcharts/es-modules/masters/modules/series-label.src.js";
 /**
- * Lets an axis skip the ranges declared in `xAxis.breaks` / `yAxis.breaks`, so
- * gaps such as weekends or outliers do not stretch the axis.
+ * Places a label next to each series, as an alternative to a legend for charts
+ * where the series are easy to tell apart by position. Configured through
+ * `plotOptions.series.label`.
  *
  * Importing the component also loads the Highcharts module it needs.
  *
  * @example
  * <Chart>
- *   <BrokenAxis />
- *   <XAxis breaks={[{ from: 5, to: 10 }]} />
+ *   <SeriesLabel />
  * </Chart>
  */
-export function BrokenAxis(props) {
+export function SeriesLabel(props) {
     return null;
 }
-BrokenAxis._HCReact = {
+SeriesLabel._HCReact = {
     type: "HC_Option",
-    HCOption: "brokenAxis",
+    HCOption: "seriesLabel",
     childOption: "",
     defaultOptions: undefined,
     isArrayType: false,
 };
-export default BrokenAxis;
+export default SeriesLabel;

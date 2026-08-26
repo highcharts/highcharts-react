@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 import React from "react";
@@ -32,23 +32,31 @@ export declare function getHighcharts(): typeof HC & {
 };
 /** Type for the <Chart /> options prop. */
 export type ChartOptions = HC.Options;
+/** Union of every series type available in the loaded Highcharts modules. */
 export type SeriesType = HC.SeriesOptionsType["type"];
+/** Options of a given series type, without the `type` key itself. */
 export type SeriesOptions<K extends SeriesType = SeriesType> = {
     [T in K]: Omit<Extract<HC.SeriesOptionsType, {
         type: T;
     }>, "type">;
 }[K];
 type SeriesFieldValue<K extends SeriesType, F extends "id" | "index" | "name" | "type" | "className" | "color" | "events" | "data"> = K extends unknown ? F extends keyof SeriesOptions<K> ? SeriesOptions<K>[F] extends undefined ? never : SeriesOptions<K>[F] : never : never;
+/**
+ * Props of a series component: the most common options of the series type
+ * `K` as direct props, plus `options` for everything else.
+ */
 export type SeriesProps<K extends SeriesType = "line"> = {
     [F in "id" | "index" | "name" | "type" | "className" | "color" | "events" | "data" as SeriesFieldValue<K, F> extends never ? never : F]?: SeriesFieldValue<K, F>;
 } & {
     type?: K;
     options?: SeriesOptions<K>;
 };
+/** Shape of the object exposed through the chart component `ref`. */
 export interface HighchartsReactRefObject {
     chart: Highcharts.Chart;
     container: HTMLDivElement;
 }
+/** Props shared by every chart component. */
 export interface ICommonAttributes {
     /** Reference to the chart object. */
     ref?: React.Ref<HighchartsReactRefObject>;
@@ -97,7 +105,35 @@ export interface ICommonAttributes {
     /** Links to Highcharts.Options.dataTable */
     dataTable?: ChartOptions["dataTable"];
 }
+/**
+ * The chart container. Renders a Highcharts chart and keeps it in sync with
+ * its props and children.
+ *
+ * Declare the series as children, either with a dedicated component such as
+ * `LineSeries` or with the generic `Series`, and configure the chart with
+ * option components such as `Title` or `Tooltip`. Options passed through the
+ * `options` prop are merged in first, direct props next, and children last.
+ *
+ * @example
+ * <Chart>
+ *   <Title>Monthly sales</Title>
+ *   <LineSeries data={[1, 2, 3]} />
+ * </Chart>
+ *
+ * @see https://www.highcharts.com/docs/react/components/chart
+ */
 export declare const Chart: React.ForwardRefExoticComponent<Omit<ICommonAttributes, "ref"> & React.RefAttributes<unknown>>;
+/**
+ * A chart series whose type is set with the `type` prop.
+ *
+ * For a fixed type, prefer a dedicated component such as `LineSeries` for the
+ * best autocomplete. Reach for `Series` when the type is dynamic, e.g.
+ * `<Series type={type} data={data} />`. For full type safety on advanced
+ * settings, pass them through the `options` prop.
+ *
+ * @example
+ * <Series type="line" data={[1, 2, 3]} />
+ */
 export declare function Series<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;
 export declare namespace Series {
     var type: string;

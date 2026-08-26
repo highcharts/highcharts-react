@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 import React from "react";
@@ -15,14 +15,30 @@ import type { ICommonAttributes } from "../Highcharts";
 
 
 /**
- * CMO series
+ * Chande Momentum Oscillator (CMO) technical indicator. This series requires
+ * the `linkedTo` option to be set and should be loaded after the
+ * `stock/indicators/indicators.js` file.
+ *
+ * A ready-made chart with `chart.type` set to `cmo`. Declare the data with
+ * `<CMO.Series>`, or use `CMOSeries` inside a plain `<StockChart>` to combine
+ * it with other series types.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <CMO>
+ *   <CMO.Series options={{ linkedTo: 'prices' }} />
+ * </CMO>
+ *
+ * @see https://api.highcharts.com/highstock/plotOptions.cmo
  */
-declare const CMO: {
-    (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof CMOSeries;
-    type: string;
-};
+declare function CMO(props: ICommonAttributes): React.JSX.Element;
+declare namespace CMO {
+    export { CMOSeries as Series };
+    export var type: string;
+}
 type SeriesCmoConfig = Omit<SeriesCmoOptions, "type">;
+/** Props for the `<CMOSeries />` component. */
 export interface CMOSeriesProps {
     id?: SeriesCmoConfig["id"];
     index?: SeriesCmoConfig["index"];
@@ -32,6 +48,23 @@ export interface CMOSeriesProps {
     events?: SeriesCmoConfig["events"];
     options?: SeriesCmoConfig;
 }
+/**
+ * Chande Momentum Oscillator (CMO) technical indicator. This series requires
+ * the `linkedTo` option to be set and should be loaded after the
+ * `stock/indicators/indicators.js` file.
+ *
+ * Renders the `cmo` series type inside a chart component. The most common
+ * options are available as props, the rest goes through the `options` prop.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <StockChart>
+ *   <CMOSeries options={{ linkedTo: 'prices' }} />
+ * </StockChart>
+ *
+ * @see https://api.highcharts.com/highstock/series.cmo
+ */
 export declare function CMOSeries(_props: CMOSeriesProps): any;
 export declare namespace CMOSeries {
     var type: string;

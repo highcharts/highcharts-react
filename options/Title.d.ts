@@ -5,10 +5,11 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
+/** Props for the `<Title />` component. */
 export type TitleProps = {
     align?: Highcharts.AlignValue;
     floating?: boolean;
@@ -20,8 +21,20 @@ export type TitleProps = {
     verticalAlign?: Highcharts.VerticalAlignValue;
     x?: number;
     y?: number;
-    children?: string | (string | number)[] | React.ReactElement | React.ReactElement[];
+    children?: React.ReactNode;
 };
+/**
+ * The chart's main title.
+ *
+ * Sets `title` on the parent chart. The children set `text`.
+ *
+ * @example
+ * <Chart>
+ *   <Title>Monthly sales</Title>
+ * </Chart>
+ *
+ * @see https://api.highcharts.com/highcharts/title
+ */
 export declare function Title(props: TitleProps): any;
 export declare namespace Title {
     var _HCReact: {
