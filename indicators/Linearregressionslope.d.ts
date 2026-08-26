@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 import React from "react";
@@ -15,14 +15,30 @@ import type { ICommonAttributes } from "../Highcharts";
 
 
 /**
- * Linearregressionslope series
+ * Linear regression slope indicator. This series requires `linkedTo` option to
+ * be set.
+ *
+ * A ready-made chart with `chart.type` set to `linearregressionslope`. Declare
+ * the data with `<Linearregressionslope.Series>`, or use
+ * `LinearregressionslopeSeries` inside a plain `<StockChart>` to combine it
+ * with other series types.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <Linearregressionslope>
+ *   <Linearregressionslope.Series options={{ linkedTo: 'prices' }} />
+ * </Linearregressionslope>
+ *
+ * @see https://api.highcharts.com/highstock/plotOptions.linearregressionslope
  */
-declare const Linearregressionslope: {
-    (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof LinearregressionslopeSeries;
-    type: string;
-};
+declare function Linearregressionslope(props: ICommonAttributes): React.JSX.Element;
+declare namespace Linearregressionslope {
+    export { LinearregressionslopeSeries as Series };
+    export var type: string;
+}
 type SeriesLinearregressionslopeConfig = Omit<SeriesLinearregressionslopeOptions, "type">;
+/** Props for the `<LinearregressionslopeSeries />` component. */
 export interface LinearregressionslopeSeriesProps {
     id?: SeriesLinearregressionslopeConfig["id"];
     index?: SeriesLinearregressionslopeConfig["index"];
@@ -32,6 +48,23 @@ export interface LinearregressionslopeSeriesProps {
     events?: SeriesLinearregressionslopeConfig["events"];
     options?: SeriesLinearregressionslopeConfig;
 }
+/**
+ * Linear regression slope indicator. This series requires `linkedTo` option to
+ * be set.
+ *
+ * Renders the `linearregressionslope` series type inside a chart component.
+ * The most common options are available as props, the rest goes through the
+ * `options` prop.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <StockChart>
+ *   <LinearregressionslopeSeries options={{ linkedTo: 'prices' }} />
+ * </StockChart>
+ *
+ * @see https://api.highcharts.com/highstock/series.linearregressionslope
+ */
 export declare function LinearregressionslopeSeries(_props: LinearregressionslopeSeriesProps): any;
 export declare namespace LinearregressionslopeSeries {
     var type: string;

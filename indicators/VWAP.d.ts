@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 import React from "react";
@@ -15,14 +15,28 @@ import type { ICommonAttributes } from "../Highcharts";
 
 
 /**
- * VWAP series
+ * Volume Weighted Average Price indicator.
+ *
+ * A ready-made chart with `chart.type` set to `vwap`. Declare the data with
+ * `<VWAP.Series>`, or use `VWAPSeries` inside a plain `<StockChart>` to
+ * combine it with other series types.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <VWAP>
+ *   <VWAP.Series options={{ linkedTo: 'prices' }} />
+ * </VWAP>
+ *
+ * @see https://api.highcharts.com/highstock/plotOptions.vwap
  */
-declare const VWAP: {
-    (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof VWAPSeries;
-    type: string;
-};
+declare function VWAP(props: ICommonAttributes): React.JSX.Element;
+declare namespace VWAP {
+    export { VWAPSeries as Series };
+    export var type: string;
+}
 type SeriesVwapConfig = Omit<SeriesVwapOptions, "type">;
+/** Props for the `<VWAPSeries />` component. */
 export interface VWAPSeriesProps {
     id?: SeriesVwapConfig["id"];
     index?: SeriesVwapConfig["index"];
@@ -32,6 +46,21 @@ export interface VWAPSeriesProps {
     events?: SeriesVwapConfig["events"];
     options?: SeriesVwapConfig;
 }
+/**
+ * Volume Weighted Average Price indicator.
+ *
+ * Renders the `vwap` series type inside a chart component. The most common
+ * options are available as props, the rest goes through the `options` prop.
+ *
+ * Available in Highcharts Stock.
+ *
+ * @example
+ * <StockChart>
+ *   <VWAPSeries options={{ linkedTo: 'prices' }} />
+ * </StockChart>
+ *
+ * @see https://api.highcharts.com/highstock/series.vwap
+ */
 export declare function VWAPSeries(_props: VWAPSeriesProps): any;
 export declare namespace VWAPSeries {
     var type: string;

@@ -10,22 +10,22 @@
  *
  */
 
-/** Props for the `<BrokenAxis />` component. */
-export type BrokenAxisProps = {};
+/** Props for the `<SeriesLabel />` component. */
+export type SeriesLabelProps = {};
 /**
- * Lets an axis skip the ranges declared in `xAxis.breaks` / `yAxis.breaks`, so
- * gaps such as weekends or outliers do not stretch the axis.
+ * Places a label next to each series, as an alternative to a legend for charts
+ * where the series are easy to tell apart by position. Configured through
+ * `plotOptions.series.label`.
  *
  * Importing the component also loads the Highcharts module it needs.
  *
  * @example
  * <Chart>
- *   <BrokenAxis />
- *   <XAxis breaks={[{ from: 5, to: 10 }]} />
+ *   <SeriesLabel />
  * </Chart>
  */
-export declare function BrokenAxis(props: BrokenAxisProps): any;
-export declare namespace BrokenAxis {
+export declare function SeriesLabel(props: SeriesLabelProps): any;
+export declare namespace SeriesLabel {
     var _HCReact: {
         type: string;
         HCOption: string;
@@ -34,4 +34,4 @@ export declare namespace BrokenAxis {
         isArrayType: boolean;
     };
 }
-export default BrokenAxis;
+export default SeriesLabel;

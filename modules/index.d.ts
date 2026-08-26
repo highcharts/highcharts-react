@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 export { default as Accessibility } from "./Accessibility.js";
@@ -17,3 +17,4 @@ export { default as BrokenAxis } from "./BrokenAxis.js";
 export { default as DraggablePoints } from "./DraggablePoints.js";
 export { default as StockTools } from "./StockTools.js";
 export { default as Boost } from "./Boost.js";
+export { default as SeriesLabel } from "./SeriesLabel.js";

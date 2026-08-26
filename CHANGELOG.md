@@ -1,5 +1,29 @@
 # Changelog
 
+## v5.3.0
+
+Highcharts React v5.3.0 adds automatic module loading for the generic [`<Series />`](https://www.highcharts.com/docs/react/components/series-types#generic-series) component, improves [`Chart`](https://www.highcharts.com/docs/react/components/chart) re-render performance and adds a dedicated [`<SeriesLabel />`](https://www.highcharts.com/docs/react/components/modules/serieslabel) module component.
+
+### Features
+
+- Added automatic, lazy loading of required modules for the generic [`<Series />`](https://www.highcharts.com/docs/react/components/series-types#generic-series) component (e.g. `<Series type="heatmap" />` now works with no manual import).
+- Improved the [`Chart`](https://www.highcharts.com/docs/react/components/chart) component's update logic, increasing re-render performance.
+- Added a dedicated module component for [`<SeriesLabel />`](https://www.highcharts.com/docs/react/components/modules/serieslabel).
+
+### Bug fixes
+
+- Fixed `children` rendering and typing to support all valid JSX patterns (closes [highcharts/highcharts-react#582](https://github.com/highcharts/highcharts-react/issues/582)).
+- Unified the two separate series-handling code paths into one.
+- Fixed duplicate series keys in the root configuration.
+- Fixed incorrect module import paths for the [`<StockTools />`](https://www.highcharts.com/docs/react/components/modules/stocktools) component.
+
+### Documentation
+
+- Fixed the documented `dataMapping` prop for the [`DataTable`](https://www.highcharts.com/docs/react/components/chart-elements/datatable) component.
+- Documented the default [`<Tooltip />`](https://www.highcharts.com/docs/react/components/chart-elements/tooltip) behaviour.
+- Added JSDoc descriptions to the generated components.
+- Surfaced the changelog in the generated README.
+
 ## v5.2.0
 
 Highcharts React v5.2.0 introduces full support for [highcharts](https://www.npmjs.com/package/highcharts) `v13.0.0`.

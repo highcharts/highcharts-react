@@ -5,10 +5,11 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
+/** Props for the `<YAxis />` component. */
 export type YAxisProps = {
     endOnTick?: boolean;
     gridLineWidth?: number;
@@ -218,46 +219,14 @@ export type YAxisProps = {
     };
     crossing?: number;
     dateTimeLabelFormats?: {
-        day?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        hour?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        millisecond?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        minute?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        month?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        second?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-            range?: boolean;
-        };
-        week?: {
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
-        year?: {
-            boundary?: string;
-            list?: Array<string | Highcharts.DateTimeFormatOptions>;
-            main?: string;
-        };
+        day?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        hour?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        millisecond?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        minute?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        month?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        second?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        week?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        year?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
     };
     events?: {
         afterBreaks?: Highcharts.AxisEventCallbackFunction;
@@ -296,7 +265,7 @@ export type YAxisProps = {
     minorTickWidth?: number;
     minorTicks?: boolean;
     minorTicksPerMajor?: number;
-    offset?: number;
+    offset?: number | string;
     ordinal?: boolean;
     overscroll?: number | string;
     pane?: number;
@@ -320,8 +289,23 @@ export type YAxisProps = {
     width?: number | string;
     zIndex?: number;
     zoomEnabled?: boolean;
-    children?: string | null | (string | number)[] | React.ReactElement | React.ReactElement[];
+    children?: React.ReactNode;
 };
+/**
+ * The Y axis or value axis. Normally this is the vertical axis, though if the
+ * chart is inverted this is the horizontal axis. In case of multiple axes, the
+ * yAxis node is an array of configuration objects.
+ *
+ * Sets `yAxis` on the parent chart. Several may be declared. The children set
+ * `title.text`.
+ *
+ * @example
+ * <Chart>
+ *   <YAxis>Temperature</YAxis>
+ * </Chart>
+ *
+ * @see https://api.highcharts.com/highcharts/yAxis
+ */
 export declare function YAxis(props: YAxisProps): any;
 export declare namespace YAxis {
     var _HCReact: {

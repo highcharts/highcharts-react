@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 export { default as Title } from "./Title.js";

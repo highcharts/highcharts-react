@@ -65,6 +65,7 @@ Fetch docs for every concept the query touches across all three tables in parall
 | DraggablePoints module | Interactive point dragging  | https://www.highcharts.com/docs/react/components/modules/draggable-points |
 | Drilldown module       | Nested chart navigation     | https://www.highcharts.com/docs/react/components/modules/drilldown        |
 | Exporting module       | Chart export and print      | https://www.highcharts.com/docs/react/components/modules/exporting        |
+| SeriesLabel module     | Labels attached to series   | https://www.highcharts.com/docs/react/components/modules/serieslabel      |
 | StockTools module      | Stock chart toolbar         | https://www.highcharts.com/docs/react/components/modules/stock-tools      |
 
 ---

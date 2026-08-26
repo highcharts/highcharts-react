@@ -5,22 +5,37 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.0.
- * Build stamp: 2026-06-30
+ * Built for Highcharts v13.0.1.
+ * Build stamp: 2026-08-26
  *
  */
 import React from "react";
 import type { SeriesMappointOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
 /**
- * MapPoint series
+ * A mappoint series is a special form of scatter series where the points can
+ * be laid out in map coordinates on top of a map.
+ *
+ * A ready-made chart with `chart.type` set to `mappoint`. Declare the data
+ * with `<MapPoint.Series>`, or use `MapPointSeries` inside a plain
+ * `<MapsChart>` to combine it with other series types.
+ *
+ * Available in Highcharts Maps.
+ *
+ * @example
+ * <MapPoint>
+ *   <MapPoint.Series data={[1, 2, 3]} />
+ * </MapPoint>
+ *
+ * @see https://api.highcharts.com/highmaps/plotOptions.mappoint
  */
-declare const MapPoint: {
-    (props: ICommonAttributes): React.JSX.Element;
-    Series: typeof MapPointSeries;
-    type: string;
-};
+declare function MapPoint(props: ICommonAttributes): React.JSX.Element;
+declare namespace MapPoint {
+    export { MapPointSeries as Series };
+    export var type: string;
+}
 type SeriesMappointConfig = Omit<SeriesMappointOptions, "type">;
+/** Props for the `<MapPointSeries />` component. */
 export interface MapPointSeriesProps {
     id?: SeriesMappointConfig["id"];
     index?: SeriesMappointConfig["index"];
@@ -31,6 +46,22 @@ export interface MapPointSeriesProps {
     data?: SeriesMappointConfig["data"];
     options?: SeriesMappointConfig;
 }
+/**
+ * A mappoint series is a special form of scatter series where the points can
+ * be laid out in map coordinates on top of a map.
+ *
+ * Renders the `mappoint` series type inside a chart component. The most common
+ * options are available as props, the rest goes through the `options` prop.
+ *
+ * Available in Highcharts Maps.
+ *
+ * @example
+ * <MapsChart>
+ *   <MapPointSeries data={[1, 2, 3]} />
+ * </MapsChart>
+ *
+ * @see https://api.highcharts.com/highmaps/series.mappoint
+ */
 export declare function MapPointSeries(_props: MapPointSeriesProps): any;
 export declare namespace MapPointSeries {
     var type: string;
