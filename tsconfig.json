@@ -6,14 +6,10 @@
     "lib": ["ESNext", "DOM"],
     "jsx": "react",
     "sourceMap": true,
-    "strict":false,
-    "moduleResolution": "node",
-    "baseUrl": "./src",
+    "strict": false,
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "outDir": "./",
-    "paths": {
-      "~/*": ["./*"]
-    },
     "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
