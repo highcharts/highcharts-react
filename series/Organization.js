@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/sankey.src.js";
-import "highcharts/es-modules/masters/modules/organization.src.js";
+import "../seriesModules/Organization.js";
 /**
  * An organization chart is a diagram that shows the structure of an
  * organization and the relationships and relative ranks of its parts and
@@ -27,6 +26,8 @@ import "highcharts/es-modules/masters/modules/organization.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Organization from '@highcharts/react/series/Organization';
+ *
  * <Organization>
  *   <Organization.Series data={[1, 2, 3]} />
  * </Organization>
@@ -53,6 +54,9 @@ function Organization(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { OrganizationSeries } from '@highcharts/react/series/Organization';
+ *
  * <Chart>
  *   <OrganizationSeries data={[1, 2, 3]} />
  * </Chart>

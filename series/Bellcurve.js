@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/histogram-bellcurve.src.js";
+import "../seriesModules/Bellcurve.js";
 /**
  * A bell curve is an areaspline series which represents the probability
  * density function of the normal distribution. It calculates mean and standard
@@ -27,6 +27,8 @@ import "highcharts/es-modules/masters/modules/histogram-bellcurve.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Bellcurve from '@highcharts/react/series/Bellcurve';
+ *
  * <Bellcurve>
  *   <Bellcurve.Series />
  * </Bellcurve>
@@ -54,6 +56,9 @@ function Bellcurve(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { BellcurveSeries } from '@highcharts/react/series/Bellcurve';
+ *
  * <Chart>
  *   <BellcurveSeries />
  * </Chart>

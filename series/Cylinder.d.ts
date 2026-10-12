@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesCylinderOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * A cylinder graph is a variation of a 3d column graph. The cylinder graph
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Cylinder from '@highcharts/react/series/Cylinder';
+ *
  * <Cylinder>
  *   <Cylinder.Series data={[1, 2, 3]} />
  * </Cylinder>
@@ -58,6 +59,9 @@ export interface CylinderSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { CylinderSeries } from '@highcharts/react/series/Cylinder';
+ *
  * <Chart>
  *   <CylinderSeries data={[1, 2, 3]} />
  * </Chart>

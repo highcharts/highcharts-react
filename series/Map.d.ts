@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -23,6 +23,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Maps.
  *
  * @example
+ * import Map from '@highcharts/react/series/Map';
+ *
  * <Map>
  *   <Map.Series data={[1, 2, 3]} />
  * </Map>
@@ -56,6 +58,9 @@ export interface MapSeriesProps {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { MapSeries } from '@highcharts/react/series/Map';
+ *
  * <MapsChart>
  *   <MapSeries data={[1, 2, 3]} />
  * </MapsChart>

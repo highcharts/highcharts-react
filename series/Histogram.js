@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/histogram-bellcurve.src.js";
+import "../seriesModules/Histogram.js";
 /**
  * A histogram is a column series which represents the distribution of the data
  * set in the base series. Histogram splits data into bins and shows their
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/histogram-bellcurve.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Histogram from '@highcharts/react/series/Histogram';
+ *
  * <Histogram>
  *   <Histogram.Series />
  * </Histogram>
@@ -52,6 +54,9 @@ function Histogram(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { HistogramSeries } from '@highcharts/react/series/Histogram';
+ *
  * <Chart>
  *   <HistogramSeries />
  * </Chart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/sankey.src.js";
-import "highcharts/es-modules/masters/modules/arc-diagram.src.js";
+import "../seriesModules/ArcDiagram.js";
 /**
  * Arc diagram series is a chart drawing style in which the vertices of the
  * chart are positioned along a line on the Euclidean plane and the edges are
@@ -28,6 +27,8 @@ import "highcharts/es-modules/masters/modules/arc-diagram.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import ArcDiagram from '@highcharts/react/series/ArcDiagram';
+ *
  * <ArcDiagram>
  *   <ArcDiagram.Series data={[1, 2, 3]} />
  * </ArcDiagram>
@@ -55,6 +56,9 @@ function ArcDiagram(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ArcDiagramSeries } from '@highcharts/react/series/ArcDiagram';
+ *
  * <Chart>
  *   <ArcDiagramSeries data={[1, 2, 3]} />
  * </Chart>

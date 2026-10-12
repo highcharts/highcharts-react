@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/disparity-index.src.js";
+import "../seriesModules/DisparityIndex.js";
 /**
  * Disparity Index. This series requires the `linkedTo` option to be set and
  * should be loaded after the `stock/indicators/indicators.js` file.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/disparity-index.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import DisparityIndex from '@highcharts/react/indicators/DisparityIndex';
+ *
  * <DisparityIndex>
  *   <DisparityIndex.Series options={{ linkedTo: 'prices' }} />
  * </DisparityIndex>
@@ -51,6 +52,9 @@ function DisparityIndex(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { DisparityIndexSeries } from '@highcharts/react/indicators/DisparityIndex';
+ *
  * <StockChart>
  *   <DisparityIndexSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

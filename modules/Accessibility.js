@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import "highcharts/es-modules/masters/modules/accessibility.src.js";
@@ -21,6 +21,9 @@ import "highcharts/es-modules/masters/modules/accessibility.src.js";
  * the Highcharts module it needs.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Accessibility } from '@highcharts/react/modules/Accessibility';
+ *
  * <Chart>
  *   <Accessibility description="Sales per month" />
  * </Chart>

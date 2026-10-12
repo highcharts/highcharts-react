@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/windbarb.src.js";
+import "../seriesModules/Windbarb.js";
 /**
  * Wind barbs are a convenient way to represent wind speed and direction in one
  * graphical form. Wind direction is given by the stem direction, and wind
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/windbarb.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Windbarb from '@highcharts/react/series/Windbarb';
+ *
  * <Windbarb>
  *   <Windbarb.Series data={[1, 2, 3]} />
  * </Windbarb>
@@ -51,6 +53,9 @@ function Windbarb(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { WindbarbSeries } from '@highcharts/react/series/Windbarb';
+ *
  * <Chart>
  *   <WindbarbSeries data={[1, 2, 3]} />
  * </Chart>

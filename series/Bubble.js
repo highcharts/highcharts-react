@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
+import "../seriesModules/Bubble.js";
 /**
  * A bubble series is a three dimensional series type where each point renders
  * an X, Y and Z value. Each points is drawn as a bubble where the position
@@ -27,6 +27,8 @@ import "highcharts/es-modules/masters/highcharts-more.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Bubble from '@highcharts/react/series/Bubble';
+ *
  * <Bubble>
  *   <Bubble.Series data={[1, 2, 3]} />
  * </Bubble>
@@ -53,6 +55,9 @@ function Bubble(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { BubbleSeries } from '@highcharts/react/series/Bubble';
+ *
  * <Chart>
  *   <BubbleSeries data={[1, 2, 3]} />
  * </Chart>

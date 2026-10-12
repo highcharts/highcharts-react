@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/geoheatmap.src.js";
+import "../seriesModules/GeoHeatmap.js";
 /**
  * A `geoheatmap` series is a variety of heatmap series, composed into the map
  * projection, where the units are expressed in the latitude and longitude, and
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/geoheatmap.src.js";
  * Available in Highcharts Maps.
  *
  * @example
+ * import GeoHeatmap from '@highcharts/react/series/GeoHeatmap';
+ *
  * <GeoHeatmap>
  *   <GeoHeatmap.Series data={[1, 2, 3]} />
  * </GeoHeatmap>
@@ -52,6 +54,9 @@ function GeoHeatmap(props) {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { GeoHeatmapSeries } from '@highcharts/react/series/GeoHeatmap';
+ *
  * <MapsChart>
  *   <GeoHeatmapSeries data={[1, 2, 3]} />
  * </MapsChart>

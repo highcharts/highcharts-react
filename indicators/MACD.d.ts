@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesMacdOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Moving Average Convergence Divergence (MACD). This series requires
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import MACD from '@highcharts/react/indicators/MACD';
+ *
  * <MACD>
  *   <MACD.Series options={{ linkedTo: 'prices' }} />
  * </MACD>
@@ -59,6 +60,9 @@ export interface MACDSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { MACDSeries } from '@highcharts/react/indicators/MACD';
+ *
  * <StockChart>
  *   <MACDSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/heatmap.src.js";
+import "../seriesModules/Heatmap.js";
 /**
  * A heatmap is a graphical representation of data where the individual values
  * contained in a matrix are represented as colors.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/heatmap.src.js";
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import Heatmap from '@highcharts/react/series/Heatmap';
+ *
  * <Heatmap>
  *   <Heatmap.Series data={[1, 2, 3]} />
  * </Heatmap>
@@ -49,6 +51,9 @@ function Heatmap(props) {
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { HeatmapSeries } from '@highcharts/react/series/Heatmap';
+ *
  * <Chart>
  *   <HeatmapSeries data={[1, 2, 3]} />
  * </Chart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/obv.src.js";
+import "../seriesModules/OBV.js";
 /**
  * On-Balance Volume (OBV) technical indicator. This series requires the
  * `linkedTo` option to be set and should be loaded after the
@@ -28,6 +27,8 @@ import "highcharts/es-modules/masters/indicators/obv.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import OBV from '@highcharts/react/indicators/OBV';
+ *
  * <OBV>
  *   <OBV.Series options={{ linkedTo: 'prices' }} />
  * </OBV>
@@ -54,6 +55,9 @@ function OBV(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { OBVSeries } from '@highcharts/react/indicators/OBV';
+ *
  * <StockChart>
  *   <OBVSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /** Props for the `<YAxis />` component. */
@@ -16,10 +16,23 @@ export type YAxisProps = {
     height?: number | string;
     labels?: {
         align?: Highcharts.AlignValue;
+        distance?: number | string;
+        levels?: Array<{
+            level?: number;
+            style?: Highcharts.CSSObject;
+        }>;
+        symbol?: {
+            height?: number;
+            type?: Highcharts.SymbolKeyValue;
+            width?: number;
+            x?: number;
+            y?: number;
+        };
+        x?: number;
+        y?: number;
         allowOverlap?: boolean;
         autoRotation?: Array<number>;
         autoRotationLimit?: number;
-        distance?: number;
         enabled?: boolean;
         format?: string;
         formatter?: Highcharts.AxisLabelsFormatterCallbackFunction;
@@ -34,8 +47,6 @@ export type YAxisProps = {
         step?: number;
         style?: Highcharts.CSSObject;
         useHTML?: boolean;
-        x?: number;
-        y?: number;
         zIndex?: number;
     };
     lineWidth?: number;
@@ -49,6 +60,9 @@ export type YAxisProps = {
     minPadding?: number;
     opposite?: boolean;
     plotBands?: Array<{
+        innerRadius?: number | string;
+        outerRadius?: number | string;
+        thickness?: number | string;
         acrossPanes?: boolean;
         borderColor?: Highcharts.ColorString;
         borderRadius?: number | string | Highcharts.BorderRadiusOptionsObject;
@@ -125,6 +139,31 @@ export type YAxisProps = {
     };
     reversed?: boolean;
     reversedStacks?: boolean;
+    scrollbar?: {
+        enabled?: boolean;
+        margin?: number;
+        opposite?: boolean;
+        showFull?: boolean;
+        size?: number;
+        zIndex?: number;
+        barBackgroundColor?: Highcharts.ColorType;
+        barBorderColor?: Highcharts.ColorType;
+        barBorderRadius?: number;
+        barBorderWidth?: number;
+        buttonArrowColor?: Highcharts.ColorType;
+        buttonBackgroundColor?: Highcharts.ColorType;
+        buttonBorderColor?: Highcharts.ColorType;
+        buttonBorderRadius?: number;
+        buttonBorderWidth?: number;
+        buttonsEnabled?: boolean;
+        liveRedraw?: boolean;
+        minWidth?: number;
+        rifleColor?: Highcharts.ColorType;
+        trackBackgroundColor?: Highcharts.ColorType;
+        trackBorderColor?: Highcharts.ColorType;
+        trackBorderRadius?: number;
+        trackBorderWidth?: number;
+    };
     showLastLabel?: boolean;
     softMax?: number;
     softMin?: number;
@@ -158,17 +197,17 @@ export type YAxisProps = {
     startOnTick?: boolean;
     stops?: Array<[number, Highcharts.ColorType]>;
     tickPixelInterval?: number;
-    tickWidth?: undefined | number;
+    tickWidth?: number;
     title?: {
-        align?: Highcharts.AxisTitleAlignValue;
         margin?: number;
+        text?: string | undefined;
+        align?: Highcharts.AxisTitleAlignValue;
         offset?: number | string;
         position3d?: "offset" | "chart" | "flap" | "ortho" | null;
         reserveSpace?: boolean;
         rotation?: number;
         skew3d?: boolean | null;
         style?: Highcharts.CSSObject;
-        text?: string | null;
         textAlign?: Highcharts.AlignValue;
         useHTML?: boolean;
         x?: number;
@@ -250,7 +289,7 @@ export type YAxisProps = {
     id?: string;
     left?: number | string;
     lineColor?: Highcharts.ColorType;
-    linkedTo?: number;
+    linkedTo?: number | string;
     margin?: number;
     maxRange?: number;
     minRange?: number;
@@ -266,8 +305,6 @@ export type YAxisProps = {
     minorTicks?: boolean;
     minorTicksPerMajor?: number;
     offset?: number | string;
-    ordinal?: boolean;
-    overscroll?: number | string;
     pane?: number;
     panningEnabled?: boolean;
     range?: number;
@@ -300,6 +337,8 @@ export type YAxisProps = {
  * `title.text`.
  *
  * @example
+ * import { Chart, YAxis } from '@highcharts/react';
+ *
  * <Chart>
  *   <YAxis>Temperature</YAxis>
  * </Chart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /**
@@ -17,6 +17,8 @@
  * Sets `plotOptions` on the parent chart.
  *
  * @example
+ * import { Chart, PlotOptions } from '@highcharts/react';
+ *
  * <Chart>
  *   <PlotOptions series={{ animation: false }} />
  * </Chart>

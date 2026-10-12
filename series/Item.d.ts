@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -25,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Item from '@highcharts/react/series/Item';
+ *
  * <Item>
  *   <Item.Series data={[1, 2, 3]} />
  * </Item>
@@ -59,6 +61,9 @@ export interface ItemSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ItemSeries } from '@highcharts/react/series/Item';
+ *
  * <Chart>
  *   <ItemSeries data={[1, 2, 3]} />
  * </Chart>

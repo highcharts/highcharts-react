@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/pareto.src.js";
+import "../seriesModules/Pareto.js";
 /**
  * A pareto diagram is a type of chart that contains both bars and a line
  * graph, where individual values are represented in descending order by bars,
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/pareto.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Pareto from '@highcharts/react/series/Pareto';
+ *
  * <Pareto>
  *   <Pareto.Series data={[1, 2, 3]} />
  * </Pareto>
@@ -51,6 +53,9 @@ function Pareto(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ParetoSeries } from '@highcharts/react/series/Pareto';
+ *
  * <Chart>
  *   <ParetoSeries data={[1, 2, 3]} />
  * </Chart>

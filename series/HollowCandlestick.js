@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/hollowcandlestick.src.js";
+import "../seriesModules/HollowCandlestick.js";
 /**
  * A hollow candlestick chart is a style of financial chart used to describe
  * price movements over time.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/hollowcandlestick.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import HollowCandlestick from '@highcharts/react/series/HollowCandlestick';
+ *
  * <HollowCandlestick>
  *   <HollowCandlestick.Series data={[1, 2, 3]} />
  * </HollowCandlestick>
@@ -50,6 +52,9 @@ function HollowCandlestick(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { HollowCandlestickSeries } from '@highcharts/react/series/HollowCandlestick';
+ *
  * <StockChart>
  *   <HollowCandlestickSeries data={[1, 2, 3]} />
  * </StockChart>

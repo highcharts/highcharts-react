@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-gantt.src.js";
-import "highcharts/es-modules/masters/modules/gantt.src.js";
+import "../seriesModules/Gantt.js";
 /**
  * A `gantt` series. If the
  * [type](https://api.highcharts.com/gantt/series.gantt.type) option is not
@@ -28,6 +27,8 @@ import "highcharts/es-modules/masters/modules/gantt.src.js";
  * Available in Highcharts Gantt.
  *
  * @example
+ * import Gantt from '@highcharts/react/series/Gantt';
+ *
  * <Gantt>
  *   <Gantt.Series data={[1, 2, 3]} />
  * </Gantt>
@@ -54,6 +55,9 @@ function Gantt(props) {
  * Available in Highcharts Gantt.
  *
  * @example
+ * import { GanttChart } from '@highcharts/react/Gantt';
+ * import { GanttSeries } from '@highcharts/react/series/Gantt';
+ *
  * <GanttChart>
  *   <GanttSeries data={[1, 2, 3]} />
  * </GanttChart>

@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesMomentumOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Momentum. This series requires `linkedTo` option to be set.
@@ -24,6 +23,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Momentum from '@highcharts/react/indicators/Momentum';
+ *
  * <Momentum>
  *   <Momentum.Series options={{ linkedTo: 'prices' }} />
  * </Momentum>
@@ -55,6 +56,9 @@ export interface MomentumSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { MomentumSeries } from '@highcharts/react/indicators/Momentum';
+ *
  * <StockChart>
  *   <MomentumSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

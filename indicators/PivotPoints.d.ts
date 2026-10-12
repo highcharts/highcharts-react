@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesPivotpointsOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Pivot points indicator. This series requires the `linkedTo` option to be set
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PivotPoints from '@highcharts/react/indicators/PivotPoints';
+ *
  * <PivotPoints>
  *   <PivotPoints.Series options={{ linkedTo: 'prices' }} />
  * </PivotPoints>
@@ -58,6 +59,9 @@ export interface PivotPointsSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PivotPointsSeries } from '@highcharts/react/indicators/PivotPoints';
+ *
  * <StockChart>
  *   <PivotPointsSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

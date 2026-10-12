@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/psar.src.js";
+import "../seriesModules/PSAR.js";
 /**
  * Parabolic SAR. This series requires `linkedTo` option to be set and should
  * be loaded after `stock/indicators/indicators.js` file.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/psar.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PSAR from '@highcharts/react/indicators/PSAR';
+ *
  * <PSAR>
  *   <PSAR.Series options={{ linkedTo: 'prices' }} />
  * </PSAR>
@@ -50,6 +51,9 @@ function PSAR(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PSARSeries } from '@highcharts/react/indicators/PSAR';
+ *
  * <StockChart>
  *   <PSARSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/sankey.src.js";
-import "highcharts/es-modules/masters/modules/dependency-wheel.src.js";
+import "../seriesModules/DependencyWheel.js";
 /**
  * A dependency wheel chart is a type of flow diagram, where all nodes are laid
  * out in a circle, and the flow between the are drawn as link bands.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/modules/dependency-wheel.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import DependencyWheel from '@highcharts/react/series/DependencyWheel';
+ *
  * <DependencyWheel>
  *   <DependencyWheel.Series data={[1, 2, 3]} />
  * </DependencyWheel>
@@ -51,6 +52,9 @@ function DependencyWheel(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { DependencyWheelSeries } from '@highcharts/react/series/DependencyWheel';
+ *
  * <Chart>
  *   <DependencyWheelSeries data={[1, 2, 3]} />
  * </Chart>

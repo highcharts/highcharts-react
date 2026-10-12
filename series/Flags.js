@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -24,6 +24,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Flags from '@highcharts/react/series/Flags';
+ *
  * <Flags>
  *   <Flags.Series data={[1, 2, 3]} />
  * </Flags>
@@ -48,6 +50,9 @@ function Flags(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { FlagsSeries } from '@highcharts/react/series/Flags';
+ *
  * <StockChart>
  *   <FlagsSeries data={[1, 2, 3]} />
  * </StockChart>

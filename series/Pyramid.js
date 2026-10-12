@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/funnel.src.js";
+import "../seriesModules/Pyramid.js";
 /**
  * A pyramid series is a special type of funnel, without neck and reversed by
  * default.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/funnel.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Pyramid from '@highcharts/react/series/Pyramid';
+ *
  * <Pyramid>
  *   <Pyramid.Series data={[1, 2, 3]} />
  * </Pyramid>
@@ -49,6 +51,9 @@ function Pyramid(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { PyramidSeries } from '@highcharts/react/series/Pyramid';
+ *
  * <Chart>
  *   <PyramidSeries data={[1, 2, 3]} />
  * </Chart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -24,6 +24,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts Maps.
  *
  * @example
+ * import MapBubble from '@highcharts/react/series/MapBubble';
+ *
  * <MapBubble>
  *   <MapBubble.Series data={[1, 2, 3]} />
  * </MapBubble>
@@ -49,6 +51,9 @@ function MapBubble(props) {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { MapBubbleSeries } from '@highcharts/react/series/MapBubble';
+ *
  * <MapsChart>
  *   <MapBubbleSeries data={[1, 2, 3]} />
  * </MapsChart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -115,6 +115,10 @@ export interface ICommonAttributes {
  * `options` prop are merged in first, direct props next, and children last.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { Title } from '@highcharts/react';
+ * import { MapSeries } from '@highcharts/react/series/Map';
+ *
  * <MapsChart>
  *   <Title>Population by region</Title>
  *   <MapSeries data={values} options={{ mapData: topology }} />
@@ -132,6 +136,8 @@ export declare const MapsChart: React.ForwardRefExoticComponent<Omit<ICommonAttr
  * settings, pass them through the `options` prop.
  *
  * @example
+ * import { MapsSeries } from '@highcharts/react/Maps';
+ *
  * <MapsSeries type="map" data={values} />
  */
 export declare function MapsSeries<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;

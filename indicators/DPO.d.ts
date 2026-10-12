@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesDpoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Detrended Price Oscillator. This series requires the `linkedTo` option to be
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import DPO from '@highcharts/react/indicators/DPO';
+ *
  * <DPO>
  *   <DPO.Series options={{ linkedTo: 'prices' }} />
  * </DPO>
@@ -57,6 +58,9 @@ export interface DPOSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { DPOSeries } from '@highcharts/react/indicators/DPO';
+ *
  * <StockChart>
  *   <DPOSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import "highcharts/es-modules/masters/modules/broken-axis.src.js";
@@ -17,6 +17,9 @@ import "highcharts/es-modules/masters/modules/broken-axis.src.js";
  * Importing the component also loads the Highcharts module it needs.
  *
  * @example
+ * import { Chart, XAxis } from '@highcharts/react';
+ * import { BrokenAxis } from '@highcharts/react/modules/BrokenAxis';
+ *
  * <Chart>
  *   <BrokenAxis />
  *   <XAxis breaks={[{ from: 5, to: 10 }]} />

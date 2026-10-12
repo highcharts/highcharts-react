@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/xrange.src.js";
+import "../seriesModules/XRange.js";
 /**
  * The X-range series displays ranges on the X axis, typically time intervals
  * with a start and end date.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/xrange.src.js";
  * Available in Highcharts, Highcharts Stock, Highcharts Gantt.
  *
  * @example
+ * import XRange from '@highcharts/react/series/XRange';
+ *
  * <XRange>
  *   <XRange.Series data={[1, 2, 3]} />
  * </XRange>
@@ -49,6 +51,9 @@ function XRange(props) {
  * Available in Highcharts, Highcharts Stock, Highcharts Gantt.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { XRangeSeries } from '@highcharts/react/series/XRange';
+ *
  * <Chart>
  *   <XRangeSeries data={[1, 2, 3]} />
  * </Chart>

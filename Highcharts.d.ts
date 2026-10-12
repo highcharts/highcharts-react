@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -115,6 +115,9 @@ export interface ICommonAttributes {
  * `options` prop are merged in first, direct props next, and children last.
  *
  * @example
+ * import { Chart, Title } from '@highcharts/react';
+ * import { LineSeries } from '@highcharts/react/series/Line';
+ *
  * <Chart>
  *   <Title>Monthly sales</Title>
  *   <LineSeries data={[1, 2, 3]} />
@@ -132,6 +135,8 @@ export declare const Chart: React.ForwardRefExoticComponent<Omit<ICommonAttribut
  * settings, pass them through the `options` prop.
  *
  * @example
+ * import { Series } from '@highcharts/react';
+ *
  * <Series type="line" data={[1, 2, 3]} />
  */
 export declare function Series<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;

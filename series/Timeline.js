@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/timeline.src.js";
+import "../seriesModules/Timeline.js";
 /**
  * The timeline series presents given events along a drawn line.
  *
@@ -24,6 +24,8 @@ import "highcharts/es-modules/masters/modules/timeline.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Timeline from '@highcharts/react/series/Timeline';
+ *
  * <Timeline>
  *   <Timeline.Series data={[1, 2, 3]} />
  * </Timeline>
@@ -47,6 +49,9 @@ function Timeline(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { TimelineSeries } from '@highcharts/react/series/Timeline';
+ *
  * <Chart>
  *   <TimelineSeries data={[1, 2, 3]} />
  * </Chart>

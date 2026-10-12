@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
+import "../seriesModules/BoxPlot.js";
 /**
  * A box plot is a convenient way of depicting groups of data through their
  * five-number summaries: the smallest observation (sample minimum), lower
@@ -27,6 +27,8 @@ import "highcharts/es-modules/masters/highcharts-more.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import BoxPlot from '@highcharts/react/series/BoxPlot';
+ *
  * <BoxPlot>
  *   <BoxPlot.Series data={[1, 2, 3]} />
  * </BoxPlot>
@@ -53,6 +55,9 @@ function BoxPlot(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { BoxPlotSeries } from '@highcharts/react/series/BoxPlot';
+ *
  * <Chart>
  *   <BoxPlotSeries data={[1, 2, 3]} />
  * </Chart>

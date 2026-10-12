@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/coloraxis.src.js";
-import "highcharts/es-modules/masters/modules/contour.src.js";
+import "../seriesModules/Contour.js";
 /**
  * A contour plot is a graphical representation of three-dimensional data
  *
@@ -25,6 +24,8 @@ import "highcharts/es-modules/masters/modules/contour.src.js";
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import Contour from '@highcharts/react/series/Contour';
+ *
  * <Contour>
  *   <Contour.Series data={[1, 2, 3]} />
  * </Contour>
@@ -48,6 +49,9 @@ function Contour(props) {
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ContourSeries } from '@highcharts/react/series/Contour';
+ *
  * <Chart>
  *   <ContourSeries data={[1, 2, 3]} />
  * </Chart>

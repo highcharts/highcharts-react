@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesTreegraphOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * A treegraph series is a diagram, which shows a relation between ancestors
@@ -27,6 +26,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Treegraph from '@highcharts/react/series/Treegraph';
+ *
  * <Treegraph>
  *   <Treegraph.Series data={[1, 2, 3]} />
  * </Treegraph>
@@ -63,6 +64,9 @@ export interface TreegraphSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { TreegraphSeries } from '@highcharts/react/series/Treegraph';
+ *
  * <Chart>
  *   <TreegraphSeries data={[1, 2, 3]} />
  * </Chart>

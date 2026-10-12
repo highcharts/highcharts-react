@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesApoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Absolute Price Oscillator. This series requires the `linkedTo` option to be
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import APO from '@highcharts/react/indicators/APO';
+ *
  * <APO>
  *   <APO.Series options={{ linkedTo: 'prices' }} />
  * </APO>
@@ -57,6 +58,9 @@ export interface APOSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { APOSeries } from '@highcharts/react/indicators/APO';
+ *
  * <StockChart>
  *   <APOSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

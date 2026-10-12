@@ -5,15 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesFunnel3dOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
-
 
 /**
  * A funnel3d is a 3d version of funnel series type. Funnel charts are a type
@@ -27,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Funnel3D from '@highcharts/react/series/Funnel3D';
+ *
  * <Funnel3D>
  *   <Funnel3D.Series data={[1, 2, 3]} />
  * </Funnel3D>
@@ -61,6 +61,9 @@ export interface Funnel3DSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Funnel3DSeries } from '@highcharts/react/series/Funnel3D';
+ *
  * <Chart>
  *   <Funnel3DSeries data={[1, 2, 3]} />
  * </Chart>

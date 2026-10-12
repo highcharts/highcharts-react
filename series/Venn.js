@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/venn.src.js";
+import "../seriesModules/Venn.js";
 /**
  * A Venn diagram displays all possible logical relations between a collection
  * of different sets. The sets are represented by circles, and the relation
@@ -28,6 +28,8 @@ import "highcharts/es-modules/masters/modules/venn.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Venn from '@highcharts/react/series/Venn';
+ *
  * <Venn>
  *   <Venn.Series data={[1, 2, 3]} />
  * </Venn>
@@ -55,6 +57,9 @@ function Venn(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { VennSeries } from '@highcharts/react/series/Venn';
+ *
  * <Chart>
  *   <VennSeries data={[1, 2, 3]} />
  * </Chart>

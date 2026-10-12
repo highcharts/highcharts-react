@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesDisparityindexOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Disparity Index. This series requires the `linkedTo` option to be set and
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import DisparityIndex from '@highcharts/react/indicators/DisparityIndex';
+ *
  * <DisparityIndex>
  *   <DisparityIndex.Series options={{ linkedTo: 'prices' }} />
  * </DisparityIndex>
@@ -58,6 +59,9 @@ export interface DisparityIndexSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { DisparityIndexSeries } from '@highcharts/react/indicators/DisparityIndex';
+ *
  * <StockChart>
  *   <DisparityIndexSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

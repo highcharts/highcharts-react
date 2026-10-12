@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 
@@ -20,6 +20,44 @@ export type ExportingProps = {
     allowHTML?: boolean;
     allowTableSorting?: boolean;
     applyStyleSheets?: boolean;
+    buttons?: {
+        contextButton?: {
+            className?: string;
+            menuClassName?: string;
+            menuItems?: Array<string>;
+            onclick?: Function;
+            symbol?: Highcharts.SymbolKeyValue | "menu" | "menuball" | string;
+            titleKey?: string;
+            x?: number;
+            align?: Highcharts.AlignValue;
+            buttonSpacing?: number;
+            enabled?: boolean;
+            height?: number;
+            symbolFill?: Highcharts.ColorType;
+            symbolSize?: number;
+            symbolStroke?: Highcharts.ColorString;
+            symbolStrokeWidth?: number;
+            symbolX?: number;
+            symbolY?: number;
+            text?: string;
+            theme?: {
+                fill?: Highcharts.ColorType;
+                padding?: number;
+                states?: {
+                    disabled?: Highcharts.SVGAttributes;
+                    hover?: Highcharts.SVGAttributes;
+                    select?: Highcharts.SVGAttributes;
+                };
+                stroke?: Highcharts.ColorString;
+                "stroke-linecap"?: string;
+                style?: Highcharts.CSSObject;
+            };
+            useHTML?: boolean;
+            verticalAlign?: Highcharts.VerticalAlignValue;
+            width?: number;
+            y?: number;
+        };
+    };
     chartOptions?: Highcharts.Options;
     csv?: {
         annotations?: {
@@ -68,6 +106,9 @@ export type ExportingProps = {
  * Highcharts module it needs.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Exporting } from '@highcharts/react/modules/Exporting';
+ *
  * <Chart>
  *   <Exporting filename="sales-report" />
  * </Chart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/ichimoku-kinko-hyo.src.js";
+import "../seriesModules/IKH.js";
 /**
  * Ichimoku Kinko Hyo (IKH). This series requires `linkedTo` option to be set.
  *
@@ -25,6 +24,8 @@ import "highcharts/es-modules/masters/indicators/ichimoku-kinko-hyo.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import IKH from '@highcharts/react/indicators/IKH';
+ *
  * <IKH>
  *   <IKH.Series options={{ linkedTo: 'prices' }} />
  * </IKH>
@@ -48,6 +49,9 @@ function IKH(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { IKHSeries } from '@highcharts/react/indicators/IKH';
+ *
  * <StockChart>
  *   <IKHSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

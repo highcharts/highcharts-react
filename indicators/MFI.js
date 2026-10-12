@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/mfi.src.js";
+import "../seriesModules/MFI.js";
 /**
  * Money Flow Index. This series requires `linkedTo` option to be set and
  * should be loaded after the `stock/indicators/indicators.js` file.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/mfi.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import MFI from '@highcharts/react/indicators/MFI';
+ *
  * <MFI>
  *   <MFI.Series options={{ linkedTo: 'prices' }} />
  * </MFI>
@@ -50,6 +51,9 @@ function MFI(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { MFISeries } from '@highcharts/react/indicators/MFI';
+ *
  * <StockChart>
  *   <MFISeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

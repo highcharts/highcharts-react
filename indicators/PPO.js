@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/ppo.src.js";
+import "../seriesModules/PPO.js";
 /**
  * Percentage Price Oscillator. This series requires the `linkedTo` option to
  * be set and should be loaded after the `stock/indicators/indicators.js`.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/ppo.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PPO from '@highcharts/react/indicators/PPO';
+ *
  * <PPO>
  *   <PPO.Series options={{ linkedTo: 'prices' }} />
  * </PPO>
@@ -50,6 +51,9 @@ function PPO(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PPOSeries } from '@highcharts/react/indicators/PPO';
+ *
  * <StockChart>
  *   <PPOSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

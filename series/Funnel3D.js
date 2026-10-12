@@ -5,17 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-3d.src.js";
-import "highcharts/es-modules/masters/modules/cylinder.src.js";
-import "highcharts/es-modules/masters/modules/funnel3d.src.js";
+import "../seriesModules/Funnel3D.js";
 /**
  * A funnel3d is a 3d version of funnel series type. Funnel charts are a type
  * of chart often used to visualize stages in a sales project, where the top
@@ -28,6 +26,8 @@ import "highcharts/es-modules/masters/modules/funnel3d.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Funnel3D from '@highcharts/react/series/Funnel3D';
+ *
  * <Funnel3D>
  *   <Funnel3D.Series data={[1, 2, 3]} />
  * </Funnel3D>
@@ -53,6 +53,9 @@ function Funnel3D(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Funnel3DSeries } from '@highcharts/react/series/Funnel3D';
+ *
  * <Chart>
  *   <Funnel3DSeries data={[1, 2, 3]} />
  * </Chart>

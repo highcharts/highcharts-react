@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
+import "../seriesModules/AreaRange.js";
 /**
  * The area range series is a cartesian series with higher and lower values for
  * each point along an X axis, where the area between the values is shaded.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/highcharts-more.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import AreaRange from '@highcharts/react/series/AreaRange';
+ *
  * <AreaRange>
  *   <AreaRange.Series data={[1, 2, 3]} />
  * </AreaRange>
@@ -50,6 +52,9 @@ function AreaRange(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { AreaRangeSeries } from '@highcharts/react/series/AreaRange';
+ *
  * <Chart>
  *   <AreaRangeSeries data={[1, 2, 3]} />
  * </Chart>

@@ -5,17 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/atr.src.js";
-import "highcharts/es-modules/masters/indicators/natr.src.js";
+import "../seriesModules/NATR.js";
 /**
  * Normalized average true range indicator (NATR). This series requires
  * `linkedTo` option to be set and should be loaded after the
@@ -28,6 +26,8 @@ import "highcharts/es-modules/masters/indicators/natr.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import NATR from '@highcharts/react/indicators/NATR';
+ *
  * <NATR>
  *   <NATR.Series options={{ linkedTo: 'prices' }} />
  * </NATR>
@@ -53,6 +53,9 @@ function NATR(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { NATRSeries } from '@highcharts/react/indicators/NATR';
+ *
  * <StockChart>
  *   <NATRSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

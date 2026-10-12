@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -25,6 +25,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts Maps.
  *
  * @example
+ * import MapLine from '@highcharts/react/series/MapLine';
+ *
  * <MapLine>
  *   <MapLine.Series data={[1, 2, 3]} />
  * </MapLine>
@@ -50,6 +52,9 @@ function MapLine(props) {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { MapLineSeries } from '@highcharts/react/series/MapLine';
+ *
  * <MapsChart>
  *   <MapLineSeries data={[1, 2, 3]} />
  * </MapsChart>

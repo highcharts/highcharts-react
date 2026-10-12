@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import "highcharts/es-modules/masters/modules/stock-tools.src.js";
@@ -27,6 +27,9 @@ import "highcharts/css/annotations/popup.css";
  * the Highcharts module it needs.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { StockTools } from '@highcharts/react/modules/StockTools';
+ *
  * <StockChart>
  *   <StockTools />
  * </StockChart>

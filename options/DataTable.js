@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /**
@@ -19,6 +19,8 @@
  * Sets `dataTable` on the parent chart. Several may be declared.
  *
  * @example
+ * import { Chart, DataTable } from '@highcharts/react';
+ *
  * <Chart>
  *   <DataTable columns={{ x: [1, 2, 3], y: [4, 5, 6] }} />
  * </Chart>

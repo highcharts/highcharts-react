@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
+import "../seriesModules/ErrorBar.js";
 /**
  * Error bars are a graphical representation of the variability of data and are
  * used on graphs to indicate the error, or uncertainty in a reported
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/highcharts-more.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import ErrorBar from '@highcharts/react/series/ErrorBar';
+ *
  * <ErrorBar>
  *   <ErrorBar.Series data={[1, 2, 3]} />
  * </ErrorBar>
@@ -51,6 +53,9 @@ function ErrorBar(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ErrorBarSeries } from '@highcharts/react/series/ErrorBar';
+ *
  * <Chart>
  *   <ErrorBarSeries data={[1, 2, 3]} />
  * </Chart>
