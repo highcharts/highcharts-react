@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -24,6 +24,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import AreaSpline from '@highcharts/react/series/AreaSpline';
+ *
  * <AreaSpline>
  *   <AreaSpline.Series data={[1, 2, 3]} />
  * </AreaSpline>
@@ -49,6 +51,9 @@ function AreaSpline(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { AreaSplineSeries } from '@highcharts/react/series/AreaSpline';
+ *
  * <Chart>
  *   <AreaSplineSeries data={[1, 2, 3]} />
  * </Chart>

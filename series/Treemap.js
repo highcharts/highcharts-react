@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/treemap.src.js";
+import "../seriesModules/Treemap.js";
 /**
  * A treemap displays hierarchical data using nested rectangles. The data can
  * be laid out in varying ways depending on options.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/treemap.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Treemap from '@highcharts/react/series/Treemap';
+ *
  * <Treemap>
  *   <Treemap.Series data={[1, 2, 3]} />
  * </Treemap>
@@ -49,6 +51,9 @@ function Treemap(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { TreemapSeries } from '@highcharts/react/series/Treemap';
+ *
  * <Chart>
  *   <TreemapSeries data={[1, 2, 3]} />
  * </Chart>

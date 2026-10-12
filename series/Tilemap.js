@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/tilemap.src.js";
+import "../seriesModules/Tilemap.js";
 /**
  * A tilemap series is a type of heatmap where the tile shapes are
  * configurable.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/tilemap.src.js";
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import Tilemap from '@highcharts/react/series/Tilemap';
+ *
  * <Tilemap>
  *   <Tilemap.Series data={[1, 2, 3]} />
  * </Tilemap>
@@ -49,6 +51,9 @@ function Tilemap(props) {
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { TilemapSeries } from '@highcharts/react/series/Tilemap';
+ *
  * <Chart>
  *   <TilemapSeries data={[1, 2, 3]} />
  * </Chart>

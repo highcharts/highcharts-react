@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -23,6 +23,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Maps.
  *
  * @example
+ * import MapPoint from '@highcharts/react/series/MapPoint';
+ *
  * <MapPoint>
  *   <MapPoint.Series data={[1, 2, 3]} />
  * </MapPoint>
@@ -56,6 +58,9 @@ export interface MapPointSeriesProps {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { MapPointSeries } from '@highcharts/react/series/MapPoint';
+ *
  * <MapsChart>
  *   <MapPointSeries data={[1, 2, 3]} />
  * </MapsChart>

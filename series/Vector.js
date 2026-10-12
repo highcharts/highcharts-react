@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/vector.src.js";
+import "../seriesModules/Vector.js";
 /**
  * A vector plot is a type of cartesian chart where each point has an X and Y
  * position, a length and a direction. Vectors are drawn as arrows.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/vector.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Vector from '@highcharts/react/series/Vector';
+ *
  * <Vector>
  *   <Vector.Series data={[1, 2, 3]} />
  * </Vector>
@@ -49,6 +51,9 @@ function Vector(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { VectorSeries } from '@highcharts/react/series/Vector';
+ *
  * <Chart>
  *   <VectorSeries data={[1, 2, 3]} />
  * </Chart>

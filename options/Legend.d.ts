@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /** Props for the `<Legend />` component. */
@@ -115,6 +115,8 @@ export type LegendProps = {
  * Sets `legend` on the parent chart. The children set `labelFormat`.
  *
  * @example
+ * import { Chart, Legend } from '@highcharts/react';
+ *
  * <Chart>
  *   <Legend align="right" layout="vertical" />
  * </Chart>

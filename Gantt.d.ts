@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -110,12 +110,15 @@ export interface ICommonAttributes {
  * tasks with `start`, `end` and `dependency`.
  *
  * Declare the series as children, either with a dedicated component such as
- * `GanttSeries` or with the generic `GanttSeries`, and configure the chart
+ * `XRangeSeries` or with the generic `GanttSeries`, and configure the chart
  * with option components such as `Title` or `Tooltip`. Options passed through
  * the `options` prop are merged in first, direct props next, and children
  * last.
  *
  * @example
+ * import { GanttChart, GanttSeries } from '@highcharts/react/Gantt';
+ * import { Title } from '@highcharts/react';
+ *
  * <GanttChart>
  *   <Title>Project plan</Title>
  *   <GanttSeries data={tasks} />
@@ -127,12 +130,14 @@ export declare const GanttChart: React.ForwardRefExoticComponent<Omit<ICommonAtt
 /**
  * A chart series whose type is set with the `type` prop.
  *
- * For a fixed type, prefer a dedicated component such as `GanttSeries` for the
- * best autocomplete. Reach for `GanttSeries` when the type is dynamic, e.g.
- * `<GanttSeries type={type} data={data} />`. For full type safety on advanced
- * settings, pass them through the `options` prop.
+ * For a fixed type, prefer a dedicated component such as `XRangeSeries` for
+ * the best autocomplete. Reach for `GanttSeries` when the type is dynamic,
+ * e.g. `<GanttSeries type={type} data={data} />`. For full type safety on
+ * advanced settings, pass them through the `options` prop.
  *
  * @example
+ * import { GanttSeries } from '@highcharts/react/Gantt';
+ *
  * <GanttSeries type="gantt" data={tasks} />
  */
 export declare function GanttSeries<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;

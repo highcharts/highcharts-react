@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesWmaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Weighted moving average indicator (WMA). This series requires `linkedTo`
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import WMA from '@highcharts/react/indicators/WMA';
+ *
  * <WMA>
  *   <WMA.Series options={{ linkedTo: 'prices' }} />
  * </WMA>
@@ -57,6 +58,9 @@ export interface WMASeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { WMASeries } from '@highcharts/react/indicators/WMA';
+ *
  * <StockChart>
  *   <WMASeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

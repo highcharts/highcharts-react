@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import "highcharts/es-modules/masters/modules/data.src.js";
@@ -20,6 +20,9 @@ import "highcharts/es-modules/masters/modules/data.src.js";
  * Highcharts module it needs.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Data } from '@highcharts/react/modules/Data';
+ *
  * <Chart>
  *   <Data csv={csvString} />
  * </Chart>

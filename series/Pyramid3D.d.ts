@@ -5,16 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesPyramid3dOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
-
-
 
 /**
  * A pyramid3d is a 3d version of pyramid series type. Pyramid charts are a
@@ -28,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Pyramid3D from '@highcharts/react/series/Pyramid3D';
+ *
  * <Pyramid3D>
  *   <Pyramid3D.Series data={[1, 2, 3]} />
  * </Pyramid3D>
@@ -63,6 +62,9 @@ export interface Pyramid3DSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Pyramid3DSeries } from '@highcharts/react/series/Pyramid3D';
+ *
  * <Chart>
  *   <Pyramid3DSeries data={[1, 2, 3]} />
  * </Chart>

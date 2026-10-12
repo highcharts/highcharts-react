@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/price-envelopes.src.js";
+import "../seriesModules/PriceEnvelopes.js";
 /**
  * Price envelopes indicator based on
  * [SMA](https://api.highcharts.com/highstock/plotOptions.sma) calculations.
@@ -28,6 +27,8 @@ import "highcharts/es-modules/masters/indicators/price-envelopes.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PriceEnvelopes from '@highcharts/react/indicators/PriceEnvelopes';
+ *
  * <PriceEnvelopes>
  *   <PriceEnvelopes.Series options={{ linkedTo: 'prices' }} />
  * </PriceEnvelopes>
@@ -55,6 +56,9 @@ function PriceEnvelopes(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PriceEnvelopesSeries } from '@highcharts/react/indicators/PriceEnvelopes';
+ *
  * <StockChart>
  *   <PriceEnvelopesSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

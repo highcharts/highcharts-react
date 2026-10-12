@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/treemap.src.js";
-import "highcharts/es-modules/masters/modules/treegraph.src.js";
+import "../seriesModules/Treegraph.js";
 /**
  * A treegraph series is a diagram, which shows a relation between ancestors
  * and descendants with a clear parent - child relation. The best examples of
@@ -28,6 +27,8 @@ import "highcharts/es-modules/masters/modules/treegraph.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Treegraph from '@highcharts/react/series/Treegraph';
+ *
  * <Treegraph>
  *   <Treegraph.Series data={[1, 2, 3]} />
  * </Treegraph>
@@ -55,6 +56,9 @@ function Treegraph(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { TreegraphSeries } from '@highcharts/react/series/Treegraph';
+ *
  * <Chart>
  *   <TreegraphSeries data={[1, 2, 3]} />
  * </Chart>

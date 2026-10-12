@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -449,6 +449,10 @@ function renderToHTML(el) {
  * children last.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { Title } from '@highcharts/react';
+ * import { CandlestickSeries } from '@highcharts/react/series/Candlestick';
+ *
  * <StockChart>
  *   <Title>Price history</Title>
  *   <CandlestickSeries data={ohlc} />
@@ -570,6 +574,8 @@ export const StockChart = forwardRef(function StockChart(props, ref) {
  * advanced settings, pass them through the `options` prop.
  *
  * @example
+ * import { StockSeries } from '@highcharts/react/Stock';
+ *
  * <StockSeries type="candlestick" data={ohlc} />
  */
 export function StockSeries(props) {
@@ -578,124 +584,110 @@ export function StockSeries(props) {
 StockSeries.type = "Series";
 StockChart.Series = StockSeries;
 export default StockChart;
-// The modules each series type requires, in load order. Paths are literals so
-// that bundlers can code-split them.
+// The module to load for each series type that needs extra modules - it
+// imports them in the order Highcharts requires. Paths are literals so that
+// bundlers can code-split them.
 const seriesModuleLoaders = {
-    abands: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/acceleration-bands.src.js")),
-    ad: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/accumulation-distribution.src.js")),
-    ao: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/ao.src.js")),
-    apo: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/apo.src.js")),
-    arcdiagram: () => import("highcharts/es-modules/masters/modules/sankey.src.js").then(() => import("highcharts/es-modules/masters/modules/arc-diagram.src.js")),
-    arearange: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    areasplinerange: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    aroon: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/aroon.src.js")),
-    aroonoscillator: () => import("highcharts/es-modules/masters/indicators/indicators.src.js")
-        .then(() => import("highcharts/es-modules/masters/indicators/aroon.src.js"))
-        .then(() => import("highcharts/es-modules/masters/indicators/aroon-oscillator.src.js")),
-    atr: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/atr.src.js")),
-    bb: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/bollinger-bands.src.js")),
-    bellcurve: () => import("highcharts/es-modules/masters/modules/histogram-bellcurve.src.js"),
-    boxplot: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    bubble: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    bullet: () => import("highcharts/es-modules/masters/modules/bullet.src.js"),
-    cci: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/cci.src.js")),
-    chaikin: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/chaikin.src.js")),
-    cmf: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/cmf.src.js")),
-    cmo: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/cmo.src.js")),
-    columnpyramid: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    columnrange: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    contour: () => import("highcharts/es-modules/masters/modules/coloraxis.src.js").then(() => import("highcharts/es-modules/masters/modules/contour.src.js")),
-    cylinder: () => import("highcharts/es-modules/masters/highcharts-3d.src.js").then(() => import("highcharts/es-modules/masters/modules/cylinder.src.js")),
-    dema: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/dema.src.js")),
-    dependencywheel: () => import("highcharts/es-modules/masters/modules/sankey.src.js").then(() => import("highcharts/es-modules/masters/modules/dependency-wheel.src.js")),
-    disparityindex: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/disparity-index.src.js")),
-    dmi: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/dmi.src.js")),
-    dpo: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/dpo.src.js")),
-    dumbbell: () => import("highcharts/es-modules/masters/highcharts-more.src.js").then(() => import("highcharts/es-modules/masters/modules/dumbbell.src.js")),
-    ema: () => import("highcharts/es-modules/masters/indicators/indicators.src.js"),
-    errorbar: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    flowmap: () => import("highcharts/es-modules/masters/modules/flowmap.src.js"),
-    funnel: () => import("highcharts/es-modules/masters/modules/funnel.src.js"),
-    funnel3d: () => import("highcharts/es-modules/masters/highcharts-3d.src.js")
-        .then(() => import("highcharts/es-modules/masters/modules/cylinder.src.js"))
-        .then(() => import("highcharts/es-modules/masters/modules/funnel3d.src.js")),
-    gantt: () => import("highcharts/es-modules/masters/highcharts-gantt.src.js").then(() => import("highcharts/es-modules/masters/modules/gantt.src.js")),
-    gauge: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    geoheatmap: () => import("highcharts/es-modules/masters/modules/geoheatmap.src.js"),
-    heatmap: () => import("highcharts/es-modules/masters/modules/heatmap.src.js"),
-    heikinashi: () => import("highcharts/es-modules/masters/modules/heikinashi.src.js"),
-    histogram: () => import("highcharts/es-modules/masters/modules/histogram-bellcurve.src.js"),
-    hollowcandlestick: () => import("highcharts/es-modules/masters/modules/hollowcandlestick.src.js"),
-    ikh: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/ichimoku-kinko-hyo.src.js")),
-    item: () => import("highcharts/es-modules/masters/modules/item-series.src.js"),
-    keltnerchannels: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/keltner-channels.src.js")),
-    klinger: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/klinger.src.js")),
-    linearregression: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/regressions.src.js")),
-    linearregressionangle: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/regressions.src.js")),
-    linearregressionintercept: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/regressions.src.js")),
-    linearregressionslope: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/regressions.src.js")),
-    lollipop: () => import("highcharts/es-modules/masters/highcharts-more.src.js")
-        .then(() => import("highcharts/es-modules/masters/modules/dumbbell.src.js"))
-        .then(() => import("highcharts/es-modules/masters/modules/lollipop.src.js")),
-    macd: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/macd.src.js")),
-    mfi: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/mfi.src.js")),
-    momentum: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/momentum.src.js")),
-    natr: () => import("highcharts/es-modules/masters/indicators/indicators.src.js")
-        .then(() => import("highcharts/es-modules/masters/indicators/atr.src.js"))
-        .then(() => import("highcharts/es-modules/masters/indicators/natr.src.js")),
-    networkgraph: () => import("highcharts/es-modules/masters/modules/networkgraph.src.js"),
-    obv: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/obv.src.js")),
-    organization: () => import("highcharts/es-modules/masters/modules/sankey.src.js").then(() => import("highcharts/es-modules/masters/modules/organization.src.js")),
-    packedbubble: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    pareto: () => import("highcharts/es-modules/masters/modules/pareto.src.js"),
-    pc: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/price-channel.src.js")),
-    pictorial: () => import("highcharts/es-modules/masters/modules/pictorial.src.js"),
-    pivotpoints: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/pivot-points.src.js")),
-    pointandfigure: () => import("highcharts/es-modules/masters/modules/pointandfigure.src.js"),
-    polygon: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    ppo: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/ppo.src.js")),
-    priceenvelopes: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/price-envelopes.src.js")),
-    psar: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/psar.src.js")),
-    pyramid: () => import("highcharts/es-modules/masters/modules/funnel.src.js"),
-    pyramid3d: () => import("highcharts/es-modules/masters/highcharts-3d.src.js")
-        .then(() => import("highcharts/es-modules/masters/modules/cylinder.src.js"))
-        .then(() => import("highcharts/es-modules/masters/modules/funnel3d.src.js"))
-        .then(() => import("highcharts/es-modules/masters/modules/pyramid3d.src.js")),
-    renko: () => import("highcharts/es-modules/masters/modules/renko.src.js"),
-    roc: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/roc.src.js")),
-    rsi: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/rsi.src.js")),
-    sankey: () => import("highcharts/es-modules/masters/modules/sankey.src.js"),
-    scatter3d: () => import("highcharts/es-modules/masters/highcharts-3d.src.js"),
-    slowstochastic: () => import("highcharts/es-modules/masters/indicators/indicators.src.js")
-        .then(() => import("highcharts/es-modules/masters/indicators/stochastic.src.js"))
-        .then(() => import("highcharts/es-modules/masters/indicators/slow-stochastic.src.js")),
-    sma: () => import("highcharts/es-modules/masters/indicators/indicators.src.js"),
-    solidgauge: () => import("highcharts/es-modules/masters/highcharts-more.src.js").then(() => import("highcharts/es-modules/masters/modules/solid-gauge.src.js")),
-    stochastic: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/stochastic.src.js")),
-    streamgraph: () => import("highcharts/es-modules/masters/modules/streamgraph.src.js"),
-    sunburst: () => import("highcharts/es-modules/masters/modules/sunburst.src.js"),
-    supertrend: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/supertrend.src.js")),
-    tema: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/tema.src.js")),
-    tiledwebmap: () => import("highcharts/es-modules/masters/modules/tiledwebmap.src.js"),
-    tilemap: () => import("highcharts/es-modules/masters/modules/tilemap.src.js"),
-    timeline: () => import("highcharts/es-modules/masters/modules/timeline.src.js"),
-    treegraph: () => import("highcharts/es-modules/masters/modules/treemap.src.js").then(() => import("highcharts/es-modules/masters/modules/treegraph.src.js")),
-    treemap: () => import("highcharts/es-modules/masters/modules/treemap.src.js"),
-    trendline: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/trendline.src.js")),
-    trix: () => import("highcharts/es-modules/masters/indicators/indicators.src.js")
-        .then(() => import("highcharts/es-modules/masters/indicators/tema.src.js"))
-        .then(() => import("highcharts/es-modules/masters/indicators/trix.src.js")),
-    variablepie: () => import("highcharts/es-modules/masters/modules/variable-pie.src.js"),
-    variwide: () => import("highcharts/es-modules/masters/modules/variwide.src.js"),
-    vbp: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/volume-by-price.src.js")),
-    vector: () => import("highcharts/es-modules/masters/modules/vector.src.js"),
-    venn: () => import("highcharts/es-modules/masters/modules/venn.src.js"),
-    vwap: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/vwap.src.js")),
-    waterfall: () => import("highcharts/es-modules/masters/highcharts-more.src.js"),
-    williamsr: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/williams-r.src.js")),
-    windbarb: () => import("highcharts/es-modules/masters/modules/windbarb.src.js"),
-    wma: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/wma.src.js")),
-    wordcloud: () => import("highcharts/es-modules/masters/modules/wordcloud.src.js"),
-    xrange: () => import("highcharts/es-modules/masters/modules/xrange.src.js"),
-    zigzag: () => import("highcharts/es-modules/masters/indicators/indicators.src.js").then(() => import("highcharts/es-modules/masters/indicators/zigzag.src.js")),
+    abands: () => import("./seriesModules/ABands.js"),
+    ad: () => import("./seriesModules/AD.js"),
+    ao: () => import("./seriesModules/AO.js"),
+    apo: () => import("./seriesModules/APO.js"),
+    arcdiagram: () => import("./seriesModules/ArcDiagram.js"),
+    arearange: () => import("./seriesModules/AreaRange.js"),
+    areasplinerange: () => import("./seriesModules/AreaSplineRange.js"),
+    aroon: () => import("./seriesModules/Aroon.js"),
+    aroonoscillator: () => import("./seriesModules/AroonOscillator.js"),
+    atr: () => import("./seriesModules/ATR.js"),
+    bb: () => import("./seriesModules/BB.js"),
+    bellcurve: () => import("./seriesModules/Bellcurve.js"),
+    boxplot: () => import("./seriesModules/BoxPlot.js"),
+    bubble: () => import("./seriesModules/Bubble.js"),
+    bullet: () => import("./seriesModules/Bullet.js"),
+    cci: () => import("./seriesModules/CCI.js"),
+    chaikin: () => import("./seriesModules/Chaikin.js"),
+    cmf: () => import("./seriesModules/CMF.js"),
+    cmo: () => import("./seriesModules/CMO.js"),
+    columnpyramid: () => import("./seriesModules/ColumnPyramid.js"),
+    columnrange: () => import("./seriesModules/ColumnRange.js"),
+    contour: () => import("./seriesModules/Contour.js"),
+    cylinder: () => import("./seriesModules/Cylinder.js"),
+    dema: () => import("./seriesModules/DEMA.js"),
+    dependencywheel: () => import("./seriesModules/DependencyWheel.js"),
+    disparityindex: () => import("./seriesModules/DisparityIndex.js"),
+    dmi: () => import("./seriesModules/DMI.js"),
+    dpo: () => import("./seriesModules/DPO.js"),
+    dumbbell: () => import("./seriesModules/Dumbbell.js"),
+    ema: () => import("./seriesModules/EMA.js"),
+    errorbar: () => import("./seriesModules/ErrorBar.js"),
+    flowmap: () => import("./seriesModules/FlowMap.js"),
+    funnel: () => import("./seriesModules/Funnel.js"),
+    funnel3d: () => import("./seriesModules/Funnel3D.js"),
+    gantt: () => import("./seriesModules/Gantt.js"),
+    gauge: () => import("./seriesModules/Gauge.js"),
+    geoheatmap: () => import("./seriesModules/GeoHeatmap.js"),
+    heatmap: () => import("./seriesModules/Heatmap.js"),
+    heikinashi: () => import("./seriesModules/HeikinAshi.js"),
+    histogram: () => import("./seriesModules/Histogram.js"),
+    hollowcandlestick: () => import("./seriesModules/HollowCandlestick.js"),
+    ikh: () => import("./seriesModules/IKH.js"),
+    item: () => import("./seriesModules/Item.js"),
+    keltnerchannels: () => import("./seriesModules/KeltnerChannels.js"),
+    klinger: () => import("./seriesModules/Klinger.js"),
+    linearregression: () => import("./seriesModules/LinearRegression.js"),
+    linearregressionangle: () => import("./seriesModules/LinearRegressionAngle.js"),
+    linearregressionintercept: () => import("./seriesModules/LinearRegressionIntercept.js"),
+    linearregressionslope: () => import("./seriesModules/Linearregressionslope.js"),
+    lollipop: () => import("./seriesModules/Lollipop.js"),
+    macd: () => import("./seriesModules/MACD.js"),
+    mfi: () => import("./seriesModules/MFI.js"),
+    momentum: () => import("./seriesModules/Momentum.js"),
+    natr: () => import("./seriesModules/NATR.js"),
+    networkgraph: () => import("./seriesModules/Networkgraph.js"),
+    obv: () => import("./seriesModules/OBV.js"),
+    organization: () => import("./seriesModules/Organization.js"),
+    packedbubble: () => import("./seriesModules/PackedBubble.js"),
+    pareto: () => import("./seriesModules/Pareto.js"),
+    pc: () => import("./seriesModules/PC.js"),
+    pictorial: () => import("./seriesModules/Pictorial.js"),
+    pivotpoints: () => import("./seriesModules/PivotPoints.js"),
+    pointandfigure: () => import("./seriesModules/PointAndFigure.js"),
+    polygon: () => import("./seriesModules/Polygon.js"),
+    ppo: () => import("./seriesModules/PPO.js"),
+    priceenvelopes: () => import("./seriesModules/PriceEnvelopes.js"),
+    psar: () => import("./seriesModules/PSAR.js"),
+    pyramid: () => import("./seriesModules/Pyramid.js"),
+    pyramid3d: () => import("./seriesModules/Pyramid3D.js"),
+    renko: () => import("./seriesModules/Renko.js"),
+    roc: () => import("./seriesModules/ROC.js"),
+    rsi: () => import("./seriesModules/RSI.js"),
+    sankey: () => import("./seriesModules/Sankey.js"),
+    scatter3d: () => import("./seriesModules/Scatter3D.js"),
+    slowstochastic: () => import("./seriesModules/SlowStochastic.js"),
+    sma: () => import("./seriesModules/SMA.js"),
+    solidgauge: () => import("./seriesModules/SolidGauge.js"),
+    stochastic: () => import("./seriesModules/Stochastic.js"),
+    streamgraph: () => import("./seriesModules/Streamgraph.js"),
+    sunburst: () => import("./seriesModules/Sunburst.js"),
+    supertrend: () => import("./seriesModules/Supertrend.js"),
+    tema: () => import("./seriesModules/TEMA.js"),
+    tiledwebmap: () => import("./seriesModules/TiledWebMap.js"),
+    tilemap: () => import("./seriesModules/Tilemap.js"),
+    timeline: () => import("./seriesModules/Timeline.js"),
+    treegraph: () => import("./seriesModules/Treegraph.js"),
+    treemap: () => import("./seriesModules/Treemap.js"),
+    trendline: () => import("./seriesModules/TrendLine.js"),
+    trix: () => import("./seriesModules/TRIX.js"),
+    variablepie: () => import("./seriesModules/VariablePie.js"),
+    variwide: () => import("./seriesModules/Variwide.js"),
+    vbp: () => import("./seriesModules/VBP.js"),
+    vector: () => import("./seriesModules/Vector.js"),
+    venn: () => import("./seriesModules/Venn.js"),
+    vwap: () => import("./seriesModules/VWAP.js"),
+    waterfall: () => import("./seriesModules/Waterfall.js"),
+    williamsr: () => import("./seriesModules/WilliamsR.js"),
+    windbarb: () => import("./seriesModules/Windbarb.js"),
+    wma: () => import("./seriesModules/WMA.js"),
+    wordcloud: () => import("./seriesModules/Wordcloud.js"),
+    xrange: () => import("./seriesModules/XRange.js"),
+    zigzag: () => import("./seriesModules/Zigzag.js"),
 };

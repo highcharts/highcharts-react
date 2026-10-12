@@ -1,5 +1,21 @@
 # Changelog
 
+## v5.4.0
+
+Highcharts React v5.4.0 introduces full compatibility and support for [highcharts](https://www.npmjs.com/package/highcharts/v/13.1.1) `v13.1.1`.
+
+### Bug fixes
+
+- Fixed a `TypeError` on load when bundling with Vite, caused by the on-demand module loading added in v5.3.0 giving bundlers several entry points into the same Highcharts Core graph (closes [highcharts/highcharts-react#585](https://github.com/highcharts/highcharts-react/issues/585)).
+- Fixed missing inherited options in the props of the generated option components, e.g. `currentDateIndicator` on `<XAxis />` and `labels.symbol` on `<YAxis />` (closes [highcharts/highcharts-react#588](https://github.com/highcharts/highcharts-react/issues/588)).
+- Fixed the [`<Tilemap />`](https://www.highcharts.com/docs/react/components/series-types#available-dedicated-series-components) component not including the required Heatmap module, causing an error on import (closes [highcharts/highcharts-react#586](https://github.com/highcharts/highcharts-react/issues/586)).
+
+## v5.3.1
+
+### Bug fixes
+
+- Fixed a `TypeError` on load when bundling with Vite, caused by the on-demand module loading added in v5.3.0 giving bundlers several entry points into the same Highcharts Core graph (closes [highcharts/highcharts-react#585](https://github.com/highcharts/highcharts-react/issues/585)).
+
 ## v5.3.0
 
 Highcharts React v5.3.0 adds automatic module loading for the generic [`<Series />`](https://www.highcharts.com/docs/react/components/series-types#generic-series) component, improves [`Chart`](https://www.highcharts.com/docs/react/components/chart) re-render performance and adds a dedicated [`<SeriesLabel />`](https://www.highcharts.com/docs/react/components/modules/serieslabel) module component.

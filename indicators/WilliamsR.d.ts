@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesWilliamsrOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Williams %R. This series requires the `linkedTo` option to be set and should
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import WilliamsR from '@highcharts/react/indicators/WilliamsR';
+ *
  * <WilliamsR>
  *   <WilliamsR.Series options={{ linkedTo: 'prices' }} />
  * </WilliamsR>
@@ -58,6 +59,9 @@ export interface WilliamsRSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { WilliamsRSeries } from '@highcharts/react/indicators/WilliamsR';
+ *
  * <StockChart>
  *   <WilliamsRSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

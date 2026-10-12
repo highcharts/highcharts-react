@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -24,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Maps.
  *
  * @example
+ * import TiledWebMap from '@highcharts/react/series/TiledWebMap';
+ *
  * <TiledWebMap>
  *   <TiledWebMap.Series />
  * </TiledWebMap>
@@ -57,6 +59,9 @@ export interface TiledWebMapSeriesProps {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { TiledWebMapSeries } from '@highcharts/react/series/TiledWebMap';
+ *
  * <MapsChart>
  *   <TiledWebMapSeries />
  * </MapsChart>

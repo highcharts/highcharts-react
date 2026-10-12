@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesCmoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Chande Momentum Oscillator (CMO) technical indicator. This series requires
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import CMO from '@highcharts/react/indicators/CMO';
+ *
  * <CMO>
  *   <CMO.Series options={{ linkedTo: 'prices' }} />
  * </CMO>
@@ -59,6 +60,9 @@ export interface CMOSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { CMOSeries } from '@highcharts/react/indicators/CMO';
+ *
  * <StockChart>
  *   <CMOSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

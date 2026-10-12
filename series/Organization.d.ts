@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesOrganizationOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * An organization chart is a diagram that shows the structure of an
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Organization from '@highcharts/react/series/Organization';
+ *
  * <Organization>
  *   <Organization.Series data={[1, 2, 3]} />
  * </Organization>
@@ -61,6 +62,9 @@ export interface OrganizationSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { OrganizationSeries } from '@highcharts/react/series/Organization';
+ *
  * <Chart>
  *   <OrganizationSeries data={[1, 2, 3]} />
  * </Chart>

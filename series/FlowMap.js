@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/flowmap.src.js";
+import "../seriesModules/FlowMap.js";
 /**
  * A flowmap series is a series laid out on top of a map series allowing to
  * display route paths (e.g. flight or ship routes) or flows on a map. It
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/flowmap.src.js";
  * Available in Highcharts Maps.
  *
  * @example
+ * import FlowMap from '@highcharts/react/series/FlowMap';
+ *
  * <FlowMap>
  *   <FlowMap.Series data={[1, 2, 3]} />
  * </FlowMap>
@@ -51,6 +53,9 @@ function FlowMap(props) {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { FlowMapSeries } from '@highcharts/react/series/FlowMap';
+ *
  * <MapsChart>
  *   <FlowMapSeries data={[1, 2, 3]} />
  * </MapsChart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/regressions.src.js";
+import "../seriesModules/Linearregressionslope.js";
 /**
  * Linear regression slope indicator. This series requires `linkedTo` option to
  * be set.
@@ -27,6 +26,8 @@ import "highcharts/es-modules/masters/indicators/regressions.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Linearregressionslope from '@highcharts/react/indicators/Linearregressionslope';
+ *
  * <Linearregressionslope>
  *   <Linearregressionslope.Series options={{ linkedTo: 'prices' }} />
  * </Linearregressionslope>
@@ -52,6 +53,9 @@ function Linearregressionslope(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { LinearregressionslopeSeries } from '@highcharts/react/indicators/Linearregressionslope';
+ *
  * <StockChart>
  *   <LinearregressionslopeSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

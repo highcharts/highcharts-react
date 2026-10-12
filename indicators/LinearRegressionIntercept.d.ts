@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesLinearregressioninterceptOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Linear regression intercept indicator. This series requires `linkedTo`
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import LinearRegressionIntercept from '@highcharts/react/indicators/LinearRegressionIntercept';
+ *
  * <LinearRegressionIntercept>
  *   <LinearRegressionIntercept.Series options={{ linkedTo: 'prices' }} />
  * </LinearRegressionIntercept>
@@ -60,6 +61,9 @@ export interface LinearRegressionInterceptSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { LinearRegressionInterceptSeries } from '@highcharts/react/indicators/LinearRegressionIntercept';
+ *
  * <StockChart>
  *   <LinearRegressionInterceptSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

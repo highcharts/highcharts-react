@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesDumbbellOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * The dumbbell series is a cartesian series with higher and lower values for
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Dumbbell from '@highcharts/react/series/Dumbbell';
+ *
  * <Dumbbell>
  *   <Dumbbell.Series data={[1, 2, 3]} />
  * </Dumbbell>
@@ -58,6 +59,9 @@ export interface DumbbellSeriesProps {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { DumbbellSeries } from '@highcharts/react/series/Dumbbell';
+ *
  * <Chart>
  *   <DumbbellSeries data={[1, 2, 3]} />
  * </Chart>

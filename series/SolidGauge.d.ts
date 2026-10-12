@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesSolidgaugeOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * A solid gauge is a circular gauge where the value is indicated by a filled
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import SolidGauge from '@highcharts/react/series/SolidGauge';
+ *
  * <SolidGauge>
  *   <SolidGauge.Series data={[1, 2, 3]} />
  * </SolidGauge>
@@ -59,6 +60,9 @@ export interface SolidGaugeSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { SolidGaugeSeries } from '@highcharts/react/series/SolidGauge';
+ *
  * <Chart>
  *   <SolidGaugeSeries data={[1, 2, 3]} />
  * </Chart>

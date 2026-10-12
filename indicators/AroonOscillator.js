@@ -5,17 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/aroon.src.js";
-import "highcharts/es-modules/masters/indicators/aroon-oscillator.src.js";
+import "../seriesModules/AroonOscillator.js";
 /**
  * Aroon Oscillator. This series requires the `linkedTo` option to be set and
  * should be loaded after the `stock/indicators/indicators.js` and
@@ -28,6 +26,8 @@ import "highcharts/es-modules/masters/indicators/aroon-oscillator.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import AroonOscillator from '@highcharts/react/indicators/AroonOscillator';
+ *
  * <AroonOscillator>
  *   <AroonOscillator.Series options={{ linkedTo: 'prices' }} />
  * </AroonOscillator>
@@ -54,6 +54,9 @@ function AroonOscillator(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { AroonOscillatorSeries } from '@highcharts/react/indicators/AroonOscillator';
+ *
  * <StockChart>
  *   <AroonOscillatorSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

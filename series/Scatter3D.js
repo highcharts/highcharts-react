@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-3d.src.js";
+import "../seriesModules/Scatter3D.js";
 /**
  * A 3D scatter plot uses x, y and z coordinates to display values for three
  * variables for a set of data.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/highcharts-3d.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Scatter3D from '@highcharts/react/series/Scatter3D';
+ *
  * <Scatter3D>
  *   <Scatter3D.Series data={[1, 2, 3]} />
  * </Scatter3D>
@@ -50,6 +52,9 @@ function Scatter3D(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Scatter3DSeries } from '@highcharts/react/series/Scatter3D';
+ *
  * <Chart>
  *   <Scatter3DSeries data={[1, 2, 3]} />
  * </Chart>

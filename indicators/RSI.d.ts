@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesRsiOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Relative strength index (RSI) technical indicator. This series requires the
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import RSI from '@highcharts/react/indicators/RSI';
+ *
  * <RSI>
  *   <RSI.Series options={{ linkedTo: 'prices' }} />
  * </RSI>
@@ -59,6 +60,9 @@ export interface RSISeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { RSISeries } from '@highcharts/react/indicators/RSI';
+ *
  * <StockChart>
  *   <RSISeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

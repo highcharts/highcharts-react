@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -24,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import Scatter3D from '@highcharts/react/series/Scatter3D';
+ *
  * <Scatter3D>
  *   <Scatter3D.Series data={[1, 2, 3]} />
  * </Scatter3D>
@@ -58,6 +60,9 @@ export interface Scatter3DSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Scatter3DSeries } from '@highcharts/react/series/Scatter3D';
+ *
  * <Chart>
  *   <Scatter3DSeries data={[1, 2, 3]} />
  * </Chart>

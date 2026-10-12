@@ -5,17 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
-import "highcharts/es-modules/masters/modules/dumbbell.src.js";
-import "highcharts/es-modules/masters/modules/lollipop.src.js";
+import "../seriesModules/Lollipop.js";
 /**
  * The lollipop series is a cartesian series with a line anchored from the x
  * axis and a dot at the end to mark the value. Requires `highcharts-more.js`,
@@ -28,6 +26,8 @@ import "highcharts/es-modules/masters/modules/lollipop.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Lollipop from '@highcharts/react/series/Lollipop';
+ *
  * <Lollipop>
  *   <Lollipop.Series data={[1, 2, 3]} />
  * </Lollipop>
@@ -53,6 +53,9 @@ function Lollipop(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { LollipopSeries } from '@highcharts/react/series/Lollipop';
+ *
  * <Chart>
  *   <LollipopSeries data={[1, 2, 3]} />
  * </Chart>

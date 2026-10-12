@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/zigzag.src.js";
+import "../seriesModules/Zigzag.js";
 /**
  * Zig Zag indicator.
  *
@@ -25,6 +24,8 @@ import "highcharts/es-modules/masters/indicators/zigzag.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Zigzag from '@highcharts/react/indicators/Zigzag';
+ *
  * <Zigzag>
  *   <Zigzag.Series options={{ linkedTo: 'prices' }} />
  * </Zigzag>
@@ -48,6 +49,9 @@ function Zigzag(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { ZigzagSeries } from '@highcharts/react/indicators/Zigzag';
+ *
  * <StockChart>
  *   <ZigzagSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesContourOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * A contour plot is a graphical representation of three-dimensional data
@@ -24,6 +23,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import Contour from '@highcharts/react/series/Contour';
+ *
  * <Contour>
  *   <Contour.Series data={[1, 2, 3]} />
  * </Contour>
@@ -56,6 +57,9 @@ export interface ContourSeriesProps {
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ContourSeries } from '@highcharts/react/series/Contour';
+ *
  * <Chart>
  *   <ContourSeries data={[1, 2, 3]} />
  * </Chart>

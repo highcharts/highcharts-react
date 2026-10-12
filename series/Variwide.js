@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/variwide.src.js";
+import "../seriesModules/Variwide.js";
 /**
  * A variwide chart (related to marimekko chart) is a column chart with a
  * variable width expressing a third dimension.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/variwide.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Variwide from '@highcharts/react/series/Variwide';
+ *
  * <Variwide>
  *   <Variwide.Series data={[1, 2, 3]} />
  * </Variwide>
@@ -49,6 +51,9 @@ function Variwide(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { VariwideSeries } from '@highcharts/react/series/Variwide';
+ *
  * <Chart>
  *   <VariwideSeries data={[1, 2, 3]} />
  * </Chart>

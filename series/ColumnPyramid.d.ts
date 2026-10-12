@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -26,6 +26,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import ColumnPyramid from '@highcharts/react/series/ColumnPyramid';
+ *
  * <ColumnPyramid>
  *   <ColumnPyramid.Series data={[1, 2, 3]} />
  * </ColumnPyramid>
@@ -62,6 +64,9 @@ export interface ColumnPyramidSeriesProps {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ColumnPyramidSeries } from '@highcharts/react/series/ColumnPyramid';
+ *
  * <Chart>
  *   <ColumnPyramidSeries data={[1, 2, 3]} />
  * </Chart>

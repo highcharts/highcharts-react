@@ -5,18 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-3d.src.js";
-import "highcharts/es-modules/masters/modules/cylinder.src.js";
-import "highcharts/es-modules/masters/modules/funnel3d.src.js";
-import "highcharts/es-modules/masters/modules/pyramid3d.src.js";
+import "../seriesModules/Pyramid3D.js";
 /**
  * A pyramid3d is a 3d version of pyramid series type. Pyramid charts are a
  * type of chart often used to visualize stages in a sales project, where the
@@ -29,6 +26,8 @@ import "highcharts/es-modules/masters/modules/pyramid3d.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Pyramid3D from '@highcharts/react/series/Pyramid3D';
+ *
  * <Pyramid3D>
  *   <Pyramid3D.Series data={[1, 2, 3]} />
  * </Pyramid3D>
@@ -55,6 +54,9 @@ function Pyramid3D(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Pyramid3DSeries } from '@highcharts/react/series/Pyramid3D';
+ *
  * <Chart>
  *   <Pyramid3DSeries data={[1, 2, 3]} />
  * </Chart>

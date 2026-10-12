@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesPpoOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Percentage Price Oscillator. This series requires the `linkedTo` option to
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PPO from '@highcharts/react/indicators/PPO';
+ *
  * <PPO>
  *   <PPO.Series options={{ linkedTo: 'prices' }} />
  * </PPO>
@@ -57,6 +58,9 @@ export interface PPOSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PPOSeries } from '@highcharts/react/indicators/PPO';
+ *
  * <StockChart>
  *   <PPOSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

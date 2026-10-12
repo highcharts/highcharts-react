@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/cmf.src.js";
+import "../seriesModules/CMF.js";
 /**
  * Chaikin Money Flow indicator (cmf).
  *
@@ -25,6 +24,8 @@ import "highcharts/es-modules/masters/indicators/cmf.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import CMF from '@highcharts/react/indicators/CMF';
+ *
  * <CMF>
  *   <CMF.Series options={{ linkedTo: 'prices' }} />
  * </CMF>
@@ -48,6 +49,9 @@ function CMF(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { CMFSeries } from '@highcharts/react/indicators/CMF';
+ *
  * <StockChart>
  *   <CMFSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

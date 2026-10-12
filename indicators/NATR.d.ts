@@ -5,15 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesNatrOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
-
 
 /**
  * Normalized average true range indicator (NATR). This series requires
@@ -27,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import NATR from '@highcharts/react/indicators/NATR';
+ *
  * <NATR>
  *   <NATR.Series options={{ linkedTo: 'prices' }} />
  * </NATR>
@@ -60,6 +60,9 @@ export interface NATRSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { NATRSeries } from '@highcharts/react/indicators/NATR';
+ *
  * <StockChart>
  *   <NATRSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

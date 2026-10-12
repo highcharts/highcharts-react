@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/pointandfigure.src.js";
+import "../seriesModules/PointAndFigure.js";
 /**
  * The Point and Figure series represents changes in stock price movements,
  * without focusing on the time and volume. Each data point is created when the
@@ -27,6 +27,8 @@ import "highcharts/es-modules/masters/modules/pointandfigure.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import PointAndFigure from '@highcharts/react/series/PointAndFigure';
+ *
  * <PointAndFigure>
  *   <PointAndFigure.Series data={[1, 2, 3]} />
  * </PointAndFigure>
@@ -54,6 +56,9 @@ function PointAndFigure(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { PointAndFigureSeries } from '@highcharts/react/series/PointAndFigure';
+ *
  * <StockChart>
  *   <PointAndFigureSeries data={[1, 2, 3]} />
  * </StockChart>

@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -24,6 +24,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import Pie from '@highcharts/react/series/Pie';
+ *
  * <Pie>
  *   <Pie.Series data={[1, 2, 3]} />
  * </Pie>
@@ -48,6 +50,9 @@ function Pie(props) {
  * Available in Highcharts, Highcharts Maps.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { PieSeries } from '@highcharts/react/series/Pie';
+ *
  * <Chart>
  *   <PieSeries data={[1, 2, 3]} />
  * </Chart>

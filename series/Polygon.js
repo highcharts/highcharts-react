@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/highcharts-more.src.js";
+import "../seriesModules/Polygon.js";
 /**
  * A polygon series can be used to draw any freeform shape in the cartesian
  * coordinate system. A fill is applied with the `color` option, and stroke is
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/highcharts-more.src.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Polygon from '@highcharts/react/series/Polygon';
+ *
  * <Polygon>
  *   <Polygon.Series data={[1, 2, 3]} />
  * </Polygon>
@@ -51,6 +53,9 @@ function Polygon(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { PolygonSeries } from '@highcharts/react/series/Polygon';
+ *
  * <Chart>
  *   <PolygonSeries data={[1, 2, 3]} />
  * </Chart>

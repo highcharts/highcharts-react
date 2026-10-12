@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesChaikinOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Chaikin Oscillator. This series requires the `linkedTo` option to be set and
@@ -25,6 +24,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Chaikin from '@highcharts/react/indicators/Chaikin';
+ *
  * <Chaikin>
  *   <Chaikin.Series options={{ linkedTo: 'prices' }} />
  * </Chaikin>
@@ -57,6 +58,9 @@ export interface ChaikinSeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { ChaikinSeries } from '@highcharts/react/indicators/Chaikin';
+ *
  * <StockChart>
  *   <ChaikinSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

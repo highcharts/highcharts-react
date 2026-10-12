@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -25,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts.
  *
  * @example
+ * import ErrorBar from '@highcharts/react/series/ErrorBar';
+ *
  * <ErrorBar>
  *   <ErrorBar.Series data={[1, 2, 3]} />
  * </ErrorBar>
@@ -59,6 +61,9 @@ export interface ErrorBarSeriesProps {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ErrorBarSeries } from '@highcharts/react/series/ErrorBar';
+ *
  * <Chart>
  *   <ErrorBarSeries data={[1, 2, 3]} />
  * </Chart>

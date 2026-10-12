@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
@@ -24,6 +24,8 @@ import { Chart } from "../Highcharts.js";
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import Scatter from '@highcharts/react/series/Scatter';
+ *
  * <Scatter>
  *   <Scatter.Series data={[1, 2, 3]} />
  * </Scatter>
@@ -48,6 +50,9 @@ function Scatter(props) {
  * Available in Highcharts, Highcharts Stock.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ScatterSeries } from '@highcharts/react/series/Scatter';
+ *
  * <Chart>
  *   <ScatterSeries data={[1, 2, 3]} />
  * </Chart>

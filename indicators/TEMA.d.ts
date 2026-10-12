@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesTemaOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Triple exponential moving average (TEMA) indicator. This series requires
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import TEMA from '@highcharts/react/indicators/TEMA';
+ *
  * <TEMA>
  *   <TEMA.Series options={{ linkedTo: 'prices' }} />
  * </TEMA>
@@ -59,6 +60,9 @@ export interface TEMASeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { TEMASeries } from '@highcharts/react/indicators/TEMA';
+ *
  * <StockChart>
  *   <TEMASeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

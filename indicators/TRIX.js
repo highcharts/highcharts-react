@@ -5,17 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/tema.src.js";
-import "highcharts/es-modules/masters/indicators/trix.src.js";
+import "../seriesModules/TRIX.js";
 /**
  * Triple exponential average (TRIX) oscillator. This series requires
  * `linkedTo` option to be set.
@@ -27,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/trix.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import TRIX from '@highcharts/react/indicators/TRIX';
+ *
  * <TRIX>
  *   <TRIX.Series options={{ linkedTo: 'prices' }} />
  * </TRIX>
@@ -51,6 +51,9 @@ function TRIX(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { TRIXSeries } from '@highcharts/react/indicators/TRIX';
+ *
  * <StockChart>
  *   <TRIXSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

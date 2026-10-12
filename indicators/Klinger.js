@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/klinger.src.js";
+import "../seriesModules/Klinger.js";
 /**
  * Klinger oscillator. This series requires the `linkedTo` option to be set and
  * should be loaded after the `stock/indicators/indicators.js` file.
@@ -26,6 +25,8 @@ import "highcharts/es-modules/masters/indicators/klinger.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import Klinger from '@highcharts/react/indicators/Klinger';
+ *
  * <Klinger>
  *   <Klinger.Series options={{ linkedTo: 'prices' }} />
  * </Klinger>
@@ -50,6 +51,9 @@ function Klinger(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { KlingerSeries } from '@highcharts/react/indicators/Klinger';
+ *
  * <StockChart>
  *   <KlingerSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

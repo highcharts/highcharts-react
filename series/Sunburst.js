@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/sunburst.src.js";
+import "../seriesModules/Sunburst.js";
 /**
  * A Sunburst displays hierarchical data, where a level in the hierarchy is
  * represented by a circle. The center represents the root node of the tree.
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/sunburst.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Sunburst from '@highcharts/react/series/Sunburst';
+ *
  * <Sunburst>
  *   <Sunburst.Series data={[1, 2, 3]} />
  * </Sunburst>
@@ -51,6 +53,9 @@ function Sunburst(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { SunburstSeries } from '@highcharts/react/series/Sunburst';
+ *
  * <Chart>
  *   <SunburstSeries data={[1, 2, 3]} />
  * </Chart>

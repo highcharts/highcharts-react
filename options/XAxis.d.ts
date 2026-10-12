@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /** Props for the `<XAxis />` component. */
@@ -52,6 +52,7 @@ export type XAxisProps = {
         zIndex?: number;
     };
     crossing?: number;
+    currentDateIndicator?: boolean | Highcharts.CurrentDateIndicatorOptions;
     dateTimeLabelFormats?: {
         day?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
         hour?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
@@ -112,7 +113,7 @@ export type XAxisProps = {
     left?: number | string;
     lineColor?: Highcharts.ColorType;
     lineWidth?: number;
-    linkedTo?: number;
+    linkedTo?: number | string;
     margin?: number;
     max?: number | string | null;
     maxPadding?: number;
@@ -202,6 +203,31 @@ export type XAxisProps = {
     range?: number;
     reversed?: boolean;
     reversedStacks?: boolean;
+    scrollbar?: {
+        enabled?: boolean;
+        opposite?: boolean;
+        barBackgroundColor?: Highcharts.ColorType;
+        barBorderColor?: Highcharts.ColorType;
+        barBorderRadius?: number;
+        barBorderWidth?: number;
+        buttonArrowColor?: Highcharts.ColorType;
+        buttonBackgroundColor?: Highcharts.ColorType;
+        buttonBorderColor?: Highcharts.ColorType;
+        buttonBorderRadius?: number;
+        buttonBorderWidth?: number;
+        buttonsEnabled?: boolean;
+        height?: number;
+        liveRedraw?: boolean;
+        margin?: number | undefined;
+        minWidth?: number;
+        rifleColor?: Highcharts.ColorType;
+        showFull?: boolean;
+        trackBackgroundColor?: Highcharts.ColorType;
+        trackBorderColor?: Highcharts.ColorType;
+        trackBorderRadius?: number;
+        trackBorderWidth?: number;
+        zIndex?: number;
+    };
     showEmpty?: boolean;
     showFirstLabel?: boolean;
     showLastLabel?: boolean;
@@ -254,6 +280,8 @@ export type XAxisProps = {
  * `title.text`.
  *
  * @example
+ * import { Chart, XAxis } from '@highcharts/react';
+ *
  * <Chart>
  *   <XAxis categories={["Jan", "Feb", "Mar"]} />
  * </Chart>

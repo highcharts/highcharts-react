@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/item-series.src.js";
+import "../seriesModules/Item.js";
 /**
  * An item chart is an infographic chart where a number of items are laid out
  * in either a rectangular or circular pattern. It can be used to visualize
@@ -26,6 +26,8 @@ import "highcharts/es-modules/masters/modules/item-series.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Item from '@highcharts/react/series/Item';
+ *
  * <Item>
  *   <Item.Series data={[1, 2, 3]} />
  * </Item>
@@ -51,6 +53,9 @@ function Item(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { ItemSeries } from '@highcharts/react/series/Item';
+ *
  * <Chart>
  *   <ItemSeries data={[1, 2, 3]} />
  * </Chart>

@@ -5,16 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/indicators/indicators.src.js";
-import "highcharts/es-modules/masters/indicators/trendline.src.js";
+import "../seriesModules/TrendLine.js";
 /**
  * Trendline (linear regression) fits a straight line to the selected data
  * using a method called the Sum Of Least Squares. This series requires the
@@ -27,6 +26,8 @@ import "highcharts/es-modules/masters/indicators/trendline.src.js";
  * Available in Highcharts Stock.
  *
  * @example
+ * import TrendLine from '@highcharts/react/indicators/TrendLine';
+ *
  * <TrendLine>
  *   <TrendLine.Series options={{ linkedTo: 'prices' }} />
  * </TrendLine>
@@ -53,6 +54,9 @@ function TrendLine(props) {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { TrendLineSeries } from '@highcharts/react/indicators/TrendLine';
+ *
  * <StockChart>
  *   <TrendLineSeries options={{ linkedTo: 'prices' }} />
  * </StockChart>

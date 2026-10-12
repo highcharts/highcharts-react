@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/tiledwebmap.src.js";
+import "../seriesModules/TiledWebMap.js";
 /**
  * A tiledwebmap series allows user to display dynamically joined individual
  * images (tiles) and join them together to create a map.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/tiledwebmap.src.js";
  * Available in Highcharts Maps.
  *
  * @example
+ * import TiledWebMap from '@highcharts/react/series/TiledWebMap';
+ *
  * <TiledWebMap>
  *   <TiledWebMap.Series />
  * </TiledWebMap>
@@ -50,6 +52,9 @@ function TiledWebMap(props) {
  * Available in Highcharts Maps.
  *
  * @example
+ * import { MapsChart } from '@highcharts/react/Maps';
+ * import { TiledWebMapSeries } from '@highcharts/react/series/TiledWebMap';
+ *
  * <MapsChart>
  *   <TiledWebMapSeries />
  * </MapsChart>

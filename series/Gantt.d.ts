@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesGanttOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * A `gantt` series. If the
@@ -27,6 +26,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Gantt.
  *
  * @example
+ * import Gantt from '@highcharts/react/series/Gantt';
+ *
  * <Gantt>
  *   <Gantt.Series data={[1, 2, 3]} />
  * </Gantt>
@@ -62,6 +63,9 @@ export interface GanttSeriesProps {
  * Available in Highcharts Gantt.
  *
  * @example
+ * import { GanttChart } from '@highcharts/react/Gantt';
+ * import { GanttSeries } from '@highcharts/react/series/Gantt';
+ *
  * <GanttChart>
  *   <GanttSeries data={[1, 2, 3]} />
  * </GanttChart>

@@ -5,15 +5,15 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React, { useState,
 // @ts-ignore
  } from "react";
 import { Chart } from "../Highcharts.js";
-import "highcharts/es-modules/masters/modules/pictorial.src.js";
+import "../seriesModules/Pictorial.js";
 /**
  * A pictorial chart uses vector images to represents the data. The shape of
  * the data point is taken from the path parameter.
@@ -25,6 +25,8 @@ import "highcharts/es-modules/masters/modules/pictorial.src.js";
  * Available in Highcharts.
  *
  * @example
+ * import Pictorial from '@highcharts/react/series/Pictorial';
+ *
  * <Pictorial>
  *   <Pictorial.Series data={[1, 2, 3]} />
  * </Pictorial>
@@ -50,6 +52,9 @@ function Pictorial(props) {
  * Available in Highcharts.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { PictorialSeries } from '@highcharts/react/series/Pictorial';
+ *
  * <Chart>
  *   <PictorialSeries data={[1, 2, 3]} />
  * </Chart>

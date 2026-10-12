@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 /** Props for the `<Palette />` component. */
@@ -17,6 +17,8 @@ export type PaletteProps = Highcharts.PaletteOptions;
  * Sets `palette` on the parent chart.
  *
  * @example
+ * import { Chart, Palette } from '@highcharts/react';
+ *
  * <Chart>
  *   <Palette colors={["#2caffe", "#544fc5"]} />
  * </Chart>

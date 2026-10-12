@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
@@ -116,6 +116,10 @@ export interface ICommonAttributes {
  * children last.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { Title } from '@highcharts/react';
+ * import { CandlestickSeries } from '@highcharts/react/series/Candlestick';
+ *
  * <StockChart>
  *   <Title>Price history</Title>
  *   <CandlestickSeries data={ohlc} />
@@ -133,6 +137,8 @@ export declare const StockChart: React.ForwardRefExoticComponent<Omit<ICommonAtt
  * advanced settings, pass them through the `options` prop.
  *
  * @example
+ * import { StockSeries } from '@highcharts/react/Stock';
+ *
  * <StockSeries type="candlestick" data={ohlc} />
  */
 export declare function StockSeries<K extends SeriesType = SeriesType>(props: SeriesProps<K>): any;

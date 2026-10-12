@@ -5,8 +5,8 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import "highcharts/es-modules/masters/modules/drilldown.src.js";
@@ -18,6 +18,9 @@ import "highcharts/es-modules/masters/modules/drilldown.src.js";
  * the component also loads the Highcharts module it needs.
  *
  * @example
+ * import { Chart } from '@highcharts/react';
+ * import { Drilldown } from '@highcharts/react/modules/Drilldown';
+ *
  * <Chart>
  *   <Drilldown series={[{ id: "q1", data: [1, 2, 3] }]} />
  * </Chart>

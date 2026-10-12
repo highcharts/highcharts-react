@@ -5,14 +5,13 @@
  * A valid license is required for using this software.
  * See highcharts.com/license
  *
- * Built for Highcharts v13.0.1.
- * Build stamp: 2026-08-26
+ * Built for Highcharts v13.1.1.
+ * Build stamp: 2026-10-12
  *
  */
 import React from "react";
 import type { SeriesDmiOptions } from "highcharts/highcharts";
 import type { ICommonAttributes } from "../Highcharts";
-
 
 /**
  * Directional Movement Index (DMI). This series requires the `linkedTo` option
@@ -26,6 +25,8 @@ import type { ICommonAttributes } from "../Highcharts";
  * Available in Highcharts Stock.
  *
  * @example
+ * import DMI from '@highcharts/react/indicators/DMI';
+ *
  * <DMI>
  *   <DMI.Series options={{ linkedTo: 'prices' }} />
  * </DMI>
@@ -59,6 +60,9 @@ export interface DMISeriesProps {
  * Available in Highcharts Stock.
  *
  * @example
+ * import { StockChart } from '@highcharts/react/Stock';
+ * import { DMISeries } from '@highcharts/react/indicators/DMI';
+ *
  * <StockChart>
  *   <DMISeries options={{ linkedTo: 'prices' }} />
  * </StockChart>
