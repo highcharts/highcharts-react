@@ -9,6 +9,8 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AlignObject, CSSObject } from "highcharts";
+
 /** Props for the `<Credits />` component. */
 export type CreditsProps = {
     enabled?: boolean;
@@ -16,8 +18,8 @@ export type CreditsProps = {
     href?: string;
     mapText?: string;
     mapTextFull?: string;
-    position?: Highcharts.AlignObject;
-    style?: Highcharts.CSSObject;
+    position?: AlignObject;
+    style?: CSSObject;
     text?: string;
     useHTML?: boolean;
     children?: React.ReactNode;

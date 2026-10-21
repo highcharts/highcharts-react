@@ -9,8 +9,10 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { PaletteOptions } from "highcharts";
+
 /** Props for the `<Palette />` component. */
-export type PaletteProps = Highcharts.PaletteOptions;
+export type PaletteProps = PaletteOptions;
 /**
  * The palette object specifies colors for the charts and how to apply them.
  *

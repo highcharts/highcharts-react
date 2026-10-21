@@ -9,8 +9,7 @@
  * Build stamp: 2026-10-12
  *
  */
-
-
+import type { AlignValue, CSSObject, ColorString, ColorType, Dictionary, ExportingErrorCallbackFunction, ExportingMenuObject, ExportingMimeTypeValue, Options, SVGAttributes, SymbolKeyValue, VerticalAlignValue } from "highcharts";
 
 /** Props for the `<Exporting />` component. */
 export type ExportingProps = {
@@ -26,39 +25,39 @@ export type ExportingProps = {
             menuClassName?: string;
             menuItems?: Array<string>;
             onclick?: Function;
-            symbol?: Highcharts.SymbolKeyValue | "menu" | "menuball" | string;
+            symbol?: SymbolKeyValue | "menu" | "menuball" | string;
             titleKey?: string;
             x?: number;
-            align?: Highcharts.AlignValue;
+            align?: AlignValue;
             buttonSpacing?: number;
             enabled?: boolean;
             height?: number;
-            symbolFill?: Highcharts.ColorType;
+            symbolFill?: ColorType;
             symbolSize?: number;
-            symbolStroke?: Highcharts.ColorString;
+            symbolStroke?: ColorString;
             symbolStrokeWidth?: number;
             symbolX?: number;
             symbolY?: number;
             text?: string;
             theme?: {
-                fill?: Highcharts.ColorType;
+                fill?: ColorType;
                 padding?: number;
                 states?: {
-                    disabled?: Highcharts.SVGAttributes;
-                    hover?: Highcharts.SVGAttributes;
-                    select?: Highcharts.SVGAttributes;
+                    disabled?: SVGAttributes;
+                    hover?: SVGAttributes;
+                    select?: SVGAttributes;
                 };
-                stroke?: Highcharts.ColorString;
+                stroke?: ColorString;
                 "stroke-linecap"?: string;
-                style?: Highcharts.CSSObject;
+                style?: CSSObject;
             };
             useHTML?: boolean;
-            verticalAlign?: Highcharts.VerticalAlignValue;
+            verticalAlign?: VerticalAlignValue;
             width?: number;
             y?: number;
         };
     };
-    chartOptions?: Highcharts.Options;
+    chartOptions?: Options;
     csv?: {
         annotations?: {
             itemDelimiter?: string;
@@ -71,13 +70,13 @@ export type ExportingProps = {
         lineDelimiter?: string;
     };
     enabled?: boolean;
-    error?: Highcharts.ExportingErrorCallbackFunction;
+    error?: ExportingErrorCallbackFunction;
     fallbackToExportServer?: boolean;
     fetchOptions?: Object;
     filename?: string;
     libURL?: string;
     local?: boolean;
-    menuItemDefinitions?: Highcharts.Dictionary<Highcharts.ExportingMenuObject>;
+    menuItemDefinitions?: Dictionary<ExportingMenuObject>;
     pdfFont?: {
         bold?: string | undefined;
         bolditalic?: string | undefined;
@@ -91,7 +90,7 @@ export type ExportingProps = {
     sourceHeight?: number;
     sourceWidth?: number;
     tableCaption?: boolean | string;
-    type?: Highcharts.ExportingMimeTypeValue;
+    type?: ExportingMimeTypeValue;
     useMultiLevelHeaders?: boolean;
     useRowspanHeaders?: boolean;
     width?: number;

@@ -9,14 +9,15 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { DataBeforeParseCallbackFunction, DataCompleteCallbackFunction, DataParseDateCallbackFunction, DataParsedCallbackFunction, DataValueType, Dictionary } from "highcharts";
 
 /** Props for the `<Data />` component. */
 export type DataProps = {
-    beforeParse?: Highcharts.DataBeforeParseCallbackFunction;
+    beforeParse?: DataBeforeParseCallbackFunction;
     columnTypes?: Array<"string" | "number" | "float" | "date">;
-    columns?: Array<Array<Highcharts.DataValueType>>;
+    columns?: Array<Array<DataValueType>>;
     columnsURL?: string;
-    complete?: Highcharts.DataCompleteCallbackFunction;
+    complete?: DataCompleteCallbackFunction;
     csv?: string;
     csvURL?: string;
     dataRefreshRate?: number;
@@ -31,11 +32,11 @@ export type DataProps = {
     googleSpreadsheetRange?: string | undefined;
     itemDelimiter?: string;
     lineDelimiter?: string;
-    parseDate?: Highcharts.DataParseDateCallbackFunction | false;
-    parsed?: Highcharts.DataParsedCallbackFunction;
-    rows?: Array<Array<Highcharts.DataValueType>>;
+    parseDate?: DataParseDateCallbackFunction | false;
+    parsed?: DataParsedCallbackFunction;
+    rows?: Array<Array<DataValueType>>;
     rowsURL?: string;
-    seriesMapping?: Array<Highcharts.Dictionary<number>>;
+    seriesMapping?: Array<Dictionary<number>>;
     startColumn?: number;
     startRow?: number;
     switchRowsAndColumns?: boolean;

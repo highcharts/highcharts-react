@@ -9,15 +9,17 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AlignValue, CSSObject, VerticalAlignValue } from "highcharts";
+
 /** Props for the `<Subtitle />` component. */
 export type SubtitleProps = {
-    align?: Highcharts.AlignValue;
+    align?: AlignValue;
     className?: string;
     floating?: boolean;
-    style?: Highcharts.CSSObject;
+    style?: CSSObject;
     text?: string;
     useHTML?: boolean;
-    verticalAlign?: Highcharts.VerticalAlignValue;
+    verticalAlign?: VerticalAlignValue;
     x?: number;
     y?: number;
     children?: React.ReactNode;

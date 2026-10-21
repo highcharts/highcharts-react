@@ -11,6 +11,7 @@
  */
 import React from "react";
 import HC from "highcharts/es-modules/masters/highstock.src.js";
+import type { Chart, Options, SeriesOptionsType } from "highcharts";
 export declare let Highcharts: typeof HC;
 type LoggerType = {
     logLevel: "silent" | "debug";
@@ -31,12 +32,12 @@ export declare function getHighcharts(): typeof HC & {
     __provided?: boolean;
 };
 /** Type for the <Chart /> options prop. */
-export type ChartOptions = HC.Options;
+export type ChartOptions = Options;
 /** Union of every series type available in the loaded Highcharts modules. */
-export type SeriesType = HC.SeriesOptionsType["type"];
+export type SeriesType = SeriesOptionsType["type"];
 /** Options of a given series type, without the `type` key itself. */
 export type SeriesOptions<K extends SeriesType = SeriesType> = {
-    [T in K]: Omit<Extract<HC.SeriesOptionsType, {
+    [T in K]: Omit<Extract<SeriesOptionsType, {
         type: T;
     }>, "type">;
 }[K];
@@ -53,7 +54,7 @@ export type SeriesProps<K extends SeriesType = "line"> = {
 };
 /** Shape of the object exposed through the chart component `ref`. */
 export interface HighchartsReactRefObject {
-    chart: Highcharts.Chart;
+    chart: Chart;
     container: HTMLDivElement;
 }
 /** Props shared by every chart component. */

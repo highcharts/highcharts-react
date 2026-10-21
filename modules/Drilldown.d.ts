@@ -9,36 +9,37 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AnimationOptionsObject, BreadcrumbsAlignOptions, BreadcrumbsClickCallbackFunction, BreadcrumbsFormatterCallbackFunction, ButtonRelativeToValue, CSSObject, SVGAttributes, SeriesOptionsType } from "highcharts";
 
 /** Props for the `<Drilldown />` component. */
 export type DrilldownProps = {
-    activeAxisLabelStyle?: Highcharts.CSSObject;
-    activeDataLabelStyle?: Highcharts.CSSObject;
+    activeAxisLabelStyle?: CSSObject;
+    activeDataLabelStyle?: CSSObject;
     allowPointDrilldown?: boolean;
-    animation?: boolean | Highcharts.AnimationOptionsObject;
+    animation?: boolean | AnimationOptionsObject;
     breadcrumbs?: {
         buttonSpacing?: number;
-        buttonTheme?: Highcharts.SVGAttributes;
+        buttonTheme?: SVGAttributes;
         events?: {
-            click?: Highcharts.BreadcrumbsClickCallbackFunction;
+            click?: BreadcrumbsClickCallbackFunction;
         };
         floating?: boolean;
         format?: string | undefined;
-        formatter?: Highcharts.BreadcrumbsFormatterCallbackFunction;
-        position?: Highcharts.BreadcrumbsAlignOptions;
-        relativeTo?: Highcharts.ButtonRelativeToValue;
+        formatter?: BreadcrumbsFormatterCallbackFunction;
+        position?: BreadcrumbsAlignOptions;
+        relativeTo?: ButtonRelativeToValue;
         rtl?: boolean;
         separator?: {
-            style?: Highcharts.CSSObject;
+            style?: CSSObject;
             text?: string;
         };
         showFullPath?: boolean;
-        style?: Highcharts.CSSObject;
+        style?: CSSObject;
         useHTML?: boolean;
         zIndex?: number;
     };
     mapZooming?: boolean;
-    series?: Array<Highcharts.SeriesOptionsType>;
+    series?: Array<SeriesOptionsType>;
     children?: React.ReactNode;
 };
 /**

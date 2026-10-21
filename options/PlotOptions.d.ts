@@ -9,8 +9,10 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { PlotOptions as HighchartsPlotOptions } from "highcharts";
+
 /** Props for the `<PlotOptions />` component. */
-export type PlotOptionsProps = Highcharts.PlotOptions;
+export type PlotOptionsProps = HighchartsPlotOptions;
 /**
  * The plotOptions is a wrapper object for config objects for each series type.
  * The config objects for each series can also be overridden for each series
