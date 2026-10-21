@@ -9,6 +9,8 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AlignValue, AxisDateTimeLabelFormatsOptionsObject, AxisEventCallbackFunction, AxisLabelsFormatterCallbackFunction, AxisPointBreakEventCallbackFunction, AxisSetExtremesEventCallbackFunction, AxisTickPositionerCallbackFunction, AxisTitleAlignValue, AxisTypeValue, BorderRadiusOptionsObject, CSSObject, ColorString, ColorType, CurrentDateIndicatorOptions, DashStyleValue, EventCallbackFunction, FormatterCallbackFunction, PlotLineOrBand, VerticalAlignValue, XAxisCrosshairLabelFormatterCallbackFunction, XAxisOptions } from "highcharts";
+
 /** Props for the `<XAxis />` component. */
 export type XAxisProps = {
     accessibility?: {
@@ -18,7 +20,7 @@ export type XAxisProps = {
     };
     alignTicks?: boolean;
     allowDecimals?: boolean | undefined;
-    alternateGridColor?: Highcharts.ColorType;
+    alternateGridColor?: ColorType;
     angle?: number;
     breaks?: Array<{
         breakSize?: number;
@@ -31,20 +33,20 @@ export type XAxisProps = {
     className?: string;
     crosshair?: boolean | {
         className?: string;
-        color?: Highcharts.ColorType;
-        dashStyle?: Highcharts.DashStyleValue;
+        color?: ColorType;
+        dashStyle?: DashStyleValue;
         label?: {
-            align?: Highcharts.AlignValue;
-            backgroundColor?: Highcharts.ColorType;
-            borderColor?: Highcharts.ColorType;
+            align?: AlignValue;
+            backgroundColor?: ColorType;
+            borderColor?: ColorType;
             borderRadius?: number;
             borderWidth?: number;
             enabled?: boolean;
             format?: string;
-            formatter?: Highcharts.XAxisCrosshairLabelFormatterCallbackFunction;
+            formatter?: XAxisCrosshairLabelFormatterCallbackFunction;
             padding?: number;
             shape?: string;
-            style?: Highcharts.CSSObject;
+            style?: CSSObject;
         };
         showDelay?: number;
         snap?: boolean;
@@ -52,49 +54,49 @@ export type XAxisProps = {
         zIndex?: number;
     };
     crossing?: number;
-    currentDateIndicator?: boolean | Highcharts.CurrentDateIndicatorOptions;
+    currentDateIndicator?: boolean | CurrentDateIndicatorOptions;
     dateTimeLabelFormats?: {
-        day?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        hour?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        millisecond?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        minute?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        month?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        second?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        week?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
-        year?: Highcharts.AxisDateTimeLabelFormatsOptionsObject | string;
+        day?: AxisDateTimeLabelFormatsOptionsObject | string;
+        hour?: AxisDateTimeLabelFormatsOptionsObject | string;
+        millisecond?: AxisDateTimeLabelFormatsOptionsObject | string;
+        minute?: AxisDateTimeLabelFormatsOptionsObject | string;
+        month?: AxisDateTimeLabelFormatsOptionsObject | string;
+        second?: AxisDateTimeLabelFormatsOptionsObject | string;
+        week?: AxisDateTimeLabelFormatsOptionsObject | string;
+        year?: AxisDateTimeLabelFormatsOptionsObject | string;
     };
     endOnTick?: boolean;
     events?: {
-        afterBreaks?: Highcharts.AxisEventCallbackFunction;
-        afterSetExtremes?: Highcharts.AxisSetExtremesEventCallbackFunction;
-        pointBreak?: Highcharts.AxisPointBreakEventCallbackFunction;
-        pointInBreak?: Highcharts.AxisPointBreakEventCallbackFunction;
-        setExtremes?: Highcharts.AxisSetExtremesEventCallbackFunction;
+        afterBreaks?: AxisEventCallbackFunction;
+        afterSetExtremes?: AxisSetExtremesEventCallbackFunction;
+        pointBreak?: AxisPointBreakEventCallbackFunction;
+        pointInBreak?: AxisPointBreakEventCallbackFunction;
+        setExtremes?: AxisSetExtremesEventCallbackFunction;
     };
     floor?: number;
     grid?: {
-        borderColor?: Highcharts.ColorString;
+        borderColor?: ColorString;
         borderWidth?: number;
         cellHeight?: number;
-        columns?: Array<Highcharts.XAxisOptions>;
+        columns?: Array<XAxisOptions>;
         enabled?: boolean;
     };
-    gridLineColor?: Highcharts.ColorType;
-    gridLineDashStyle?: Highcharts.DashStyleValue;
+    gridLineColor?: ColorType;
+    gridLineDashStyle?: DashStyleValue;
     gridLineInterpolation?: "circle" | "polygon";
     gridLineWidth?: number;
     gridZIndex?: number;
     height?: number | string;
     id?: string;
     labels?: {
-        align?: Highcharts.AlignValue;
+        align?: AlignValue;
         allowOverlap?: boolean;
         autoRotation?: Array<number>;
         autoRotationLimit?: number;
         distance?: number;
         enabled?: boolean;
         format?: string;
-        formatter?: Highcharts.AxisLabelsFormatterCallbackFunction;
+        formatter?: AxisLabelsFormatterCallbackFunction;
         indentation?: number;
         overflow?: string;
         padding?: number;
@@ -104,14 +106,14 @@ export type XAxisProps = {
         skew3d?: boolean;
         staggerLines?: number;
         step?: number;
-        style?: Highcharts.CSSObject;
+        style?: CSSObject;
         useHTML?: boolean;
         x?: number;
         y?: number;
         zIndex?: number;
     };
     left?: number | string;
-    lineColor?: Highcharts.ColorType;
+    lineColor?: ColorType;
     lineWidth?: number;
     linkedTo?: number | string;
     margin?: number;
@@ -122,10 +124,10 @@ export type XAxisProps = {
     minPadding?: number;
     minRange?: number;
     minTickInterval?: number;
-    minorGridLineColor?: Highcharts.ColorType;
-    minorGridLineDashStyle?: Highcharts.DashStyleValue;
+    minorGridLineColor?: ColorType;
+    minorGridLineDashStyle?: DashStyleValue;
     minorGridLineWidth?: number;
-    minorTickColor?: Highcharts.ColorType;
+    minorTickColor?: ColorType;
     minorTickInterval?: number | "auto";
     minorTickLength?: number;
     minorTickPosition?: string;
@@ -140,29 +142,29 @@ export type XAxisProps = {
     panningEnabled?: boolean;
     plotBands?: Array<{
         acrossPanes?: boolean;
-        borderColor?: Highcharts.ColorString;
-        borderRadius?: number | string | Highcharts.BorderRadiusOptionsObject;
+        borderColor?: ColorString;
+        borderRadius?: number | string | BorderRadiusOptionsObject;
         borderWidth?: number;
         className?: string;
-        color?: Highcharts.ColorType;
+        color?: ColorType;
         events?: {
-            click?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mousemove?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mouseout?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mouseover?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
+            click?: EventCallbackFunction<PlotLineOrBand>;
+            mousemove?: EventCallbackFunction<PlotLineOrBand>;
+            mouseout?: EventCallbackFunction<PlotLineOrBand>;
+            mouseover?: EventCallbackFunction<PlotLineOrBand>;
         };
         from?: number | string;
         id?: string;
         label?: {
-            align?: Highcharts.AlignValue;
+            align?: AlignValue;
             allowOverlap?: boolean;
             inside?: boolean;
             rotation?: number;
-            style?: Highcharts.CSSObject;
+            style?: CSSObject;
             text?: string;
-            textAlign?: Highcharts.AlignValue;
+            textAlign?: AlignValue;
             useHTML?: boolean;
-            verticalAlign?: Highcharts.VerticalAlignValue;
+            verticalAlign?: VerticalAlignValue;
             x?: number;
             y?: number;
         };
@@ -172,24 +174,24 @@ export type XAxisProps = {
     plotLines?: Array<{
         acrossPanes?: boolean;
         className?: string;
-        color?: Highcharts.ColorString;
-        dashStyle?: Highcharts.DashStyleValue;
+        color?: ColorString;
+        dashStyle?: DashStyleValue;
         events?: {
-            click?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mousemove?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mouseout?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
-            mouseover?: Highcharts.EventCallbackFunction<Highcharts.PlotLineOrBand>;
+            click?: EventCallbackFunction<PlotLineOrBand>;
+            mousemove?: EventCallbackFunction<PlotLineOrBand>;
+            mouseout?: EventCallbackFunction<PlotLineOrBand>;
+            mouseover?: EventCallbackFunction<PlotLineOrBand>;
         };
         id?: string;
         label?: {
-            align?: Highcharts.AlignValue;
-            formatter?: Highcharts.FormatterCallbackFunction<Highcharts.PlotLineOrBand>;
+            align?: AlignValue;
+            formatter?: FormatterCallbackFunction<PlotLineOrBand>;
             rotation?: number;
-            style?: Highcharts.CSSObject;
+            style?: CSSObject;
             text?: string;
-            textAlign?: Highcharts.AlignValue;
+            textAlign?: AlignValue;
             useHTML?: boolean;
-            verticalAlign?: Highcharts.VerticalAlignValue;
+            verticalAlign?: VerticalAlignValue;
             x?: number;
             y?: number;
         };
@@ -206,13 +208,13 @@ export type XAxisProps = {
     scrollbar?: {
         enabled?: boolean;
         opposite?: boolean;
-        barBackgroundColor?: Highcharts.ColorType;
-        barBorderColor?: Highcharts.ColorType;
+        barBackgroundColor?: ColorType;
+        barBorderColor?: ColorType;
         barBorderRadius?: number;
         barBorderWidth?: number;
-        buttonArrowColor?: Highcharts.ColorType;
-        buttonBackgroundColor?: Highcharts.ColorType;
-        buttonBorderColor?: Highcharts.ColorType;
+        buttonArrowColor?: ColorType;
+        buttonBackgroundColor?: ColorType;
+        buttonBorderColor?: ColorType;
         buttonBorderRadius?: number;
         buttonBorderWidth?: number;
         buttonsEnabled?: boolean;
@@ -220,10 +222,10 @@ export type XAxisProps = {
         liveRedraw?: boolean;
         margin?: number | undefined;
         minWidth?: number;
-        rifleColor?: Highcharts.ColorType;
+        rifleColor?: ColorType;
         showFull?: boolean;
-        trackBackgroundColor?: Highcharts.ColorType;
-        trackBorderColor?: Highcharts.ColorType;
+        trackBackgroundColor?: ColorType;
+        trackBorderColor?: ColorType;
         trackBorderRadius?: number;
         trackBorderWidth?: number;
         zIndex?: number;
@@ -237,32 +239,32 @@ export type XAxisProps = {
     startOnTick?: boolean;
     staticScale?: number;
     tickAmount?: number;
-    tickColor?: Highcharts.ColorType;
+    tickColor?: ColorType;
     tickInterval?: number;
     tickLength?: number;
     tickPixelInterval?: number;
     tickPosition?: string;
-    tickPositioner?: Highcharts.AxisTickPositionerCallbackFunction;
+    tickPositioner?: AxisTickPositionerCallbackFunction;
     tickPositions?: Array<number>;
     tickWidth?: undefined | number;
     tickmarkPlacement?: string;
     title?: {
-        align?: Highcharts.AxisTitleAlignValue;
+        align?: AxisTitleAlignValue;
         margin?: number;
         offset?: number | string;
         position3d?: "offset" | "chart" | "flap" | "ortho" | null;
         reserveSpace?: boolean;
         rotation?: number;
         skew3d?: boolean | null;
-        style?: Highcharts.CSSObject;
+        style?: CSSObject;
         text?: string | null;
-        textAlign?: Highcharts.AlignValue;
+        textAlign?: AlignValue;
         useHTML?: boolean;
         x?: number;
         y?: number;
     };
     top?: number | string;
-    type?: Highcharts.AxisTypeValue;
+    type?: AxisTypeValue;
     uniqueNames?: boolean;
     units?: Array<[string, Array<number> | null]>;
     visible?: boolean;

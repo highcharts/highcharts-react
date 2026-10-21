@@ -9,6 +9,8 @@
  * Build stamp: 2026-02-19
  *
  */
+import type { ExportingErrorCallbackFunction, ExportingMimeTypeValue, Options } from "highcharts";
+
 export type ExportingProps = {
     accessibility?: {
         enabled?: boolean;
@@ -16,7 +18,7 @@ export type ExportingProps = {
     allowHTML?: boolean;
     allowTableSorting?: boolean;
     applyStyleSheets?: boolean;
-    chartOptions?: Highcharts.Options;
+    chartOptions?: Options;
     csv?: {
         annotations?: {
             itemDelimiter?: string;
@@ -29,7 +31,7 @@ export type ExportingProps = {
         lineDelimiter?: string;
     };
     enabled?: boolean;
-    error?: Highcharts.ExportingErrorCallbackFunction;
+    error?: ExportingErrorCallbackFunction;
     fallbackToExportServer?: boolean;
     fetchOptions?: Object;
     filename?: string;
@@ -80,7 +82,7 @@ export type ExportingProps = {
     sourceHeight?: number;
     sourceWidth?: number;
     tableCaption?: boolean | string;
-    type?: Highcharts.ExportingMimeTypeValue;
+    type?: ExportingMimeTypeValue;
     url?: {};
     useMultiLevelHeaders?: boolean;
     useRowspanHeaders?: boolean;

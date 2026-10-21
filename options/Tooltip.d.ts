@@ -9,17 +9,19 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AlignObject, AnimationOptionsObject, CSSObject, ColorType, DateTimeFormatOptions, Dictionary, FormatterCallbackFunction, Point, ShadowOptionsObject, TooltipFormatterCallbackFunction, TooltipPositionerCallbackFunction, TooltipShapeValue } from "highcharts";
+
 /** Props for the `<Tooltip />` component. */
 export type TooltipProps = {
-    animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;
-    backgroundColor?: Highcharts.ColorType;
-    borderColor?: Highcharts.ColorType;
+    animation?: boolean | Partial<AnimationOptionsObject>;
+    backgroundColor?: ColorType;
+    borderColor?: ColorType;
     borderRadius?: number;
     borderWidth?: number;
     changeDecimals?: number;
     className?: string;
     clusterFormat?: string;
-    dateTimeLabelFormats?: Highcharts.Dictionary<string | Highcharts.DateTimeFormatOptions>;
+    dateTimeLabelFormats?: Dictionary<string | DateTimeFormatOptions>;
     distance?: number;
     enabled?: boolean;
     fixed?: boolean;
@@ -27,10 +29,10 @@ export type TooltipProps = {
     followTouchMove?: boolean;
     footerFormat?: string;
     format?: string;
-    formatter?: Highcharts.TooltipFormatterCallbackFunction;
+    formatter?: TooltipFormatterCallbackFunction;
     header?: {
-        backgroundColor?: Highcharts.ColorType;
-        borderColor?: Highcharts.ColorType;
+        backgroundColor?: ColorType;
+        borderColor?: ColorType;
         borderWidth?: number;
         distance?: number;
         shape?: string;
@@ -38,26 +40,26 @@ export type TooltipProps = {
     headerFormat?: string;
     hideDelay?: number;
     nullFormat?: string;
-    nullFormatter?: Highcharts.TooltipFormatterCallbackFunction;
+    nullFormatter?: TooltipFormatterCallbackFunction;
     outside?: boolean | undefined;
     padding?: number;
     pointFormat?: string;
-    pointFormatter?: Highcharts.FormatterCallbackFunction<Highcharts.Point>;
-    position?: Highcharts.AlignObject;
-    positioner?: Highcharts.TooltipPositionerCallbackFunction;
-    shadow?: boolean | Highcharts.ShadowOptionsObject;
-    shape?: Highcharts.TooltipShapeValue;
+    pointFormatter?: FormatterCallbackFunction<Point>;
+    position?: AlignObject;
+    positioner?: TooltipPositionerCallbackFunction;
+    shadow?: boolean | ShadowOptionsObject;
+    shape?: TooltipShapeValue;
     shared?: boolean;
     showDelay?: number;
     snap?: number;
     split?: boolean;
     stickOnContact?: boolean;
-    style?: Highcharts.CSSObject;
+    style?: CSSObject;
     useHTML?: boolean;
     valueDecimals?: number | undefined;
     valuePrefix?: string;
     valueSuffix?: string;
-    xDateFormat?: string | Highcharts.DateTimeFormatOptions;
+    xDateFormat?: string | DateTimeFormatOptions;
     children?: React.ReactNode;
 };
 /**

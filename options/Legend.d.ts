@@ -9,6 +9,8 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AlignValue, AnimationOptionsObject, BubbleLegendFormatterContextObject, BubbleSizeByValue, CSSObject, ColorType, FormatterCallbackFunction, LegendItemClickCallbackFunction, Point, Series, VerticalAlignValue } from "highcharts";
+
 /** Props for the `<Legend />` component. */
 export type LegendProps = {
     accessibility?: {
@@ -17,29 +19,29 @@ export type LegendProps = {
             enabled?: boolean;
         };
     };
-    align?: Highcharts.AlignValue;
+    align?: AlignValue;
     alignColumns?: boolean;
-    backgroundColor?: Highcharts.ColorType;
-    borderColor?: Highcharts.ColorType;
+    backgroundColor?: ColorType;
+    borderColor?: ColorType;
     borderRadius?: number;
     borderWidth?: number;
     bubbleLegend?: {
-        borderColor?: Highcharts.ColorType;
+        borderColor?: ColorType;
         borderWidth?: number;
         className?: string;
-        color?: Highcharts.ColorType;
+        color?: ColorType;
         connectorClassName?: string;
-        connectorColor?: Highcharts.ColorType;
+        connectorColor?: ColorType;
         connectorDistance?: number;
         connectorWidth?: number;
         enabled?: boolean;
         labels?: {
-            align?: Highcharts.AlignValue;
+            align?: AlignValue;
             allowOverlap?: boolean;
             className?: string;
             format?: string;
-            formatter?: Highcharts.FormatterCallbackFunction<Highcharts.BubbleLegendFormatterContextObject>;
-            style?: Highcharts.CSSObject;
+            formatter?: FormatterCallbackFunction<BubbleLegendFormatterContextObject>;
+            style?: CSSObject;
             x?: number;
             y?: number;
         };
@@ -47,12 +49,12 @@ export type LegendProps = {
         maxSize?: number;
         minSize?: number;
         ranges?: Array<{
-            borderColor?: Highcharts.ColorType;
-            color?: Highcharts.ColorType;
-            connectorColor?: Highcharts.ColorType;
+            borderColor?: ColorType;
+            color?: ColorType;
+            connectorColor?: ColorType;
             value?: number;
         }>;
-        sizeBy?: Highcharts.BubbleSizeByValue;
+        sizeBy?: BubbleSizeByValue;
         sizeByAbsoluteValue?: boolean;
         zIndex?: number;
         zThreshold?: number;
@@ -60,48 +62,48 @@ export type LegendProps = {
     className?: string;
     enabled?: boolean;
     events?: {
-        itemClick?: Highcharts.LegendItemClickCallbackFunction;
+        itemClick?: LegendItemClickCallbackFunction;
     };
     floating?: boolean;
-    itemCheckboxStyle?: Highcharts.CSSObject;
+    itemCheckboxStyle?: CSSObject;
     itemDistance?: number;
-    itemHiddenStyle?: Highcharts.CSSObject;
-    itemHoverStyle?: Highcharts.CSSObject;
+    itemHiddenStyle?: CSSObject;
+    itemHoverStyle?: CSSObject;
     itemMarginBottom?: number;
     itemMarginTop?: number;
-    itemStyle?: Highcharts.CSSObject;
+    itemStyle?: CSSObject;
     itemWidth?: number;
     labelFormat?: string;
-    labelFormatter?: Highcharts.FormatterCallbackFunction<Highcharts.Point | Highcharts.Series>;
+    labelFormatter?: FormatterCallbackFunction<Point | Series>;
     layout?: string;
     margin?: number;
     maxHeight?: number;
     maxWidth?: number | string;
     navigation?: {
-        activeColor?: Highcharts.ColorType;
-        animation?: boolean | Partial<Highcharts.AnimationOptionsObject>;
+        activeColor?: ColorType;
+        animation?: boolean | Partial<AnimationOptionsObject>;
         arrowSize?: number;
         enabled?: boolean;
-        inactiveColor?: Highcharts.ColorType;
-        style?: Highcharts.CSSObject;
+        inactiveColor?: ColorType;
+        style?: CSSObject;
     };
     padding?: number;
     reversed?: boolean;
     rtl?: boolean;
-    shadow?: boolean | Highcharts.CSSObject;
+    shadow?: boolean | CSSObject;
     squareSymbol?: boolean;
     symbolHeight?: number;
     symbolPadding?: number;
     symbolRadius?: number;
     symbolWidth?: number;
     title?: {
-        style?: Highcharts.CSSObject;
+        style?: CSSObject;
         text?: string;
     };
     useHTML?: boolean;
     valueDecimals?: number;
     valueSuffix?: string;
-    verticalAlign?: Highcharts.VerticalAlignValue;
+    verticalAlign?: VerticalAlignValue;
     width?: number | string;
     x?: number;
     y?: number;

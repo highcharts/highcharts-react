@@ -9,11 +9,12 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { AccessibilityAnnouncementFormatter, CSSObject, Chart, HTMLDOMElement, Point, ScreenReaderClickCallbackFunction, ScreenReaderFormatterCallbackFunction, Series } from "highcharts";
 
 /** Props for the `<Accessibility />` component. */
 export type AccessibilityProps = {
     announceNewData?: {
-        announcementFormatter?: Highcharts.AccessibilityAnnouncementFormatter;
+        announcementFormatter?: AccessibilityAnnouncementFormatter;
         enabled?: boolean;
         interruptUser?: boolean;
         minAnnounceInterval?: number;
@@ -27,7 +28,7 @@ export type AccessibilityProps = {
             enabled?: boolean;
             hideBrowserFocusOutline?: boolean;
             margin?: number;
-            style?: Highcharts.CSSObject;
+            style?: CSSObject;
         };
         order?: Array<string>;
         seriesNavigation?: {
@@ -39,13 +40,13 @@ export type AccessibilityProps = {
         wrapAround?: boolean;
     };
     landmarkVerbosity?: string;
-    linkedDescription?: string | Highcharts.HTMLDOMElement;
+    linkedDescription?: string | HTMLDOMElement;
     point?: {
         dateFormat?: string;
-        dateFormatter?: Highcharts.ScreenReaderFormatterCallbackFunction<Highcharts.Point>;
+        dateFormatter?: ScreenReaderFormatterCallbackFunction<Point>;
         describeNull?: boolean;
         descriptionFormat?: string;
-        descriptionFormatter?: Highcharts.ScreenReaderFormatterCallbackFunction<Highcharts.Point>;
+        descriptionFormatter?: ScreenReaderFormatterCallbackFunction<Point>;
         valueDecimals?: number;
         valueDescriptionFormat?: string;
         valuePrefix?: string;
@@ -53,17 +54,17 @@ export type AccessibilityProps = {
     };
     screenReaderSection?: {
         afterChartFormat?: string;
-        afterChartFormatter?: Highcharts.ScreenReaderFormatterCallbackFunction<Highcharts.Chart>;
+        afterChartFormatter?: ScreenReaderFormatterCallbackFunction<Chart>;
         axisRangeDateFormat?: string;
         beforeChartFormat?: string;
-        beforeChartFormatter?: Highcharts.ScreenReaderFormatterCallbackFunction<Highcharts.Chart>;
-        onPlayAsSoundClick?: Highcharts.ScreenReaderClickCallbackFunction;
-        onViewDataTableClick?: Highcharts.ScreenReaderClickCallbackFunction;
+        beforeChartFormatter?: ScreenReaderFormatterCallbackFunction<Chart>;
+        onPlayAsSoundClick?: ScreenReaderClickCallbackFunction;
+        onViewDataTableClick?: ScreenReaderClickCallbackFunction;
     };
     series?: {
         describeSingleSeries?: boolean;
         descriptionFormat?: string;
-        descriptionFormatter?: Highcharts.ScreenReaderFormatterCallbackFunction<Highcharts.Series>;
+        descriptionFormatter?: ScreenReaderFormatterCallbackFunction<Series>;
         pointDescriptionEnabledThreshold?: boolean | number;
     };
     typeDescription?: string;

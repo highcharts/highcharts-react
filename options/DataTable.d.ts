@@ -9,9 +9,11 @@
  * Build stamp: 2026-10-12
  *
  */
+import type { DataTableColumnCollection } from "highcharts";
+
 /** Props for the `<DataTable />` component. */
 export type DataTableProps = {
-    columns?: Highcharts.DataTableColumnCollection | undefined;
+    columns?: DataTableColumnCollection | undefined;
     id?: string | undefined;
 };
 /**

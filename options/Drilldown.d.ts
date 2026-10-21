@@ -9,8 +9,10 @@
  * Build stamp: 2026-02-19
  *
  */
+import type { AnimationOptionsObject, CSSObject, SeriesOptionsType } from "highcharts";
+
 export type DrilldownProps = {
-    activeAxisLabelStyle?: Highcharts.CSSObject;
+    activeAxisLabelStyle?: CSSObject;
     activeDataLabelStyle?: {
         color?: string;
         cursor?: string;
@@ -18,10 +20,10 @@ export type DrilldownProps = {
         textDecoration?: string;
     };
     allowPointDrilldown?: boolean;
-    animation?: boolean | Highcharts.AnimationOptionsObject;
+    animation?: boolean | AnimationOptionsObject;
     mapZooming?: boolean;
-    series?: Array<Highcharts.SeriesOptionsType>;
-    children?: Array<Highcharts.SeriesOptionsType>;
+    series?: Array<SeriesOptionsType>;
+    children?: Array<SeriesOptionsType>;
 };
 export declare function Drilldown(props: DrilldownProps): any;
 export declare namespace Drilldown {
