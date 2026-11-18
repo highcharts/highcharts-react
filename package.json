@@ -10,7 +10,7 @@
   "contributors": [
     "Highsoft R&D <lab@highsoft.com>"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "See license in LICENSE.txt",
   "scripts": {
     "build": "npx tsc"
   },
