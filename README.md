@@ -1,7 +1,7 @@
 # Highcharts React
 Official minimal [Highcharts](https://www.highcharts.com/) integration for React.
 
-Note: v4 of the Highcharts React integration is now available at [@highcharts/react](https://www.npmjs.com/package/@highcharts/react)
+> ⚠ **Deprecation notice:** `highcharts-react-official` will be deprecated in **Q1 2027**. Please migrate to [`@highcharts/react`](https://www.npmjs.com/package/@highcharts/react) by following the [v4](https://www.highcharts.com/docs/react/v4-migration-guide) and [v5](https://www.highcharts.com/docs/react/v5-migration-guide) migration guides.
 
 ## Table of Contents
 1. [Getting started](#getting-started)

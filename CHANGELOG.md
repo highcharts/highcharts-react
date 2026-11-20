@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.4](https://github.com/highcharts/highcharts-react/compare/v3.2.3...v3.2.4) (2026-11-19)
+
+Added deprecation notice with links to the [@highcharts/react](https://www.npmjs.com/package/@highcharts/react) migration guides.
+
 ### [3.2.3](https://github.com/highcharts/highcharts-react/compare/v3.2.2...v3.2.3) (2025-10-1)
 
 Added mention of new package available at [@highcharts/react](https://www.npmjs.com/package/@highcharts/react)
