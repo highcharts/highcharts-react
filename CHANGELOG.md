@@ -1,5 +1,19 @@
 # Changelog
 
+## v5.5.0
+
+### Features
+
+- Added the `callback` prop to the [Chart](https://www.highcharts.com/docs/react/components/chart) component, called once with the chart instance when the chart has loaded.
+
+### Bug fixes
+
+- Fixed the `colors`, `backgroundColor` and `borderColor` props of the [Chart](https://www.highcharts.com/docs/react/components/chart) component not accepting gradient and pattern colors (closes [highcharts/highcharts-react#594](https://github.com/highcharts/highcharts-react/issues/594)).
+- Fixed the `Highcharts` export not exposing the Highcharts types, e.g. `Highcharts.Options` failed with `import type { Highcharts } from '@highcharts/react'` (closes [highcharts/highcharts-react#591](https://github.com/highcharts/highcharts-react/issues/591)).
+- Fixed the exported types, e.g. `ChartOptions`, coming from a separate copy of the Highcharts declarations, so augmentations of `highcharts` did not apply to them (closes [highcharts/highcharts-react#597](https://github.com/highcharts/highcharts-react/issues/597)).
+- Fixed `data-hc-option` paths being able to change objects outside the chart options when a path came from untrusted input.
+- Removed the outdated `LICENSE` file, `package.json` now points to `LICENSE.txt`.
+
 ## v5.4.0
 
 Highcharts React v5.4.0 introduces full compatibility and support for [highcharts](https://www.npmjs.com/package/highcharts/v/13.1.1) `v13.1.1`.

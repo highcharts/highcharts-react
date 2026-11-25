@@ -1,6 +1,6 @@
 {
   "name": "@highcharts/react",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "type": "module",
   "description": "Official Highcharts integration for React",
   "repository": {
@@ -10,7 +10,7 @@
   "contributors": [
     "Highsoft R&D <lab@highsoft.com>"
   ],
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "SEE LICENSE IN LICENSE.txt",
   "scripts": {
     "build": "npx tsc"
   },
