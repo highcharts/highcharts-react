@@ -72,7 +72,7 @@ jobs:
           PACKAGE_VERSION: ${{ steps.version.outputs.version }}
         run: |
           url="https://registry.npmjs.org/${PACKAGE_NAME//\//%2F}/$PACKAGE_VERSION"
-          status=$(curl --silent --show-error --output /dev/null --write-out '%{http_code}' "$url")
+          status=$(curl --max-time 30 --silent --show-error --output /dev/null --write-out '%{http_code}' "$url")
           case "$status" in
             200) echo "published=true" >> "$GITHUB_OUTPUT" ;;
             404) echo "published=false" >> "$GITHUB_OUTPUT" ;;
