@@ -6,12 +6,12 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v13.1.1.
- * Build stamp: 2026-10-12
+ * Build stamp: 2026-11-25
  *
  */
 import React from "react";
-import HC from "highcharts/es-modules/masters/highcharts.src.js";
-export declare let Highcharts: typeof HC;
+import * as HC from "highcharts/highcharts.js";
+export { HC as Highcharts };
 type LoggerType = {
     logLevel: "silent" | "debug";
     log(...content: any[]): void;
@@ -53,7 +53,7 @@ export type SeriesProps<K extends SeriesType = "line"> = {
 };
 /** Shape of the object exposed through the chart component `ref`. */
 export interface HighchartsReactRefObject {
-    chart: Highcharts.Chart;
+    chart: HC.Chart;
     container: HTMLDivElement;
 }
 /** Props shared by every chart component. */
@@ -68,40 +68,48 @@ export interface ICommonAttributes {
     chartConstructor?: "chart" | "stockChart" | "ganttChart" | "mapChart";
     /** Converts React elements to static HTML strings. Uses built-in renderer if not provided. */
     renderToHTML?: (element: unknown) => string;
+    /**
+     * Called once when the chart has loaded, with the chart instance as the
+     * argument and as `this`. Not called again on updates. Use the `chart`
+     * argument rather than the component `ref`, which is not set yet at that
+     * point. Also called for the chart copy made on export, where
+     * `chart.renderer.forExport` is `true`.
+     */
+    callback?: (this: HC.Chart, chart: HC.Chart) => void;
     /** Children */
     children?: React.ReactNode;
     /** Links to Highcharts.Options.title.text */
-    title?: string;
+    title?: NonNullable<ChartOptions["title"]>["text"];
     /** Links to Highcharts.Options.subtitle.text */
-    subtitle?: string;
+    subtitle?: NonNullable<ChartOptions["subtitle"]>["text"];
     /** Links to Highcharts.Options.caption.text */
-    caption?: string;
+    caption?: NonNullable<ChartOptions["caption"]>["text"];
     /** Links to Highcharts.Options.credits.text */
-    credits?: string;
+    credits?: NonNullable<ChartOptions["credits"]>["text"];
     /** Links to Highcharts.Options.chart.type */
-    type?: string;
+    type?: NonNullable<ChartOptions["chart"]>["type"];
     /** Links to Highcharts.Options.chart.height */
-    height?: number | string;
+    height?: NonNullable<ChartOptions["chart"]>["height"];
     /** Links to Highcharts.Options.chart.width */
-    width?: number | string;
+    width?: NonNullable<ChartOptions["chart"]>["width"];
     /** Links to Highcharts.Options.chart.inverted */
-    inverted?: boolean;
+    inverted?: NonNullable<ChartOptions["chart"]>["inverted"];
     /** Links to Highcharts.Options.chart.animation */
-    animation?: boolean | object;
+    animation?: NonNullable<ChartOptions["chart"]>["animation"];
     /** Links to Highcharts.Options.chart.styledMode */
-    styledMode?: boolean;
+    styledMode?: NonNullable<ChartOptions["chart"]>["styledMode"];
     /** Links to Highcharts.Options.chart.backgroundColor */
-    backgroundColor?: string;
+    backgroundColor?: NonNullable<ChartOptions["chart"]>["backgroundColor"];
     /** Links to Highcharts.Options.chart.borderColor */
-    borderColor?: string;
+    borderColor?: NonNullable<ChartOptions["chart"]>["borderColor"];
     /** Links to Highcharts.Options.chart.borderWidth */
-    borderWidth?: number;
+    borderWidth?: NonNullable<ChartOptions["chart"]>["borderWidth"];
     /** Links to Highcharts.Options.chart.margin */
-    margin?: number | number[];
+    margin?: NonNullable<ChartOptions["chart"]>["margin"];
     /** Links to Highcharts.Options.chart.spacing */
     spacing?: number | number[];
     /** Links to Highcharts.Options.colors */
-    colors?: string[];
+    colors?: ChartOptions["colors"];
     /** Links to Highcharts.Options.dataTable */
     dataTable?: ChartOptions["dataTable"];
 }

@@ -6,7 +6,7 @@
  * See highcharts.com/license
  *
  * Built for Highcharts v13.1.1.
- * Build stamp: 2026-10-12
+ * Build stamp: 2026-11-25
  *
  */
 var __rest = (this && this.__rest) || function (s, e) {
@@ -153,7 +153,9 @@ function getChildProps(children, renderHTML = undefined) {
         let current = obj;
         for (let i = 0; i < keys.length - 1; i++) {
             const k = keys[i];
-            if (!current[k])
+            // Own properties only, so that a path like `__proto__.x` cannot walk
+            // into, and pollute, a shared prototype
+            if (!Object.hasOwn(current, k) || !current[k])
                 current[k] = {};
             current = current[k];
         }
@@ -509,6 +511,10 @@ export const StockChart = forwardRef(function StockChart(props, ref) {
     ]);
     const containerRef = useRef();
     const chartRef = useRef();
+    // Always the latest callback, so a chart created after an async module load
+    // does not call a stale one.
+    const callbackRef = useRef(props.callback);
+    callbackRef.current = props.callback;
     useEffect(() => {
         if (props.highcharts) {
             setHighcharts(props.highcharts);
@@ -529,7 +535,10 @@ export const StockChart = forwardRef(function StockChart(props, ref) {
             if (!chartRef.current) {
                 const HCConstructor = props.chartConstructor || "stockChart";
                 Logger.log("Creating chart using", HCConstructor, "constructor");
-                chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig);
+                chartRef.current = getHighcharts()[HCConstructor](containerRef.current, chartConfig, function (chart) {
+                    var _a;
+                    (_a = callbackRef.current) === null || _a === void 0 ? void 0 : _a.call(this, chart);
+                });
             }
             else {
                 Logger.log("Updating chart", JSON.parse(JSON.stringify(chartConfig)));
